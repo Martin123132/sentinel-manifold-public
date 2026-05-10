@@ -10,7 +10,8 @@ provider, or policy changes start emitting unsupported answers. The public demo
 now covers support, regulated workflow, research-claim, and generated-candidate
 proof cases, with a deeper mixed-buyer suite available for local CI. Admins can
 also export a compliance-style evidence bundle from the hosted demo without
-making saved evidence public.
+making saved evidence public; the bundle now includes both machine-readable JSON
+and a plain-English release-gate summary.
 
 > Fail releases when AI behavior regresses.
 
@@ -19,8 +20,7 @@ making saved evidence public.
 1. Better policy tuning for support, regulated workflows, research claims, code
    review, and agentic tools.
 2. More customer-shaped regression examples beyond the mixed-buyer proof suite.
-3. Clearer admin evidence summaries, release notes, and shareable proof
-   language around exported bundles.
+3. Cleaner release notes and shareable proof language around exported bundles.
 
 ## Boundaries
 

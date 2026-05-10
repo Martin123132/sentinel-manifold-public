@@ -196,9 +196,19 @@ class GuardrailTests(unittest.TestCase):
         with zipfile.ZipFile(io.BytesIO(bundle)) as archive:
             names = set(archive.namelist())
             manifest = json.loads(archive.read("manifest.json").decode("utf-8"))
+            summary_md = archive.read("summary.md").decode("utf-8")
 
         self.assertEqual(manifest["schema_version"], "sentinel.evidence.bundle.v1")
         self.assertEqual(manifest["count"], report["summary"]["case_count"])
+        self.assertEqual(manifest["summary"]["total_audits"], report["summary"]["case_count"])
+        self.assertEqual(manifest["summary"]["emitted"], sum(1 for case in report["cases"] if case["action"] == "EMIT"))
+        self.assertEqual(manifest["summary"]["blocked"], sum(1 for case in report["cases"] if case["action"] == "BLOCK"))
+        self.assertEqual(manifest["summary"]["verified"], report["summary"]["case_count"])
+        self.assertEqual(manifest["summary"]["failed_verification"], 0)
+        self.assertEqual(set(manifest["summary"]["policy_profiles"]), {"regulated", "research", "support"})
+        self.assertIn("summary.md", names)
+        self.assertIn("Sentinel Evidence Bundle", summary_md)
+        self.assertIn("Total audits: 5", summary_md)
         self.assertTrue(all(f"evidence/{case['check_id']}.evidence.json" in names for case in report["cases"]))
         self.assertTrue(all(f"verification/{case['check_id']}.verification.json" in names for case in report["cases"]))
         self.assertEqual(pack_status, 200)
@@ -213,11 +223,19 @@ class GuardrailTests(unittest.TestCase):
         self.assertEqual(status, 200)
         self.assertIn("application/zip", bundle_headers.get("Content-Type"))
         with zipfile.ZipFile(io.BytesIO(bundle)) as archive:
-            self.assertEqual(set(archive.namelist()), {"manifest.json"})
+            self.assertEqual(set(archive.namelist()), {"manifest.json", "summary.md"})
             manifest = json.loads(archive.read("manifest.json").decode("utf-8"))
+            summary_md = archive.read("summary.md").decode("utf-8")
 
         self.assertEqual(manifest["count"], 0)
+        self.assertEqual(manifest["summary"]["total_audits"], 0)
+        self.assertEqual(manifest["summary"]["emitted"], 0)
+        self.assertEqual(manifest["summary"]["blocked"], 0)
+        self.assertEqual(manifest["summary"]["verified"], 0)
+        self.assertEqual(manifest["summary"]["failed_verification"], 0)
+        self.assertEqual(manifest["summary"]["policy_profiles"], [])
         self.assertEqual(manifest["audits"], [])
+        self.assertIn("No saved evidence packs were available", summary_md)
 
     def test_public_demo_rejects_hosted_provider_suite(self):
         env = {"SENTINEL_API_KEY": "secret", "SENTINEL_PUBLIC_DEMO": "true"}

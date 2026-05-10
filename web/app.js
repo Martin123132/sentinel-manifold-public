@@ -43,6 +43,7 @@ const apiKeyInput = document.querySelector("#apiKeyInput");
 const unlockButton = document.querySelector("#unlockButton");
 const sandboxBadge = document.querySelector("#sandboxBadge");
 const railStatusLabel = document.querySelector("#railStatusLabel");
+const historyCue = document.querySelector("#historyCue");
 const historyTable = document.querySelector("#historyTable");
 const evidenceInspector = document.querySelector("#evidenceInspector");
 const exportEvidenceButton = document.querySelector("#exportEvidenceButton");
@@ -333,6 +334,9 @@ function renderSuite() {
 function renderHistory() {
   const history = state.auditHistory;
   exportBundleButton.disabled = publicSandboxActive();
+  historyCue.textContent = publicSandboxActive()
+    ? "Evidence history unlocks with an admin API key."
+    : "Export Bundle includes saved evidence, verification JSON, manifest counts, and summary.md.";
   if (publicSandboxActive()) {
     historyTable.innerHTML = `<tr><td colspan="6">Evidence history is private.</td></tr>`;
     return;

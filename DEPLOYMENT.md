@@ -108,6 +108,8 @@ $headers = @{ Authorization = "Bearer <SENTINEL_API_KEY>" }
 Invoke-WebRequest "https://sentinel-manifold-public.onrender.com/api/audits/export?limit=25" -Headers $headers -OutFile sentinel-evidence-bundle.zip
 ```
 
-The bundle contains `manifest.json`, saved evidence JSON, and verification JSON
-for the most recent checks. Do not share the admin key, provider credentials, or
-real customer evidence from a public demo instance.
+The bundle contains `summary.md`, `manifest.json`, saved evidence JSON, and
+verification JSON for the most recent checks. `summary.md` is the human-readable
+proof page; `manifest.json` is the machine-readable index and count summary. Do
+not share the admin key, provider credentials, or real customer evidence from a
+public demo instance.

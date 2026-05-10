@@ -157,3 +157,14 @@ That makes the public story broader:
 
 > One release gate, many AI failure modes: changed numbers, unsafe negation,
 > unsupported overclaims, tool-boundary drift, and code-review misstatements.
+
+## Stage 10 Commercial Story
+
+Sentinel evidence export now reads like a proof package instead of a folder of
+raw logs. Admins can download one bundle with machine-readable artifacts,
+verification reports, manifest counts, and a plain-English release-gate summary.
+
+That makes the compliance conversation easier:
+
+> Run the AI safety gate, export the proof bundle, and show both the evidence
+> and the readable release summary.

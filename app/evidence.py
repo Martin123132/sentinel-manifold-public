@@ -181,6 +181,8 @@ def build_evidence_bundle(evidence_dir: Path, limit: int = 25) -> bytes:
         "created_at": int(time.time()),
         "limit": limit,
         "count": 0,
+        "summary_path": "summary.md",
+        "summary": _bundle_counts([]),
         "audits": [],
     }
     buffer = io.BytesIO()
@@ -216,8 +218,99 @@ def build_evidence_bundle(evidence_dir: Path, limit: int = 25) -> bytes:
                 }
             )
         manifest["count"] = len(manifest["audits"])
+        manifest["summary"] = _bundle_counts(manifest["audits"])
+        archive.writestr("summary.md", _bundle_summary_markdown(manifest))
         archive.writestr("manifest.json", json.dumps(manifest, indent=2))
     return buffer.getvalue()
+
+
+def _bundle_counts(audits: list[dict[str, Any]]) -> dict[str, Any]:
+    timestamps = [audit.get("created_at") for audit in audits if isinstance(audit.get("created_at"), int)]
+    policy_profiles = sorted(
+        {
+            str(audit.get("policy_profile"))
+            for audit in audits
+            if audit.get("policy_profile")
+        }
+    )
+    return {
+        "total_audits": len(audits),
+        "emitted": sum(1 for audit in audits if audit.get("action") == "EMIT"),
+        "blocked": sum(1 for audit in audits if audit.get("action") == "BLOCK"),
+        "verified": sum(1 for audit in audits if audit.get("integrity_valid") is True),
+        "failed_verification": sum(1 for audit in audits if audit.get("integrity_valid") is not True),
+        "policy_profiles": policy_profiles,
+        "newest_created_at": max(timestamps) if timestamps else None,
+        "oldest_created_at": min(timestamps) if timestamps else None,
+    }
+
+
+def _bundle_summary_markdown(manifest: dict[str, Any]) -> str:
+    summary = manifest.get("summary", {})
+    policy_profiles = summary.get("policy_profiles") or []
+    policy_text = ", ".join(policy_profiles) if policy_profiles else "none recorded"
+    lines = [
+        "# Sentinel Evidence Bundle",
+        "",
+        "Human-readable release-gate summary for the exported evidence packs.",
+        "",
+        "## Bundle Summary",
+        "",
+        f"- Created: {_format_timestamp(manifest.get('created_at'))}",
+        f"- Export limit: {manifest.get('limit')}",
+        f"- Total audits: {summary.get('total_audits', 0)}",
+        f"- Emitted: {summary.get('emitted', 0)}",
+        f"- Blocked: {summary.get('blocked', 0)}",
+        f"- Integrity verified: {summary.get('verified', 0)}",
+        f"- Failed verification: {summary.get('failed_verification', 0)}",
+        f"- Policy profiles: {policy_text}",
+        f"- Newest check: {_format_timestamp(summary.get('newest_created_at'))}",
+        f"- Oldest check: {_format_timestamp(summary.get('oldest_created_at'))}",
+        "",
+    ]
+    audits = manifest.get("audits", [])
+    if not audits:
+        lines.extend(
+            [
+                "## Audit Rows",
+                "",
+                "No saved evidence packs were available for this export.",
+                "",
+            ]
+        )
+        return "\n".join(lines)
+
+    lines.extend(
+        [
+            "## Audit Rows",
+            "",
+            "| Check | Action | Policy | Risk | Blocked | Integrity |",
+            "| --- | --- | --- | --- | --- | --- |",
+        ]
+    )
+    for audit in audits:
+        integrity = "verified" if audit.get("integrity_valid") else "failed"
+        lines.append(
+            "| "
+            f"{_md_cell(audit.get('check_id'))} | "
+            f"{_md_cell(audit.get('action'))} | "
+            f"{_md_cell(audit.get('policy_profile') or 'default')} | "
+            f"{_md_cell(audit.get('risk'))} | "
+            f"{_md_cell(audit.get('blocked'))} | "
+            f"{integrity} |"
+        )
+    lines.append("")
+    return "\n".join(lines)
+
+
+def _format_timestamp(value: object) -> str:
+    if not isinstance(value, int):
+        return "not available"
+    return time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime(value))
+
+
+def _md_cell(value: object) -> str:
+    return str(value if value is not None else "not recorded").replace("|", "\\|")
 
 
 def _evidence_files(evidence_dir: Path, limit: int) -> list[Path]:
