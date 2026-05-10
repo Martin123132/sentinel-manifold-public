@@ -505,7 +505,7 @@ class GuardrailTests(unittest.TestCase):
             report = run_suite(DEMO_SUITE, Path(tmp))
 
         self.assertEqual(report["status"], "PASS")
-        self.assertEqual(report["summary"]["case_count"], 3)
+        self.assertEqual(report["summary"]["case_count"], 5)
         self.assertEqual(report["summary"]["failed"], 0)
         self.assertTrue(all(case["evidence"] for case in report["cases"]))
 

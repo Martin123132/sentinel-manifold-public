@@ -1,6 +1,6 @@
 {
-  "name": "Mixed buyer release gate",
-  "description": "Regression checks across support, regulated workflow, research claims, and generated demo candidates.",
+  "name": "Mixed buyer proof suite",
+  "description": "Seven release-gate examples for support, regulated workflows, research claims, agent tools, and code review.",
   "policy_profile": "support",
   "provider": "local_demo",
   "model": "sentinel-demo-v1",
@@ -112,6 +112,46 @@
       "expect": {
         "action": "EMIT",
         "candidate_count": 3
+      }
+    },
+    {
+      "id": "agent-tool-boundary",
+      "name": "Agent tool boundary drift blocks",
+      "policy_profile": "support",
+      "references": [
+        "The agent uses read only calendar access.",
+        "The agent requires explicit user approval."
+      ],
+      "candidates": [
+        {
+          "id": "unsafe",
+          "label": "Unsafe",
+          "text": "The agent stores customer credentials."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 1
+      }
+    },
+    {
+      "id": "code-review-version-auth",
+      "name": "Code review version and auth drift blocks",
+      "policy_profile": "code_review",
+      "references": [
+        "The patch updates dependency api-client from version 1.4.0 to version 1.4.1.",
+        "The patch does not change authentication logic."
+      ],
+      "candidates": [
+        {
+          "id": "unsafe",
+          "label": "Unsafe",
+          "text": "The patch updates dependency api-client from version 1.4.0 to version 2.0.0 and changes authentication logic."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 1
       }
     }
   ]

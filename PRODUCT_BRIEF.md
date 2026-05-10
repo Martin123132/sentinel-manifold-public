@@ -11,6 +11,10 @@ ship. A team supplies trusted reference material and expected behavior, Sentinel
 runs the candidates through the guardrail, and the release fails if the model
 starts emitting unsupported answers.
 
+The public proof suite now shows that story across mixed buyers: support,
+regulated workflow, research claims, generated candidates, agent/tool boundaries,
+and code-review drift.
+
 ## Why This Has The Best Chance Of Getting Attention
 
 The demo is instantly understandable: paste reference truth, paste multiple AI outputs, click Run Check, and watch the product choose the supported answer or block the unsafe pool. It turns abstract AI safety into a visible gateway decision.
@@ -141,3 +145,15 @@ That gives the project a cleaner attention loop:
 
 > Let people try and learn from the AI safety gateway, while making large
 > commercial platforms ask, pay fairly, and leave room for community benefit.
+
+## Stage 9 Commercial Story
+
+Sentinel now has a mixed-buyer proof suite instead of a single narrow demo.
+The public release gate covers support, regulated workflow, research claims,
+and generated candidates, while the deeper local suite adds agent/tool and
+code-review drift examples.
+
+That makes the public story broader:
+
+> One release gate, many AI failure modes: changed numbers, unsafe negation,
+> unsupported overclaims, tool-boundary drift, and code-review misstatements.

@@ -14,11 +14,12 @@ Sentinel Manifold checks candidate LLM outputs against supplied reference materi
 1. Open the live public sandbox: https://sentinel-manifold-public.onrender.com/
 2. Scroll to **Release Gate**.
 3. Click **Run Demo Suite**.
-4. Look for **PASS**, `3` cases, `3` passed, and `0` failed.
+4. Look for **PASS**, `5` cases, `5` passed, and `0` failed.
 
 That proves Sentinel can run AI behavior checks as a release gate: supported
-answers emit, unsafe drift blocks, and generated demo candidates still pass
-through the same guardrail before release.
+answers emit, unsafe drift blocks, regulated threshold changes are blocked, research
+overclaims block, and generated demo candidates still pass through the same
+guardrail before release.
 
 ![Sentinel demo suite passing](docs/assets/sentinel-demo-suite-pass.png)
 
@@ -198,6 +199,12 @@ Run a custom suite:
 python app\cli.py suite --input samples\regression-suite.json --out out\suite-report.json
 ```
 
+Run the deeper mixed-buyer proof suite:
+
+```powershell
+python app\cli.py suite --input samples\mixed-proof-suite.json --out out\mixed-proof-suite-report.json --fail-on-fail
+```
+
 ## CI Release Gate
 
 Sentinel suites can fail a release when model, prompt, provider, or policy changes start emitting unsupported answers.
@@ -321,5 +328,5 @@ This MVP is not an external fact checker. It regulates outputs against reference
 ## Next Build Steps
 
 - Add more policy packs for support, regulated workflows, research claims, and agentic tools.
-- Add more regression-suite examples that show realistic AI behavior failures.
+- Add more customer-shaped regression examples beyond the mixed-buyer proof suite.
 - Add admin-only hosted demo evidence export for release/compliance review.

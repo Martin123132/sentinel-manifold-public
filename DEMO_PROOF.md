@@ -11,9 +11,9 @@ Live sandbox: https://sentinel-manifold-public.onrender.com/
 1. Open the live sandbox.
 2. Scroll to **Release Gate**.
 3. Click **Run Demo Suite**.
-4. Confirm the suite reports **PASS** with `3` cases, `3` passed, and `0` failed.
+4. Confirm the suite reports **PASS** with `5` cases, `5` passed, and `0` failed.
 
-## What The Three Cases Prove
+## What The Five Public Cases Prove
 
 ### 1. Emit the supported answer
 
@@ -31,13 +31,40 @@ changes a protected number. Sentinel blocks the pool.
 Proof point: when every candidate is unsafe, the gateway can fail closed instead
 of shipping a bad answer.
 
-### 3. Generated candidates still guard
+### 3. Regulated threshold and negation drift
+
+The suite gives Sentinel a safe regulated answer and an unsafe answer that
+changes a review threshold and adds unsupported negation.
+
+Proof point: regulated workflows can fail a release when numbers, review rules,
+or customer-impacting claims drift from the supplied source material.
+
+### 4. Research overclaim blocks
+
+The suite gives Sentinel a preliminary research finding, then checks an unsafe
+candidate that turns it into guaranteed, always-correct deployment language.
+
+Proof point: research and technical teams can block stronger-than-supported
+claims before they are published or shipped.
+
+### 5. Generated candidates still guard
 
 The suite asks the built-in `local_demo` provider to generate candidates, then
 runs those candidates through the same guardrail path.
 
 Proof point: Sentinel can sit between generation and release, not only inspect
 manually pasted answers.
+
+## Deeper Local Proof
+
+The public demo stays capped at five cases to keep the sandbox bounded. For a
+broader local proof, run:
+
+```powershell
+python app\cli.py suite --input samples\mixed-proof-suite.json --out out\mixed-proof-suite-report.json --fail-on-fail
+```
+
+That suite adds agent/tool-boundary and code-review drift examples.
 
 ## Why It Matters
 
