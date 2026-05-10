@@ -168,3 +168,14 @@ That makes the compliance conversation easier:
 
 > Run the AI safety gate, export the proof bundle, and show both the evidence
 > and the readable release summary.
+
+## Stage 11 Commercial Story
+
+Sentinel now has a dedicated agent tool-boundary policy pack. Teams can describe
+what an agent is allowed to read, write, send, delete, store, share, approve, or
+deny, then fail release when candidate behavior drifts beyond that approved
+tool scope.
+
+That makes the agent safety story sharper:
+
+> Block agent tool-boundary drift before release.

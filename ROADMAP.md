@@ -11,7 +11,8 @@ now covers support, regulated workflow, research-claim, and generated-candidate
 proof cases, with a deeper mixed-buyer suite available for local CI. Admins can
 also export a compliance-style evidence bundle from the hosted demo without
 making saved evidence public; the bundle now includes both machine-readable JSON
-and a plain-English release-gate summary.
+and a plain-English release-gate summary. The first deeper policy pack covers AI
+agent tool-boundary drift before release.
 
 > Fail releases when AI behavior regresses.
 

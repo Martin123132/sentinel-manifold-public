@@ -122,6 +122,14 @@ class GuardrailTests(unittest.TestCase):
         self.assertEqual(auth_status, 200)
         self.assertGreaterEqual(len(payload["providers"]), 5)
 
+    def test_policy_catalog_exposes_agent_tool_profile_api(self):
+        env = {"SENTINEL_API_KEY": "", "SENTINEL_PUBLIC_DEMO": ""}
+        with run_test_server(env) as base_url:
+            status, payload = request_json(base_url, "/api/policies")
+
+        self.assertEqual(status, 200)
+        self.assertIn("agent_tool", {policy["id"] for policy in payload["policies"]})
+
     def test_public_demo_permits_only_sandbox_routes(self):
         env = {"SENTINEL_API_KEY": "secret", "SENTINEL_PUBLIC_DEMO": "true"}
         with run_test_server(env) as base_url:
@@ -277,6 +285,17 @@ class GuardrailTests(unittest.TestCase):
         relations = [relation.key() for relation in extract_relations("The Sun orbits Earth.")]
         self.assertIn(("sun", "orbit", "earth"), relations)
 
+    def test_agent_tool_relation_extraction_recognizes_tool_verbs(self):
+        relations = [
+            relation.key()
+            for relation in extract_relations(
+                "The calendar agent reads calendar events. The support agent deletes CRM records."
+            )
+        ]
+
+        self.assertIn(("calendar agent", "read", "calendar events"), relations)
+        self.assertIn(("support agent", "delete", "crm records"), relations)
+
     def test_result_is_json_serializable(self):
         result = run_guardrail(
             {
@@ -309,7 +328,52 @@ class GuardrailTests(unittest.TestCase):
         payload = apply_policy_template({"policy_profile": "code_review"})
         self.assertEqual(payload["mode"], "balanced")
         self.assertFalse(payload["policy"]["overclaim_guards"])
-        self.assertGreaterEqual(len(list_policy_templates()), 4)
+        self.assertGreaterEqual(len(list_policy_templates()), 5)
+
+    def test_agent_tool_policy_template_is_strict(self):
+        payload = apply_policy_template({"policy_profile": "agent_tool"})
+
+        self.assertEqual(payload["mode"], "strict")
+        self.assertEqual(payload["policy_profile"], "agent_tool")
+        self.assertEqual(payload["policy_name"], "Agent Tool Boundary")
+        self.assertTrue(all(payload["policy"].values()))
+
+    def test_agent_tool_policy_blocks_tool_boundary_drift(self):
+        result = run_guardrail(
+            {
+                "policy_profile": "agent_tool",
+                "references": [
+                    "The calendar agent reads calendar events.",
+                    "The calendar agent requires user approval.",
+                ],
+                "candidates": [
+                    {
+                        "id": "safe",
+                        "label": "Safe",
+                        "text": "The calendar agent reads calendar events. The calendar agent requires user approval.",
+                    },
+                    {
+                        "id": "unsafe",
+                        "label": "Unsafe",
+                        "text": "The calendar agent stores customer credentials.",
+                    },
+                ],
+            }
+        )
+
+        self.assertEqual(result["action"], "EMIT")
+        self.assertEqual(result["emitted_candidate_id"], "safe")
+        unsafe = next(candidate for candidate in result["candidates"] if candidate["id"] == "unsafe")
+        self.assertFalse(unsafe["safe_to_emit"])
+        self.assertIn("known_participant_unsupported_relation", {finding["code"] for finding in unsafe["findings"]})
+
+    def test_agent_policy_suite_passes(self):
+        suite = json.loads((ROOT / "samples" / "agent-policy-suite.json").read_text(encoding="utf-8"))
+        report = run_suite(suite, save_evidence=False)
+
+        self.assertEqual(report["status"], "PASS")
+        self.assertEqual(report["summary"]["case_count"], 5)
+        self.assertEqual(report["summary"]["failed"], 0)
 
     def test_evidence_pack_round_trip_verifies_integrity(self):
         payload = {

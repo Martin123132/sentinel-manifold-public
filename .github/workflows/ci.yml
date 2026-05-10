@@ -112,6 +112,9 @@ jobs:
       - name: Run Sentinel regression suite
         run: python app/cli.py suite --input samples/regression-suite.json --out out/suite-report.json --fail-on-fail
 
+      - name: Run Sentinel agent policy suite
+        run: python app/cli.py suite --input samples/agent-policy-suite.json --out out/agent-policy-suite-report.json --fail-on-fail
+
       - name: Upload release gate artifacts
         uses: actions/upload-artifact@v4
         if: always()
@@ -119,5 +122,6 @@ jobs:
           name: sentinel-release-gate
           path: |
             out/suite-report.json
+            out/agent-policy-suite-report.json
             out/audits/*.evidence.json
           if-no-files-found: error

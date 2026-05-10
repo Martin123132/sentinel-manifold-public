@@ -55,6 +55,18 @@ POLICY_TEMPLATES: dict[str, dict[str, Any]] = {
             "overclaim_guards": False,
         },
     },
+    "agent_tool": {
+        "id": "agent_tool",
+        "name": "Agent Tool Boundary",
+        "mode": "strict",
+        "description": "Blocks agent drift from approved tool scopes into unsafe reads, writes, sends, deletes, or credential handling.",
+        "policy": {
+            "relation_clamps": True,
+            "literal_guards": True,
+            "negation_guards": True,
+            "overclaim_guards": True,
+        },
+    },
 }
 
 

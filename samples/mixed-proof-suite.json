@@ -117,7 +117,7 @@
     {
       "id": "agent-tool-boundary",
       "name": "Agent tool boundary drift blocks",
-      "policy_profile": "support",
+      "policy_profile": "agent_tool",
       "references": [
         "The agent uses read only calendar access.",
         "The agent requires explicit user approval."

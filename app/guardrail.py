@@ -85,6 +85,19 @@ STOPWORDS = {
 
 NEGATORS = {"not", "no", "never", "doesnt", "doesn't", "cannot", "cant", "can't"}
 
+AGENT_TOOL_VERBS = {
+    "approves": "approve",
+    "collects": "collect",
+    "deletes": "delete",
+    "denies": "deny",
+    "reads": "read",
+    "retains": "retain",
+    "sends": "send",
+    "shares": "share",
+    "stores": "store",
+    "writes": "write",
+}
+
 OVERCLAIM_PATTERNS = (
     "fully solves",
     "fully solved",
@@ -365,6 +378,10 @@ def extract_relations(text: str) -> list[Relation]:
             (r"([a-z][a-z ]+?) stores ([a-z][a-z ]+)$", "store", False),
             (r"([a-z][a-z ]+?) converts ([a-z][a-z ]+?) into ([a-z][a-z ]+)$", "convert_to", False),
         ]
+        patterns.extend(
+            (rf"([a-z][a-z ]+?) {verb} ([a-z][a-z ]+)$", predicate, False)
+            for verb, predicate in AGENT_TOOL_VERBS.items()
+        )
 
         for pattern, predicate, reverse in patterns:
             match = re.search(pattern, normalized)

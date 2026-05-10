@@ -210,6 +210,12 @@ Run the deeper mixed-buyer proof suite:
 python app\cli.py suite --input samples\mixed-proof-suite.json --out out\mixed-proof-suite-report.json --fail-on-fail
 ```
 
+Run the agent tool-boundary policy suite:
+
+```powershell
+python app\cli.py suite --input samples\agent-policy-suite.json --out out\agent-policy-suite-report.json --fail-on-fail
+```
+
 ## CI Release Gate
 
 Sentinel suites can fail a release when model, prompt, provider, or policy changes start emitting unsupported answers.
@@ -288,6 +294,11 @@ evidence behavior and can export the saved evidence bundle.
 
 Built-in providers are `local_demo`, `ollama`, `openai`, `anthropic`, and `gemini`. Hosted providers require their matching server-side environment keys: `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, or `GEMINI_API_KEY`.
 
+Built-in policy profiles are `support`, `regulated`, `research`, `code_review`,
+and `agent_tool`. The `agent_tool` pack is for AI agent release gates: it blocks
+drift from approved tool scopes into unsafe reads, writes, sends, deletes,
+credential handling, or unapproved action.
+
 `POST /v1/chat/completions` returns an OpenAI-shaped chat completion object with a `sentinel` metadata block. If all generated candidates are blocked, the response uses `finish_reason: "content_filter"`.
 
 When the request includes `"stream": true`, the endpoint returns `text/event-stream` chunks. Sentinel still completes the guardrail check before emitting approved output, and the final chunk includes `sentinel` evidence metadata before `data: [DONE]`.
@@ -338,8 +349,19 @@ Sentinel Manifold becomes the gateway between apps and model providers:
 
 This MVP is not an external fact checker. It regulates outputs against references supplied by the caller. That makes the demo honest, easier to sell, and aligned with the strongest claims in the source material.
 
+## Agent Tool Policy Pack
+
+The `agent_tool` policy pack focuses on agent/tool boundary drift. A team can
+state what an agent is allowed to read, write, send, delete, store, share,
+approve, or deny, then fail release when candidate behavior moves beyond that
+approved scope.
+
+Product proof:
+
+> Block agent tool-boundary drift before release.
+
 ## Next Build Steps
 
-- Add more policy packs for support, regulated workflows, research claims, and agentic tools.
+- Refine policy packs for support, regulated workflows, research claims, and agentic tools.
 - Add more customer-shaped regression examples beyond the mixed-buyer proof suite.
 - Improve admin-only evidence review with clearer bundle summaries and release notes.

@@ -85,6 +85,16 @@ python app\cli.py suite --input samples\mixed-proof-suite.json --out out\mixed-p
 
 That suite adds agent/tool-boundary and code-review drift examples.
 
+For a focused agent release-gate proof, run:
+
+```powershell
+python app\cli.py suite --input samples\agent-policy-suite.json --out out\agent-policy-suite-report.json --fail-on-fail
+```
+
+That suite uses the `agent_tool` policy pack to block tool-boundary drift such
+as credential storage, email sending, CRM writes/deletes, and unapproved payment
+release.
+
 ## Why It Matters
 
 The product story is simple: fail releases when AI behavior regresses.
