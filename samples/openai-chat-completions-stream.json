@@ -1,0 +1,20 @@
+{
+  "model": "sentinel-local-demo",
+  "stream": true,
+  "messages": [
+    {
+      "role": "system",
+      "content": "References:\n- Earth orbits the Sun.\n- The Sun is a star.\n- Water boils at 100 degrees Celsius at sea level.\n- The capital of France is Paris."
+    },
+    {
+      "role": "user",
+      "content": "Answer using only the supplied references."
+    }
+  ],
+  "sentinel": {
+    "provider": "local_demo",
+    "provider_model": "sentinel-demo-v1",
+    "policy_profile": "support",
+    "candidate_count": 3
+  }
+}

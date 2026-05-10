@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: sentinel-manifold-public
+    runtime: docker
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /api/health
+    envVars:
+      - key: SENTINEL_API_KEY
+        generateValue: true
+      - key: SENTINEL_PUBLIC_DEMO
+        value: "true"
+      - key: HOST
+        value: 0.0.0.0
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false

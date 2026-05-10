@@ -1,0 +1,84 @@
+# Sentinel Manifold Community License
+
+Copyright (c) 2026 Martin123132. All rights reserved except as expressly
+licensed below.
+
+Required Notice: Sentinel Manifold is source-available software. It is not
+released as Open Source Initiative approved open source software.
+
+## Summary
+
+Sentinel Manifold is made available so individuals, community builders,
+students, researchers, nonprofits, and small businesses can inspect it, test it,
+learn from it, modify it, and use it for their own work.
+
+Large-scale commercial use is not granted by this community license. If you want
+to embed Sentinel Manifold in a commercial product, hosted service, search
+engine, model gateway, AI platform, customer-facing SaaS product, or other
+revenue-generating tool outside the grants below, you need a separate commercial
+license from the copyright holder.
+
+This summary is explanatory. The operative grants are below.
+
+## Community License Options
+
+You may use, copy, modify, create derivative works from, and distribute Sentinel
+Manifold under either of these standard PolyForm licenses:
+
+- PolyForm Noncommercial License 1.0.0:
+  https://polyformproject.org/licenses/noncommercial/1.0.0
+- PolyForm Small Business License 1.0.0:
+  https://polyformproject.org/licenses/small-business/1.0.0
+
+You may choose whichever of those two licenses permits your use. If neither
+license permits your use, you do not have permission under this community
+license unless the Evaluation Grant below applies.
+
+## Evaluation Grant
+
+In addition to the PolyForm grants above, the copyright holder grants you a
+limited, non-exclusive, non-transferable license to use, copy, modify, and run
+Sentinel Manifold for non-production evaluation, security testing, benchmarking,
+research, internal proof-of-concept work, and compatibility testing.
+
+This Evaluation Grant does not allow you to:
+
+- provide Sentinel Manifold, modified Sentinel Manifold, or a derivative work as
+  a hosted service, API, plugin, product feature, model gateway, search feature,
+  or customer-facing tool;
+- use Sentinel Manifold in production for a company, product, or service that is
+  not permitted under the PolyForm Small Business License;
+- sell, resell, sublicense, or commercially distribute Sentinel Manifold or a
+  derivative work;
+- embed Sentinel Manifold in a commercial AI platform, commercial model provider,
+  search engine, advertising product, analytics product, or similar commercial
+  system without a separate commercial license.
+
+## Commercial Licensing
+
+Commercial licensing is available separately from the copyright holder. A
+commercial license may include financial terms, attribution terms, community
+benefit commitments, deployment limits, support, private features, or other
+conditions agreed in writing.
+
+The intent is simple: personal, educational, nonprofit, research, evaluation,
+and small-business use should be able to happen without friction; large
+commercial use should ask, pay fairly, and leave room for the work to benefit
+the communities it came from.
+
+## Trademark and Brand
+
+This license does not grant rights to the Sentinel Manifold name, logos, marks,
+shield mark, product identity, or confusingly similar branding. See
+`TRADEMARKS.md`.
+
+## No Other Rights
+
+No patent, trademark, database, privacy, publicity, or other rights are granted
+except as expressly stated in this license and the selected PolyForm license.
+
+## No Warranty
+
+Sentinel Manifold is provided "as is", without warranty or condition. To the
+maximum extent allowed by law, the copyright holder is not liable for damages
+arising from this software, this license, or any use of the software.

@@ -1,0 +1,72 @@
+{
+  "name": "Customer support release gate",
+  "description": "Regression checks that prove supported answers emit and unsafe drift blocks.",
+  "policy_profile": "support",
+  "provider": "local_demo",
+  "model": "sentinel-demo-v1",
+  "cases": [
+    {
+      "id": "support-safe-answer",
+      "name": "Emit the supported answer",
+      "references": [
+        "The capital of France is Paris.",
+        "Customer refunds are processed within 5 business days."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "The capital of France is Paris. Customer refunds are processed within 5 business days."
+        },
+        {
+          "id": "drift",
+          "label": "Drift",
+          "text": "The capital of France is London. Customer refunds are processed within 2 business days."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 1
+      }
+    },
+    {
+      "id": "support-block-drift",
+      "name": "Block unsafe drift",
+      "references": [
+        "Earth orbits the Sun.",
+        "Water boils at 100 degrees Celsius at sea level."
+      ],
+      "candidates": [
+        {
+          "id": "wrong-relation",
+          "label": "Wrong relation",
+          "text": "The Sun orbits Earth."
+        },
+        {
+          "id": "wrong-literal",
+          "label": "Wrong literal",
+          "text": "Water boils at 90 degrees Celsius at sea level."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 2
+      }
+    },
+    {
+      "id": "generated-provider-path",
+      "name": "Generated candidates still guard",
+      "prompt": "Answer using only the supplied reference facts.",
+      "references": [
+        "The Sun is a star.",
+        "Earth orbits the Sun."
+      ],
+      "candidate_count": 3,
+      "expect": {
+        "action": "EMIT",
+        "candidate_count": 3
+      }
+    }
+  ]
+}

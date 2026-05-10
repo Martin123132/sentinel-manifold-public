@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sentinel Manifold</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="side-rail" aria-label="Primary navigation">
+        <div class="brand-mark">
+          <div class="mark" aria-hidden="true">
+            <svg viewBox="0 0 28 28" role="img">
+              <path d="M14 3.2 24 8.7v7.4c0 5.1-4.1 8.1-10 9.7-5.9-1.6-10-4.6-10-9.7V8.7L14 3.2Z" />
+              <path d="M9.1 14.2h9.8M14 9.2v10" />
+            </svg>
+          </div>
+          <div>
+            <strong>Sentinel</strong>
+            <span>Manifold</span>
+          </div>
+        </div>
+
+        <nav class="nav-list">
+          <button class="nav-item active" type="button">
+            <span class="nav-icon" data-icon="checks"></span>
+            Checks
+          </button>
+          <button class="nav-item" type="button">
+            <span class="nav-icon" data-icon="policies"></span>
+            Policies
+          </button>
+          <button class="nav-item" type="button">
+            <span class="nav-icon" data-icon="datasets"></span>
+            Datasets
+          </button>
+          <button class="nav-item" type="button">
+            <span class="nav-icon" data-icon="audit"></span>
+            Audit
+          </button>
+          <button class="nav-item" type="button">
+            <span class="nav-icon" data-icon="settings"></span>
+            Settings
+          </button>
+        </nav>
+
+        <div class="rail-footer">
+          <span class="status-dot"></span>
+          <span id="railStatusLabel">Local gateway online</span>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <h1>AI Guardrail Gateway</h1>
+            <p>Reference-bound gateway decisions.</p>
+          </div>
+          <div class="topbar-actions">
+            <span id="sandboxBadge" class="sandbox-badge" hidden>Public sandbox</span>
+            <label class="api-key-field" id="apiKeyField">
+              <span>API Key</span>
+              <input id="apiKeyInput" type="password" autocomplete="off" placeholder="Optional locally" aria-label="Sentinel API key" />
+            </label>
+            <button id="unlockButton" class="ghost-button" type="button" hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V7a5 5 0 0 1 9.7-1.7"/><path d="M6 11h12v9H6z"/></svg>
+              Unlock
+            </button>
+            <label class="policy-select">
+              <span>Policy</span>
+              <select id="policySelect" aria-label="Policy profile"></select>
+            </label>
+            <div class="segmented" role="group" aria-label="Check mode">
+              <button class="segment active" type="button" data-mode="strict">Strict</button>
+              <button class="segment" type="button" data-mode="balanced">Balanced</button>
+            </div>
+            <button class="icon-button" id="loadDemoButton" type="button" title="Load demo">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6M20 20v-6h-6"/><path d="M20 9A8 8 0 0 0 6.2 5.4L4 10M4 15a8 8 0 0 0 13.8 3.6L20 14"/></svg>
+            </button>
+            <button class="primary-button" id="runButton" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7V5Z"/></svg>
+              Run Check
+            </button>
+          </div>
+        </header>
+
+        <section class="metrics-row" aria-label="Current metrics">
+          <article class="metric-card">
+            <span>Gateway Action</span>
+            <strong id="metricAction">READY</strong>
+          </article>
+          <article class="metric-card">
+            <span>Risk Ceiling</span>
+            <strong id="metricRisk">--</strong>
+          </article>
+          <article class="metric-card">
+            <span>Relations</span>
+            <strong id="metricRelations">--</strong>
+          </article>
+          <article class="metric-card">
+            <span>Blocked</span>
+            <strong id="metricBlocked">--</strong>
+          </article>
+        </section>
+
+        <div class="work-grid">
+          <section class="main-column">
+            <div class="panel gateway-panel">
+              <div class="panel-header">
+                <div>
+                  <h2>Gateway Request</h2>
+                  <p>Generate candidate outputs, then regulate them before emission.</p>
+                </div>
+                <div class="provider-row">
+                  <label>
+                    Provider
+                    <select id="providerSelect" aria-label="Generation provider"></select>
+                  </label>
+                  <label>
+                    Model
+                    <input id="modelInput" type="text" aria-label="Model name" />
+                  </label>
+                </div>
+              </div>
+              <div class="prompt-row">
+                <textarea id="promptInput" spellcheck="false" aria-label="Gateway prompt"></textarea>
+                <button class="secondary-button" id="generateButton" type="button">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+                  Generate & Check
+                </button>
+              </div>
+            </div>
+
+            <div class="panel reference-panel">
+              <div class="panel-header">
+                <div>
+                  <h2>Reference Material</h2>
+                  <p>One trusted claim per line works best for the MVP engine.</p>
+                </div>
+                <div class="toggle-row" aria-label="Policy toggles">
+                  <label><input type="checkbox" id="relation_clamps" checked /> Relations</label>
+                  <label><input type="checkbox" id="literal_guards" checked /> Literals</label>
+                  <label><input type="checkbox" id="negation_guards" checked /> Negation</label>
+                  <label><input type="checkbox" id="overclaim_guards" checked /> Overclaims</label>
+                </div>
+              </div>
+              <textarea id="referencesInput" spellcheck="false"></textarea>
+            </div>
+
+            <div class="candidate-toolbar">
+              <h2>Candidate Outputs</h2>
+              <button class="ghost-button" id="clearButton" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>
+                Clear
+              </button>
+            </div>
+
+            <div class="candidate-grid" id="candidateGrid"></div>
+
+            <section class="panel suite-panel">
+              <div class="panel-header">
+                <div>
+                  <h2>Release Gate</h2>
+                  <p>Run a guardrail regression suite before shipping model or policy changes.</p>
+                </div>
+                <button class="secondary-button" id="suiteButton" type="button">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  Run Demo Suite
+                </button>
+              </div>
+              <div class="suite-summary" aria-label="Suite result summary">
+                <div>
+                  <span>Status</span>
+                  <strong id="suiteStatus">READY</strong>
+                </div>
+                <div>
+                  <span>Cases</span>
+                  <strong id="suiteCases">--</strong>
+                </div>
+                <div>
+                  <span>Passed</span>
+                  <strong id="suitePassed">--</strong>
+                </div>
+                <div>
+                  <span>Failed</span>
+                  <strong id="suiteFailed">--</strong>
+                </div>
+              </div>
+              <div class="table-wrap suite-table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Case</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                      <th>Risk</th>
+                      <th>Evidence</th>
+                    </tr>
+                  </thead>
+                  <tbody id="suiteTable"></tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="panel history-panel">
+              <div class="panel-header">
+                <div>
+                  <h2>Recent Checks</h2>
+                  <p>Local browser history for demo flow and sales walkthroughs.</p>
+                </div>
+                <button class="ghost-button" id="exportButton" type="button">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+                  Export JSON
+                </button>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Check</th>
+                      <th>Action</th>
+                      <th>Emitted</th>
+                      <th>Risk</th>
+                      <th>Blocked</th>
+                      <th>Evidence</th>
+                    </tr>
+                  </thead>
+                  <tbody id="historyTable"></tbody>
+                </table>
+              </div>
+            </section>
+          </section>
+
+          <aside class="audit-column">
+            <section class="panel verdict-panel">
+              <div class="verdict-top">
+                <span class="verdict-label" id="verdictLabel">READY</span>
+                <span class="check-id" id="checkId">No check yet</span>
+              </div>
+              <h2 id="verdictHeadline">Load the demo or paste your own references.</h2>
+              <p id="verdictSummary">Sentinel Manifold will choose a safe candidate or block the whole pool.</p>
+              <div class="emitted-box" id="emittedBox">
+                <span>Emitted Output</span>
+                <p>Waiting for a check.</p>
+              </div>
+              <div class="evidence-box" id="evidenceBox">
+                <span>Evidence Pack</span>
+                <code>Not saved yet</code>
+              </div>
+            </section>
+
+            <section class="panel audit-panel">
+              <div class="panel-header tight">
+                <div>
+                  <h2>Audit Reasons</h2>
+                  <p>Machine-readable findings for the selected run.</p>
+                </div>
+              </div>
+              <div class="findings-list" id="findingsList"></div>
+            </section>
+
+            <section class="panel evidence-inspector-panel">
+              <div class="panel-header tight">
+                <div>
+                  <h2>Evidence Inspector</h2>
+                  <p>Tamper-evident pack details for compliance review.</p>
+                </div>
+                <button class="ghost-button compact-button" id="exportEvidenceButton" type="button" disabled>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+                  Export Pack
+                </button>
+              </div>
+              <div id="evidenceInspector" class="evidence-inspector"></div>
+            </section>
+
+            <section class="panel trace-panel">
+              <div class="panel-header tight">
+                <div>
+                  <h2>Reference Model</h2>
+                  <p>Extracted protected structure.</p>
+                </div>
+              </div>
+              <div class="trace-list" id="traceList"></div>
+            </section>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

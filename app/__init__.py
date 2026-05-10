@@ -1,0 +1,2 @@
+"""Sentinel Manifold application package."""
+

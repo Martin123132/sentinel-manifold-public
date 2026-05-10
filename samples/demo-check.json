@@ -1,0 +1,24 @@
+{
+  "policy_profile": "support",
+  "provider": "local_demo",
+  "model": "sentinel-demo-v1",
+  "prompt": "Answer the customer using only the supplied reference facts.",
+  "references": [
+    "Earth orbits the Sun.",
+    "The Sun is a star.",
+    "Water boils at 100 degrees Celsius at sea level.",
+    "The capital of France is Paris."
+  ],
+  "candidates": [
+    {
+      "id": "candidate-a",
+      "label": "Candidate A",
+      "text": "Earth orbits the Sun. The Sun is a star. Water boils at 100 degrees Celsius at sea level."
+    },
+    {
+      "id": "candidate-b",
+      "label": "Candidate B",
+      "text": "The Sun orbits Earth. Water boils at 90 degrees Celsius at sea level. The capital of France is London."
+    }
+  ]
+}

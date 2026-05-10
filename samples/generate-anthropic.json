@@ -1,0 +1,12 @@
+{
+  "provider": "anthropic",
+  "model": "claude-3-5-haiku-20241022",
+  "policy_profile": "support",
+  "candidate_count": 2,
+  "prompt": "Answer the customer using only the supplied reference facts.",
+  "references": [
+    "Earth orbits the Sun.",
+    "The Sun is a star.",
+    "Water boils at 100 degrees Celsius at sea level."
+  ]
+}

@@ -1,0 +1,123 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "codex/**"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test and lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run Python tests
+        run: python -m unittest discover -s tests
+
+      - name: Compile Python modules
+        run: python -m compileall app
+
+      - name: Check dashboard JavaScript syntax
+        run: node --check web/app.js
+
+  docker:
+    name: Docker build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t sentinel-manifold:ci .
+
+  release-gate:
+    name: CI release gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run Python tests
+        run: python -m unittest discover -s tests
+
+      - name: Compile Python modules
+        run: python -m compileall app
+
+      - name: Check dashboard JavaScript syntax
+        run: node --check web/app.js
+
+      - name: Prove release gate fails closed
+        shell: bash
+        run: |
+          cat > /tmp/sentinel-failing-suite.json <<'JSON'
+          {
+            "name": "Expected failure proof",
+            "cases": [
+              {
+                "id": "expected-failure",
+                "references": ["Earth orbits the Sun."],
+                "candidates": [
+                  {
+                    "id": "safe",
+                    "label": "Safe",
+                    "text": "Earth orbits the Sun."
+                  }
+                ],
+                "expect": {
+                  "action": "BLOCK"
+                }
+              }
+            ]
+          }
+          JSON
+          set +e
+          python app/cli.py suite --input /tmp/sentinel-failing-suite.json --evidence-dir /tmp/sentinel-failing-audits --fail-on-fail
+          status=$?
+          set -e
+          if [ "$status" -ne 2 ]; then
+            echo "Expected failing suite to exit 2, got $status"
+            exit 1
+          fi
+
+      - name: Run Sentinel regression suite
+        run: python app/cli.py suite --input samples/regression-suite.json --out out/suite-report.json --fail-on-fail
+
+      - name: Upload release gate artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sentinel-release-gate
+          path: |
+            out/suite-report.json
+            out/audits/*.evidence.json
+          if-no-files-found: error
