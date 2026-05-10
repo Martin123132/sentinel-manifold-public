@@ -5,6 +5,8 @@
 
 An attention-first MVP for an AI Guardrail Gateway.
 
+Live public sandbox: https://sentinel-manifold-public.onrender.com/
+
 Sentinel Manifold checks candidate LLM outputs against supplied reference material and emits the safest supported answer, or blocks the whole candidate pool when every answer drifts from the reference structure.
 
 ## What You Can Use This For
