@@ -9,6 +9,21 @@ Live public sandbox: https://sentinel-manifold-public.onrender.com/
 
 Sentinel Manifold checks candidate LLM outputs against supplied reference material and emits the safest supported answer, or blocks the whole candidate pool when every answer drifts from the reference structure.
 
+## 30 Second Demo
+
+1. Open the live public sandbox: https://sentinel-manifold-public.onrender.com/
+2. Scroll to **Release Gate**.
+3. Click **Run Demo Suite**.
+4. Look for **PASS**, `3` cases, `3` passed, and `0` failed.
+
+That proves Sentinel can run AI behavior checks as a release gate: supported
+answers emit, unsafe drift blocks, and generated demo candidates still pass
+through the same guardrail before release.
+
+![Sentinel demo suite passing](docs/assets/sentinel-demo-suite-pass.png)
+
+See [DEMO_PROOF.md](DEMO_PROOF.md) for the short case-by-case explanation.
+
 ## What You Can Use This For
 
 - Test whether an AI answer stays inside trusted reference material.

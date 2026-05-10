@@ -4,6 +4,13 @@
 
 Sentinel Manifold is an AI output firewall that blocks hallucinated, contradictory, or unsupported LLM answers before they reach users.
 
+## Plain-English Product Story
+
+Sentinel sits between AI output and release, then blocks regressions before they
+ship. A team supplies trusted reference material and expected behavior, Sentinel
+runs the candidates through the guardrail, and the release fails if the model
+starts emitting unsupported answers.
+
 ## Why This Has The Best Chance Of Getting Attention
 
 The demo is instantly understandable: paste reference truth, paste multiple AI outputs, click Run Check, and watch the product choose the supported answer or block the unsafe pool. It turns abstract AI safety into a visible gateway decision.
