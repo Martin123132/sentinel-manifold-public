@@ -1,0 +1,44 @@
+name: Sentinel Release Gate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  sentinel-release-gate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Run Sentinel tests if vendored
+        if: ${{ hashFiles('tests/**') != '' }}
+        run: python -m unittest discover -s tests
+
+      - name: Compile Sentinel modules if vendored
+        if: ${{ hashFiles('app/**/*.py') != '' }}
+        run: python -m compileall app
+
+      - name: Run Sentinel starter suite
+        run: python app/cli.py suite --input samples/integration-starter-suite.json --out out/integration-starter-suite-report.json --fail-on-fail
+
+      - name: Upload Sentinel evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sentinel-release-gate
+          path: |
+            out/integration-starter-suite-report.json
+            out/audits/*.evidence.json
+          if-no-files-found: error

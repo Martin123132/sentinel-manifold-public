@@ -179,3 +179,14 @@ tool scope.
 That makes the agent safety story sharper:
 
 > Block agent tool-boundary drift before release.
+
+## Stage 12 Commercial Story
+
+Sentinel now has an integration kit: a starter suite, a copy-paste GitHub
+Actions workflow, and one adoption guide that shows how to run the release gate
+locally and in CI.
+
+That turns the proof into adoption:
+
+> Copy the release gate into another repo, fail unsafe AI regressions, and keep
+> the evidence artifact.

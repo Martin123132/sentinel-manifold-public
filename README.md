@@ -216,6 +216,12 @@ Run the agent tool-boundary policy suite:
 python app\cli.py suite --input samples\agent-policy-suite.json --out out\agent-policy-suite-report.json --fail-on-fail
 ```
 
+Run the starter integration suite:
+
+```powershell
+python app\cli.py suite --input samples\integration-starter-suite.json --out out\integration-starter-suite-report.json --fail-on-fail
+```
+
 ## CI Release Gate
 
 Sentinel suites can fail a release when model, prompt, provider, or policy changes start emitting unsupported answers.
@@ -224,7 +230,21 @@ Product proof:
 
 > Fail releases when AI behavior regresses.
 
-The bundled GitHub Actions workflow runs the regression suite and uploads a `sentinel-release-gate` artifact containing `out/suite-report.json` plus every generated evidence pack.
+The bundled GitHub Actions workflow runs the regression, agent, and integration
+suites, then uploads a `sentinel-release-gate` artifact containing suite reports
+plus every generated evidence pack.
+
+## Use In Another Repo
+
+Start with [INTEGRATION.md](INTEGRATION.md). It shows how to copy Sentinel into
+another repository, run `samples/integration-starter-suite.json` locally, and
+collect CI evidence artifacts.
+
+Copy-paste workflow:
+
+```text
+examples/github-actions/sentinel-release-gate.yml
+```
 
 Copy this job into another repository to use Sentinel as an AI safety gate:
 
@@ -236,13 +256,13 @@ sentinel-release-gate:
     - uses: actions/setup-python@v5
       with:
         python-version: "3.13"
-    - run: python app/cli.py suite --input samples/regression-suite.json --out out/suite-report.json --fail-on-fail
+    - run: python app/cli.py suite --input samples/integration-starter-suite.json --out out/integration-starter-suite-report.json --fail-on-fail
     - uses: actions/upload-artifact@v4
       if: always()
       with:
         name: sentinel-release-gate
         path: |
-          out/suite-report.json
+          out/integration-starter-suite-report.json
           out/audits/*.evidence.json
         if-no-files-found: error
 ```
