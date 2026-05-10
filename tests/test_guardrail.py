@@ -9,6 +9,7 @@ import threading
 import urllib.error
 import urllib.request
 import unittest
+import zipfile
 from unittest.mock import patch
 
 
@@ -65,6 +66,20 @@ def request_json(
         return exc.code, json.loads(body or "{}")
 
 
+def request_bytes(
+    base_url: str,
+    path: str,
+    *,
+    headers: dict[str, str] | None = None,
+) -> tuple[int, bytes, object]:
+    request = urllib.request.Request(f"{base_url}{path}", headers=dict(headers or {}), method="GET")
+    try:
+        with urllib.request.urlopen(request, timeout=5) as response:
+            return response.status, response.read(), response.headers
+    except urllib.error.HTTPError as exc:
+        return exc.code, exc.read(), exc.headers
+
+
 class GuardrailTests(unittest.TestCase):
     def test_auth_is_disabled_without_api_key(self):
         with patch.dict(os.environ, {"SENTINEL_API_KEY": ""}):
@@ -117,6 +132,7 @@ class GuardrailTests(unittest.TestCase):
             suite_status, demo_suite = request_json(base_url, "/api/demo-suite")
             report_status, report = request_json(base_url, "/api/suite", method="POST", payload=demo_suite)
             audits_status, _ = request_json(base_url, "/api/audits")
+            export_status, _ = request_json(base_url, "/api/audits/export")
             generate_status, _ = request_json(
                 base_url,
                 "/api/generate-check",
@@ -142,6 +158,7 @@ class GuardrailTests(unittest.TestCase):
         self.assertEqual(report["status"], "PASS")
         self.assertTrue(all(case["evidence"] is None for case in report["cases"]))
         self.assertEqual(audits_status, 401)
+        self.assertEqual(export_status, 401)
         self.assertEqual(generate_status, 401)
         self.assertEqual(chat_status, 401)
 
@@ -156,6 +173,51 @@ class GuardrailTests(unittest.TestCase):
         self.assertGreaterEqual(len(providers["providers"]), 5)
         self.assertEqual(audits_status, 200)
         self.assertIn("audits", audits)
+
+    def test_public_demo_admin_can_export_evidence_bundle(self):
+        env = {"SENTINEL_API_KEY": "secret", "SENTINEL_PUBLIC_DEMO": "true"}
+        headers = {"Authorization": "Bearer secret"}
+        with run_test_server(env) as base_url:
+            _, demo_suite = request_json(base_url, "/api/demo-suite")
+            report_status, report = request_json(base_url, "/api/suite", method="POST", payload=demo_suite, headers=headers)
+            bundle_status, bundle, bundle_headers = request_bytes(
+                base_url,
+                "/api/audits/export?limit=25",
+                headers=headers,
+            )
+            first_check_id = report["cases"][0]["check_id"]
+            pack_status, pack = request_json(base_url, f"/api/audits/{first_check_id}", headers=headers)
+
+        self.assertEqual(report_status, 200)
+        self.assertEqual(report["status"], "PASS")
+        self.assertTrue(all(case["evidence"] for case in report["cases"]))
+        self.assertEqual(bundle_status, 200)
+        self.assertIn("application/zip", bundle_headers.get("Content-Type"))
+        with zipfile.ZipFile(io.BytesIO(bundle)) as archive:
+            names = set(archive.namelist())
+            manifest = json.loads(archive.read("manifest.json").decode("utf-8"))
+
+        self.assertEqual(manifest["schema_version"], "sentinel.evidence.bundle.v1")
+        self.assertEqual(manifest["count"], report["summary"]["case_count"])
+        self.assertTrue(all(f"evidence/{case['check_id']}.evidence.json" in names for case in report["cases"]))
+        self.assertTrue(all(f"verification/{case['check_id']}.verification.json" in names for case in report["cases"]))
+        self.assertEqual(pack_status, 200)
+        self.assertTrue(pack["integrity_valid"])
+
+    def test_admin_evidence_bundle_empty_manifest(self):
+        env = {"SENTINEL_API_KEY": "secret", "SENTINEL_PUBLIC_DEMO": "true"}
+        headers = {"X-API-Key": "secret"}
+        with run_test_server(env) as base_url:
+            status, bundle, bundle_headers = request_bytes(base_url, "/api/audits/export", headers=headers)
+
+        self.assertEqual(status, 200)
+        self.assertIn("application/zip", bundle_headers.get("Content-Type"))
+        with zipfile.ZipFile(io.BytesIO(bundle)) as archive:
+            self.assertEqual(set(archive.namelist()), {"manifest.json"})
+            manifest = json.loads(archive.read("manifest.json").decode("utf-8"))
+
+        self.assertEqual(manifest["count"], 0)
+        self.assertEqual(manifest["audits"], [])
 
     def test_public_demo_rejects_hosted_provider_suite(self):
         env = {"SENTINEL_API_KEY": "secret", "SENTINEL_PUBLIC_DEMO": "true"}

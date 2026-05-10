@@ -25,6 +25,11 @@ guardrail before release.
 
 See [DEMO_PROOF.md](DEMO_PROOF.md) for the short case-by-case explanation.
 
+Admins can unlock the hosted demo with `SENTINEL_API_KEY`, run the same suite,
+and export a zip evidence bundle containing a manifest, saved evidence packs,
+and verification reports. Public visitors can run the sandbox, but they cannot
+read or export saved evidence.
+
 ## What You Can Use This For
 
 - Test whether an AI answer stays inside trusted reference material.
@@ -116,7 +121,7 @@ Auth is disabled locally unless `SENTINEL_API_KEY` is set. If it is set, enter t
 For an attention-friendly hosted sandbox, set `SENTINEL_PUBLIC_DEMO=true`.
 Unauthenticated users can run bounded local demo checks and the bundled release
 suite, while provider generation, OpenAI-compatible chat completions, audit
-history, and evidence pack downloads remain admin-only.
+history, evidence pack downloads, and evidence bundle export remain admin-only.
 
 ## Test
 
@@ -245,6 +250,7 @@ GET  /api/demo-suite
 GET  /api/policies
 GET  /api/providers
 GET  /api/audits?limit=25
+GET  /api/audits/export?limit=25
 GET  /api/audits/{check_id}
 GET  /api/audits/{check_id}/verify
 POST /api/check
@@ -255,9 +261,14 @@ POST /v1/chat/completions
 
 `POST /api/check` writes an evidence pack by default and returns the pack digest in `result.evidence`.
 
+`GET /api/audits/export?limit=25` returns an admin-only zip bundle with
+`manifest.json`, `evidence/<check_id>.evidence.json`, and
+`verification/<check_id>.verification.json`. If no evidence exists, the endpoint
+still returns a valid zip with an empty manifest.
+
 In `SENTINEL_PUBLIC_DEMO=true` sandbox requests, `/api/check` and `/api/suite`
 do not persist evidence packs. Admin-authenticated requests keep the normal
-evidence behavior.
+evidence behavior and can export the saved evidence bundle.
 
 `POST /api/generate-check` accepts `prompt`, `references`, `provider`, and `model`, generates candidate outputs, runs the same guardrail, then persists an evidence pack with provider trace metadata.
 
@@ -329,4 +340,4 @@ This MVP is not an external fact checker. It regulates outputs against reference
 
 - Add more policy packs for support, regulated workflows, research claims, and agentic tools.
 - Add more customer-shaped regression examples beyond the mixed-buyer proof suite.
-- Add admin-only hosted demo evidence export for release/compliance review.
+- Improve admin-only evidence review with clearer bundle summaries and release notes.

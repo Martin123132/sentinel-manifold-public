@@ -33,6 +33,7 @@ const runButton = document.querySelector("#runButton");
 const loadDemoButton = document.querySelector("#loadDemoButton");
 const clearButton = document.querySelector("#clearButton");
 const exportButton = document.querySelector("#exportButton");
+const exportBundleButton = document.querySelector("#exportBundleButton");
 const policySelect = document.querySelector("#policySelect");
 const providerSelect = document.querySelector("#providerSelect");
 const modelInput = document.querySelector("#modelInput");
@@ -331,6 +332,7 @@ function renderSuite() {
 
 function renderHistory() {
   const history = state.auditHistory;
+  exportBundleButton.disabled = publicSandboxActive();
   if (publicSandboxActive()) {
     historyTable.innerHTML = `<tr><td colspan="6">Evidence history is private.</td></tr>`;
     return;
@@ -652,6 +654,33 @@ function exportEvidencePack() {
   URL.revokeObjectURL(url);
 }
 
+async function exportEvidenceBundle() {
+  exportBundleButton.disabled = true;
+  exportBundleButton.textContent = "Exporting...";
+  try {
+    const response = await apiFetch("/api/audits/export?limit=25");
+    if (!response.ok) {
+      throw new Error(`export failed with ${response.status}`);
+    }
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "sentinel-evidence-bundle.zip";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+  } catch (error) {
+    if (error.message !== "unauthorized") {
+      alert(`Evidence bundle failed to export: ${error.message}`);
+    }
+  } finally {
+    exportBundleButton.disabled = publicSandboxActive();
+    exportBundleButton.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>Export Bundle';
+  }
+}
+
 document.querySelectorAll(".segment").forEach((button) => {
   button.addEventListener("click", () => {
     state.mode = button.dataset.mode;
@@ -702,6 +731,7 @@ loadDemoButton.addEventListener("click", () => {
 });
 clearButton.addEventListener("click", clearInputs);
 exportButton.addEventListener("click", exportResult);
+exportBundleButton.addEventListener("click", exportEvidenceBundle);
 exportEvidenceButton.addEventListener("click", exportEvidencePack);
 historyTable.addEventListener("click", (event) => {
   const button = event.target.closest("[data-evidence-id]");

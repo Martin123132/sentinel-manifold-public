@@ -87,3 +87,27 @@ The healthcheck path is public:
 Protected routes require `Authorization: Bearer <SENTINEL_API_KEY>` or `X-API-Key`.
 
 Optional provider credentials such as `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, and `GEMINI_API_KEY` should be added as Render secret environment variables when those adapters are enabled.
+
+## Hosted Admin Evidence Export
+
+For a public demo, keep `SENTINEL_PUBLIC_DEMO=true` and keep
+`SENTINEL_API_KEY` set. Visitors can run the demo suite, but only an admin with
+the key can save and export evidence.
+
+Dashboard flow:
+
+1. Open the deployed dashboard.
+2. Enter the admin key and choose **Unlock**.
+3. Run **Run Demo Suite**.
+4. Choose **Export Bundle**.
+
+Direct API flow:
+
+```powershell
+$headers = @{ Authorization = "Bearer <SENTINEL_API_KEY>" }
+Invoke-WebRequest "https://sentinel-manifold-public.onrender.com/api/audits/export?limit=25" -Headers $headers -OutFile sentinel-evidence-bundle.zip
+```
+
+The bundle contains `manifest.json`, saved evidence JSON, and verification JSON
+for the most recent checks. Do not share the admin key, provider credentials, or
+real customer evidence from a public demo instance.

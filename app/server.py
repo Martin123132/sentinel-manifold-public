@@ -11,7 +11,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 
 from auth import auth_required, is_admin_authorized, is_authorized, public_demo_enabled
-from evidence import list_evidence_packs, load_evidence_pack, save_evidence_pack, verify_evidence_pack
+from evidence import build_evidence_bundle, list_evidence_packs, load_evidence_pack, save_evidence_pack, verify_evidence_pack
 from guardrail import run_guardrail
 from openai_compat import run_chat_completions, run_chat_completions_stream
 from policies import apply_policy_template, list_policy_templates
@@ -69,8 +69,12 @@ class SentinelHandler(BaseHTTPRequestHandler):
                 providers = [provider for provider in providers if provider["id"] == "local_demo"]
             self._send_json({"providers": providers})
             return
+        if parsed.path == "/api/audits/export":
+            limit = _parse_limit(parsed.query, default=25)
+            self._send_zip(build_evidence_bundle(EVIDENCE_DIR, limit=limit), filename="sentinel-evidence-bundle.zip")
+            return
         if parsed.path == "/api/audits":
-            limit = int(parse_qs(parsed.query).get("limit", ["25"])[0])
+            limit = _parse_limit(parsed.query, default=25)
             self._send_json({"audits": list_evidence_packs(EVIDENCE_DIR, limit=limit)})
             return
         if parsed.path.startswith("/api/audits/"):
@@ -176,6 +180,18 @@ class SentinelHandler(BaseHTTPRequestHandler):
         self.send_response(status)
         self.send_header("Content-Type", "application/json")
         self.send_header("Content-Length", str(len(content)))
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-API-Key")
+        self.end_headers()
+        self.wfile.write(content)
+
+    def _send_zip(self, content: bytes, *, filename: str) -> None:
+        self.send_response(200)
+        self.send_header("Content-Type", "application/zip")
+        self.send_header("Content-Length", str(len(content)))
+        self.send_header("Content-Disposition", f'attachment; filename="{filename}"')
+        self.send_header("Cache-Control", "no-store")
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-API-Key")
@@ -304,6 +320,14 @@ def _text_size(value: object) -> int:
     if isinstance(value, list):
         return sum(_text_size(item) for item in value)
     return len(str(value))
+
+
+def _parse_limit(query: str, *, default: int) -> int:
+    raw = parse_qs(query).get("limit", [str(default)])[0]
+    try:
+        return max(0, int(raw))
+    except (TypeError, ValueError):
+        return default
 
 
 def main() -> None:

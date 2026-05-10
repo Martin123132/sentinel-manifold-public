@@ -13,6 +13,22 @@ Live sandbox: https://sentinel-manifold-public.onrender.com/
 3. Click **Run Demo Suite**.
 4. Confirm the suite reports **PASS** with `5` cases, `5` passed, and `0` failed.
 
+## Public Sandbox vs Admin Evidence
+
+The public sandbox is deliberately bounded: visitors can run demo checks and
+the five-case release gate, but they cannot read audit history, download single
+evidence packs, or export saved evidence.
+
+Admins can unlock the dashboard with `SENTINEL_API_KEY`, run the same suite, and
+download **Export Bundle**. The bundle is a zip containing:
+
+- `manifest.json`
+- `evidence/<check_id>.evidence.json`
+- `verification/<check_id>.verification.json`
+
+That turns the demo into a small compliance-style proof pack without exposing
+private evidence to unauthenticated visitors.
+
 ## What The Five Public Cases Prove
 
 ### 1. Emit the supported answer
@@ -71,7 +87,8 @@ That suite adds agent/tool-boundary and code-review drift examples.
 The product story is simple: fail releases when AI behavior regresses.
 
 Teams can put Sentinel in CI, run a suite before shipping prompt, model, policy,
-or provider changes, and keep evidence that shows exactly what changed.
+or provider changes, and keep exportable evidence that shows exactly what
+changed.
 
 Personal, research, nonprofit, evaluation, community, and small-business use is
 welcome under the community license. Large commercial integrations require

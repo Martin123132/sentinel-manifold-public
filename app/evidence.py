@@ -3,13 +3,16 @@
 from __future__ import annotations
 
 import hashlib
+import io
 import json
 import time
+import zipfile
 from pathlib import Path
 from typing import Any
 
 
 SCHEMA_VERSION = "sentinel.evidence.v1"
+BUNDLE_SCHEMA_VERSION = "sentinel.evidence.bundle.v1"
 RUNTIME_VERIFICATION_KEYS = {"integrity", "integrity_valid", "verification"}
 
 
@@ -145,10 +148,8 @@ def load_evidence_pack(file_path: Path) -> dict[str, Any]:
 def list_evidence_packs(evidence_dir: Path, limit: int = 25) -> list[dict[str, Any]]:
     """Return compact evidence-pack rows for the dashboard."""
 
-    if not evidence_dir.exists():
-        return []
     rows: list[dict[str, Any]] = []
-    for file_path in sorted(evidence_dir.glob("*.evidence.json"), key=lambda p: p.stat().st_mtime, reverse=True):
+    for file_path in _evidence_files(evidence_dir, limit):
         try:
             pack = load_evidence_pack(file_path)
         except (OSError, json.JSONDecodeError):
@@ -169,6 +170,58 @@ def list_evidence_packs(evidence_dir: Path, limit: int = 25) -> list[dict[str, A
                 "policy_profile": pack.get("request", {}).get("policy_profile"),
             }
         )
-        if len(rows) >= limit:
-            break
     return rows
+
+
+def build_evidence_bundle(evidence_dir: Path, limit: int = 25) -> bytes:
+    """Return a zip archive containing evidence packs, verification reports, and a manifest."""
+
+    manifest: dict[str, Any] = {
+        "schema_version": BUNDLE_SCHEMA_VERSION,
+        "created_at": int(time.time()),
+        "limit": limit,
+        "count": 0,
+        "audits": [],
+    }
+    buffer = io.BytesIO()
+    with zipfile.ZipFile(buffer, mode="w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for file_path in _evidence_files(evidence_dir, limit):
+            try:
+                raw_pack = json.loads(file_path.read_text(encoding="utf-8"))
+                verification = verify_evidence_pack(file_path)
+            except (OSError, json.JSONDecodeError):
+                continue
+
+            check_id = str(raw_pack.get("check_id") or file_path.stem.removesuffix(".evidence"))
+            evidence_name = f"evidence/{check_id}.evidence.json"
+            verification_name = f"verification/{check_id}.verification.json"
+            result = raw_pack.get("result", {})
+            summary = result.get("summary", {})
+
+            archive.writestr(evidence_name, json.dumps(raw_pack, indent=2))
+            archive.writestr(verification_name, json.dumps(verification, indent=2))
+            manifest["audits"].append(
+                {
+                    "check_id": check_id,
+                    "created_at": raw_pack.get("created_at"),
+                    "action": result.get("action"),
+                    "emitted": result.get("emitted_candidate_id") or "none",
+                    "risk": summary.get("highest_risk_score"),
+                    "blocked": summary.get("blocked_count"),
+                    "policy_profile": raw_pack.get("request", {}).get("policy_profile"),
+                    "digest": raw_pack.get("integrity", {}).get("digest"),
+                    "integrity_valid": verification.get("integrity_valid", False),
+                    "evidence_path": evidence_name,
+                    "verification_path": verification_name,
+                }
+            )
+        manifest["count"] = len(manifest["audits"])
+        archive.writestr("manifest.json", json.dumps(manifest, indent=2))
+    return buffer.getvalue()
+
+
+def _evidence_files(evidence_dir: Path, limit: int) -> list[Path]:
+    if not evidence_dir.exists():
+        return []
+    safe_limit = max(0, int(limit))
+    return sorted(evidence_dir.glob("*.evidence.json"), key=lambda p: p.stat().st_mtime, reverse=True)[:safe_limit]
