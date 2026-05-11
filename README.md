@@ -9,6 +9,22 @@ Live public sandbox: https://sentinel-manifold-public.onrender.com/
 
 Sentinel Manifold checks candidate LLM outputs against supplied reference material and emits the safest supported answer, or blocks the whole candidate pool when every answer drifts from the reference structure.
 
+## Public Proof Release
+
+`v0.1.0 Public Proof` packages Sentinel as a working AI release gate: run the
+live sandbox, inspect the five-case demo suite, copy the CI workflow into
+another repo, and export admin evidence bundles when you need a proof package.
+
+- New visitors: start with the [30 Second Demo](#30-second-demo).
+- Developers: use [INTEGRATION.md](INTEGRATION.md) and the copy-paste GitHub Actions workflow.
+- Admins: unlock the hosted demo and export the evidence bundle described in [DEMO_PROOF.md](DEMO_PROOF.md).
+- Release text: see [RELEASE_NOTES.md](RELEASE_NOTES.md) and [CHANGELOG.md](CHANGELOG.md).
+
+Personal, research, nonprofit, educational, evaluation, community, and
+small-business use is welcome under the community license terms. Larger
+commercial integrations require written permission; see
+[COMMERCIAL_USE.md](COMMERCIAL_USE.md).
+
 ## 30 Second Demo
 
 1. Open the live public sandbox: https://sentinel-manifold-public.onrender.com/
@@ -382,6 +398,6 @@ Product proof:
 
 ## Next Build Steps
 
+- Publish the first GitHub release after the public proof pack is reviewed.
 - Refine policy packs for support, regulated workflows, research claims, and agentic tools.
-- Add more customer-shaped regression examples beyond the mixed-buyer proof suite.
-- Improve admin-only evidence review with clearer bundle summaries and release notes.
+- Add more customer-shaped regression examples beyond the starter and mixed-buyer suites.

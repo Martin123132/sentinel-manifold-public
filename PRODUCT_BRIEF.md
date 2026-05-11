@@ -190,3 +190,14 @@ That turns the proof into adoption:
 
 > Copy the release gate into another repo, fail unsafe AI regressions, and keep
 > the evidence artifact.
+
+## Stage 13 Commercial Story
+
+Sentinel now has a public launch pack around `v0.1.0 Public Proof`: release
+notes, a changelog, announcement copy, and a tighter README path for visitors,
+developers, and hosted-demo admins.
+
+That turns the working gate into a public proof release:
+
+> Show the release gate, explain the evidence, and make the commercial boundary
+> clear before people ask.

@@ -15,15 +15,20 @@ and a plain-English release-gate summary. The first deeper policy pack covers AI
 agent tool-boundary drift before release. The integration kit turns that proof
 into a copy-paste GitHub Actions release gate.
 
+The current public milestone is launch readiness: `v0.1.0 Public Proof` packages
+the live demo, CI release gate, integration guide, commercial boundary, and admin
+evidence export into a clear first release story.
+
 > Fail releases when AI behavior regresses.
 
 ## Near-Term Milestones
 
-1. Better policy tuning for support, regulated workflows, research claims, code
+1. Publish the first GitHub release once the launch pack and CI are confirmed.
+2. Better policy tuning for support, regulated workflows, research claims, code
    review, and agentic tools.
-2. More customer-shaped regression examples beyond the starter and mixed-buyer
+3. More customer-shaped regression examples beyond the starter and mixed-buyer
    suites.
-3. Cleaner release notes and shareable proof language around exported bundles.
+4. Cleaner shareable proof language around exported evidence bundles.
 
 ## Boundaries
 
