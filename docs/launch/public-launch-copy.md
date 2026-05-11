@@ -2,6 +2,10 @@
 
 Use these snippets when announcing the `v0.1.0 Public Proof` release.
 
+Live release:
+
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.0
+
 ## Short Post
 
 Sentinel Manifold `v0.1.0 Public Proof` is live.
@@ -31,6 +35,10 @@ https://sentinel-manifold-public.onrender.com/
 Repo:
 
 https://github.com/Martin123132/sentinel-manifold-public
+
+Release:
+
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.0
 
 ## Community-Friendly Note
 

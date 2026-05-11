@@ -11,9 +11,12 @@ Sentinel Manifold checks candidate LLM outputs against supplied reference materi
 
 ## Public Proof Release
 
-`v0.1.0 Public Proof` packages Sentinel as a working AI release gate: run the
-live sandbox, inspect the five-case demo suite, copy the CI workflow into
-another repo, and export admin evidence bundles when you need a proof package.
+`v0.1.0 Public Proof` is live:
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.0
+
+This release packages Sentinel as a working AI release gate: run the live
+sandbox, inspect the five-case demo suite, copy the CI workflow into another
+repo, and export admin evidence bundles when you need a proof package.
 
 - New visitors: start with the [30 Second Demo](#30-second-demo).
 - Developers: use [INTEGRATION.md](INTEGRATION.md) and the copy-paste GitHub Actions workflow.
@@ -398,6 +401,7 @@ Product proof:
 
 ## Next Build Steps
 
-- Publish the first GitHub release after the public proof pack is reviewed.
+- Build an external adoption proof that shows Sentinel used as a release gate outside this repo.
+- Polish the hosted dashboard's first impression around CI, evidence, and release-gate proof.
 - Refine policy packs for support, regulated workflows, research claims, and agentic tools.
 - Add more customer-shaped regression examples beyond the starter and mixed-buyer suites.

@@ -1,5 +1,8 @@
 # v0.1.0 Public Proof
 
+Live GitHub Release:
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.0
+
 Sentinel Manifold now has a first public proof release: a source-available AI release gate that blocks unsupported, contradictory, or overclaiming AI outputs before they ship.
 
 ## What This Release Proves

@@ -201,3 +201,13 @@ That turns the working gate into a public proof release:
 
 > Show the release gate, explain the evidence, and make the commercial boundary
 > clear before people ask.
+
+## Stage 14 Commercial Story
+
+Sentinel now has a live public release, not just a prepared launch pack. The
+repo, release page, CI status, public sandbox, and adoption docs all point at
+the same proof: the gateway can fail releases when AI behavior regresses.
+
+That turns the public release into trust and adoption:
+
+> Make the proof easy to find, then show it working outside the Sentinel repo.

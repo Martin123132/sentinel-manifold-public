@@ -4,7 +4,9 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
-- Prepare follow-up policy tuning and customer-shaped release-gate examples.
+- Clean up post-release docs now that `v0.1.0 Public Proof` is live.
+- Prepare the next adoption milestone: proving Sentinel as a release gate outside
+  its own repo.
 - Keep public demo, admin evidence export, and CI release-gate artifacts stable.
 
 ## v0.1.0 Public Proof - 2026-05-11
