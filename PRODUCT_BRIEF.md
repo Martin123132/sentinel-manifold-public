@@ -211,3 +211,14 @@ the same proof: the gateway can fail releases when AI behavior regresses.
 That turns the public release into trust and adoption:
 
 > Make the proof easy to find, then show it working outside the Sentinel repo.
+
+## Stage 15 Commercial Story
+
+Sentinel now has an external adoption fixture shaped like a customer-support
+assistant repo. The fixture runs its own five-case release gate and produces its
+own CI artifact, proving that adoption is more than a README claim.
+
+That makes the integration story more concrete:
+
+> Copy Sentinel into an app repo, run the suite, and fail release when support
+> behavior drifts from policy.

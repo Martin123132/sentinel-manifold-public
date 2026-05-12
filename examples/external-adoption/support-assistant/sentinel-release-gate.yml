@@ -1,0 +1,44 @@
+name: Support Assistant Sentinel Gate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  sentinel-release-gate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Run Sentinel tests if vendored
+        if: ${{ hashFiles('tests/**') != '' }}
+        run: python -m unittest discover -s tests
+
+      - name: Compile Sentinel modules if vendored
+        if: ${{ hashFiles('app/**/*.py') != '' }}
+        run: python -m compileall app
+
+      - name: Run support assistant Sentinel suite
+        run: python app/cli.py suite --input examples/external-adoption/support-assistant/sentinel-suite.json --out out/external-adoption-suite-report.json --fail-on-fail
+
+      - name: Upload Sentinel release-gate evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: support-assistant-sentinel-gate
+          path: |
+            out/external-adoption-suite-report.json
+            out/audits/*.evidence.json
+          if-no-files-found: error

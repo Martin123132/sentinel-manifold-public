@@ -4,6 +4,10 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
+- Add a support-assistant external adoption fixture with a five-case release
+  gate and copy-paste workflow.
+- Run the external adoption suite in CI and upload
+  `out/external-adoption-suite-report.json`.
 - Clean up post-release docs now that `v0.1.0 Public Proof` is live.
 - Prepare the next adoption milestone: proving Sentinel as a release gate outside
   its own repo.

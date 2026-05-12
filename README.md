@@ -259,6 +259,25 @@ Start with [INTEGRATION.md](INTEGRATION.md). It shows how to copy Sentinel into
 another repository, run `samples/integration-starter-suite.json` locally, and
 collect CI evidence artifacts.
 
+## External Adoption Proof
+
+The support-assistant fixture shows what this looks like in an app-shaped repo:
+
+```text
+examples/external-adoption/support-assistant/
+```
+
+It includes a five-case suite and a copy-paste workflow for a customer-support
+assistant release gate. Run it locally with:
+
+```powershell
+python app\cli.py suite --input examples\external-adoption\support-assistant\sentinel-suite.json --out out\external-adoption-suite-report.json --fail-on-fail
+```
+
+The main CI release gate also runs this fixture and uploads
+`out/external-adoption-suite-report.json` as part of the `sentinel-release-gate`
+artifact.
+
 Copy-paste workflow:
 
 ```text

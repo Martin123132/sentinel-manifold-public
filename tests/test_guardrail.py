@@ -383,6 +383,22 @@ class GuardrailTests(unittest.TestCase):
         self.assertEqual(report["summary"]["case_count"], 4)
         self.assertEqual(report["summary"]["failed"], 0)
 
+    def test_external_adoption_suite_passes(self):
+        suite = json.loads(
+            (
+                ROOT
+                / "examples"
+                / "external-adoption"
+                / "support-assistant"
+                / "sentinel-suite.json"
+            ).read_text(encoding="utf-8")
+        )
+        report = run_suite(suite, save_evidence=False)
+
+        self.assertEqual(report["status"], "PASS")
+        self.assertEqual(report["summary"]["case_count"], 5)
+        self.assertEqual(report["summary"]["failed"], 0)
+
     def test_evidence_pack_round_trip_verifies_integrity(self):
         payload = {
             "policy_profile": "support",

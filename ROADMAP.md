@@ -13,7 +13,8 @@ also export a compliance-style evidence bundle from the hosted demo without
 making saved evidence public; the bundle now includes both machine-readable JSON
 and a plain-English release-gate summary. The first deeper policy pack covers AI
 agent tool-boundary drift before release. The integration kit turns that proof
-into a copy-paste GitHub Actions release gate.
+into a copy-paste GitHub Actions release gate, and the support-assistant fixture
+shows the same release-gate pattern in an app-shaped adoption example.
 
 The first public release is complete: `v0.1.0 Public Proof` packages the live
 demo, CI release gate, integration guide, commercial boundary, and admin evidence
@@ -25,14 +26,14 @@ Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v
 
 ## Near-Term Milestones
 
-1. Build an external adoption proof that shows Sentinel running as a release
-   gate outside its own repo.
-2. Polish the hosted dashboard's first impression around CI, evidence, and
+1. Polish the hosted dashboard's first impression around CI, evidence, and
    release-gate proof.
-3. Better policy tuning for support, regulated workflows, research claims, code
+2. Better policy tuning for support, regulated workflows, research claims, code
    review, and agentic tools.
-4. More customer-shaped regression examples beyond the starter and mixed-buyer
-   suites.
+3. More customer-shaped regression examples beyond the starter, mixed-buyer, and
+   support-assistant suites.
+4. Turn the in-repo adoption fixture into a true separate demo repo when the
+   GitHub setup is worth the extra ceremony.
 5. Cleaner shareable proof language around exported evidence bundles.
 
 ## Boundaries

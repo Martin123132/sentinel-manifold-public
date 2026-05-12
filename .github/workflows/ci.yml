@@ -118,6 +118,9 @@ jobs:
       - name: Run Sentinel integration starter suite
         run: python app/cli.py suite --input samples/integration-starter-suite.json --out out/integration-starter-suite-report.json --fail-on-fail
 
+      - name: Run Sentinel external adoption suite
+        run: python app/cli.py suite --input examples/external-adoption/support-assistant/sentinel-suite.json --out out/external-adoption-suite-report.json --fail-on-fail
+
       - name: Upload release gate artifacts
         uses: actions/upload-artifact@v4
         if: always()
@@ -127,5 +130,6 @@ jobs:
             out/suite-report.json
             out/agent-policy-suite-report.json
             out/integration-starter-suite-report.json
+            out/external-adoption-suite-report.json
             out/audits/*.evidence.json
           if-no-files-found: error

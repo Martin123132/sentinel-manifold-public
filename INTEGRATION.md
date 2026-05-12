@@ -26,6 +26,26 @@ If every case matches its expectation, the job passes. If any model, prompt, or
 policy change causes an unsafe candidate to emit, the command exits non-zero and
 the release gate fails.
 
+## See An App-Shaped Adoption Proof
+
+After the starter suite, inspect the support-assistant fixture:
+
+```text
+examples/external-adoption/support-assistant/
+```
+
+It models another product repo using Sentinel as a release gate for support
+policy, escalation behavior, agent tool boundaries, and quality overclaims.
+
+Run it from the Sentinel repo root:
+
+```powershell
+python app\cli.py suite --input examples\external-adoption\support-assistant\sentinel-suite.json --out out\external-adoption-suite-report.json --fail-on-fail
+```
+
+The fixture's `sentinel-release-gate.yml` is the copy-paste workflow for that
+app-shaped example.
+
 ## Write A Suite JSON File
 
 A suite is a JSON file with a `cases` array. Each case supplies trusted
@@ -89,6 +109,7 @@ python app\cli.py suite --input samples\agent-policy-suite.json --out out\agent-
 The workflow uploads:
 
 - `out/integration-starter-suite-report.json`
+- `out/external-adoption-suite-report.json`, when using the support-assistant fixture
 - `out/audits/*.evidence.json`
 
 The report shows pass/fail status for each case. The evidence packs preserve the
