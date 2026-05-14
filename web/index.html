@@ -55,8 +55,8 @@
       <main class="workspace">
         <header class="topbar">
           <div>
-            <h1>AI Guardrail Gateway</h1>
-            <p>Reference-bound gateway decisions.</p>
+            <h1>Fail releases when AI behavior regresses.</h1>
+            <p>Run reference-bound checks, prove the result in CI, and export evidence when admin-unlocked.</p>
           </div>
           <div class="topbar-actions">
             <span id="sandboxBadge" class="sandbox-badge" hidden>Public sandbox</span>
@@ -86,6 +86,32 @@
           </div>
         </header>
 
+        <section class="proof-strip" aria-label="Public proof summary">
+          <article class="proof-card">
+            <span>Live Demo</span>
+            <strong id="proofSandbox">Public sandbox</strong>
+            <p>Visitors can run bounded demo checks with no provider keys.</p>
+          </article>
+          <article class="proof-card">
+            <span>Release</span>
+            <strong>v0.1.0 Public Proof</strong>
+            <p><a href="https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.0" target="_blank" rel="noreferrer">View release</a></p>
+          </article>
+          <article class="proof-card">
+            <span>CI Gate</span>
+            <strong>Evidence artifact</strong>
+            <p>Suites upload reports and evidence packs in GitHub Actions.</p>
+          </article>
+          <article class="proof-card proof-action-card">
+            <span>30 Second Demo</span>
+            <strong>Expect PASS: 5 / 5</strong>
+            <button class="primary-button" id="topSuiteButton" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              Run Demo Suite
+            </button>
+          </article>
+        </section>
+
         <section class="metrics-row" aria-label="Current metrics">
           <article class="metric-card">
             <span>Gateway Action</span>
@@ -112,6 +138,7 @@
                 <div>
                   <h2>Gateway Request</h2>
                   <p>Generate candidate outputs, then regulate them before emission.</p>
+                  <p class="sandbox-lock-cue" id="sandboxLockCue" hidden>Public sandbox is locked to <code>local_demo</code>. Hosted providers unlock only with the admin API key.</p>
                 </div>
                 <div class="provider-row">
                   <label>
@@ -163,7 +190,7 @@
               <div class="panel-header">
                 <div>
                   <h2>Release Gate</h2>
-                  <p>Run a guardrail regression suite before shipping model or policy changes.</p>
+                  <p>Run the public proof suite before shipping model, prompt, provider, or policy changes.</p>
                 </div>
                 <button class="secondary-button" id="suiteButton" type="button">
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
@@ -187,6 +214,16 @@
                   <span>Failed</span>
                   <strong id="suiteFailed">--</strong>
                 </div>
+                <div>
+                  <span>Evidence</span>
+                  <strong id="suiteEvidenceStatus">--</strong>
+                </div>
+              </div>
+              <div class="suite-proof-note" id="suiteProofNote">
+                Public proof target: <strong>PASS</strong>, <strong>5</strong> cases, <strong>5</strong> passed, <strong>0</strong> failed.
+              </div>
+              <div class="ci-artifact-cue">
+                CI release gate uploads <code>suite-report.json</code>, policy reports, adoption reports, and evidence packs as the <code>sentinel-release-gate</code> artifact.
               </div>
               <div class="table-wrap suite-table-wrap">
                 <table>

@@ -184,6 +184,7 @@ button {
   font-size: 30px;
   line-height: 1.15;
   font-weight: 760;
+  max-width: 720px;
 }
 
 .topbar p,
@@ -204,6 +205,62 @@ button {
   gap: 10px;
   flex-wrap: wrap;
   justify-content: flex-end;
+}
+
+.proof-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.proof-card {
+  min-width: 0;
+  min-height: 118px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: 0 1px 0 rgba(23, 32, 51, 0.03);
+}
+
+.proof-card span {
+  color: var(--muted);
+  display: block;
+  font-size: 11px;
+  font-weight: 820;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.proof-card strong {
+  display: block;
+  margin-top: 7px;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.proof-card p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.proof-card a {
+  color: var(--accent-2);
+  font-weight: 750;
+}
+
+.proof-action-card {
+  display: grid;
+  gap: 8px;
+}
+
+.proof-action-card .primary-button {
+  align-self: end;
+  width: 100%;
+  min-height: 42px;
 }
 
 .policy-select,
@@ -266,6 +323,20 @@ button {
 .public-sandbox .provider-row select,
 .public-sandbox .provider-row input {
   color: var(--faint);
+}
+
+.sandbox-lock-cue {
+  border: 1px solid #a7d8d8;
+  background: #e8f7f7;
+  border-radius: 8px;
+  color: #0b6f72 !important;
+  padding: 8px 10px;
+  max-width: 680px;
+}
+
+.sandbox-lock-cue code {
+  color: #074f52;
+  font-weight: 800;
 }
 
 .segmented {
@@ -368,6 +439,7 @@ button {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: 0 1px 0 rgba(23, 32, 51, 0.03);
+  min-width: 0;
 }
 
 .metric-card {
@@ -453,6 +525,7 @@ h2 {
 
 textarea {
   width: 100%;
+  max-width: 100%;
   resize: vertical;
   border: 1px solid var(--border-strong);
   border-radius: 8px;
@@ -462,6 +535,8 @@ textarea {
   line-height: 1.5;
   min-height: 154px;
   outline: none;
+  overflow-x: hidden;
+  overflow-wrap: anywhere;
 }
 
 .gateway-panel textarea {
@@ -827,7 +902,7 @@ tbody tr.selected-row {
 
 .suite-summary {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 10px;
   margin-bottom: 12px;
 }
@@ -854,6 +929,29 @@ tbody tr.selected-row {
   min-height: 24px;
   font-size: 18px;
   line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.suite-proof-note,
+.ci-artifact-cue {
+  border: 1px solid var(--border);
+  background: #fbfdff;
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+  margin-bottom: 10px;
+  padding: 10px 11px;
+}
+
+.suite-proof-note strong {
+  color: var(--text);
+}
+
+.ci-artifact-cue code {
+  color: var(--accent-2);
+  font-size: 12px;
+  overflow-wrap: anywhere;
 }
 
 .suite-table-wrap td:first-child {
@@ -977,6 +1075,10 @@ tbody tr.selected-row {
   .work-grid {
     grid-template-columns: 1fr;
   }
+
+  .proof-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 820px) {
@@ -1049,6 +1151,7 @@ tbody tr.selected-row {
   }
 
   .metrics-row,
+  .proof-strip,
   .candidate-grid,
   .inspector-grid,
   .suite-summary {
@@ -1056,10 +1159,35 @@ tbody tr.selected-row {
   }
 
   .side-rail {
-    padding: 16px;
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .nav-list {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .nav-item {
+    justify-content: center;
+    padding: 9px 6px;
+    font-size: 0;
+    gap: 0;
+  }
+
+  .nav-icon {
+    width: 17px;
+    height: 17px;
+  }
+
+  .proof-action-card {
+    order: -1;
   }
 
   .rail-footer {
     margin-left: 0;
+    padding: 9px 10px;
+    font-size: 12px;
   }
 }

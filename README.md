@@ -49,6 +49,10 @@ and export a zip evidence bundle containing a manifest, saved evidence packs,
 verification reports, and a plain-English `summary.md`. Public visitors can run
 the sandbox, but they cannot read or export saved evidence.
 
+The dashboard now presents this proof directly in the first screen: public
+sandbox state, `v0.1.0 Public Proof`, CI artifact evidence, and the expected
+demo-suite `PASS` result.
+
 ## What You Can Use This For
 
 - Test whether an AI answer stays inside trusted reference material.
@@ -420,7 +424,6 @@ Product proof:
 
 ## Next Build Steps
 
-- Build an external adoption proof that shows Sentinel used as a release gate outside this repo.
-- Polish the hosted dashboard's first impression around CI, evidence, and release-gate proof.
 - Refine policy packs for support, regulated workflows, research claims, and agentic tools.
 - Add more customer-shaped regression examples beyond the starter and mixed-buyer suites.
+- Turn the in-repo adoption fixture into a true separate demo repo when the GitHub setup is worth it.

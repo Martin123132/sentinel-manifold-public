@@ -222,3 +222,14 @@ That makes the integration story more concrete:
 
 > Copy Sentinel into an app repo, run the suite, and fail release when support
 > behavior drifts from policy.
+
+## Stage 16 Commercial Story
+
+Sentinel's hosted dashboard now explains the proof at a glance. First-time
+visitors see the release-gate claim, public sandbox state, release link, CI
+artifact story, demo-suite PASS target, and admin evidence boundary before they
+dig into the workbench.
+
+That makes the live demo easier to understand:
+
+> Open the sandbox, run the suite, see PASS, and know where the evidence lives.

@@ -20,21 +20,22 @@ The first public release is complete: `v0.1.0 Public Proof` packages the live
 demo, CI release gate, integration guide, commercial boundary, and admin evidence
 export into a clear release story.
 
+The hosted dashboard now presents that proof in the first screen: public sandbox
+status, release link, CI artifact cue, and demo-suite PASS target.
+
 Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.0
 
 > Fail releases when AI behavior regresses.
 
 ## Near-Term Milestones
 
-1. Polish the hosted dashboard's first impression around CI, evidence, and
-   release-gate proof.
-2. Better policy tuning for support, regulated workflows, research claims, code
+1. Better policy tuning for support, regulated workflows, research claims, code
    review, and agentic tools.
-3. More customer-shaped regression examples beyond the starter, mixed-buyer, and
+2. More customer-shaped regression examples beyond the starter, mixed-buyer, and
    support-assistant suites.
-4. Turn the in-repo adoption fixture into a true separate demo repo when the
+3. Turn the in-repo adoption fixture into a true separate demo repo when the
    GitHub setup is worth the extra ceremony.
-5. Cleaner shareable proof language around exported evidence bundles.
+4. Cleaner shareable proof language around exported evidence bundles.
 
 ## Boundaries
 

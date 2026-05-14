@@ -4,6 +4,8 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
+- Polish the hosted dashboard first screen around release-gate proof, CI
+  artifacts, public sandbox limits, and admin evidence export.
 - Add a support-assistant external adoption fixture with a five-case release
   gate and copy-paste workflow.
 - Run the external adoption suite in CI and upload

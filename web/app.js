@@ -48,7 +48,10 @@ const historyTable = document.querySelector("#historyTable");
 const evidenceInspector = document.querySelector("#evidenceInspector");
 const exportEvidenceButton = document.querySelector("#exportEvidenceButton");
 const suiteButton = document.querySelector("#suiteButton");
+const topSuiteButton = document.querySelector("#topSuiteButton");
 const suiteTable = document.querySelector("#suiteTable");
+const suiteProofNote = document.querySelector("#suiteProofNote");
+const sandboxLockCue = document.querySelector("#sandboxLockCue");
 let bootstrapping = false;
 
 function publicSandboxActive() {
@@ -301,11 +304,20 @@ function renderSuite() {
   const summary = result?.summary || {};
   const status = state.suiteLoading ? "RUNNING" : (result?.status || "READY");
   const statusClass = status === "PASS" ? "verified" : status === "READY" || status === "RUNNING" ? "neutral" : "warn";
+  const evidenceStatus = publicSandboxActive()
+    ? "Admin only"
+    : result
+      ? `${result.cases.filter((item) => item.evidence).length} saved`
+      : "Ready";
 
   document.querySelector("#suiteStatus").innerHTML = `<span class="integrity-chip ${statusClass}">${iconSafe(status)}</span>`;
   document.querySelector("#suiteCases").textContent = summary.case_count ?? "--";
   document.querySelector("#suitePassed").textContent = summary.passed ?? "--";
   document.querySelector("#suiteFailed").textContent = summary.failed ?? "--";
+  document.querySelector("#suiteEvidenceStatus").textContent = evidenceStatus;
+  suiteProofNote.innerHTML = result
+    ? `Observed: <strong>${iconSafe(status)}</strong>, <strong>${iconSafe(summary.case_count ?? "--")}</strong> cases, <strong>${iconSafe(summary.passed ?? "--")}</strong> passed, <strong>${iconSafe(summary.failed ?? "--")}</strong> failed.`
+    : `Public proof target: <strong>PASS</strong>, <strong>5</strong> cases, <strong>5</strong> passed, <strong>0</strong> failed.`;
 
   if (state.suiteLoading) {
     suiteTable.innerHTML = `<tr><td colspan="5">Running the release gate...</td></tr>`;
@@ -335,10 +347,10 @@ function renderHistory() {
   const history = state.auditHistory;
   exportBundleButton.disabled = publicSandboxActive();
   historyCue.textContent = publicSandboxActive()
-    ? "Evidence history unlocks with an admin API key."
-    : "Export Bundle includes saved evidence, verification JSON, manifest counts, and summary.md.";
+    ? "Public users can run the sandbox, but saved evidence and bundle export require the admin API key."
+    : "Export Bundle downloads saved evidence, verification JSON, manifest counts, and summary.md.";
   if (publicSandboxActive()) {
-    historyTable.innerHTML = `<tr><td colspan="6">Evidence history is private.</td></tr>`;
+    historyTable.innerHTML = `<tr><td colspan="6">Admin-only evidence history is locked in public sandbox mode.</td></tr>`;
     return;
   }
   if (!history.length) {
@@ -366,7 +378,7 @@ function renderEvidenceInspector() {
   exportEvidenceButton.disabled = !pack;
   if (publicSandboxActive()) {
     exportEvidenceButton.disabled = true;
-    evidenceInspector.innerHTML = `<div class="inspector-empty"><strong>Public sandbox</strong><p>Evidence packs are available only with an admin API key.</p></div>`;
+    evidenceInspector.innerHTML = `<div class="inspector-empty"><strong>Admin evidence locked</strong><p>Public sandbox runs do not expose saved audit history, single-pack downloads, or evidence bundles. Unlock with the admin API key to inspect packs.</p></div>`;
     return;
   }
   if (state.evidenceLoading) {
@@ -505,7 +517,7 @@ async function loadEvidencePack(checkId) {
 }
 
 async function runDemoSuite() {
-  suiteButton.disabled = true;
+  setSuiteButtonsLoading(true);
   state.suiteLoading = true;
   renderSuite();
   try {
@@ -533,9 +545,18 @@ async function runDemoSuite() {
     }
   } finally {
     state.suiteLoading = false;
-    suiteButton.disabled = false;
-    suiteButton.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Run Demo Suite';
+    setSuiteButtonsLoading(false);
     renderSuite();
+  }
+}
+
+function setSuiteButtonsLoading(loading) {
+  const label = loading ? "Running..." : "Run Demo Suite";
+  const icon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>';
+  for (const button of [suiteButton, topSuiteButton]) {
+    if (!button) continue;
+    button.disabled = loading;
+    button.innerHTML = `${icon}${label}`;
   }
 }
 
@@ -582,6 +603,7 @@ function syncAuthUi() {
   generateButton.hidden = sandbox;
   providerSelect.disabled = sandbox;
   modelInput.disabled = sandbox;
+  sandboxLockCue.hidden = !sandbox;
   if (sandbox) {
     state.provider = "local_demo";
     state.model = "sentinel-demo-v1";
@@ -589,6 +611,7 @@ function syncAuthUi() {
     modelInput.value = state.model;
   }
   railStatusLabel.textContent = sandbox ? "Public sandbox" : "Local gateway online";
+  document.querySelector("#proofSandbox").textContent = sandbox ? "Public sandbox" : "Admin/local mode";
 }
 
 async function bootstrapDashboard() {
@@ -726,6 +749,7 @@ providerSelect.addEventListener("change", () => {
 runButton.addEventListener("click", runCheck);
 generateButton.addEventListener("click", runGenerateCheck);
 suiteButton.addEventListener("click", runDemoSuite);
+topSuiteButton.addEventListener("click", runDemoSuite);
 loadDemoButton.addEventListener("click", () => {
   loadDemo().catch((error) => {
     if (error.message !== "unauthorized") {
