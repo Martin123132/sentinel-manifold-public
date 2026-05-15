@@ -1,0 +1,229 @@
+{
+  "name": "Policy calibration suite",
+  "description": "Safe paraphrase checks that prove strict buyer policies do not overblock legitimate wording.",
+  "policy_profile": "support",
+  "provider": "local_demo",
+  "model": "sentinel-demo-v1",
+  "cases": [
+    {
+      "id": "support-refund-paraphrase",
+      "name": "Support refund paraphrase emits",
+      "policy_profile": "support",
+      "references": [
+        "Refunds under 75 GBP may be handled by support staff.",
+        "Escalated billing disputes are reviewed by a human support lead."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "Refunds under 75 GBP can be handled by support staff. Escalated billing disputes get human support lead review."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "support-status-paraphrase",
+      "name": "Support status paraphrase emits",
+      "policy_profile": "support",
+      "references": [
+        "Customers receive a status update within 2 business days.",
+        "Support staff may offer account troubleshooting steps."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "Customers can receive a status update within 2 business days. Support staff can offer account troubleshooting steps."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "regulated-approval-paraphrase",
+      "name": "Regulated approval paraphrase emits",
+      "policy_profile": "regulated",
+      "references": [
+        "Claims over 5000 GBP require enhanced review.",
+        "Payments are released after manager approval."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "Claims over 5000 GBP still require enhanced review. Payments are released only after manager approval."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "regulated-review-window-paraphrase",
+      "name": "Regulated review-window paraphrase emits",
+      "policy_profile": "regulated",
+      "references": [
+        "The customer is eligible for manual review within 3 business days.",
+        "Policy withdrawals over 10000 GBP require enhanced review."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "The customer can receive manual review within 3 business days. Policy withdrawals over 10000 GBP still require enhanced review."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "research-preliminary-paraphrase",
+      "name": "Research preliminary wording emits",
+      "policy_profile": "research",
+      "references": [
+        "The study observed a 12 percent reduction in handling errors across 40 test runs.",
+        "The authors describe the result as preliminary."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "The study observed handling errors fall by 12 percent across 40 test runs. The authors call the result preliminary."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "research-benchmark-paraphrase",
+      "name": "Research benchmark scope emits",
+      "policy_profile": "research",
+      "references": [
+        "The benchmark reports latency measured on internal test traffic.",
+        "The benchmark excludes production customer traffic."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "The benchmark measures latency on internal test traffic and excludes production customer traffic."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "code-review-version-paraphrase",
+      "name": "Code review version paraphrase emits",
+      "policy_profile": "code_review",
+      "references": [
+        "The patch updates dependency api-client from version 1.4.0 to version 1.4.1.",
+        "Authentication behavior is unchanged."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "The patch moves dependency api-client from version 1.4.0 to version 1.4.1. Authentication behavior stays unchanged."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "code-review-logging-paraphrase",
+      "name": "Code review logging paraphrase emits",
+      "policy_profile": "code_review",
+      "references": [
+        "The pull request modifies logging around failed checkout attempts.",
+        "The pull request does not change payment authorization."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "The pull request changes failed-checkout logging only. The pull request leaves payment authorization unchanged."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "agent-calendar-paraphrase",
+      "name": "Agent calendar paraphrase emits",
+      "policy_profile": "agent_tool",
+      "references": [
+        "The calendar agent reads calendar events.",
+        "The calendar agent requires user approval before drafting replies."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "The calendar agent reads calendar events. The calendar agent drafts replies only after user approval."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "agent-crm-paraphrase",
+      "name": "Agent CRM read-only paraphrase emits",
+      "policy_profile": "agent_tool",
+      "references": [
+        "The support agent uses read only CRM access.",
+        "The support agent reads support tickets."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "The support agent reads support tickets. The support agent keeps CRM access read only."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    }
+  ]
+}

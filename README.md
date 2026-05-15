@@ -245,6 +245,12 @@ Run the buyer policy depth suite:
 python app\cli.py suite --input samples\buyer-policy-depth-suite.json --out out\buyer-policy-depth-suite-report.json --fail-on-fail
 ```
 
+Run the policy calibration suite:
+
+```powershell
+python app\cli.py suite --input samples\policy-calibration-suite.json --out out\policy-calibration-suite-report.json --fail-on-fail
+```
+
 Run the starter integration suite:
 
 ```powershell
@@ -260,7 +266,7 @@ Product proof:
 > Fail releases when AI behavior regresses.
 
 The bundled GitHub Actions workflow runs the regression, agent, buyer-depth,
-integration, and external adoption suites, then uploads a
+policy calibration, integration, and external adoption suites, then uploads a
 `sentinel-release-gate` artifact containing suite reports plus every generated
 evidence pack.
 
@@ -440,8 +446,18 @@ Product proof:
 
 > Make policy packs buyer-shaped enough to trust.
 
+## Policy Calibration Suite
+
+`samples/policy-calibration-suite.json` adds ten safe-pass cases across the same
+buyer policy packs. It proves strict profiles still allow legitimate paraphrases
+and gives CI a way to catch overblocking before policy tuning ships.
+
+Product proof:
+
+> Prove strict policies do not overblock safe buyer wording.
+
 ## Next Build Steps
 
-- Add more customer-shaped regression examples beyond the starter, mixed-buyer, and buyer-depth suites.
+- Add more customer-shaped regression examples beyond the starter, mixed-buyer, buyer-depth, and calibration suites.
 - Tune edge cases for buyer-specific false positives and false negatives as real users try the packs.
 - Turn the in-repo adoption fixture into a true separate demo repo when the GitHub setup is worth it.

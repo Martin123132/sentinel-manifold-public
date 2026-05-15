@@ -4,6 +4,10 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
+- Add a ten-case policy calibration suite to prove strict buyer policies allow
+  safe paraphrases without overblocking.
+- Run the policy calibration suite in CI and upload
+  `out/policy-calibration-suite-report.json`.
 - Add a ten-case buyer policy depth suite for support, regulated workflow,
   research, code review, and agent/tool boundary release gates.
 - Strengthen deterministic policy checks for more tool/code action verbs,

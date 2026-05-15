@@ -244,3 +244,13 @@ wording, and high-certainty overclaims.
 That makes the policy packs feel closer to real buying conversations:
 
 > Make policy packs buyer-shaped enough to trust.
+
+## Stage 18 Commercial Story
+
+Sentinel now has a policy calibration suite with ten safe-pass cases across the
+same buyer profiles. The release gate proves strict policies can allow legitimate
+paraphrases while still keeping the unsafe regression suites intact.
+
+That makes policy tuning more credible:
+
+> Prove strict policies do not overblock safe buyer wording.

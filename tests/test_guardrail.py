@@ -425,6 +425,30 @@ class GuardrailTests(unittest.TestCase):
         self.assertFalse(unsafe["safe_to_emit"])
         self.assertIn("known_participant_unsupported_relation", {finding["code"] for finding in unsafe["findings"]})
 
+    def test_safe_agent_paraphrase_emits_without_findings(self):
+        result = run_guardrail(
+            {
+                "policy_profile": "agent_tool",
+                "references": [
+                    "The calendar agent reads calendar events.",
+                    "The calendar agent requires user approval before drafting replies.",
+                ],
+                "candidates": [
+                    {
+                        "id": "safe",
+                        "label": "Safe",
+                        "text": "The calendar agent reads calendar events. The calendar agent drafts replies only after user approval.",
+                    }
+                ],
+            }
+        )
+
+        safe = result["candidates"][0]
+        self.assertEqual(result["action"], "EMIT")
+        self.assertTrue(safe["safe_to_emit"])
+        self.assertEqual(safe["findings"], [])
+        self.assertLessEqual(safe["risk_score"], 20)
+
     def test_agent_policy_suite_passes(self):
         suite = json.loads((ROOT / "samples" / "agent-policy-suite.json").read_text(encoding="utf-8"))
         report = run_suite(suite, save_evidence=False)
@@ -435,6 +459,14 @@ class GuardrailTests(unittest.TestCase):
 
     def test_buyer_policy_depth_suite_passes(self):
         suite = json.loads((ROOT / "samples" / "buyer-policy-depth-suite.json").read_text(encoding="utf-8"))
+        report = run_suite(suite, save_evidence=False)
+
+        self.assertEqual(report["status"], "PASS")
+        self.assertEqual(report["summary"]["case_count"], 10)
+        self.assertEqual(report["summary"]["failed"], 0)
+
+    def test_policy_calibration_suite_passes(self):
+        suite = json.loads((ROOT / "samples" / "policy-calibration-suite.json").read_text(encoding="utf-8"))
         report = run_suite(suite, save_evidence=False)
 
         self.assertEqual(report["status"], "PASS")
