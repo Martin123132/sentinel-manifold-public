@@ -83,24 +83,35 @@ STOPWORDS = {
     "without",
 }
 
-NEGATORS = {"not", "no", "never", "doesnt", "doesn't", "cannot", "cant", "can't"}
+NEGATORS = {"not", "no", "never", "without", "doesnt", "doesn't", "cannot", "cant", "can't"}
 
 AGENT_TOOL_VERBS = {
     "approves": "approve",
+    "calls": "call",
     "collects": "collect",
+    "creates": "create",
     "deletes": "delete",
     "denies": "deny",
+    "deploys": "deploy",
+    "downloads": "download",
+    "merges": "merge",
+    "modifies": "modify",
     "reads": "read",
     "retains": "retain",
     "sends": "send",
     "shares": "share",
     "stores": "store",
+    "updates": "update",
+    "uploads": "upload",
     "writes": "write",
 }
 
 OVERCLAIM_PATTERNS = (
     "fully solves",
     "fully solved",
+    "100% accurate",
+    "guaranteed compliant",
+    "guaranteed compliance",
     "guarantees",
     "proves there is no",
     "proves gravity has no connection",
@@ -108,7 +119,11 @@ OVERCLAIM_PATTERNS = (
     "complete and experimentally verified",
     "always correct",
     "never fails",
+    "never hallucinates",
+    "zero risk",
 )
+
+APPROVAL_TERMS = ("approval", "review", "authorization", "authorisation", "consent")
 
 HARD_BLOCK_CODES = {
     "direct_contradiction",
@@ -531,6 +546,10 @@ def _unsupported_negation(text: str, reference_model: ReferenceModel) -> Finding
     if not raw_tokens & NEGATORS:
         return None
 
+    approval_negation = _approval_negation(text, reference_model)
+    if approval_negation:
+        return approval_negation
+
     best_overlap = 0.0
     best_ref = ""
     for ref in reference_model.references:
@@ -548,6 +567,34 @@ def _unsupported_negation(text: str, reference_model: ReferenceModel) -> Finding
             evidence=best_ref,
             fix="Remove the negation or provide a reference that supports it.",
         )
+    return None
+
+
+def _approval_negation(text: str, reference_model: ReferenceModel) -> Finding | None:
+    normalized = normalize_text(text)
+    term_pattern = "|".join((*APPROVAL_TERMS, "approved", "reviewed", "authorized", "authorised"))
+    if not re.search(rf"\bwithout(?: [a-z]+){{0,3}} ({term_pattern})\b", normalized):
+        return None
+
+    for ref in reference_model.references:
+        normalized_ref = normalize_text(ref)
+        mentions_term = any(term in normalized_ref for term in APPROVAL_TERMS)
+        requires_term = re.search(
+            rf"\b(requires?|required|must|needs?|after|before|approved|reviewed)\b.*\b({term_pattern})\b",
+            normalized_ref,
+        ) or re.search(
+            rf"\b({term_pattern})\b.*\b(requires?|required|must|needed|before|after)\b",
+            normalized_ref,
+        )
+        if mentions_term and requires_term:
+            return Finding(
+                code="unsupported_negation",
+                label="Unsupported Negation",
+                severity=30,
+                message="Candidate removes required approval or review from the supplied references.",
+                evidence=ref,
+                fix="Keep the referenced approval or review step, or provide a source that removes it.",
+            )
     return None
 
 

@@ -296,6 +296,64 @@ class GuardrailTests(unittest.TestCase):
         self.assertIn(("calendar agent", "read", "calendar events"), relations)
         self.assertIn(("support agent", "delete", "crm records"), relations)
 
+    def test_relation_extraction_recognizes_buyer_policy_verbs(self):
+        relations = [
+            relation.key()
+            for relation in extract_relations(
+                "The release agent deploys production changes. "
+                "The code bot merges pull requests. "
+                "The support tool uploads customer files."
+            )
+        ]
+
+        self.assertIn(("release agent", "deploy", "production changes"), relations)
+        self.assertIn(("code bot", "merge", "pull requests"), relations)
+        self.assertIn(("support tool", "upload", "customer files"), relations)
+
+    def test_without_required_review_blocks(self):
+        result = run_guardrail(
+            {
+                "policy_profile": "regulated",
+                "references": [
+                    "Payments require manager approval.",
+                    "Claims require human review.",
+                ],
+                "candidates": [
+                    {
+                        "id": "unsafe",
+                        "label": "Unsafe",
+                        "text": "Claims proceed without human review.",
+                    }
+                ],
+            }
+        )
+
+        unsafe = result["candidates"][0]
+        self.assertEqual(result["action"], "BLOCK")
+        self.assertIn("unsupported_negation", {finding["code"] for finding in unsafe["findings"]})
+
+    def test_expanded_overclaim_patterns_block(self):
+        result = run_guardrail(
+            {
+                "policy_profile": "research",
+                "references": [
+                    "The evaluation observed reduced error rates in 40 test runs.",
+                    "The authors describe the result as preliminary.",
+                ],
+                "candidates": [
+                    {
+                        "id": "unsafe",
+                        "label": "Unsafe",
+                        "text": "The system is 100% accurate, guaranteed compliant, and never hallucinates.",
+                    }
+                ],
+            }
+        )
+
+        unsafe = result["candidates"][0]
+        self.assertEqual(result["action"], "BLOCK")
+        self.assertIn("unsupported_overclaim", {finding["code"] for finding in unsafe["findings"]})
+
     def test_result_is_json_serializable(self):
         result = run_guardrail(
             {
@@ -373,6 +431,14 @@ class GuardrailTests(unittest.TestCase):
 
         self.assertEqual(report["status"], "PASS")
         self.assertEqual(report["summary"]["case_count"], 5)
+        self.assertEqual(report["summary"]["failed"], 0)
+
+    def test_buyer_policy_depth_suite_passes(self):
+        suite = json.loads((ROOT / "samples" / "buyer-policy-depth-suite.json").read_text(encoding="utf-8"))
+        report = run_suite(suite, save_evidence=False)
+
+        self.assertEqual(report["status"], "PASS")
+        self.assertEqual(report["summary"]["case_count"], 10)
         self.assertEqual(report["summary"]["failed"], 0)
 
     def test_integration_starter_suite_passes(self):

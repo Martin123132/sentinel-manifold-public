@@ -14,7 +14,9 @@ making saved evidence public; the bundle now includes both machine-readable JSON
 and a plain-English release-gate summary. The first deeper policy pack covers AI
 agent tool-boundary drift before release. The integration kit turns that proof
 into a copy-paste GitHub Actions release gate, and the support-assistant fixture
-shows the same release-gate pattern in an app-shaped adoption example.
+shows the same release-gate pattern in an app-shaped adoption example. The buyer
+policy depth suite now adds ten deeper support, regulated, research, code review,
+and agent/tool cases for local and CI proof.
 
 The first public release is complete: `v0.1.0 Public Proof` packages the live
 demo, CI release gate, integration guide, commercial boundary, and admin evidence
@@ -29,10 +31,9 @@ Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v
 
 ## Near-Term Milestones
 
-1. Better policy tuning for support, regulated workflows, research claims, code
-   review, and agentic tools.
-2. More customer-shaped regression examples beyond the starter, mixed-buyer, and
-   support-assistant suites.
+1. More customer-shaped regression examples beyond the starter, mixed-buyer,
+   support-assistant, and buyer-depth suites.
+2. Tune buyer-specific false positives and false negatives from real trial use.
 3. Turn the in-repo adoption fixture into a true separate demo repo when the
    GitHub setup is worth the extra ceremony.
 4. Cleaner shareable proof language around exported evidence bundles.

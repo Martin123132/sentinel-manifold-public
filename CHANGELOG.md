@@ -4,6 +4,12 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
+- Add a ten-case buyer policy depth suite for support, regulated workflow,
+  research, code review, and agent/tool boundary release gates.
+- Strengthen deterministic policy checks for more tool/code action verbs,
+  approval-removal wording, and high-certainty overclaims.
+- Run the buyer policy depth suite in CI and upload
+  `out/buyer-policy-depth-suite-report.json`.
 - Polish the hosted dashboard first screen around release-gate proof, CI
   artifacts, public sandbox limits, and admin evidence export.
 - Add a support-assistant external adoption fixture with a five-case release

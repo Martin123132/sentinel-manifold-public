@@ -239,6 +239,12 @@ Run the agent tool-boundary policy suite:
 python app\cli.py suite --input samples\agent-policy-suite.json --out out\agent-policy-suite-report.json --fail-on-fail
 ```
 
+Run the buyer policy depth suite:
+
+```powershell
+python app\cli.py suite --input samples\buyer-policy-depth-suite.json --out out\buyer-policy-depth-suite-report.json --fail-on-fail
+```
+
 Run the starter integration suite:
 
 ```powershell
@@ -253,9 +259,10 @@ Product proof:
 
 > Fail releases when AI behavior regresses.
 
-The bundled GitHub Actions workflow runs the regression, agent, and integration
-suites, then uploads a `sentinel-release-gate` artifact containing suite reports
-plus every generated evidence pack.
+The bundled GitHub Actions workflow runs the regression, agent, buyer-depth,
+integration, and external adoption suites, then uploads a
+`sentinel-release-gate` artifact containing suite reports plus every generated
+evidence pack.
 
 ## Use In Another Repo
 
@@ -415,15 +422,26 @@ This MVP is not an external fact checker. It regulates outputs against reference
 
 The `agent_tool` policy pack focuses on agent/tool boundary drift. A team can
 state what an agent is allowed to read, write, send, delete, store, share,
-approve, or deny, then fail release when candidate behavior moves beyond that
-approved scope.
+approve, deny, deploy, merge, upload, or download, then fail release when
+candidate behavior moves beyond that approved scope.
 
 Product proof:
 
 > Block agent tool-boundary drift before release.
 
+## Buyer Policy Depth Suite
+
+`samples/buyer-policy-depth-suite.json` adds ten local/CI cases across support,
+regulated workflows, research claims, code review, and agent tool boundaries.
+It is the deeper proof that the same release gate can catch buyer-shaped
+regressions, not just toy examples.
+
+Product proof:
+
+> Make policy packs buyer-shaped enough to trust.
+
 ## Next Build Steps
 
-- Refine policy packs for support, regulated workflows, research claims, and agentic tools.
-- Add more customer-shaped regression examples beyond the starter and mixed-buyer suites.
+- Add more customer-shaped regression examples beyond the starter, mixed-buyer, and buyer-depth suites.
+- Tune edge cases for buyer-specific false positives and false negatives as real users try the packs.
 - Turn the in-repo adoption fixture into a true separate demo repo when the GitHub setup is worth it.

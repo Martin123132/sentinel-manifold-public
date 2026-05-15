@@ -233,3 +233,14 @@ dig into the workbench.
 That makes the live demo easier to understand:
 
 > Open the sandbox, run the suite, see PASS, and know where the evidence lives.
+
+## Stage 17 Commercial Story
+
+Sentinel now has a buyer policy depth suite with ten cases across support,
+regulated workflows, research claims, code review, and agent tool boundaries.
+The deterministic engine also recognizes more tool/code actions, approval-removal
+wording, and high-certainty overclaims.
+
+That makes the policy packs feel closer to real buying conversations:
+
+> Make policy packs buyer-shaped enough to trust.
