@@ -23,14 +23,16 @@ Admins can unlock the dashboard with `SENTINEL_API_KEY`, run the same suite, and
 download **Export Bundle**. The bundle is a zip containing:
 
 - `summary.md`
+- `evidence-reader.md`
 - `manifest.json`
 - `evidence/<check_id>.evidence.json`
 - `verification/<check_id>.verification.json`
 
-`summary.md` gives a plain-English release-gate overview, while `manifest.json`
-keeps the machine-readable counts and file index. That turns the demo into a
-small compliance-style proof pack without exposing private evidence to
-unauthenticated visitors.
+`evidence-reader.md` explains the bundle for non-technical readers. `summary.md`
+gives the release-gate overview, including what the bundle proves and what it
+does not prove. `manifest.json` keeps the machine-readable verdict, counts, and
+file index. That turns the demo into a small compliance-style proof pack without
+exposing private evidence to unauthenticated visitors.
 
 ## What The Five Public Cases Prove
 

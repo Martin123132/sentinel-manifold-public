@@ -4,6 +4,12 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
+- Add `evidence-reader.md` to admin evidence export bundles for
+  buyer-readable proof walkthroughs.
+- Add executive verdict, generated file list, and reader path fields to evidence
+  bundle manifests.
+- Expand `summary.md` with proof snapshot and reference-bound "what this proves"
+  / "what this does not prove" language.
 - Add a ten-case policy calibration suite to prove strict buyer policies allow
   safe paraphrases without overblocking.
 - Run the policy calibration suite in CI and upload

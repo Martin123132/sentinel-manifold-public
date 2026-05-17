@@ -45,9 +45,10 @@ guardrail before release.
 See [DEMO_PROOF.md](DEMO_PROOF.md) for the short case-by-case explanation.
 
 Admins can unlock the hosted demo with `SENTINEL_API_KEY`, run the same suite,
-and export a zip evidence bundle containing a manifest, saved evidence packs,
-verification reports, and a plain-English `summary.md`. Public visitors can run
-the sandbox, but they cannot read or export saved evidence.
+and export a zip evidence bundle containing a buyer-readable `evidence-reader.md`,
+plain-English `summary.md`, manifest, saved evidence packs, and verification
+reports. Public visitors can run the sandbox, but they cannot read or export
+saved evidence.
 
 The dashboard now presents this proof directly in the first screen: public
 sandbox state, `v0.1.0 Public Proof`, CI artifact evidence, and the expected
@@ -343,11 +344,13 @@ POST /v1/chat/completions
 `POST /api/check` writes an evidence pack by default and returns the pack digest in `result.evidence`.
 
 `GET /api/audits/export?limit=25` returns an admin-only zip bundle with
-`summary.md`, `manifest.json`, `evidence/<check_id>.evidence.json`, and
+`summary.md`, `evidence-reader.md`, `manifest.json`,
+`evidence/<check_id>.evidence.json`, and
 `verification/<check_id>.verification.json`. The manifest includes bundle-level
-counts for emitted, blocked, verified, failed verification, policy profiles, and
-newest/oldest check timestamps. If no evidence exists, the endpoint still
-returns a valid zip with an empty manifest and a readable empty summary.
+counts, an executive verdict, the reader path, generated file paths, policy
+profiles, and newest/oldest check timestamps. If no evidence exists, the
+endpoint still returns a valid zip with an empty manifest and readable empty
+summary/reader files.
 
 In `SENTINEL_PUBLIC_DEMO=true` sandbox requests, `/api/check` and `/api/suite`
 do not persist evidence packs. Admin-authenticated requests keep the normal

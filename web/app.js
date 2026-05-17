@@ -348,7 +348,7 @@ function renderHistory() {
   exportBundleButton.disabled = publicSandboxActive();
   historyCue.textContent = publicSandboxActive()
     ? "Public users can run the sandbox, but saved evidence and bundle export require the admin API key."
-    : "Export Bundle downloads saved evidence, verification JSON, manifest counts, and summary.md.";
+    : "Export Bundle downloads saved evidence plus summary.md, evidence-reader.md, manifest.json, evidence JSON, and verification JSON.";
   if (publicSandboxActive()) {
     historyTable.innerHTML = `<tr><td colspan="6">Admin-only evidence history is locked in public sandbox mode.</td></tr>`;
     return;

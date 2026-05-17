@@ -182,6 +182,9 @@ def build_evidence_bundle(evidence_dir: Path, limit: int = 25) -> bytes:
         "limit": limit,
         "count": 0,
         "summary_path": "summary.md",
+        "reader_path": "evidence-reader.md",
+        "verdict": "No evidence exported",
+        "generated_files": ["summary.md", "evidence-reader.md", "manifest.json"],
         "summary": _bundle_counts([]),
         "audits": [],
     }
@@ -219,7 +222,10 @@ def build_evidence_bundle(evidence_dir: Path, limit: int = 25) -> bytes:
             )
         manifest["count"] = len(manifest["audits"])
         manifest["summary"] = _bundle_counts(manifest["audits"])
+        manifest["verdict"] = _bundle_verdict(manifest["summary"])
+        manifest["generated_files"] = _bundle_generated_files(manifest)
         archive.writestr("summary.md", _bundle_summary_markdown(manifest))
+        archive.writestr("evidence-reader.md", _bundle_reader_markdown(manifest))
         archive.writestr("manifest.json", json.dumps(manifest, indent=2))
     return buffer.getvalue()
 
@@ -245,14 +251,52 @@ def _bundle_counts(audits: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def _bundle_verdict(summary: dict[str, Any]) -> str:
+    total = int(summary.get("total_audits") or 0)
+    failed_verification = int(summary.get("failed_verification") or 0)
+    if total == 0:
+        return "No evidence exported"
+    if failed_verification > 0:
+        return "Needs review"
+    return "Verified release-gate bundle"
+
+
+def _bundle_generated_files(manifest: dict[str, Any]) -> list[str]:
+    files = ["summary.md", "evidence-reader.md", "manifest.json"]
+    for audit in manifest.get("audits", []):
+        evidence_path = audit.get("evidence_path")
+        verification_path = audit.get("verification_path")
+        if evidence_path:
+            files.append(str(evidence_path))
+        if verification_path:
+            files.append(str(verification_path))
+    return files
+
+
 def _bundle_summary_markdown(manifest: dict[str, Any]) -> str:
     summary = manifest.get("summary", {})
     policy_profiles = summary.get("policy_profiles") or []
     policy_text = ", ".join(policy_profiles) if policy_profiles else "none recorded"
+    verdict = manifest.get("verdict") or _bundle_verdict(summary)
     lines = [
         "# Sentinel Evidence Bundle",
         "",
+        f"Executive verdict: **{verdict}**",
+        "",
         "Human-readable release-gate summary for the exported evidence packs.",
+        "",
+        "## Proof Snapshot",
+        "",
+        "| Total audits | Emitted | Blocked | Verified | Failed verification | Newest check | Oldest check |",
+        "| --- | --- | --- | --- | --- | --- | --- |",
+        "| "
+        f"{_md_cell(summary.get('total_audits', 0))} | "
+        f"{_md_cell(summary.get('emitted', 0))} | "
+        f"{_md_cell(summary.get('blocked', 0))} | "
+        f"{_md_cell(summary.get('verified', 0))} | "
+        f"{_md_cell(summary.get('failed_verification', 0))} | "
+        f"{_md_cell(_format_timestamp(summary.get('newest_created_at')))} | "
+        f"{_md_cell(_format_timestamp(summary.get('oldest_created_at')))} |",
         "",
         "## Bundle Summary",
         "",
@@ -266,6 +310,18 @@ def _bundle_summary_markdown(manifest: dict[str, Any]) -> str:
         f"- Policy profiles: {policy_text}",
         f"- Newest check: {_format_timestamp(summary.get('newest_created_at'))}",
         f"- Oldest check: {_format_timestamp(summary.get('oldest_created_at'))}",
+        "",
+        "## What This Proves",
+        "",
+        "- Sentinel evaluated saved AI outputs against the supplied reference material and policy profile.",
+        "- The bundle records which checks emitted an answer and which checks blocked unsafe candidates.",
+        "- Each evidence pack has a canonical SHA-256 integrity check and request-hash verification report.",
+        "",
+        "## What This Does Not Prove",
+        "",
+        "- It does not prove external truth beyond the references supplied to Sentinel.",
+        "- It does not certify a whole organization, deployment, model provider, or future AI behavior.",
+        "- It does not make private customer evidence safe to share publicly.",
         "",
     ]
     audits = manifest.get("audits", [])
@@ -299,6 +355,71 @@ def _bundle_summary_markdown(manifest: dict[str, Any]) -> str:
             f"{_md_cell(audit.get('blocked'))} | "
             f"{integrity} |"
         )
+    lines.append("")
+    return "\n".join(lines)
+
+
+def _bundle_reader_markdown(manifest: dict[str, Any]) -> str:
+    summary = manifest.get("summary", {})
+    audits = manifest.get("audits", [])
+    policy_profiles = summary.get("policy_profiles") or []
+    policy_text = ", ".join(policy_profiles) if policy_profiles else "none recorded"
+    verdict = manifest.get("verdict") or _bundle_verdict(summary)
+    files = manifest.get("generated_files") or []
+    lines = [
+        "# Sentinel Evidence Reader",
+        "",
+        "This file is the plain-English guide to the exported Sentinel proof bundle.",
+        "",
+        "## Quick Verdict",
+        "",
+        f"- Verdict: **{verdict}**",
+        f"- Total saved checks: {summary.get('total_audits', 0)}",
+        f"- Emitted checks: {summary.get('emitted', 0)}",
+        f"- Blocked checks: {summary.get('blocked', 0)}",
+        f"- Integrity verified: {summary.get('verified', 0)}",
+        f"- Failed verification: {summary.get('failed_verification', 0)}",
+        f"- Policy profiles: {policy_text}",
+        "",
+        "## How To Read The Bundle",
+        "",
+        "1. Start with `summary.md` for the release-gate result and audit table.",
+        "2. Open `manifest.json` for the machine-readable index and count summary.",
+        "3. Inspect `evidence/<check_id>.evidence.json` for the original request, candidates, findings, and decision.",
+        "4. Inspect `verification/<check_id>.verification.json` to confirm the integrity digest and request hashes.",
+        "",
+        "## What Happened",
+        "",
+    ]
+    if audits:
+        lines.extend(
+            [
+                "Sentinel exported saved checks from the audit directory. Each check records whether the gateway emitted a supported candidate or blocked all candidates that drifted from the supplied references.",
+                "",
+            ]
+        )
+    else:
+        lines.extend(
+            [
+                "No evidence was exported. The zip is still valid, but it only proves that the export path works and that no saved audit packs were available for this export.",
+                "",
+            ]
+        )
+
+    lines.extend(
+        [
+            "## Reference-Bound Boundary",
+            "",
+            "Sentinel does not claim external truth. It proves that saved outputs were checked against the references, candidates, and policy settings included in the evidence packs.",
+            "",
+            "## Files Included",
+            "",
+        ]
+    )
+    if files:
+        lines.extend(f"- `{_md_cell(path)}`" for path in files)
+    else:
+        lines.append("- No files were listed in the manifest.")
     lines.append("")
     return "\n".join(lines)
 

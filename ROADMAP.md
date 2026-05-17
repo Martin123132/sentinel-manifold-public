@@ -18,7 +18,9 @@ shows the same release-gate pattern in an app-shaped adoption example. The buyer
 policy depth suite now adds ten deeper support, regulated, research, code review,
 and agent/tool cases for local and CI proof. The policy calibration suite adds
 ten safe-paraphrase cases so strict profiles prove they do not overblock
-legitimate buyer wording.
+legitimate buyer wording. Admin evidence exports now include a buyer-readable
+evidence reader, executive verdict, and reference-bound proof language alongside
+the machine-readable JSON.
 
 The first public release is complete: `v0.1.0 Public Proof` packages the live
 demo, CI release gate, integration guide, commercial boundary, and admin evidence
@@ -38,7 +40,7 @@ Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v
 2. Tune buyer-specific false positives and false negatives from real trial use.
 3. Turn the in-repo adoption fixture into a true separate demo repo when the
    GitHub setup is worth the extra ceremony.
-4. Cleaner shareable proof language around exported evidence bundles.
+4. Add more customer-shaped exported evidence examples for sales and compliance walkthroughs.
 
 ## Boundaries
 

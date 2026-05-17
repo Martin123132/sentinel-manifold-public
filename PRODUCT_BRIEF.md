@@ -254,3 +254,13 @@ paraphrases while still keeping the unsafe regression suites intact.
 That makes policy tuning more credible:
 
 > Prove strict policies do not overblock safe buyer wording.
+
+## Stage 19 Commercial Story
+
+Sentinel evidence export now reads like a buyer-facing proof pack. Admin bundles
+include an executive verdict, a plain-English `evidence-reader.md`, a clearer
+`summary.md`, and the same machine-verifiable evidence and verification JSON.
+
+That makes the proof easier to share without overselling it:
+
+> Turn evidence export into a buyer-readable proof pack.
