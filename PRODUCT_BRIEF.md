@@ -264,3 +264,14 @@ include an executive verdict, a plain-English `evidence-reader.md`, a clearer
 That makes the proof easier to share without overselling it:
 
 > Turn evidence export into a buyer-readable proof pack.
+
+## Stage 20 Commercial Story
+
+Sentinel now has a proof gallery that turns the release-gate suites into
+buyer-shaped walkthroughs. Support, regulated workflow, research, agent/tool,
+and code-review examples each show the supplied references, unsafe drift,
+safe wording, suite case IDs, and what the admin evidence bundle proves.
+
+That turns proof into a story people can understand quickly:
+
+> Turn proof into buyer-shaped walkthroughs.

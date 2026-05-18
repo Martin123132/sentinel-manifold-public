@@ -4,6 +4,11 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
+- Add a proof gallery with buyer-shaped walkthroughs for support, regulated
+  workflow, research, agent/tool, and code-review release gates.
+- Add an evidence-reader walkthrough that explains `evidence-reader.md`,
+  `summary.md`, `manifest.json`, evidence JSON, and verification JSON together.
+- Link the proof gallery from the README and demo proof docs.
 - Add `evidence-reader.md` to admin evidence export bundles for
   buyer-readable proof walkthroughs.
 - Add executive verdict, generated file list, and reader path fields to evidence

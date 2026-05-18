@@ -6,6 +6,9 @@ provider keys, customer data, or admin access.
 
 Live sandbox: https://sentinel-manifold-public.onrender.com/
 
+For buyer-shaped walkthroughs of the same proof story, see the
+[Proof Gallery](docs/proof-gallery/README.md).
+
 ## What To Click
 
 1. Open the live sandbox.
@@ -96,6 +99,11 @@ python app\cli.py suite --input samples\agent-policy-suite.json --out out\agent-
 That suite uses the `agent_tool` policy pack to block tool-boundary drift such
 as credential storage, email sending, CRM writes/deletes, and unapproved payment
 release.
+
+For deeper buyer examples across support, regulated workflow, research,
+agent/tool, and code-review release gates, read the
+[Proof Gallery](docs/proof-gallery/README.md). The gallery points each story to
+the exact suite cases that prove it.
 
 ## Why It Matters
 

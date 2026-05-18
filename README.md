@@ -19,6 +19,7 @@ sandbox, inspect the five-case demo suite, copy the CI workflow into another
 repo, and export admin evidence bundles when you need a proof package.
 
 - New visitors: start with the [30 Second Demo](#30-second-demo).
+- Buyers and reviewers: browse the [Proof Gallery](docs/proof-gallery/README.md).
 - Developers: use [INTEGRATION.md](INTEGRATION.md) and the copy-paste GitHub Actions workflow.
 - Admins: unlock the hosted demo and export the evidence bundle described in [DEMO_PROOF.md](DEMO_PROOF.md).
 - Release text: see [RELEASE_NOTES.md](RELEASE_NOTES.md) and [CHANGELOG.md](CHANGELOG.md).
@@ -42,7 +43,10 @@ guardrail before release.
 
 ![Sentinel demo suite passing](docs/assets/sentinel-demo-suite-pass.png)
 
-See [DEMO_PROOF.md](DEMO_PROOF.md) for the short case-by-case explanation.
+See [DEMO_PROOF.md](DEMO_PROOF.md) for the short case-by-case explanation, or
+open the [Proof Gallery](docs/proof-gallery/README.md) for buyer-shaped
+walkthroughs across support, regulated workflow, research, agent/tool, and
+code-review release gates.
 
 Admins can unlock the hosted demo with `SENTINEL_API_KEY`, run the same suite,
 and export a zip evidence bundle containing a buyer-readable `evidence-reader.md`,
@@ -53,6 +57,18 @@ saved evidence.
 The dashboard now presents this proof directly in the first screen: public
 sandbox state, `v0.1.0 Public Proof`, CI artifact evidence, and the expected
 demo-suite `PASS` result.
+
+## Proof Gallery
+
+The [Proof Gallery](docs/proof-gallery/README.md) turns the current suites into
+five short buyer walkthroughs: support refund/escalation drift, regulated
+approval drift, research overclaims, agent tool-boundary drift, and code-review
+version/auth drift.
+
+It also includes an
+[evidence reader walkthrough](docs/proof-gallery/evidence-reader-walkthrough.md)
+for admins who export the proof bundle and need to explain `summary.md`,
+`manifest.json`, evidence JSON, and verification JSON together.
 
 ## What You Can Use This For
 
@@ -461,6 +477,6 @@ Product proof:
 
 ## Next Build Steps
 
-- Add more customer-shaped regression examples beyond the starter, mixed-buyer, buyer-depth, and calibration suites.
-- Tune edge cases for buyer-specific false positives and false negatives as real users try the packs.
 - Turn the in-repo adoption fixture into a true separate demo repo when the GitHub setup is worth it.
+- Add more exported evidence examples for sales, review, and compliance walkthroughs.
+- Tune edge cases for buyer-specific false positives and false negatives as real users try the packs.
