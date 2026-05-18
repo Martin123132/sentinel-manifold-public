@@ -324,12 +324,12 @@ Copy this job into another repository to use Sentinel as an AI safety gate:
 sentinel-release-gate:
   runs-on: ubuntu-latest
   steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
+    - uses: actions/checkout@v6
+    - uses: actions/setup-python@v6
       with:
         python-version: "3.13"
     - run: python app/cli.py suite --input samples/integration-starter-suite.json --out out/integration-starter-suite-report.json --fail-on-fail
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v7
       if: always()
       with:
         name: sentinel-release-gate

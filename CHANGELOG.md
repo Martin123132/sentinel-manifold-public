@@ -4,6 +4,8 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
+- Move GitHub Actions workflow and public workflow snippets to Node 24-ready
+  action majors.
 - Add a proof gallery with buyer-shaped walkthroughs for support, regulated
   workflow, research, agent/tool, and code-review release gates.
 - Add an evidence-reader walkthrough that explains `evidence-reader.md`,
