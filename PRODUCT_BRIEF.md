@@ -286,3 +286,14 @@ Actions workflow, and uploads its own evidence artifact.
 That turns adoption from a claim into a public proof:
 
 > Show Sentinel working in another repo, with its own CI gate and evidence.
+
+## Stage 22 Commercial Story
+
+Sentinel now includes a public support-assistant evidence example. Reviewers can
+open `summary.md`, `evidence-reader.md`, `manifest.json`, suite report,
+evidence JSON, and verification JSON directly in the repo without needing admin
+access or customer data.
+
+That turns the evidence story into something people can inspect immediately:
+
+> Show the proof bundle, not just the claim that one exists.

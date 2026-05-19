@@ -517,6 +517,49 @@ class GuardrailTests(unittest.TestCase):
         self.assertEqual(report["summary"]["case_count"], 5)
         self.assertEqual(report["summary"]["failed"], 0)
 
+    def test_public_support_assistant_evidence_example_is_complete_and_verified(self):
+        example_dir = ROOT / "docs" / "evidence-examples" / "support-assistant"
+        manifest = json.loads((example_dir / "manifest.json").read_text(encoding="utf-8"))
+        suite_report = json.loads((example_dir / "suite-report.json").read_text(encoding="utf-8"))
+
+        self.assertEqual(manifest["schema_version"], "sentinel.evidence.bundle.v1")
+        self.assertEqual(manifest["verdict"], "Verified release-gate bundle")
+        self.assertEqual(manifest["reader_path"], "evidence-reader.md")
+        self.assertEqual(manifest["summary_path"], "summary.md")
+        self.assertEqual(manifest["count"], 5)
+        self.assertEqual(manifest["summary"]["total_audits"], 5)
+        self.assertEqual(manifest["summary"]["emitted"], 1)
+        self.assertEqual(manifest["summary"]["blocked"], 4)
+        self.assertEqual(manifest["summary"]["verified"], 5)
+        self.assertEqual(manifest["summary"]["failed_verification"], 0)
+        self.assertEqual(set(manifest["summary"]["policy_profiles"]), {"agent_tool", "regulated", "research", "support"})
+        self.assertEqual(suite_report["status"], "PASS")
+        self.assertEqual(suite_report["summary"]["case_count"], 5)
+        self.assertEqual(suite_report["summary"]["passed"], 5)
+        self.assertEqual(suite_report["summary"]["failed"], 0)
+
+        for generated_file in manifest["generated_files"]:
+            self.assertTrue((example_dir / generated_file).exists(), generated_file)
+
+        evidence_files = sorted((example_dir / "evidence").glob("*.evidence.json"))
+        verification_files = sorted((example_dir / "verification").glob("*.verification.json"))
+        self.assertEqual(len(evidence_files), 5)
+        self.assertEqual(len(verification_files), 5)
+        for evidence_path in evidence_files:
+            report = verify_evidence_pack(evidence_path)
+            self.assertTrue(report["integrity_valid"], evidence_path.name)
+            self.assertTrue(report["request_hashes_valid"], evidence_path.name)
+            verification_path = example_dir / "verification" / f"{report['check_id']}.verification.json"
+            saved_verification = json.loads(verification_path.read_text(encoding="utf-8"))
+            self.assertEqual(saved_verification["path"], f"evidence/{report['check_id']}.evidence.json")
+            self.assertTrue(saved_verification["integrity_valid"])
+            self.assertTrue(saved_verification["request_hashes_valid"])
+
+        example_text = "\n".join(path.read_text(encoding="utf-8") for path in example_dir.rglob("*.json"))
+        self.assertNotIn("D:\\", example_text)
+        self.assertNotIn("C:\\", example_text)
+        self.assertNotIn("\\Temp\\", example_text)
+
     def test_evidence_pack_round_trip_verifies_integrity(self):
         payload = {
             "policy_profile": "support",

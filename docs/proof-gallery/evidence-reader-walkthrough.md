@@ -4,6 +4,10 @@ Admin evidence exports are designed for two audiences at once: humans who need
 to understand the release-gate result quickly, and technical reviewers who want
 the raw JSON and integrity checks.
 
+Open the public
+[support-assistant evidence example](../evidence-examples/support-assistant/README.md)
+to inspect a complete sanitized bundle in the repo.
+
 ## Files In The Bundle
 
 | File | What to read it for |

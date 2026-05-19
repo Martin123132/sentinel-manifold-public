@@ -20,6 +20,7 @@ repo, and export admin evidence bundles when you need a proof package.
 
 - New visitors: start with the [30 Second Demo](#30-second-demo).
 - Buyers and reviewers: browse the [Proof Gallery](docs/proof-gallery/README.md).
+- Evidence reviewers: inspect the [public support-assistant evidence example](docs/evidence-examples/support-assistant/README.md).
 - Developers: use [INTEGRATION.md](INTEGRATION.md) and the copy-paste GitHub Actions workflow.
 - Admins: unlock the hosted demo and export the evidence bundle described in [DEMO_PROOF.md](DEMO_PROOF.md).
 - Release text: see [RELEASE_NOTES.md](RELEASE_NOTES.md) and [CHANGELOG.md](CHANGELOG.md).
@@ -57,6 +58,16 @@ saved evidence.
 The dashboard now presents this proof directly in the first screen: public
 sandbox state, `v0.1.0 Public Proof`, CI artifact evidence, and the expected
 demo-suite `PASS` result.
+
+## Public Evidence Example
+
+The [support-assistant evidence example](docs/evidence-examples/support-assistant/README.md)
+is a static, sanitized proof pack generated from the public external adoption
+suite. It includes `summary.md`, `evidence-reader.md`, `manifest.json`, the
+suite report, evidence JSON, and verification JSON so reviewers can inspect the
+evidence format without an admin key.
+
+Real hosted audit history and bundle export remain admin-only.
 
 ## Proof Gallery
 
@@ -486,6 +497,6 @@ Product proof:
 
 ## Next Build Steps
 
-- Turn the in-repo adoption fixture into a true separate demo repo when the GitHub setup is worth it.
-- Add more exported evidence examples for sales, review, and compliance walkthroughs.
+- Add more exported evidence examples for other buyer stories.
 - Tune edge cases for buyer-specific false positives and false negatives as real users try the packs.
+- Package the next release once the external adoption and public evidence proof has settled.

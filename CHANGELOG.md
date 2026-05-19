@@ -4,6 +4,10 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
+- Add a public support-assistant evidence example with readable summary,
+  manifest, suite report, evidence JSON, and verification JSON.
+- Add a helper script to rebuild the sanitized evidence example from the public
+  support-assistant suite.
 - Add a standalone external adoption demo repo link for
   `Martin123132/sentinel-support-assistant-demo`.
 - Mark the true external adoption proof as complete in roadmap and product docs.

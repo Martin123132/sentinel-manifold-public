@@ -1,0 +1,150 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-079e95ba84",
+  "created_at": 1779224580,
+  "saved_at": 1779224580,
+  "gateway_action": "BLOCK",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "regulated",
+    "policy_name": "Regulated Workflow",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": "local_demo",
+    "model": "sentinel-demo-v1",
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "Refunds over 75 GBP require supervisor approval.",
+      "Refunds under 75 GBP may be handled by support staff."
+    ],
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "Refunds over 250 GBP do not require supervisor approval."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "1d22a3d5c6523d0effeaafcb3897eb111b57b8f09b6af617826db96da4d83951",
+    "candidates_sha256": "99ad80ab022531191ee17d38791b9cfe22c8e91a418f495029352fa57e231038",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-079e95ba84",
+    "created_at": 1779224580,
+    "action": "BLOCK",
+    "emitted_candidate_id": null,
+    "emitted_text": null,
+    "summary": {
+      "headline": "Every candidate was blocked by reference-bound guardrails.",
+      "action": "BLOCK",
+      "candidate_count": 1,
+      "blocked_count": 1,
+      "reference_relations": 0,
+      "highest_risk_candidate": "Unsafe",
+      "highest_risk_score": 73
+    },
+    "mode": "strict",
+    "policy_profile": "regulated",
+    "policy_name": "Regulated Workflow",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 0,
+      "numbers": [
+        "75"
+      ],
+      "units": [],
+      "entities": [
+        "gbp",
+        "refunds"
+      ],
+      "content_token_count": 11,
+      "relations": []
+    },
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "Refunds over 250 GBP do not require supervisor approval.",
+        "verdict": "CONTRADICTION",
+        "safe_to_emit": false,
+        "risk_score": 73,
+        "findings": [
+          {
+            "code": "protected_number_drift",
+            "label": "Protected Number Drift",
+            "severity": 24,
+            "message": "Candidate introduced number(s) not present in the reference material.",
+            "evidence": "250",
+            "fix": "Use only referenced numbers, or add a supporting source before emission."
+          },
+          {
+            "code": "unsupported_negation",
+            "label": "Unsupported Negation",
+            "severity": 30,
+            "message": "Candidate negates content that is positively supported by the references.",
+            "evidence": "Refunds over 75 GBP require supervisor approval.",
+            "fix": "Remove the negation or provide a reference that supports it."
+          }
+        ],
+        "relations": [],
+        "literal_drift": {
+          "novel_numbers": [
+            "250"
+          ],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 0.545,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 0,
+          "finding_count": 2
+        },
+        "token_shocks": [
+          {
+            "token": "refunds",
+            "score": 0.05
+          },
+          {
+            "token": "over",
+            "score": 0.05
+          },
+          {
+            "token": "gbp",
+            "score": 0.05
+          },
+          {
+            "token": "require",
+            "score": 0.05
+          },
+          {
+            "token": "supervisor",
+            "score": 0.05
+          },
+          {
+            "token": "approval",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "dd86d07fd70174f5cb3ddfc272e21673f40c1f3b457790a99c76a262ff2877a5"
+  }
+}

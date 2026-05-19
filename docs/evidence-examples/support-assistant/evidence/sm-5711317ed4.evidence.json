@@ -1,0 +1,237 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-5711317ed4",
+  "created_at": 1779224580,
+  "saved_at": 1779224580,
+  "gateway_action": "EMIT",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "support",
+    "policy_name": "Customer Support",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": "local_demo",
+    "model": "sentinel-demo-v1",
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "Customer refunds are processed within 5 business days.",
+      "Refund status updates are sent by email."
+    ],
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "Customer refunds are processed within 5 business days. Refund status updates are sent by email."
+      },
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "Customer refunds are processed within 2 business days. Refund status updates are sent by text message."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "c43433607c362a26b0a36b3e088b44f6320a84ae27f7a9ba88b4f6b424a75e7b",
+    "candidates_sha256": "063aa7b2c88eccd8a234ea045c5d6e3fb0ddcdc6d5fd8ac076d041ad46199dbf",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-5711317ed4",
+    "created_at": 1779224580,
+    "action": "EMIT",
+    "emitted_candidate_id": "safe",
+    "emitted_text": "Customer refunds are processed within 5 business days. Refund status updates are sent by email.",
+    "summary": {
+      "headline": "Safe emitted with risk 0.",
+      "action": "EMIT",
+      "candidate_count": 2,
+      "blocked_count": 1,
+      "reference_relations": 1,
+      "highest_risk_candidate": "Unsafe",
+      "highest_risk_score": 72
+    },
+    "mode": "strict",
+    "policy_profile": "support",
+    "policy_name": "Customer Support",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 1,
+      "numbers": [
+        "5"
+      ],
+      "units": [],
+      "entities": [
+        "customer",
+        "refund"
+      ],
+      "content_token_count": 11,
+      "relations": [
+        {
+          "subject": "refund status",
+          "predicate": "update",
+          "object": "are sent by email"
+        }
+      ]
+    },
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "Customer refunds are processed within 5 business days. Refund status updates are sent by email.",
+        "verdict": "EMIT",
+        "safe_to_emit": true,
+        "risk_score": 0,
+        "findings": [],
+        "relations": [
+          {
+            "subject": "refund status",
+            "predicate": "update",
+            "object": "are sent by email"
+          }
+        ],
+        "literal_drift": {
+          "novel_numbers": [],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 1.0,
+          "relation_support": 1.0,
+          "supported_relations": 1,
+          "extracted_relations": 1,
+          "finding_count": 0
+        },
+        "token_shocks": [
+          {
+            "token": "customer",
+            "score": 0.05
+          },
+          {
+            "token": "refunds",
+            "score": 0.05
+          },
+          {
+            "token": "processed",
+            "score": 0.05
+          },
+          {
+            "token": "within",
+            "score": 0.05
+          },
+          {
+            "token": "business",
+            "score": 0.05
+          },
+          {
+            "token": "days",
+            "score": 0.05
+          },
+          {
+            "token": "refund",
+            "score": 0.05
+          },
+          {
+            "token": "status",
+            "score": 0.05
+          }
+        ]
+      },
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "Customer refunds are processed within 2 business days. Refund status updates are sent by text message.",
+        "verdict": "CONTRADICTION",
+        "safe_to_emit": false,
+        "risk_score": 72,
+        "findings": [
+          {
+            "code": "relation_object_mismatch",
+            "label": "Relation Object Mismatch",
+            "severity": 32,
+            "message": "Candidate keeps the protected relation but changes its object.",
+            "evidence": "refund status update are sent by text message; expected one of are sent by email",
+            "fix": "Use the referenced object for this relation."
+          },
+          {
+            "code": "protected_number_drift",
+            "label": "Protected Number Drift",
+            "severity": 24,
+            "message": "Candidate introduced number(s) not present in the reference material.",
+            "evidence": "2",
+            "fix": "Use only referenced numbers, or add a supporting source before emission."
+          }
+        ],
+        "relations": [
+          {
+            "subject": "refund status",
+            "predicate": "update",
+            "object": "are sent by text message"
+          }
+        ],
+        "literal_drift": {
+          "novel_numbers": [
+            "2"
+          ],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 0.769,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 1,
+          "finding_count": 2
+        },
+        "token_shocks": [
+          {
+            "token": "text",
+            "score": 0.62
+          },
+          {
+            "token": "message",
+            "score": 0.62
+          },
+          {
+            "token": "customer",
+            "score": 0.05
+          },
+          {
+            "token": "refunds",
+            "score": 0.05
+          },
+          {
+            "token": "processed",
+            "score": 0.05
+          },
+          {
+            "token": "within",
+            "score": 0.05
+          },
+          {
+            "token": "business",
+            "score": 0.05
+          },
+          {
+            "token": "days",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "aa35b77603a4855859f301cf2a86986c6a847cbc864323bbe674ef62828ef481"
+  }
+}

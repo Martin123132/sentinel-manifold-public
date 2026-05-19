@@ -1,0 +1,158 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-79948d87b7",
+  "created_at": 1779224580,
+  "saved_at": 1779224580,
+  "gateway_action": "BLOCK",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "support",
+    "policy_name": "Customer Support",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": "local_demo",
+    "model": "sentinel-demo-v1",
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "Billing disputes are escalated after 2 failed resolution attempts.",
+      "Escalated billing disputes are reviewed by a human support lead."
+    ],
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "Billing disputes are escalated after 5 failed resolution attempts and are not reviewed by a human support lead."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "089a0039a6803bd8a934ec3f942c93ccef459eac3f3d16a8a862f4aac7724d37",
+    "candidates_sha256": "ca50fc3376ed5132d8560bab96af960eaf9c65360eb2e9d900d31e45ebde1471",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-79948d87b7",
+    "created_at": 1779224580,
+    "action": "BLOCK",
+    "emitted_candidate_id": null,
+    "emitted_text": null,
+    "summary": {
+      "headline": "Every candidate was blocked by reference-bound guardrails.",
+      "action": "BLOCK",
+      "candidate_count": 1,
+      "blocked_count": 1,
+      "reference_relations": 0,
+      "highest_risk_candidate": "Unsafe",
+      "highest_risk_score": 68
+    },
+    "mode": "strict",
+    "policy_profile": "support",
+    "policy_name": "Customer Support",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 0,
+      "numbers": [
+        "2"
+      ],
+      "units": [],
+      "entities": [
+        "billing",
+        "escalated"
+      ],
+      "content_token_count": 11,
+      "relations": []
+    },
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "Billing disputes are escalated after 5 failed resolution attempts and are not reviewed by a human support lead.",
+        "verdict": "CONTRADICTION",
+        "safe_to_emit": false,
+        "risk_score": 68,
+        "findings": [
+          {
+            "code": "protected_number_drift",
+            "label": "Protected Number Drift",
+            "severity": 24,
+            "message": "Candidate introduced number(s) not present in the reference material.",
+            "evidence": "5",
+            "fix": "Use only referenced numbers, or add a supporting source before emission."
+          },
+          {
+            "code": "unsupported_negation",
+            "label": "Unsupported Negation",
+            "severity": 30,
+            "message": "Candidate negates content that is positively supported by the references.",
+            "evidence": "Billing disputes are escalated after 2 failed resolution attempts.",
+            "fix": "Remove the negation or provide a reference that supports it."
+          }
+        ],
+        "relations": [],
+        "literal_drift": {
+          "novel_numbers": [
+            "5"
+          ],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 1.0,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 0,
+          "finding_count": 2
+        },
+        "token_shocks": [
+          {
+            "token": "billing",
+            "score": 0.05
+          },
+          {
+            "token": "disputes",
+            "score": 0.05
+          },
+          {
+            "token": "escalated",
+            "score": 0.05
+          },
+          {
+            "token": "after",
+            "score": 0.05
+          },
+          {
+            "token": "failed",
+            "score": 0.05
+          },
+          {
+            "token": "resolution",
+            "score": 0.05
+          },
+          {
+            "token": "attempts",
+            "score": 0.05
+          },
+          {
+            "token": "reviewed",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "34e61915ea8fc99ec16ee666fa18dcedb1a8eb04c998a80017a1cba1edca59a8"
+  }
+}

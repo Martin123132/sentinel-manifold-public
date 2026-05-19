@@ -1,0 +1,151 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-98de758dd0",
+  "created_at": 1779224580,
+  "saved_at": 1779224580,
+  "gateway_action": "BLOCK",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "research",
+    "policy_name": "Research Claims",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": "local_demo",
+    "model": "sentinel-demo-v1",
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "The quality review observed reduced support error rates in 42 test runs.",
+      "The quality review reports preliminary results."
+    ],
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The support assistant guarantees reduced error rates in every deployment and is always correct."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "de9615c8833df596a39009b5bf9fbecd5e9373939a9de5753f1a58c104e1f726",
+    "candidates_sha256": "4c6e73b740ea76eda19eb1d70214276131deaa649d6d9440418080191c6f2c28",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-98de758dd0",
+    "created_at": 1779224580,
+    "action": "BLOCK",
+    "emitted_candidate_id": null,
+    "emitted_text": null,
+    "summary": {
+      "headline": "Every candidate was blocked by reference-bound guardrails.",
+      "action": "BLOCK",
+      "candidate_count": 1,
+      "blocked_count": 1,
+      "reference_relations": 0,
+      "highest_risk_candidate": "Unsafe",
+      "highest_risk_score": 39
+    },
+    "mode": "strict",
+    "policy_profile": "research",
+    "policy_name": "Research Claims",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 0,
+      "numbers": [
+        "42"
+      ],
+      "units": [],
+      "entities": [],
+      "content_token_count": 12,
+      "relations": []
+    },
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The support assistant guarantees reduced error rates in every deployment and is always correct.",
+        "verdict": "DRIFT",
+        "safe_to_emit": false,
+        "risk_score": 39,
+        "findings": [
+          {
+            "code": "unsupported_overclaim",
+            "label": "Unsupported Overclaim",
+            "severity": 16,
+            "message": "Candidate uses absolute or stronger-than-supported wording.",
+            "evidence": "guarantees",
+            "fix": "Rewrite as a scoped claim tied to the supplied reference material."
+          }
+        ],
+        "relations": [
+          {
+            "subject": "support assistant guarantees reduced error rates in every deployment",
+            "predicate": "is_a",
+            "object": "always correct"
+          }
+        ],
+        "literal_drift": {
+          "novel_numbers": [],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 0.222,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 1,
+          "finding_count": 1
+        },
+        "token_shocks": [
+          {
+            "token": "assistant",
+            "score": 0.62
+          },
+          {
+            "token": "guarantees",
+            "score": 0.62
+          },
+          {
+            "token": "every",
+            "score": 0.62
+          },
+          {
+            "token": "deployment",
+            "score": 0.62
+          },
+          {
+            "token": "always",
+            "score": 0.62
+          },
+          {
+            "token": "correct",
+            "score": 0.62
+          },
+          {
+            "token": "support",
+            "score": 0.05
+          },
+          {
+            "token": "reduced",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "432c945fc4a7931b7066a45bfee4a70749f936d580bf0beb82f50cc11dc5f17a"
+  }
+}

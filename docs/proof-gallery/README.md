@@ -23,6 +23,9 @@ references.
 For the exported proof package itself, start with
 [Evidence reader walkthrough](evidence-reader-walkthrough.md).
 
+For a concrete public sample, inspect the
+[support-assistant evidence example](../evidence-examples/support-assistant/README.md).
+
 ## Run The Gallery Proof Locally
 
 The main buyer-depth suite contains safe and unsafe cases for all five proof
@@ -48,3 +51,6 @@ gate, and download **Export Bundle**. The zip includes `evidence-reader.md`,
 That bundle is the shareable proof package: plain-English summary for buyers and
 reviewers, plus machine-readable evidence and integrity verification for deeper
 inspection.
+
+The static support-assistant example shows the same file shape without requiring
+admin access to the hosted demo.

@@ -22,7 +22,9 @@ legitimate buyer wording. Admin evidence exports now include a buyer-readable
 evidence reader, executive verdict, and reference-bound proof language alongside
 the machine-readable JSON. The proof gallery now turns those suites and evidence
 exports into buyer-shaped walkthroughs for support, regulated workflow,
-research, agent/tool, and code-review release gates.
+research, agent/tool, and code-review release gates. The support-assistant
+evidence example now gives public reviewers a sanitized proof bundle they can
+inspect without admin access.
 
 The first public release is complete: `v0.1.0 Public Proof` packages the live
 demo, CI release gate, integration guide, commercial boundary, and admin evidence
@@ -37,10 +39,10 @@ Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v
 
 ## Near-Term Milestones
 
-1. Add more exported evidence examples for sales, review, and compliance walkthroughs.
+1. Add more exported evidence examples for other buyer stories.
 2. Tune buyer-specific false positives and false negatives from real trial use.
 3. Add more customer-shaped regression examples as real users test the packs.
-4. Package the next release once the external adoption proof has settled.
+4. Package the next release once the external adoption and evidence proof has settled.
 
 ## Boundaries
 
