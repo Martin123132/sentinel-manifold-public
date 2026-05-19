@@ -4,6 +4,9 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
+- Add a standalone external adoption demo repo link for
+  `Martin123132/sentinel-support-assistant-demo`.
+- Mark the true external adoption proof as complete in roadmap and product docs.
 - Move GitHub Actions workflow and public workflow snippets to Node 24-ready
   action majors.
 - Add a proof gallery with buyer-shaped walkthroughs for support, regulated

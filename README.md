@@ -295,7 +295,16 @@ collect CI evidence artifacts.
 
 ## External Adoption Proof
 
-The support-assistant fixture shows what this looks like in an app-shaped repo:
+The standalone support-assistant demo proves Sentinel working outside this repo:
+
+```text
+https://github.com/Martin123132/sentinel-support-assistant-demo
+```
+
+It vendors the minimal Sentinel CLI/runtime, runs a five-case support-assistant
+release gate, and uploads a `support-assistant-sentinel-gate` Actions artifact.
+
+This repo also keeps the same fixture locally:
 
 ```text
 examples/external-adoption/support-assistant/

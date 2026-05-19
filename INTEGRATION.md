@@ -28,13 +28,22 @@ the release gate fails.
 
 ## See An App-Shaped Adoption Proof
 
-After the starter suite, inspect the support-assistant fixture:
+After the starter suite, inspect the standalone support-assistant demo:
+
+```text
+https://github.com/Martin123132/sentinel-support-assistant-demo
+```
+
+It vendors the minimal Sentinel CLI/runtime and runs a five-case release gate in
+its own GitHub Actions workflow.
+
+This repo also keeps the same fixture locally:
 
 ```text
 examples/external-adoption/support-assistant/
 ```
 
-It models another product repo using Sentinel as a release gate for support
+Both versions model another product repo using Sentinel as a release gate for support
 policy, escalation behavior, agent tool boundaries, and quality overclaims.
 
 Run it from the Sentinel repo root:

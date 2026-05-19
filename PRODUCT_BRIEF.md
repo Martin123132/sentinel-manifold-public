@@ -275,3 +275,14 @@ safe wording, suite case IDs, and what the admin evidence bundle proves.
 That turns proof into a story people can understand quickly:
 
 > Turn proof into buyer-shaped walkthroughs.
+
+## Stage 21 Commercial Story
+
+Sentinel now has a true external adoption demo repo:
+`Martin123132/sentinel-support-assistant-demo`. The demo vendors the minimal
+CLI/runtime, runs a five-case support-assistant release gate in its own GitHub
+Actions workflow, and uploads its own evidence artifact.
+
+That turns adoption from a claim into a public proof:
+
+> Show Sentinel working in another repo, with its own CI gate and evidence.
