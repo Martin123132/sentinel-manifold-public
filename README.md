@@ -14,9 +14,14 @@ Sentinel Manifold checks candidate LLM outputs against supplied reference materi
 `v0.1.0 Public Proof` is live:
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.0
 
-This release packages Sentinel as a working AI release gate: run the live
-sandbox, inspect the five-case demo suite, copy the CI workflow into another
-repo, and export admin evidence bundles when you need a proof package.
+`v0.1.1 Adoption Proof` is prepared in [RELEASE_NOTES.md](RELEASE_NOTES.md)
+for the next GitHub Release. It packages the standalone external demo repo,
+public evidence example, proof gallery, buyer-depth suites, calibration suite,
+admin evidence reader, and Node 24-ready CI workflow updates.
+
+The current public proof story is practical: run the live sandbox, inspect the
+five-case demo suite, copy the CI workflow into another repo, and export admin
+evidence bundles when you need a proof package.
 
 - New visitors: start with the [30 Second Demo](#30-second-demo).
 - Buyers and reviewers: browse the [Proof Gallery](docs/proof-gallery/README.md).
@@ -56,8 +61,8 @@ reports. Public visitors can run the sandbox, but they cannot read or export
 saved evidence.
 
 The dashboard now presents this proof directly in the first screen: public
-sandbox state, `v0.1.0 Public Proof`, CI artifact evidence, and the expected
-demo-suite `PASS` result.
+sandbox state, public proof release status, CI artifact evidence, and the
+expected demo-suite `PASS` result.
 
 ## Public Evidence Example
 
@@ -497,6 +502,6 @@ Product proof:
 
 ## Next Build Steps
 
+- Publish `v0.1.1 Adoption Proof` after confirming latest `main` stays green.
 - Add more exported evidence examples for other buyer stories.
 - Tune edge cases for buyer-specific false positives and false negatives as real users try the packs.
-- Package the next release once the external adoption and public evidence proof has settled.

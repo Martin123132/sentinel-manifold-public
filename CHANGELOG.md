@@ -4,15 +4,18 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
+Nothing yet.
+
+## v0.1.1 Adoption Proof - 2026-05-20
+
+### Added
+
 - Add a public support-assistant evidence example with readable summary,
   manifest, suite report, evidence JSON, and verification JSON.
 - Add a helper script to rebuild the sanitized evidence example from the public
   support-assistant suite.
 - Add a standalone external adoption demo repo link for
   `Martin123132/sentinel-support-assistant-demo`.
-- Mark the true external adoption proof as complete in roadmap and product docs.
-- Move GitHub Actions workflow and public workflow snippets to Node 24-ready
-  action majors.
 - Add a proof gallery with buyer-shaped walkthroughs for support, regulated
   workflow, research, agent/tool, and code-review release gates.
 - Add an evidence-reader walkthrough that explains `evidence-reader.md`,
@@ -26,20 +29,22 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
   / "what this does not prove" language.
 - Add a ten-case policy calibration suite to prove strict buyer policies allow
   safe paraphrases without overblocking.
-- Run the policy calibration suite in CI and upload
-  `out/policy-calibration-suite-report.json`.
 - Add a ten-case buyer policy depth suite for support, regulated workflow,
   research, code review, and agent/tool boundary release gates.
 - Strengthen deterministic policy checks for more tool/code action verbs,
   approval-removal wording, and high-certainty overclaims.
-- Run the buyer policy depth suite in CI and upload
-  `out/buyer-policy-depth-suite-report.json`.
 - Polish the hosted dashboard first screen around release-gate proof, CI
   artifacts, public sandbox limits, and admin evidence export.
 - Add a support-assistant external adoption fixture with a five-case release
   gate and copy-paste workflow.
-- Run the external adoption suite in CI and upload
-  `out/external-adoption-suite-report.json`.
+
+### Changed
+
+- Mark the true external adoption proof as complete in roadmap and product docs.
+- Move GitHub Actions workflow and public workflow snippets to Node 24-ready
+  action majors.
+- Run the buyer policy depth, policy calibration, and external adoption suites
+  in CI and upload their reports as release-gate artifacts.
 - Clean up post-release docs now that `v0.1.0 Public Proof` is live.
 - Prepare the next adoption milestone: proving Sentinel as a release gate outside
   its own repo.

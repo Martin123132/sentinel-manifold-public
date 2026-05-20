@@ -1,55 +1,70 @@
 # Public Launch Copy
 
-Use these snippets when announcing the `v0.1.0 Public Proof` release.
+Use these snippets after publishing the `v0.1.1 Adoption Proof` release.
 
-Live release:
+Planned release:
 
-https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.0
-
-## Short Post
-
-Sentinel Manifold `v0.1.0 Public Proof` is live.
-
-It is a source-available AI release gate: supply trusted references, run candidate AI outputs through Sentinel, and fail the release when behavior regresses.
-
-Try the public sandbox:
-
-https://sentinel-manifold-public.onrender.com/
-
-Click **Run Demo Suite** and look for **PASS**, `5` cases, `5` passed, `0` failed.
-
-## Slightly Longer Post
-
-I have launched Sentinel Manifold `v0.1.0 Public Proof`.
-
-The product story is simple: fail releases when AI behavior regresses.
-
-Sentinel checks AI outputs against supplied reference material, emits the safest supported answer, or blocks the whole candidate pool when every option drifts. The public sandbox includes proof cases for customer support, regulated thresholds, research overclaims, generated candidates, and release-gate behavior.
-
-Developers can copy the GitHub Actions release gate into another repo. Admins can export a zip proof bundle with readable summaries and machine-checkable evidence.
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.1
 
 Live demo:
 
 https://sentinel-manifold-public.onrender.com/
 
+## Short Post
+
+Sentinel Manifold `v0.1.1 Adoption Proof` is ready.
+
+It is a source-available AI release gate that now proves adoption outside its
+own repo: a standalone support-assistant demo runs Sentinel in GitHub Actions
+and uploads evidence artifacts.
+
+External demo repo:
+
+https://github.com/Martin123132/sentinel-support-assistant-demo
+
+Public evidence example:
+
+https://github.com/Martin123132/sentinel-manifold-public/tree/main/docs/evidence-examples/support-assistant
+
+## Slightly Longer Post
+
+Sentinel Manifold `v0.1.1 Adoption Proof` packages the next proof layer after
+the first public release.
+
+The product story is still simple: fail releases when AI behavior regresses.
+
+What is new in this release pack:
+
+- a standalone support-assistant demo repo showing Sentinel copied into another project
+- a public, sanitized evidence example with summary, reader, manifest, evidence JSON, and verification JSON
+- buyer-shaped proof gallery walkthroughs
+- deeper support, regulated, research, code-review, and agent/tool policy suites
+- calibration cases that prove strict policies do not overblock safe wording
+- Node 24-ready GitHub Actions workflow examples
+
 Repo:
 
 https://github.com/Martin123132/sentinel-manifold-public
 
-Release:
+Live sandbox:
 
-https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.0
+https://sentinel-manifold-public.onrender.com/
 
 ## Community-Friendly Note
 
-Personal, research, nonprofit, educational, evaluation, community, and small-business use is welcome under the community license terms.
+Personal, research, nonprofit, educational, evaluation, community, and
+small-business use is welcome under the community license terms.
 
-Larger commercial integrations need written permission. The idea is simple: people can learn from it and use it fairly, while large platforms that benefit commercially have to talk to the maintainer first.
+Larger commercial integrations need written permission. The idea is simple:
+people can learn from it and use it fairly, while large platforms that benefit
+commercially have to talk to the maintainer first.
 
 ## One-Line Pitch
 
-Sentinel Manifold is an AI release gate that blocks unsupported, contradictory, or overclaiming outputs before they ship.
+Sentinel Manifold is an AI release gate that blocks unsupported, contradictory,
+or overclaiming outputs before they ship, with evidence reviewers can inspect.
 
 ## Proof Line
 
-Run the five-case public demo suite: supported answers emit, unsafe drift blocks, regulated threshold changes fail, research overclaims fail, and generated candidates still pass through the guardrail.
+Run the public demo suite, inspect the external support-assistant repo, then
+open the checked-in evidence example to see the release-gate proof files.

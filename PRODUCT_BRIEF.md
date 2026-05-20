@@ -297,3 +297,14 @@ access or customer data.
 That turns the evidence story into something people can inspect immediately:
 
 > Show the proof bundle, not just the claim that one exists.
+
+## Stage 23 Commercial Story
+
+Sentinel now has a prepared `v0.1.1 Adoption Proof` release pack. The release
+notes, changelog, launch copy, and checklist package the post-`v0.1.0` trust
+work into one story: external adoption, public evidence, proof gallery,
+buyer-depth policy packs, calibration, readable admin evidence, and modern CI.
+
+That makes the next public step clear:
+
+> Package the proof into a release people can point to.
