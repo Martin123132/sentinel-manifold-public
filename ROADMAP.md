@@ -28,24 +28,26 @@ inspect without admin access.
 
 The first public release is complete: `v0.1.0 Public Proof` packages the live
 demo, CI release gate, integration guide, commercial boundary, and admin evidence
-export into a clear release story. The next release pack, `v0.1.1 Adoption
-Proof`, is prepared to package the external demo repo, public evidence example,
-proof gallery, buyer-depth suites, calibration suite, admin evidence reader, and
-Node 24-ready CI.
+export into a clear release story. The second public release is also live:
+`v0.1.1 Adoption Proof` packages the external demo repo, public evidence
+example, proof gallery, buyer-depth suites, calibration suite, admin evidence
+reader, and Node 24-ready CI.
 
 The hosted dashboard now presents that proof in the first screen: public sandbox
 status, release link, CI artifact cue, and demo-suite PASS target.
 
-Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.0
+Current release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.1
+
+Previous release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.0
 
 > Fail releases when AI behavior regresses.
 
 ## Near-Term Milestones
 
-1. Publish `v0.1.1 Adoption Proof` after latest `main` is confirmed green.
-2. Add more exported evidence examples for other buyer stories.
-3. Tune buyer-specific false positives and false negatives from real trial use.
-4. Add more customer-shaped regression examples as real users test the packs.
+1. Add more exported evidence examples for regulated, agent/tool, and code-review stories.
+2. Tune buyer-specific false positives and false negatives from real trial use.
+3. Add more customer-shaped regression examples as real users test the packs.
+4. Decide the next release theme from real adoption signals.
 
 ## Boundaries
 

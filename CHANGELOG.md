@@ -4,7 +4,11 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
-Nothing yet.
+### Changed
+
+- Clean up post-release docs now that `v0.1.1 Adoption Proof` is live.
+- Point README, roadmap, launch copy, and checklist materials at the live
+  `v0.1.1` GitHub Release.
 
 ## v0.1.1 Adoption Proof - 2026-05-20
 

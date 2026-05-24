@@ -6,8 +6,9 @@ Use this checklist after publishing a public Sentinel release.
 
 - GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.1
 - Tag: `v0.1.1`
-- Target commit: `TBD when publishing`
-- CI run: `TBD when publishing`
+- Target commit: `da0f0a2812901b1c710012ee7248192b4b578f51`
+- CI run: https://github.com/Martin123132/sentinel-manifold-public/actions/runs/26136666242
+- Published: `2026-05-24T02:38:24Z`
 - Live sandbox: https://sentinel-manifold-public.onrender.com/
 - External demo repo: https://github.com/Martin123132/sentinel-support-assistant-demo
 - Public evidence example: `docs/evidence-examples/support-assistant/`

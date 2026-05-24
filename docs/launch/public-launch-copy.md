@@ -1,8 +1,8 @@
 # Public Launch Copy
 
-Use these snippets after publishing the `v0.1.1 Adoption Proof` release.
+Use these snippets for the live `v0.1.1 Adoption Proof` release.
 
-Planned release:
+Release:
 
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.1
 
@@ -12,7 +12,7 @@ https://sentinel-manifold-public.onrender.com/
 
 ## Short Post
 
-Sentinel Manifold `v0.1.1 Adoption Proof` is ready.
+Sentinel Manifold `v0.1.1 Adoption Proof` is live.
 
 It is a source-available AI release gate that now proves adoption outside its
 own repo: a standalone support-assistant demo runs Sentinel in GitHub Actions

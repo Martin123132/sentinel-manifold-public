@@ -1,5 +1,8 @@
 # v0.1.1 Adoption Proof
 
+Live release:
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.1
+
 Sentinel Manifold `v0.1.1 Adoption Proof` packages the post-`v0.1.0` trust work:
 the release gate now has a standalone external adoption demo repo, a public
 evidence example, deeper buyer policy suites, a proof gallery, and clearer

@@ -300,11 +300,22 @@ That turns the evidence story into something people can inspect immediately:
 
 ## Stage 23 Commercial Story
 
-Sentinel now has a prepared `v0.1.1 Adoption Proof` release pack. The release
-notes, changelog, launch copy, and checklist package the post-`v0.1.0` trust
-work into one story: external adoption, public evidence, proof gallery,
-buyer-depth policy packs, calibration, readable admin evidence, and modern CI.
+Sentinel now has a live `v0.1.1 Adoption Proof` release. The release packages
+the post-`v0.1.0` trust work into one story: external adoption, public evidence,
+proof gallery, buyer-depth policy packs, calibration, readable admin evidence,
+and modern CI.
 
-That makes the next public step clear:
+That turns the adoption work into a public reference point:
 
 > Package the proof into a release people can point to.
+
+## Stage 24 Commercial Story
+
+Sentinel's public docs now point at the live `v0.1.1` release instead of
+prepared-release wording. New visitors see the current release, the live sandbox, the
+external demo repo, the evidence example, and the next trust-building milestones
+without having to infer what is current.
+
+That keeps the public proof coherent after launch:
+
+> Make the live release easy to find, then build the next proof from real use.
