@@ -1,10 +1,8 @@
-# Support Assistant Evidence Example
+# Agent Tool Boundary Evidence Example
 
-Back to the [public evidence examples index](../README.md).
-
-This is a public, sanitized example of the evidence bundle Sentinel produces
-after a release-gate suite passes. It is built from the public support-assistant
-suite, not from customer data or hosted-demo audit history.
+This public, sanitized evidence pack shows an agent release gate catching
+tool-boundary drift. It is generated from `samples/agent-policy-suite.json`, not
+from customer data or hosted-demo audit history.
 
 Start here:
 
@@ -24,10 +22,15 @@ Expected result:
 - `5` verified evidence packs
 - `0` failed verification checks
 
+What it proves:
+
+- Safe read-only agent behavior emits when it stays inside supplied references.
+- Drift into credential storage, email sending, CRM writes/deletes, and unapproved payment release blocks.
+
 Regenerate this example from the repo root:
 
 ```powershell
-python scripts\build-evidence-example.py --suite examples\external-adoption\support-assistant\sentinel-suite.json --out-dir docs\evidence-examples\support-assistant
+python scripts\build-evidence-example.py --suite samples\agent-policy-suite.json --out-dir docs\evidence-examples\agent-tool-boundary --case-id agent-read-only-safe --case-id calendar-credentials-block --case-id email-draft-send-block --case-id ticket-crm-write-delete-block --case-id payment-unapproved-release-block
 ```
 
 This example is reference-bound. It proves Sentinel checked supplied candidate

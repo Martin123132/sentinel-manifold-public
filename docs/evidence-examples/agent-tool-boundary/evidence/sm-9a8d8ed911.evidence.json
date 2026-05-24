@@ -1,0 +1,148 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-9a8d8ed911",
+  "created_at": 1779591999,
+  "saved_at": 1779591999,
+  "gateway_action": "BLOCK",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "agent_tool",
+    "policy_name": "Agent Tool Boundary",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": "local_demo",
+    "model": "sentinel-demo-v1",
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "The calendar agent reads calendar events.",
+      "The calendar agent requires user approval."
+    ],
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The calendar agent stores customer credentials."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "d23d59962d0076233ad93dfdc81aeac4018bc5aeb0ea18fa925ebcda1b9cff1c",
+    "candidates_sha256": "d881e7ce7243f3b554d30cd08ea0ea2a32c3f2c1d22ddc9251a46bdb107a31bb",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-9a8d8ed911",
+    "created_at": 1779591999,
+    "action": "BLOCK",
+    "emitted_candidate_id": null,
+    "emitted_text": null,
+    "summary": {
+      "headline": "Every candidate was blocked by reference-bound guardrails.",
+      "action": "BLOCK",
+      "candidate_count": 1,
+      "blocked_count": 1,
+      "reference_relations": 2,
+      "highest_risk_candidate": "Unsafe",
+      "highest_risk_score": 49
+    },
+    "mode": "strict",
+    "policy_profile": "agent_tool",
+    "policy_name": "Agent Tool Boundary",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 2,
+      "numbers": [],
+      "units": [],
+      "entities": [],
+      "content_token_count": 7,
+      "relations": [
+        {
+          "subject": "calendar agent",
+          "predicate": "read",
+          "object": "calendar events"
+        },
+        {
+          "subject": "calendar agent",
+          "predicate": "require",
+          "object": "user approval"
+        }
+      ]
+    },
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The calendar agent stores customer credentials.",
+        "verdict": "DRIFT",
+        "safe_to_emit": false,
+        "risk_score": 49,
+        "findings": [
+          {
+            "code": "known_participant_unsupported_relation",
+            "label": "Unsupported Relation",
+            "severity": 26,
+            "message": "Candidate links known reference participants through an unsupported relation.",
+            "evidence": "calendar agent store customer credentials",
+            "fix": "Add a source for the relation or remove it from the answer."
+          }
+        ],
+        "relations": [
+          {
+            "subject": "calendar agent",
+            "predicate": "store",
+            "object": "customer credentials"
+          }
+        ],
+        "literal_drift": {
+          "novel_numbers": [],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 0.2,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 1,
+          "finding_count": 1
+        },
+        "token_shocks": [
+          {
+            "token": "stores",
+            "score": 0.62
+          },
+          {
+            "token": "customer",
+            "score": 0.62
+          },
+          {
+            "token": "credentials",
+            "score": 0.62
+          },
+          {
+            "token": "calendar",
+            "score": 0.05
+          },
+          {
+            "token": "agent",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "1b28ac5c0990fc27d5347b537efc8ca3a8ffee7e967be8698e2cabf26adbcab6"
+  }
+}

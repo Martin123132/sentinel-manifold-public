@@ -14,7 +14,7 @@ Sentinel Manifold checks candidate LLM outputs against supplied reference materi
 `v0.1.1 Adoption Proof` is live:
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.1
 
-It packages the standalone external demo repo, public evidence example, proof
+It packages the standalone external demo repo, public evidence examples, proof
 gallery, buyer-depth suites, calibration suite, admin evidence reader, and Node
 24-ready CI workflow updates.
 
@@ -27,7 +27,7 @@ evidence bundles when you need a proof package.
 
 - New visitors: start with the [30 Second Demo](#30-second-demo).
 - Buyers and reviewers: browse the [Proof Gallery](docs/proof-gallery/README.md).
-- Evidence reviewers: inspect the [public support-assistant evidence example](docs/evidence-examples/support-assistant/README.md).
+- Evidence reviewers: inspect the [public evidence examples](docs/evidence-examples/README.md).
 - Developers: use [INTEGRATION.md](INTEGRATION.md) and the copy-paste GitHub Actions workflow.
 - Admins: unlock the hosted demo and export the evidence bundle described in [DEMO_PROOF.md](DEMO_PROOF.md).
 - Release text: see [RELEASE_NOTES.md](RELEASE_NOTES.md) and [CHANGELOG.md](CHANGELOG.md).
@@ -66,11 +66,17 @@ The dashboard now presents this proof directly in the first screen: public
 sandbox state, public proof release status, CI artifact evidence, and the
 expected demo-suite `PASS` result.
 
-## Public Evidence Example
+## Public Evidence Examples
 
-The [support-assistant evidence example](docs/evidence-examples/support-assistant/README.md)
-is a static, sanitized proof pack generated from the public external adoption
-suite. It includes `summary.md`, `evidence-reader.md`, `manifest.json`, the
+The [public evidence examples](docs/evidence-examples/README.md) are static,
+sanitized proof packs generated from public suites. They cover:
+
+- [support assistant](docs/evidence-examples/support-assistant/README.md)
+- [regulated workflow](docs/evidence-examples/regulated-workflow/README.md)
+- [agent tool boundary](docs/evidence-examples/agent-tool-boundary/README.md)
+- [code review](docs/evidence-examples/code-review/README.md)
+
+Each pack includes `summary.md`, `evidence-reader.md`, `manifest.json`, the
 suite report, evidence JSON, and verification JSON so reviewers can inspect the
 evidence format without an admin key.
 
@@ -504,6 +510,6 @@ Product proof:
 
 ## Next Build Steps
 
-- Add more exported evidence examples for regulated, agent/tool, and code-review buyer stories.
 - Tune edge cases for buyer-specific false positives and false negatives as real users try the packs.
 - Add more customer-shaped regression examples that can feed the next adoption proof release.
+- Decide whether the next public release should focus on policy tuning, more examples, or dashboard evidence polish.

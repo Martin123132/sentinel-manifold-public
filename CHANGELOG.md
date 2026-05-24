@@ -9,6 +9,10 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 - Clean up post-release docs now that `v0.1.1 Adoption Proof` is live.
 - Point README, roadmap, launch copy, and checklist materials at the live
   `v0.1.1` GitHub Release.
+- Add public evidence examples for regulated workflow, agent/tool boundaries,
+  and code-review release gates.
+- Extend the evidence example builder so docs examples can be rebuilt from
+  selected case IDs in public suites.
 
 ## v0.1.1 Adoption Proof - 2026-05-20
 

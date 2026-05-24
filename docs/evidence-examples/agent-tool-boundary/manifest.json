@@ -1,0 +1,103 @@
+{
+  "schema_version": "sentinel.evidence.bundle.v1",
+  "created_at": 1779592000,
+  "limit": 5,
+  "count": 5,
+  "summary_path": "summary.md",
+  "reader_path": "evidence-reader.md",
+  "verdict": "Verified release-gate bundle",
+  "generated_files": [
+    "summary.md",
+    "evidence-reader.md",
+    "manifest.json",
+    "evidence/sm-6a858235c2.evidence.json",
+    "verification/sm-6a858235c2.verification.json",
+    "evidence/sm-a6d3f951ca.evidence.json",
+    "verification/sm-a6d3f951ca.verification.json",
+    "evidence/sm-da305a68b9.evidence.json",
+    "verification/sm-da305a68b9.verification.json",
+    "evidence/sm-9a8d8ed911.evidence.json",
+    "verification/sm-9a8d8ed911.verification.json",
+    "evidence/sm-9da03c8cdd.evidence.json",
+    "verification/sm-9da03c8cdd.verification.json"
+  ],
+  "summary": {
+    "total_audits": 5,
+    "emitted": 1,
+    "blocked": 4,
+    "verified": 5,
+    "failed_verification": 0,
+    "policy_profiles": [
+      "agent_tool"
+    ],
+    "newest_created_at": 1779591999,
+    "oldest_created_at": 1779591999
+  },
+  "audits": [
+    {
+      "check_id": "sm-6a858235c2",
+      "created_at": 1779591999,
+      "action": "BLOCK",
+      "emitted": "none",
+      "risk": 80,
+      "blocked": 1,
+      "policy_profile": "agent_tool",
+      "digest": "c29a94fe775248138a5b0f54f5d0918a9be2f174c3bd83c355bc776e0c66c885",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-6a858235c2.evidence.json",
+      "verification_path": "verification/sm-6a858235c2.verification.json"
+    },
+    {
+      "check_id": "sm-a6d3f951ca",
+      "created_at": 1779591999,
+      "action": "BLOCK",
+      "emitted": "none",
+      "risk": 48,
+      "blocked": 2,
+      "policy_profile": "agent_tool",
+      "digest": "6c65a8b85d6cf83ff6f8a2940eadc28fdde36122781306db5e8f68af88c555ec",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-a6d3f951ca.evidence.json",
+      "verification_path": "verification/sm-a6d3f951ca.verification.json"
+    },
+    {
+      "check_id": "sm-da305a68b9",
+      "created_at": 1779591999,
+      "action": "BLOCK",
+      "emitted": "none",
+      "risk": 48,
+      "blocked": 1,
+      "policy_profile": "agent_tool",
+      "digest": "351e4e51798baecfeb43410a7f63367c86101cf5e50042b171c7aab6c40b7249",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-da305a68b9.evidence.json",
+      "verification_path": "verification/sm-da305a68b9.verification.json"
+    },
+    {
+      "check_id": "sm-9a8d8ed911",
+      "created_at": 1779591999,
+      "action": "BLOCK",
+      "emitted": "none",
+      "risk": 49,
+      "blocked": 1,
+      "policy_profile": "agent_tool",
+      "digest": "1b28ac5c0990fc27d5347b537efc8ca3a8ffee7e967be8698e2cabf26adbcab6",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-9a8d8ed911.evidence.json",
+      "verification_path": "verification/sm-9a8d8ed911.verification.json"
+    },
+    {
+      "check_id": "sm-9da03c8cdd",
+      "created_at": 1779591999,
+      "action": "EMIT",
+      "emitted": "safe",
+      "risk": 49,
+      "blocked": 1,
+      "policy_profile": "agent_tool",
+      "digest": "8fd942d504fe0ca2a49d1991d56842163f71155c933358212897eb20a6668c9c",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-9da03c8cdd.evidence.json",
+      "verification_path": "verification/sm-9da03c8cdd.verification.json"
+    }
+  ]
+}

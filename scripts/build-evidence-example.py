@@ -39,11 +39,19 @@ def main(argv: list[str] | None = None) -> int:
         default=Path("docs") / "evidence-examples" / "support-assistant",
         help="Directory that will receive generated evidence example files.",
     )
+    parser.add_argument(
+        "--case-id",
+        action="append",
+        default=[],
+        help="Suite case ID to include. Repeat to build a focused example from a larger suite.",
+    )
     args = parser.parse_args(argv)
 
     suite_path = _resolve_repo_path(args.suite)
     out_dir = _resolve_repo_path(args.out_dir)
     suite = json.loads(suite_path.read_text(encoding="utf-8"))
+    if args.case_id:
+        suite = _filter_suite_cases(suite, args.case_id)
 
     with tempfile.TemporaryDirectory() as tmp:
         evidence_dir = Path(tmp) / "audits"
@@ -75,6 +83,27 @@ def _reset_generated_files(out_dir: Path) -> None:
         path = out_dir / rel_path
         if path.exists():
             shutil.rmtree(path)
+
+
+def _filter_suite_cases(suite: dict[str, Any], case_ids: list[str]) -> dict[str, Any]:
+    requested = set(case_ids)
+    cases = suite.get("cases") if isinstance(suite.get("cases"), list) else []
+    filtered_cases = [
+        case
+        for case in cases
+        if isinstance(case, dict) and str(case.get("id")) in requested
+    ]
+    found = {str(case.get("id")) for case in filtered_cases}
+    missing = [case_id for case_id in case_ids if case_id not in found]
+    if missing:
+        raise SystemExit(f"Suite is missing requested case IDs: {', '.join(missing)}")
+    filtered = dict(suite)
+    filtered["cases"] = filtered_cases
+    filtered["name"] = f"{suite.get('name', 'Sentinel suite')} evidence example"
+    filtered["description"] = (
+        f"Focused public evidence example built from case IDs: {', '.join(case_ids)}."
+    )
+    return filtered
 
 
 def _sanitize_report_paths(report: dict[str, Any]) -> None:

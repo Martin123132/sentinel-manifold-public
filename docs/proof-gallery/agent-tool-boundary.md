@@ -58,4 +58,7 @@ The admin export shows the `agent_tool` policy profile, each candidate's
 decision, relation findings for unsupported actions, approval-removal findings,
 and integrity verification for the saved evidence.
 
+Public example:
+[agent tool-boundary evidence pack](../evidence-examples/agent-tool-boundary/README.md).
+
 Back to the [Proof Gallery](README.md).

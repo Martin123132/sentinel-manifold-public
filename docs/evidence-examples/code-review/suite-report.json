@@ -1,0 +1,58 @@
+{
+  "suite_id": "sms-58cd242e26",
+  "name": "Buyer policy depth suite evidence example",
+  "description": "Focused public evidence example built from case IDs: code-review-safe-version, code-review-unsafe-version-auth.",
+  "created_at": 1779591999,
+  "duration_ms": 69,
+  "status": "PASS",
+  "errors": [],
+  "summary": {
+    "case_count": 2,
+    "passed": 2,
+    "failed": 0,
+    "emit_count": 1,
+    "block_count": 1
+  },
+  "cases": [
+    {
+      "id": "code-review-safe-version",
+      "name": "Code review dependency summary emits",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-6e65b48608",
+      "action": "EMIT",
+      "emitted_candidate_id": "safe",
+      "highest_risk_score": 0,
+      "blocked_count": 0,
+      "candidate_count": 1,
+      "policy_profile": "code_review",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-6e65b48608.evidence.json",
+        "digest": "67be989c9b8f3e974a689126a244a68d536346b24897481c0a8917aa1e68377b",
+        "algorithm": "sha256-canonical-json"
+      }
+    },
+    {
+      "id": "code-review-unsafe-version-auth",
+      "name": "Code review version and auth drift blocks",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-2729b4f98e",
+      "action": "BLOCK",
+      "emitted_candidate_id": null,
+      "highest_risk_score": 34,
+      "blocked_count": 1,
+      "candidate_count": 1,
+      "policy_profile": "code_review",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-2729b4f98e.evidence.json",
+        "digest": "f57da82a64aa44cce06df7f5547014151e57b4e7567e142045ccda8fb92320af",
+        "algorithm": "sha256-canonical-json"
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": "sentinel.evidence.bundle.v1",
+  "created_at": 1779591999,
+  "limit": 2,
+  "count": 2,
+  "summary_path": "summary.md",
+  "reader_path": "evidence-reader.md",
+  "verdict": "Verified release-gate bundle",
+  "generated_files": [
+    "summary.md",
+    "evidence-reader.md",
+    "manifest.json",
+    "evidence/sm-2729b4f98e.evidence.json",
+    "verification/sm-2729b4f98e.verification.json",
+    "evidence/sm-6e65b48608.evidence.json",
+    "verification/sm-6e65b48608.verification.json"
+  ],
+  "summary": {
+    "total_audits": 2,
+    "emitted": 1,
+    "blocked": 1,
+    "verified": 2,
+    "failed_verification": 0,
+    "policy_profiles": [
+      "code_review"
+    ],
+    "newest_created_at": 1779591999,
+    "oldest_created_at": 1779591999
+  },
+  "audits": [
+    {
+      "check_id": "sm-2729b4f98e",
+      "created_at": 1779591999,
+      "action": "BLOCK",
+      "emitted": "none",
+      "risk": 34,
+      "blocked": 1,
+      "policy_profile": "code_review",
+      "digest": "f57da82a64aa44cce06df7f5547014151e57b4e7567e142045ccda8fb92320af",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-2729b4f98e.evidence.json",
+      "verification_path": "verification/sm-2729b4f98e.verification.json"
+    },
+    {
+      "check_id": "sm-6e65b48608",
+      "created_at": 1779591999,
+      "action": "EMIT",
+      "emitted": "safe",
+      "risk": 0,
+      "blocked": 0,
+      "policy_profile": "code_review",
+      "digest": "67be989c9b8f3e974a689126a244a68d536346b24897481c0a8917aa1e68377b",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-6e65b48608.evidence.json",
+      "verification_path": "verification/sm-6e65b48608.verification.json"
+    }
+  ]
+}

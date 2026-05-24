@@ -1,0 +1,140 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-4b93a4c667",
+  "created_at": 1779591999,
+  "saved_at": 1779591999,
+  "gateway_action": "EMIT",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "regulated",
+    "policy_name": "Regulated Workflow",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": "local_demo",
+    "model": "sentinel-demo-v1",
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "Claims over 5000 GBP require enhanced review.",
+      "Payments are released after manager approval."
+    ],
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "Claims over 5000 GBP require enhanced review. Payments are released after manager approval."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "9997e11576110eda6283ae00e21f10712b6dba82aae1ddf42416dfc51c3178dc",
+    "candidates_sha256": "f8696ae4dce103a2599789e581f38e3a10a9f1e12c57712a3eef33aa0f8ac5d0",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-4b93a4c667",
+    "created_at": 1779591999,
+    "action": "EMIT",
+    "emitted_candidate_id": "safe",
+    "emitted_text": "Claims over 5000 GBP require enhanced review. Payments are released after manager approval.",
+    "summary": {
+      "headline": "Safe emitted with risk 8.",
+      "action": "EMIT",
+      "candidate_count": 1,
+      "blocked_count": 0,
+      "reference_relations": 0,
+      "highest_risk_candidate": "Safe",
+      "highest_risk_score": 8
+    },
+    "mode": "strict",
+    "policy_profile": "regulated",
+    "policy_name": "Regulated Workflow",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 0,
+      "numbers": [
+        "5000"
+      ],
+      "units": [],
+      "entities": [
+        "claims",
+        "gbp",
+        "payments"
+      ],
+      "content_token_count": 11,
+      "relations": []
+    },
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "Claims over 5000 GBP require enhanced review. Payments are released after manager approval.",
+        "verdict": "EMIT",
+        "safe_to_emit": true,
+        "risk_score": 8,
+        "findings": [],
+        "relations": [],
+        "literal_drift": {
+          "novel_numbers": [],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 1.0,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 0,
+          "finding_count": 0
+        },
+        "token_shocks": [
+          {
+            "token": "claims",
+            "score": 0.05
+          },
+          {
+            "token": "over",
+            "score": 0.05
+          },
+          {
+            "token": "gbp",
+            "score": 0.05
+          },
+          {
+            "token": "require",
+            "score": 0.05
+          },
+          {
+            "token": "enhanced",
+            "score": 0.05
+          },
+          {
+            "token": "review",
+            "score": 0.05
+          },
+          {
+            "token": "payments",
+            "score": 0.05
+          },
+          {
+            "token": "released",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "05eb7c79cf14233e2e27df14479fc24f2dbde3e132537381eef04f75c778bbf0"
+  }
+}

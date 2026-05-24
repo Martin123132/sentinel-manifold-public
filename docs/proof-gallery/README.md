@@ -23,8 +23,8 @@ references.
 For the exported proof package itself, start with
 [Evidence reader walkthrough](evidence-reader-walkthrough.md).
 
-For a concrete public sample, inspect the
-[support-assistant evidence example](../evidence-examples/support-assistant/README.md).
+For concrete public samples, inspect the
+[public evidence examples](../evidence-examples/README.md).
 
 ## Run The Gallery Proof Locally
 
@@ -52,5 +52,6 @@ That bundle is the shareable proof package: plain-English summary for buyers and
 reviewers, plus machine-readable evidence and integrity verification for deeper
 inspection.
 
-The static support-assistant example shows the same file shape without requiring
-admin access to the hosted demo.
+The static evidence examples show the same file shape without requiring admin
+access to the hosted demo. They now cover support-assistant, regulated workflow,
+agent/tool, and code-review proof stories.

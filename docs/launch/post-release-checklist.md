@@ -11,7 +11,7 @@ Use this checklist after publishing a public Sentinel release.
 - Published: `2026-05-24T02:38:24Z`
 - Live sandbox: https://sentinel-manifold-public.onrender.com/
 - External demo repo: https://github.com/Martin123132/sentinel-support-assistant-demo
-- Public evidence example: `docs/evidence-examples/support-assistant/`
+- Public evidence examples: `docs/evidence-examples/`
 
 ## Confirm Before Publishing
 

@@ -1,0 +1,152 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-6e65b48608",
+  "created_at": 1779591999,
+  "saved_at": 1779591999,
+  "gateway_action": "EMIT",
+  "request": {
+    "mode": "balanced",
+    "policy_profile": "code_review",
+    "policy_name": "Code Review",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": false
+    },
+    "provider": "local_demo",
+    "model": "sentinel-demo-v1",
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "The patch updates dependency api-client from version 1.4.0 to version 1.4.1.",
+      "Authentication behavior is unchanged."
+    ],
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "The patch updates dependency api-client from version 1.4.0 to version 1.4.1. Authentication behavior is unchanged."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "5e78f980cd7cdba728b9a15fca4759025a0b92aad095ec5973e29ef489f0c618",
+    "candidates_sha256": "71ea19d88fa72d4cbb899d9cb02d6dc455208a715c866b66f62020a99bd84bec",
+    "policy_sha256": "c1c7a108528780fff9b3f25c8313252c7a462f010ff11d6cb3116916f676644b"
+  },
+  "result": {
+    "check_id": "sm-6e65b48608",
+    "created_at": 1779591999,
+    "action": "EMIT",
+    "emitted_candidate_id": "safe",
+    "emitted_text": "The patch updates dependency api-client from version 1.4.0 to version 1.4.1. Authentication behavior is unchanged.",
+    "summary": {
+      "headline": "Safe emitted with risk 0.",
+      "action": "EMIT",
+      "candidate_count": 1,
+      "blocked_count": 0,
+      "reference_relations": 1,
+      "highest_risk_candidate": "Safe",
+      "highest_risk_score": 0
+    },
+    "mode": "balanced",
+    "policy_profile": "code_review",
+    "policy_name": "Code Review",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": false
+    },
+    "reference_model": {
+      "relation_count": 1,
+      "numbers": [
+        "0",
+        "1",
+        "1.4"
+      ],
+      "units": [],
+      "entities": [
+        "authentication"
+      ],
+      "content_token_count": 8,
+      "relations": [
+        {
+          "subject": "authentication behavior",
+          "predicate": "is_a",
+          "object": "unchanged"
+        }
+      ]
+    },
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "The patch updates dependency api-client from version 1.4.0 to version 1.4.1. Authentication behavior is unchanged.",
+        "verdict": "EMIT",
+        "safe_to_emit": true,
+        "risk_score": 0,
+        "findings": [],
+        "relations": [
+          {
+            "subject": "authentication behavior",
+            "predicate": "is_a",
+            "object": "unchanged"
+          }
+        ],
+        "literal_drift": {
+          "novel_numbers": [],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 1.0,
+          "relation_support": 1.0,
+          "supported_relations": 1,
+          "extracted_relations": 1,
+          "finding_count": 0
+        },
+        "token_shocks": [
+          {
+            "token": "api-client",
+            "score": 0.62
+          },
+          {
+            "token": "patch",
+            "score": 0.05
+          },
+          {
+            "token": "updates",
+            "score": 0.05
+          },
+          {
+            "token": "dependency",
+            "score": 0.05
+          },
+          {
+            "token": "version",
+            "score": 0.05
+          },
+          {
+            "token": "version",
+            "score": 0.05
+          },
+          {
+            "token": "authentication",
+            "score": 0.05
+          },
+          {
+            "token": "behavior",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "67be989c9b8f3e974a689126a244a68d536346b24897481c0a8917aa1e68377b"
+  }
+}

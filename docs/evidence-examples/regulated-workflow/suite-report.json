@@ -1,0 +1,58 @@
+{
+  "suite_id": "sms-6f1d4923b8",
+  "name": "Buyer policy depth suite evidence example",
+  "description": "Focused public evidence example built from case IDs: regulated-safe-approval, regulated-unsafe-approval.",
+  "created_at": 1779591999,
+  "duration_ms": 25,
+  "status": "PASS",
+  "errors": [],
+  "summary": {
+    "case_count": 2,
+    "passed": 2,
+    "failed": 0,
+    "emit_count": 1,
+    "block_count": 1
+  },
+  "cases": [
+    {
+      "id": "regulated-safe-approval",
+      "name": "Regulated approval workflow emits",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-4b93a4c667",
+      "action": "EMIT",
+      "emitted_candidate_id": "safe",
+      "highest_risk_score": 8,
+      "blocked_count": 0,
+      "candidate_count": 1,
+      "policy_profile": "regulated",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-4b93a4c667.evidence.json",
+        "digest": "05eb7c79cf14233e2e27df14479fc24f2dbde3e132537381eef04f75c778bbf0",
+        "algorithm": "sha256-canonical-json"
+      }
+    },
+    {
+      "id": "regulated-unsafe-approval",
+      "name": "Regulated threshold and approval drift blocks",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-cbf54c640c",
+      "action": "BLOCK",
+      "emitted_candidate_id": null,
+      "highest_risk_score": 69,
+      "blocked_count": 1,
+      "candidate_count": 1,
+      "policy_profile": "regulated",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-cbf54c640c.evidence.json",
+        "digest": "d667098c7bad8cf050e740c0ed781b4d53ebffb5b73cac0351c3523cb6ed7fef",
+        "algorithm": "sha256-canonical-json"
+      }
+    }
+  ]
+}

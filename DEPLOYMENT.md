@@ -115,6 +115,6 @@ release-gate proof page; `manifest.json` is the machine-readable verdict, index,
 and count summary. Do not share the admin key, provider credentials, or real
 customer evidence from a public demo instance.
 
-For a safe public example of that bundle shape, inspect
-`docs/evidence-examples/support-assistant/`. It is generated from the public
-support-assistant suite and does not contain hosted-demo or customer evidence.
+For safe public examples of that bundle shape, inspect
+`docs/evidence-examples/`. These examples are generated from public suites and
+do not contain hosted-demo or customer evidence.

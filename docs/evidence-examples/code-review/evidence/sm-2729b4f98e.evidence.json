@@ -1,0 +1,157 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-2729b4f98e",
+  "created_at": 1779591999,
+  "saved_at": 1779591999,
+  "gateway_action": "BLOCK",
+  "request": {
+    "mode": "balanced",
+    "policy_profile": "code_review",
+    "policy_name": "Code Review",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": false
+    },
+    "provider": "local_demo",
+    "model": "sentinel-demo-v1",
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "The patch updates dependency api-client from version 1.4.0 to version 1.4.1.",
+      "Authentication behavior is unchanged."
+    ],
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The patch updates dependency api-client from version 1.4.0 to version 2.0.0 and modifies authentication behavior."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "5e78f980cd7cdba728b9a15fca4759025a0b92aad095ec5973e29ef489f0c618",
+    "candidates_sha256": "84448f094c87818c26cba226eae4d9d0c7096da268c282914e39a339d204e93e",
+    "policy_sha256": "c1c7a108528780fff9b3f25c8313252c7a462f010ff11d6cb3116916f676644b"
+  },
+  "result": {
+    "check_id": "sm-2729b4f98e",
+    "created_at": 1779591999,
+    "action": "BLOCK",
+    "emitted_candidate_id": null,
+    "emitted_text": null,
+    "summary": {
+      "headline": "Every candidate was blocked by reference-bound guardrails.",
+      "action": "BLOCK",
+      "candidate_count": 1,
+      "blocked_count": 1,
+      "reference_relations": 1,
+      "highest_risk_candidate": "Unsafe",
+      "highest_risk_score": 34
+    },
+    "mode": "balanced",
+    "policy_profile": "code_review",
+    "policy_name": "Code Review",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": false
+    },
+    "reference_model": {
+      "relation_count": 1,
+      "numbers": [
+        "0",
+        "1",
+        "1.4"
+      ],
+      "units": [],
+      "entities": [
+        "authentication"
+      ],
+      "content_token_count": 8,
+      "relations": [
+        {
+          "subject": "authentication behavior",
+          "predicate": "is_a",
+          "object": "unchanged"
+        }
+      ]
+    },
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The patch updates dependency api-client from version 1.4.0 to version 2.0.0 and modifies authentication behavior.",
+        "verdict": "CONTRADICTION",
+        "safe_to_emit": false,
+        "risk_score": 34,
+        "findings": [
+          {
+            "code": "protected_number_drift",
+            "label": "Protected Number Drift",
+            "severity": 24,
+            "message": "Candidate introduced number(s) not present in the reference material.",
+            "evidence": "2.0",
+            "fix": "Use only referenced numbers, or add a supporting source before emission."
+          }
+        ],
+        "relations": [],
+        "literal_drift": {
+          "novel_numbers": [
+            "2.0"
+          ],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 0.778,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 0,
+          "finding_count": 1
+        },
+        "token_shocks": [
+          {
+            "token": "api-client",
+            "score": 0.62
+          },
+          {
+            "token": "modifies",
+            "score": 0.62
+          },
+          {
+            "token": "patch",
+            "score": 0.05
+          },
+          {
+            "token": "updates",
+            "score": 0.05
+          },
+          {
+            "token": "dependency",
+            "score": 0.05
+          },
+          {
+            "token": "version",
+            "score": 0.05
+          },
+          {
+            "token": "version",
+            "score": 0.05
+          },
+          {
+            "token": "authentication",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "f57da82a64aa44cce06df7f5547014151e57b4e7567e142045ccda8fb92320af"
+  }
+}

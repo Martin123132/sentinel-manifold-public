@@ -9,8 +9,8 @@ Live sandbox: https://sentinel-manifold-public.onrender.com/
 For buyer-shaped walkthroughs of the same proof story, see the
 [Proof Gallery](docs/proof-gallery/README.md).
 
-For a public, inspectable evidence bundle example, see the
-[support-assistant evidence example](docs/evidence-examples/support-assistant/README.md).
+For public, inspectable evidence bundle examples, see the
+[public evidence examples](docs/evidence-examples/README.md).
 
 ## What To Click
 
@@ -40,9 +40,10 @@ does not prove. `manifest.json` keeps the machine-readable verdict, counts, and
 file index. That turns the demo into a small compliance-style proof pack without
 exposing private evidence to unauthenticated visitors.
 
-The repository also includes a static sanitized example under
-`docs/evidence-examples/support-assistant/`. That example lets public reviewers
-inspect the same file types without unlocking the hosted demo.
+The repository also includes static sanitized examples under
+`docs/evidence-examples/`. Those examples let public reviewers inspect the same
+file types without unlocking the hosted demo, including support-assistant,
+regulated workflow, agent/tool, and code-review proof packs.
 
 ## What The Five Public Cases Prove
 

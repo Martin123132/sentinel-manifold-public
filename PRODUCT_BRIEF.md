@@ -313,9 +313,20 @@ That turns the adoption work into a public reference point:
 
 Sentinel's public docs now point at the live `v0.1.1` release instead of
 prepared-release wording. New visitors see the current release, the live sandbox, the
-external demo repo, the evidence example, and the next trust-building milestones
+external demo repo, the evidence examples, and the next trust-building milestones
 without having to infer what is current.
 
 That keeps the public proof coherent after launch:
 
 > Make the live release easy to find, then build the next proof from real use.
+
+## Stage 25 Commercial Story
+
+Sentinel now has multiple public evidence examples, not only the original
+support-assistant pack. Reviewers can inspect regulated workflow, agent/tool,
+and code-review proof bundles with `summary.md`, `evidence-reader.md`,
+`manifest.json`, suite reports, evidence JSON, and verification JSON.
+
+That makes the evidence story broader and easier to trust:
+
+> Show buyer-specific proof packs people can inspect without an admin key.

@@ -22,9 +22,9 @@ legitimate buyer wording. Admin evidence exports now include a buyer-readable
 evidence reader, executive verdict, and reference-bound proof language alongside
 the machine-readable JSON. The proof gallery now turns those suites and evidence
 exports into buyer-shaped walkthroughs for support, regulated workflow,
-research, agent/tool, and code-review release gates. The support-assistant
-evidence example now gives public reviewers a sanitized proof bundle they can
-inspect without admin access.
+research, agent/tool, and code-review release gates. Public evidence examples
+now give reviewers sanitized proof bundles for support-assistant, regulated
+workflow, agent/tool, and code-review stories without admin access.
 
 The first public release is complete: `v0.1.0 Public Proof` packages the live
 demo, CI release gate, integration guide, commercial boundary, and admin evidence
@@ -44,10 +44,10 @@ Previous release: https://github.com/Martin123132/sentinel-manifold-public/relea
 
 ## Near-Term Milestones
 
-1. Add more exported evidence examples for regulated, agent/tool, and code-review stories.
-2. Tune buyer-specific false positives and false negatives from real trial use.
-3. Add more customer-shaped regression examples as real users test the packs.
-4. Decide the next release theme from real adoption signals.
+1. Tune buyer-specific false positives and false negatives from real trial use.
+2. Add more customer-shaped regression examples as real users test the packs.
+3. Decide whether the next release theme should be policy tuning, more examples, or dashboard evidence polish.
+4. Package the strongest next proof into a small `v0.1.2` release when it is ready.
 
 ## Boundaries
 

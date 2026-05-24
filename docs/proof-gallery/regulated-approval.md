@@ -54,4 +54,7 @@ The admin export shows the regulated policy profile, the blocked threshold
 change, the unsupported `without manager approval` wording, and the verification
 report proving the saved evidence files still match their recorded hashes.
 
+Public example:
+[regulated workflow evidence pack](../evidence-examples/regulated-workflow/README.md).
+
 Back to the [Proof Gallery](README.md).

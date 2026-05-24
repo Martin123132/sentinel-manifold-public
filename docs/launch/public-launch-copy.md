@@ -22,9 +22,9 @@ External demo repo:
 
 https://github.com/Martin123132/sentinel-support-assistant-demo
 
-Public evidence example:
+Public evidence examples:
 
-https://github.com/Martin123132/sentinel-manifold-public/tree/main/docs/evidence-examples/support-assistant
+https://github.com/Martin123132/sentinel-manifold-public/tree/main/docs/evidence-examples
 
 ## Slightly Longer Post
 
@@ -36,7 +36,7 @@ The product story is still simple: fail releases when AI behavior regresses.
 What is new in this release pack:
 
 - a standalone support-assistant demo repo showing Sentinel copied into another project
-- a public, sanitized evidence example with summary, reader, manifest, evidence JSON, and verification JSON
+- public, sanitized evidence examples with summary, reader, manifest, evidence JSON, and verification JSON
 - buyer-shaped proof gallery walkthroughs
 - deeper support, regulated, research, code-review, and agent/tool policy suites
 - calibration cases that prove strict policies do not overblock safe wording
@@ -67,4 +67,4 @@ or overclaiming outputs before they ship, with evidence reviewers can inspect.
 ## Proof Line
 
 Run the public demo suite, inspect the external support-assistant repo, then
-open the checked-in evidence example to see the release-gate proof files.
+open the checked-in evidence examples to see the release-gate proof files.

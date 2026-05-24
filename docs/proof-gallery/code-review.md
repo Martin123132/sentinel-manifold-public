@@ -53,4 +53,7 @@ The admin export shows the `code_review` policy profile, the protected version
 numbers, the authentication relation, the blocked drift, and the verification
 JSON that checks evidence integrity.
 
+Public example:
+[code-review evidence pack](../evidence-examples/code-review/README.md).
+
 Back to the [Proof Gallery](README.md).
