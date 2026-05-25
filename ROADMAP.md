@@ -27,7 +27,9 @@ now give reviewers sanitized proof bundles for support-assistant, regulated
 workflow, agent/tool, and code-review stories without admin access. The policy
 tuning suite turns those examples into near-miss CI checks for regulated
 approval wording, read-only agent boundaries, and code-review version/auth
-summaries.
+summaries. The customer-shaped regression suite now frames that proof as support
+operations, regulated claims/payments, agentic CRM/email workflows, and
+code-review release notes.
 
 The first public release is complete: `v0.1.0 Public Proof` packages the live
 demo, CI release gate, integration guide, commercial boundary, and admin evidence
@@ -47,9 +49,9 @@ Previous release: https://github.com/Martin123132/sentinel-manifold-public/relea
 
 ## Near-Term Milestones
 
-1. Add more customer-shaped regression examples as real users test the packs.
+1. Decide whether the next release theme should be dashboard evidence polish, integration packaging, or the `v0.1.2` proof pack.
 2. Keep tuning buyer-specific false positives and false negatives from real trial use.
-3. Decide whether the next release theme should be more examples, dashboard evidence polish, or integration packaging.
+3. Add more customer-shaped examples as real users test the packs.
 4. Package the strongest next proof into a small `v0.1.2` release when it is ready.
 
 ## Boundaries

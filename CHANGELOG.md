@@ -18,6 +18,11 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 - Run the policy tuning suite in CI and upload its release-gate report.
 - Strengthen deterministic approval-removal and agent/tool action detection for
   common buyer wording.
+- Add a twelve-case customer-shaped regression suite for support operations,
+  regulated claims/payments, agentic CRM/email workflows, and code-review
+  release notes.
+- Run the customer-shaped regression suite in CI and upload its release-gate
+  report.
 
 ## v0.1.1 Adoption Proof - 2026-05-20
 

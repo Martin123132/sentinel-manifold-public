@@ -542,6 +542,14 @@ class GuardrailTests(unittest.TestCase):
         self.assertEqual(report["summary"]["case_count"], 10)
         self.assertEqual(report["summary"]["failed"], 0)
 
+    def test_customer_shaped_regression_suite_passes(self):
+        suite = json.loads((ROOT / "samples" / "customer-shaped-regression-suite.json").read_text(encoding="utf-8"))
+        report = run_suite(suite, save_evidence=False)
+
+        self.assertEqual(report["status"], "PASS")
+        self.assertEqual(report["summary"]["case_count"], 12)
+        self.assertEqual(report["summary"]["failed"], 0)
+
     def test_integration_starter_suite_passes(self):
         suite = json.loads((ROOT / "samples" / "integration-starter-suite.json").read_text(encoding="utf-8"))
         report = run_suite(suite, save_evidence=False)

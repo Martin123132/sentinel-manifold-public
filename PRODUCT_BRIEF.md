@@ -341,3 +341,13 @@ unsafe drift and accidental overblocking.
 That makes the policy packs feel more dependable:
 
 > Turn public evidence examples into CI calibration for real buyer wording.
+
+## Stage 27 Commercial Story
+
+Sentinel now has a customer-shaped regression suite that reads like real release
+work: support refund and escalation rules, regulated claims and payment approval,
+agentic CRM/email boundaries, and code-review release notes.
+
+That makes the proof easier for buyers to recognize:
+
+> Turn policy proof into customer-shaped regression examples.

@@ -298,6 +298,12 @@ Run the policy tuning suite:
 python app\cli.py suite --input samples\policy-tuning-suite.json --out out\policy-tuning-suite-report.json --fail-on-fail
 ```
 
+Run the customer-shaped regression suite:
+
+```powershell
+python app\cli.py suite --input samples\customer-shaped-regression-suite.json --out out\customer-shaped-regression-suite-report.json --fail-on-fail
+```
+
 Run the starter integration suite:
 
 ```powershell
@@ -313,9 +319,9 @@ Product proof:
 > Fail releases when AI behavior regresses.
 
 The bundled GitHub Actions workflow runs the regression, agent, buyer-depth,
-policy calibration, policy tuning, integration, and external adoption suites,
-then uploads a `sentinel-release-gate` artifact containing suite reports plus
-every generated evidence pack.
+policy calibration, policy tuning, customer-shaped regression, integration, and
+external adoption suites, then uploads a `sentinel-release-gate` artifact
+containing suite reports plus every generated evidence pack.
 
 ## Use In Another Repo
 
@@ -525,8 +531,20 @@ Product proof:
 
 > Turn public evidence examples into CI calibration for real buyer wording.
 
+## Customer-Shaped Regression Suite
+
+`samples/customer-shaped-regression-suite.json` adds twelve buyer-shaped release
+checks across support operations, regulated claims/payments, agentic CRM/email
+workflows, and code-review release notes. See
+[docs/customer-shaped-regressions.md](docs/customer-shaped-regressions.md) for
+the case-by-case story.
+
+Product proof:
+
+> Turn policy proof into customer-shaped regression examples.
+
 ## Next Build Steps
 
-- Add more customer-shaped regression examples that can feed the next adoption proof release.
 - Decide whether the next public release should focus on policy tuning, more examples, or dashboard evidence polish.
 - Keep tuning false positives and false negatives as real users try the packs.
+- Package the strongest proof into a small `v0.1.2` release pack when ready.
