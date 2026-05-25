@@ -330,6 +330,20 @@ class GuardrailTests(unittest.TestCase):
         self.assertIn(("code bot", "merge", "pull requests"), relations)
         self.assertIn(("support tool", "upload", "customer files"), relations)
 
+    def test_relation_extraction_recognizes_policy_tuning_verbs(self):
+        relations = [
+            relation.key()
+            for relation in extract_relations(
+                "The support agent views support tickets. "
+                "The support agent edits CRM records. "
+                "The support agent removes CRM records."
+            )
+        ]
+
+        self.assertIn(("support agent", "read", "support tickets"), relations)
+        self.assertIn(("support agent", "modify", "crm records"), relations)
+        self.assertIn(("support agent", "delete", "crm records"), relations)
+
     def test_without_required_review_blocks(self):
         result = run_guardrail(
             {
@@ -351,6 +365,33 @@ class GuardrailTests(unittest.TestCase):
         unsafe = result["candidates"][0]
         self.assertEqual(result["action"], "BLOCK")
         self.assertIn("unsupported_negation", {finding["code"] for finding in unsafe["findings"]})
+
+    def test_approval_removal_variants_block(self):
+        for text in (
+            "Payments no longer need manager approval before release.",
+            "Manager approval is optional before payments release.",
+        ):
+            with self.subTest(text=text):
+                result = run_guardrail(
+                    {
+                        "policy_profile": "regulated",
+                        "references": [
+                            "Payments require manager approval before release.",
+                            "Claims over 5000 GBP require enhanced review.",
+                        ],
+                        "candidates": [
+                            {
+                                "id": "unsafe",
+                                "label": "Unsafe",
+                                "text": text,
+                            }
+                        ],
+                    }
+                )
+
+                unsafe = result["candidates"][0]
+                self.assertEqual(result["action"], "BLOCK")
+                self.assertIn("unsupported_negation", {finding["code"] for finding in unsafe["findings"]})
 
     def test_expanded_overclaim_patterns_block(self):
         result = run_guardrail(
@@ -487,6 +528,14 @@ class GuardrailTests(unittest.TestCase):
 
     def test_policy_calibration_suite_passes(self):
         suite = json.loads((ROOT / "samples" / "policy-calibration-suite.json").read_text(encoding="utf-8"))
+        report = run_suite(suite, save_evidence=False)
+
+        self.assertEqual(report["status"], "PASS")
+        self.assertEqual(report["summary"]["case_count"], 10)
+        self.assertEqual(report["summary"]["failed"], 0)
+
+    def test_policy_tuning_suite_passes(self):
+        suite = json.loads((ROOT / "samples" / "policy-tuning-suite.json").read_text(encoding="utf-8"))
         report = run_suite(suite, save_evidence=False)
 
         self.assertEqual(report["status"], "PASS")

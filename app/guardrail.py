@@ -86,6 +86,7 @@ STOPWORDS = {
 NEGATORS = {"not", "no", "never", "without", "doesnt", "doesn't", "cannot", "cant", "can't"}
 
 AGENT_TOOL_VERBS = {
+    "accesses": "read",
     "approves": "approve",
     "calls": "call",
     "collects": "collect",
@@ -94,15 +95,22 @@ AGENT_TOOL_VERBS = {
     "denies": "deny",
     "deploys": "deploy",
     "downloads": "download",
+    "edits": "modify",
+    "lists": "read",
     "merges": "merge",
     "modifies": "modify",
+    "posts": "send",
+    "publishes": "publish",
     "reads": "read",
+    "removes": "delete",
     "retains": "retain",
     "sends": "send",
     "shares": "share",
     "stores": "store",
+    "searches": "read",
     "updates": "update",
     "uploads": "upload",
+    "views": "read",
     "writes": "write",
 }
 
@@ -543,12 +551,13 @@ def _relation_findings(candidate_relations: list[Relation], reference_model: Ref
 def _unsupported_negation(text: str, reference_model: ReferenceModel) -> Finding | None:
     candidate_tokens = set(content_tokens(text))
     raw_tokens = set(re.findall(r"[a-zA-Z']+", text.lower()))
-    if not raw_tokens & NEGATORS:
-        return None
 
     approval_negation = _approval_negation(text, reference_model)
     if approval_negation:
         return approval_negation
+
+    if not raw_tokens & NEGATORS:
+        return None
 
     best_overlap = 0.0
     best_ref = ""
@@ -573,7 +582,15 @@ def _unsupported_negation(text: str, reference_model: ReferenceModel) -> Finding
 def _approval_negation(text: str, reference_model: ReferenceModel) -> Finding | None:
     normalized = normalize_text(text)
     term_pattern = "|".join((*APPROVAL_TERMS, "approved", "reviewed", "authorized", "authorised"))
-    if not re.search(rf"\bwithout(?: [a-z]+){{0,3}} ({term_pattern})\b", normalized):
+    approval_removed = any(
+        re.search(pattern, normalized)
+        for pattern in (
+            rf"\bwithout(?: [a-z]+){{0,3}} ({term_pattern})\b",
+            rf"\b(?:no longer|does not|do not|doesnt|dont|not) (?:require|requires|need|needs)(?: [a-z]+){{0,4}} ({term_pattern})\b",
+            rf"\b({term_pattern})(?: [a-z]+){{0,3}} (?:is|are) (?:optional|unnecessary|not required|not needed)\b",
+        )
+    )
+    if not approval_removed:
         return None
 
     for ref in reference_model.references:

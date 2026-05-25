@@ -13,6 +13,11 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
   and code-review release gates.
 - Extend the evidence example builder so docs examples can be rebuilt from
   selected case IDs in public suites.
+- Add a ten-case policy tuning suite for near-miss regulated, agent/tool, and
+  code-review wording.
+- Run the policy tuning suite in CI and upload its release-gate report.
+- Strengthen deterministic approval-removal and agent/tool action detection for
+  common buyer wording.
 
 ## v0.1.1 Adoption Proof - 2026-05-20
 

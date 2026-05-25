@@ -24,7 +24,10 @@ the machine-readable JSON. The proof gallery now turns those suites and evidence
 exports into buyer-shaped walkthroughs for support, regulated workflow,
 research, agent/tool, and code-review release gates. Public evidence examples
 now give reviewers sanitized proof bundles for support-assistant, regulated
-workflow, agent/tool, and code-review stories without admin access.
+workflow, agent/tool, and code-review stories without admin access. The policy
+tuning suite turns those examples into near-miss CI checks for regulated
+approval wording, read-only agent boundaries, and code-review version/auth
+summaries.
 
 The first public release is complete: `v0.1.0 Public Proof` packages the live
 demo, CI release gate, integration guide, commercial boundary, and admin evidence
@@ -44,9 +47,9 @@ Previous release: https://github.com/Martin123132/sentinel-manifold-public/relea
 
 ## Near-Term Milestones
 
-1. Tune buyer-specific false positives and false negatives from real trial use.
-2. Add more customer-shaped regression examples as real users test the packs.
-3. Decide whether the next release theme should be policy tuning, more examples, or dashboard evidence polish.
+1. Add more customer-shaped regression examples as real users test the packs.
+2. Keep tuning buyer-specific false positives and false negatives from real trial use.
+3. Decide whether the next release theme should be more examples, dashboard evidence polish, or integration packaging.
 4. Package the strongest next proof into a small `v0.1.2` release when it is ready.
 
 ## Boundaries

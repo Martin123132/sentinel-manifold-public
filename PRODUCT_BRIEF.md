@@ -330,3 +330,14 @@ and code-review proof bundles with `summary.md`, `evidence-reader.md`,
 That makes the evidence story broader and easier to trust:
 
 > Show buyer-specific proof packs people can inspect without an admin key.
+
+## Stage 26 Commercial Story
+
+Sentinel now has a policy tuning suite built from the public evidence examples.
+The suite checks near-miss buyer wording across regulated approval flows,
+agent/tool boundaries, and code-review summaries so CI catches both subtle
+unsafe drift and accidental overblocking.
+
+That makes the policy packs feel more dependable:
+
+> Turn public evidence examples into CI calibration for real buyer wording.

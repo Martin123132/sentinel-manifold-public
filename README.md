@@ -292,6 +292,12 @@ Run the policy calibration suite:
 python app\cli.py suite --input samples\policy-calibration-suite.json --out out\policy-calibration-suite-report.json --fail-on-fail
 ```
 
+Run the policy tuning suite:
+
+```powershell
+python app\cli.py suite --input samples\policy-tuning-suite.json --out out\policy-tuning-suite-report.json --fail-on-fail
+```
+
 Run the starter integration suite:
 
 ```powershell
@@ -307,9 +313,9 @@ Product proof:
 > Fail releases when AI behavior regresses.
 
 The bundled GitHub Actions workflow runs the regression, agent, buyer-depth,
-policy calibration, integration, and external adoption suites, then uploads a
-`sentinel-release-gate` artifact containing suite reports plus every generated
-evidence pack.
+policy calibration, policy tuning, integration, and external adoption suites,
+then uploads a `sentinel-release-gate` artifact containing suite reports plus
+every generated evidence pack.
 
 ## Use In Another Repo
 
@@ -508,8 +514,19 @@ Product proof:
 
 > Prove strict policies do not overblock safe buyer wording.
 
+## Policy Tuning Suite
+
+`samples/policy-tuning-suite.json` adds ten near-miss checks based on the public
+evidence examples: regulated approval wording, read-only agent boundaries, and
+code-review version/auth summaries. It proves Sentinel catches subtle drift
+without weakening safe paraphrase behavior.
+
+Product proof:
+
+> Turn public evidence examples into CI calibration for real buyer wording.
+
 ## Next Build Steps
 
-- Tune edge cases for buyer-specific false positives and false negatives as real users try the packs.
 - Add more customer-shaped regression examples that can feed the next adoption proof release.
 - Decide whether the next public release should focus on policy tuning, more examples, or dashboard evidence polish.
+- Keep tuning false positives and false negatives as real users try the packs.

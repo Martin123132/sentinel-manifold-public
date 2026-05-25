@@ -27,3 +27,10 @@ Each example contains:
 These examples prove Sentinel checked supplied candidates against supplied
 references and preserved verifiable evidence. They do not prove external truth,
 legal compliance, security certification, or future model behavior.
+
+## Policy Tuning
+
+The public examples now feed `samples/policy-tuning-suite.json`. That suite
+adds near-miss checks for approval-removal wording, read-only agent drift, and
+code-review version/auth summaries so CI can catch subtle regressions as the
+policy packs improve.
