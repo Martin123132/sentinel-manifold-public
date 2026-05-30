@@ -4,6 +4,10 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
+Nothing yet.
+
+## v0.1.2 Customer Proof - 2026-05-30
+
 ### Changed
 
 - Clean up post-release docs now that `v0.1.1 Adoption Proof` is live.

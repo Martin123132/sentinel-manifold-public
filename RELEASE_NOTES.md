@@ -1,30 +1,30 @@
-# v0.1.1 Adoption Proof
+# v0.1.2 Customer Proof
 
-Live release:
-https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.1
-
-Sentinel Manifold `v0.1.1 Adoption Proof` packages the post-`v0.1.0` trust work:
-the release gate now has a standalone external adoption demo repo, a public
-evidence example, deeper buyer policy suites, a proof gallery, and clearer
-admin evidence exports.
+Sentinel Manifold `v0.1.2 Customer Proof` packages the proof work after
+`v0.1.1 Adoption Proof`: buyer-specific evidence examples, policy tuning from
+those examples, and a customer-shaped regression suite that reads more like real
+release work.
 
 ## What This Release Proves
 
-- Sentinel can run as a copied release gate in another app-shaped repo:
-  https://github.com/Martin123132/sentinel-support-assistant-demo
-- Public reviewers can inspect a sanitized evidence bundle without admin access:
-  `docs/evidence-examples/support-assistant/`
-- Buyer-shaped proof now covers support, regulated workflow, research claims,
-  code review, and agent/tool boundaries.
-- Strict policies are calibrated against safe paraphrases so the gate checks
-  overblocking as well as unsafe emissions.
-- Admin evidence bundles include `summary.md`, `evidence-reader.md`,
-  `manifest.json`, evidence JSON, and verification JSON.
-- GitHub Actions release-gate workflows use Node 24-ready action majors.
+- Public reviewers can inspect multiple sanitized evidence examples without an
+  admin key:
+  `docs/evidence-examples/`
+- Sentinel now has buyer-shaped evidence examples for regulated workflow,
+  agent/tool boundaries, code review, and the support-assistant fixture.
+- The policy tuning suite catches near-miss wording around approval removal,
+  read-only agent boundaries, and version/auth drift while preserving safe
+  paraphrases.
+- The customer-shaped regression suite frames the release gate as support ops,
+  regulated claims/payments, agentic CRM/email workflows, and code-review
+  release notes.
+- GitHub Actions uploads release-gate reports for the regression, agent,
+  buyer-depth, calibration, tuning, customer-shaped, integration, and external
+  adoption suites.
 
 Product proof:
 
-> Show Sentinel working in another repo, with readable evidence people can inspect.
+> Turn policy proof into customer-shaped release regressions buyers can inspect.
 
 ## Try It In 30 Seconds
 
@@ -33,30 +33,39 @@ Product proof:
 3. Click **Run Demo Suite**.
 4. Confirm **PASS**, `5` cases, `5` passed, and `0` failed.
 
+The public sandbox remains bounded. Deeper customer-shaped proof lives in local
+and CI suites.
+
 ## For Developers
 
-Start with `INTEGRATION.md`, then inspect the standalone support-assistant demo:
-
-```text
-https://github.com/Martin123132/sentinel-support-assistant-demo
-```
-
-The starter path is still:
+Run the customer-shaped proof locally:
 
 ```powershell
-python app\cli.py suite --input samples\integration-starter-suite.json --out out\integration-starter-suite-report.json --fail-on-fail
+python app\cli.py suite --input samples\customer-shaped-regression-suite.json --out out\customer-shaped-regression-suite-report.json --fail-on-fail
+```
+
+Use the integration guide when copying Sentinel into another repo:
+
+```text
+INTEGRATION.md
 ```
 
 ## For Evidence Reviewers
 
-Open the public support-assistant evidence example:
+Start with the public evidence examples:
 
 ```text
-docs/evidence-examples/support-assistant/
+docs/evidence-examples/
 ```
 
-It contains a buyer-readable summary, evidence reader, manifest, suite report,
-five evidence packs, and five verification reports.
+Then read the customer-shaped regression walkthrough:
+
+```text
+docs/customer-shaped-regressions.md
+```
+
+These files are generated from public suites and do not contain customer data,
+hosted-demo audit history, provider keys, or private deployment evidence.
 
 ## Commercial Boundary
 
@@ -80,6 +89,8 @@ python app\cli.py suite --input samples\regression-suite.json --out out\suite-re
 python app\cli.py suite --input samples\agent-policy-suite.json --out out\agent-policy-suite-report.json --fail-on-fail
 python app\cli.py suite --input samples\buyer-policy-depth-suite.json --out out\buyer-policy-depth-suite-report.json --fail-on-fail
 python app\cli.py suite --input samples\policy-calibration-suite.json --out out\policy-calibration-suite-report.json --fail-on-fail
+python app\cli.py suite --input samples\policy-tuning-suite.json --out out\policy-tuning-suite-report.json --fail-on-fail
+python app\cli.py suite --input samples\customer-shaped-regression-suite.json --out out\customer-shaped-regression-suite-report.json --fail-on-fail
 python app\cli.py suite --input samples\integration-starter-suite.json --out out\integration-starter-suite-report.json --fail-on-fail
 python app\cli.py suite --input examples\external-adoption\support-assistant\sentinel-suite.json --out out\external-adoption-suite-report.json --fail-on-fail
 python app\cli.py suite --input samples\mixed-proof-suite.json --out out\mixed-proof-suite-report.json --fail-on-fail

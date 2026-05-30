@@ -38,6 +38,9 @@ export into a clear release story. The second public release is also live:
 example, proof gallery, buyer-depth suites, calibration suite, admin evidence
 reader, and Node 24-ready CI.
 
+The next release pack, `v0.1.2 Customer Proof`, is prepared to package public
+buyer evidence examples, policy tuning, and customer-shaped regression stories.
+
 The hosted dashboard now presents that proof in the first screen: public sandbox
 status, release link, CI artifact cue, and demo-suite PASS target.
 
@@ -49,10 +52,10 @@ Previous release: https://github.com/Martin123132/sentinel-manifold-public/relea
 
 ## Near-Term Milestones
 
-1. Decide whether the next release theme should be dashboard evidence polish, integration packaging, or the `v0.1.2` proof pack.
-2. Keep tuning buyer-specific false positives and false negatives from real trial use.
-3. Add more customer-shaped examples as real users test the packs.
-4. Package the strongest next proof into a small `v0.1.2` release when it is ready.
+1. Publish `v0.1.2 Customer Proof` after latest `main` is confirmed green.
+2. Decide whether the next build should focus on dashboard evidence polish or integration packaging.
+3. Keep tuning buyer-specific false positives and false negatives from real trial use.
+4. Add more customer-shaped examples as real users test the packs.
 
 ## Boundaries
 

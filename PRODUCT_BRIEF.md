@@ -351,3 +351,14 @@ agentic CRM/email boundaries, and code-review release notes.
 That makes the proof easier for buyers to recognize:
 
 > Turn policy proof into customer-shaped regression examples.
+
+## Stage 28 Commercial Story
+
+Sentinel now has a prepared `v0.1.2 Customer Proof` release pack. The release
+notes, changelog, launch copy, and checklist package the post-`v0.1.1` proof
+work into one story: buyer evidence examples, policy tuning, and customer-shaped
+regressions.
+
+That makes the next public step clear:
+
+> Package customer-shaped proof into a release people can point to.

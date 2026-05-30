@@ -2,6 +2,8 @@
 
 Use this checklist after publishing a public Sentinel release.
 
+Next prepared checklist: [v0.1.2 Customer Proof](v0.1.2-release-checklist.md).
+
 ## v0.1.1 Adoption Proof
 
 - GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.1
