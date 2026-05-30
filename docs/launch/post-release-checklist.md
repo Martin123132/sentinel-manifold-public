@@ -2,7 +2,18 @@
 
 Use this checklist after publishing a public Sentinel release.
 
-Next prepared checklist: [v0.1.2 Customer Proof](v0.1.2-release-checklist.md).
+Latest release checklist: [v0.1.2 Customer Proof](v0.1.2-release-checklist.md).
+
+## v0.1.2 Customer Proof
+
+- GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.2
+- Tag: `v0.1.2`
+- Target commit: `9f33cbb60d81b1aec8c2a6aeecb42bbdc7150101`
+- CI run: https://github.com/Martin123132/sentinel-manifold-public/actions/runs/26695933302
+- Published: `2026-05-30T21:58:20Z`
+- Live sandbox: https://sentinel-manifold-public.onrender.com/
+- Public evidence examples: `docs/evidence-examples/`
+- Customer-shaped regression docs: `docs/customer-shaped-regressions.md`
 
 ## v0.1.1 Adoption Proof
 

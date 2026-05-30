@@ -1,8 +1,8 @@
 # Public Launch Copy
 
-Use these snippets after publishing the `v0.1.2 Customer Proof` release.
+Use these snippets for the live `v0.1.2 Customer Proof` release.
 
-Planned release:
+Release:
 
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.2
 
@@ -12,7 +12,7 @@ https://sentinel-manifold-public.onrender.com/
 
 ## Short Post
 
-Sentinel Manifold `v0.1.2 Customer Proof` is ready.
+Sentinel Manifold `v0.1.2 Customer Proof` is live.
 
 It is a source-available AI release gate that now has customer-shaped regression
 proof: support ops, regulated claims/payments, agentic CRM/email workflows, and

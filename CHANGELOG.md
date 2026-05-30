@@ -4,7 +4,13 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
-Nothing yet.
+### Changed
+
+- Clean up post-release docs now that `v0.1.2 Customer Proof` is live.
+- Point README, roadmap, release notes, launch copy, and checklist materials at
+  the published `v0.1.2` GitHub Release.
+- Move the next milestone from publishing `v0.1.2` to dashboard evidence polish,
+  integration packaging, and future proof candidates.
 
 ## v0.1.2 Customer Proof - 2026-05-30
 

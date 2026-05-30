@@ -1,5 +1,8 @@
 # v0.1.2 Customer Proof
 
+Live release:
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.2
+
 Sentinel Manifold `v0.1.2 Customer Proof` packages the proof work after
 `v0.1.1 Adoption Proof`: buyer-specific evidence examples, policy tuning from
 those examples, and a customer-shaped regression suite that reads more like real

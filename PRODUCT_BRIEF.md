@@ -354,11 +354,21 @@ That makes the proof easier for buyers to recognize:
 
 ## Stage 28 Commercial Story
 
-Sentinel now has a prepared `v0.1.2 Customer Proof` release pack. The release
-notes, changelog, launch copy, and checklist package the post-`v0.1.1` proof
-work into one story: buyer evidence examples, policy tuning, and customer-shaped
-regressions.
+Sentinel now has a live `v0.1.2 Customer Proof` release. The release packages
+the post-`v0.1.1` proof work into one story: buyer evidence examples, policy
+tuning, and customer-shaped regressions.
 
-That makes the next public step clear:
+That makes the public proof easier to point at:
 
 > Package customer-shaped proof into a release people can point to.
+
+## Stage 29 Commercial Story
+
+The post-release cleanup updates the public repo so visitors see `v0.1.2` as
+live, not pending. The README, roadmap, release notes, launch copy, and release
+checklists now point to the published GitHub Release and move the next milestone
+back to product proof work.
+
+That keeps the project story tidy:
+
+> Turn a published proof release into a current, trustworthy front door.

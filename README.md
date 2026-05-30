@@ -11,19 +11,16 @@ Sentinel Manifold checks candidate LLM outputs against supplied reference materi
 
 ## Public Proof Release
 
-`v0.1.1 Adoption Proof` is live:
+`v0.1.2 Customer Proof` is live:
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.2
+
+It packages buyer-specific evidence examples, policy tuning, and the
+customer-shaped regression suite into a cleaner public proof story.
+
+Previous release: `v0.1.1 Adoption Proof`
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.1
 
-It packages the standalone external demo repo, public evidence examples, proof
-gallery, buyer-depth suites, calibration suite, admin evidence reader, and Node
-24-ready CI workflow updates.
-
-`v0.1.2 Customer Proof` is prepared in [RELEASE_NOTES.md](RELEASE_NOTES.md)
-for the next GitHub Release. It packages buyer-specific evidence examples,
-policy tuning, and the customer-shaped regression suite into a cleaner public
-proof story.
-
-Previous release: `v0.1.0 Public Proof`
+Earlier release: `v0.1.0 Public Proof`
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.0
 
 The current public proof story is practical: run the live sandbox, inspect the
@@ -550,6 +547,6 @@ Product proof:
 
 ## Next Build Steps
 
-- Publish `v0.1.2 Customer Proof` after confirming latest `main` stays green.
 - Decide whether the next build should focus on dashboard evidence polish or integration packaging.
+- Add the next strongest public proof candidate for a future `v0.1.3` release.
 - Keep tuning false positives and false negatives as real users try the packs.
