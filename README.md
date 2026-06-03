@@ -11,11 +11,11 @@ Sentinel Manifold checks candidate LLM outputs against supplied reference materi
 
 ## Public Proof Release
 
-`v0.1.2 Customer Proof` is live:
-https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.2
+`v0.1.3 Proof Candidate` is live:
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3
 
-It packages buyer-specific evidence examples, policy tuning, and the
-customer-shaped regression suite into a cleaner public proof story.
+It packages buyer-specific evidence examples, policy tuning, the customer-shaped
+regression suite, and a conversion-focused proof walkthrough.
 
 Previous release: `v0.1.1 Adoption Proof`
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.1
@@ -33,6 +33,8 @@ evidence bundles when you need a proof package.
 - Developers: use [INTEGRATION.md](INTEGRATION.md) and the copy-paste GitHub Actions workflow.
 - Admins: unlock the hosted demo and export the evidence bundle described in [DEMO_PROOF.md](DEMO_PROOF.md).
 - Release text: see [RELEASE_NOTES.md](RELEASE_NOTES.md) and [CHANGELOG.md](CHANGELOG.md).
+- For current proof milestones and launch status, see
+  [Post-Release Checklist](docs/launch/post-release-checklist.md).
 
 Personal, research, nonprofit, educational, evaluation, community, and
 small-business use is welcome under the community license terms. Larger
@@ -55,8 +57,8 @@ guardrail before release.
 
 See [DEMO_PROOF.md](DEMO_PROOF.md) for the short case-by-case explanation, or
 open the [Proof Gallery](docs/proof-gallery/README.md) for buyer-shaped
-walkthroughs across support, regulated workflow, research, agent/tool, and
-code-review release gates.
+walkthroughs across support, regulated workflow, research, agent/tool, code-review,
+and new customer-operations conversion release gates.
 
 Admins can unlock the hosted demo with `SENTINEL_API_KEY`, run the same suite,
 and export a zip evidence bundle containing a buyer-readable `evidence-reader.md`,
@@ -90,6 +92,10 @@ The [Proof Gallery](docs/proof-gallery/README.md) turns the current suites into
 five short buyer walkthroughs: support refund/escalation drift, regulated
 approval drift, research overclaims, agent tool-boundary drift, and code-review
 version/auth drift.
+
+Also available: [Customer Operations Conversion Guard](docs/proof-gallery/customer-operations-conversion.md),
+which connects the public-proof conversion path to the support/regulatory cases in
+`samples/customer-shaped-regression-suite.json`.
 
 It also includes an
 [evidence reader walkthrough](docs/proof-gallery/evidence-reader-walkthrough.md)
@@ -547,6 +553,8 @@ Product proof:
 
 ## Next Build Steps
 
-- Decide whether the next build should focus on dashboard evidence polish or integration packaging.
-- Add the next strongest public proof candidate for a future `v0.1.3` release.
+- Validate the next milestone after `v0.1.3` (external adoption and trust
+  continuation): add a stronger conversion walkthrough and keep suite precision under
+  real trial feedback.
+- Track future release prep in `CHANGELOG.md` and the roadmap.
 - Keep tuning false positives and false negatives as real users try the packs.

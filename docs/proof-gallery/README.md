@@ -19,6 +19,7 @@ references.
 | [Research claim overreach](research-claims.md) | Stop preliminary findings becoming guaranteed, always-correct claims. | `research-safe-preliminary`, `research-unsafe-overclaim` |
 | [Agent tool-boundary drift](agent-tool-boundary.md) | Stop read-only agents drifting into storing credentials, sending replies, or writing records. | `agent-safe-read-only`, `agent-unsafe-tool-boundary` |
 | [Code-review version and auth drift](code-review.md) | Stop AI patch summaries changing dependency versions or authentication behavior. | `code-review-safe-version`, `code-review-unsafe-version-auth` |
+| [Customer operations conversion guard](customer-operations-conversion.md) | Keep support and compliance releases aligned on refunds, escalation, and payment approval. | `support-ops-safe-refund-escalation`, `support-ops-refund-threshold-drift`, `support-ops-escalation-removal`, `regulated-claims-approval-removal` |
 
 For the exported proof package itself, start with
 [Evidence reader walkthrough](evidence-reader-walkthrough.md).

@@ -4,6 +4,10 @@ This pack turns Sentinel's policy proof into examples that look more like real
 buyer release checks. It is still reference-bound: Sentinel checks supplied AI
 outputs against supplied references, not external truth.
 
+A customer-facing conversion walk-through is now available in the proof gallery:
+
+- `docs/proof-gallery/customer-operations-conversion.md`
+
 Run it locally:
 
 ```powershell

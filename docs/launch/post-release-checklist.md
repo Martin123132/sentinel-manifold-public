@@ -2,9 +2,21 @@
 
 Use this checklist after publishing a public Sentinel release.
 
-Latest release checklist: [v0.1.2 Customer Proof](v0.1.2-release-checklist.md).
+Current release checklist: [v0.1.3 Proof Candidate](https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3).
 
-## v0.1.2 Customer Proof
+## v0.1.3 Proof Candidate
+
+- GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3
+- Tag: `v0.1.3`
+- Target commit: `85fd519d490c4231eaf9e16217aa788f86b4bbd8`
+- Live sandbox: https://sentinel-manifold-public.onrender.com/
+- Public evidence examples: `docs/evidence-examples/`
+- Conversion proof walkthrough:
+  - `docs/proof-gallery/customer-operations-conversion.md`
+- Launch/copy assets: `docs/launch/public-launch-copy.md`
+- Release text: `RELEASE_NOTES.md`, `CHANGELOG.md`
+
+## Previous Release: v0.1.2 Customer Proof
 
 - GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.2
 - Tag: `v0.1.2`
@@ -15,7 +27,7 @@ Latest release checklist: [v0.1.2 Customer Proof](v0.1.2-release-checklist.md).
 - Public evidence examples: `docs/evidence-examples/`
 - Customer-shaped regression docs: `docs/customer-shaped-regressions.md`
 
-## v0.1.1 Adoption Proof
+## Previous Release: v0.1.1 Adoption Proof
 
 - GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.1
 - Tag: `v0.1.1`
@@ -26,24 +38,25 @@ Latest release checklist: [v0.1.2 Customer Proof](v0.1.2-release-checklist.md).
 - External demo repo: https://github.com/Martin123132/sentinel-support-assistant-demo
 - Public evidence examples: `docs/evidence-examples/`
 
-## Confirm Before Publishing
+## Confirm Before Publishing Next Release
 
-- Latest `main` points at the intended release commit.
+- Latest `main` is clean and points at the intended release commit.
 - Latest `main` CI is green.
-- `RELEASE_NOTES.md` contains the final `v0.1.1 Adoption Proof` GitHub Release body.
-- `CHANGELOG.md` has a fresh `Unreleased` section and a dated `v0.1.1 Adoption Proof` section.
-- No provider keys, customer data, generated `out/` artifacts, or private evidence are included.
+- `RELEASE_NOTES.md` is ready for the next release body.
+- `CHANGELOG.md` has a clear `Unreleased` section plus a dated release entry.
+- No provider keys, customer data, generated `out/` artifacts, or private evidence
+  are included in published docs.
 
 ## Confirm After Publishing
 
-- Release is published as latest.
-- Release is not draft and not prerelease.
-- Tag `v0.1.1` points at the intended commit.
-- Public demo smoke test returns `public_demo: true`.
-- Public providers endpoint exposes only `local_demo`.
-- Unauthenticated audit history returns `401`.
-- Demo suite returns `PASS`, `5` cases, `5` passed, and `0` failed.
-- README, roadmap, release notes, launch copy, external demo repo, and evidence example links render on GitHub.
+- Release is published as latest and marked as non-draft, non-prerelease.
+- Public demo smoke tests still pass:
+  - `/api/health` returns `public_demo: true`
+  - `/api/providers` exposes only `local_demo`
+  - `/api/audits` returns `401` for unauthenticated users
+  - demo suite still returns PASS with `5` cases, `5` passed, `0` failed
+- README, roadmap, launch copy, and proof gallery links render on GitHub.
+- Release tag points at the intended commit.
 
 ## Previous Release
 

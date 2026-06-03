@@ -108,6 +108,16 @@ That suite uses the `agent_tool` policy pack to block tool-boundary drift such
 as credential storage, email sending, CRM writes/deletes, and unapproved payment
 release.
 
+For the conversion-focused customer proof card, run:
+
+```powershell
+python app\cli.py suite --input samples\customer-shaped-regression-suite.json --out out\customer-shaped-regression-suite-report.json --fail-on-fail
+```
+
+That run is documented in:
+
+- `docs/proof-gallery/customer-operations-conversion.md`
+
 For deeper buyer examples across support, regulated workflow, research,
 agent/tool, and code-review release gates, read the
 [Proof Gallery](docs/proof-gallery/README.md). The gallery points each story to

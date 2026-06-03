@@ -6,11 +6,26 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ### Changed
 
-- Clean up post-release docs now that `v0.1.2 Customer Proof` is live.
-- Point README, roadmap, release notes, launch copy, and checklist materials at
-  the published `v0.1.2` GitHub Release.
-- Move the next milestone from publishing `v0.1.2` to dashboard evidence polish,
-  integration packaging, and future proof candidates.
+- v0.1.3 release is now published; no additional changes are staged in this cycle.
+
+## v0.1.3 Proof Candidate - 2026-06-03
+
+### Added
+
+- Added conversion-focused proof walkthrough:
+  `docs/proof-gallery/customer-operations-conversion.md`.
+- Aligned `README`, `ROADMAP`, `PRODUCT_BRIEF`, and `RELEASE_NOTES` to a
+  published `v0.1.3` milestone.
+- Added `docs/launch/public-launch-copy.md` and `docs/launch/post-release-checklist`
+  follow-through updates for release publication and proof continuity.
+- Added `docs/launch/v0.1.3-pre-release-checklist.md` as the historical pre-release
+  verification artifact for this milestone.
+
+### Changed
+
+- Kept API, CLI, and dashboard behavior unchanged.
+- Kept public sandbox boundaries unchanged (`local_demo` only, protected routes).
+- Kept evidence export admin-only and strengthened release-story clarity for buyers.
 
 ## v0.1.2 Customer Proof - 2026-05-30
 

@@ -55,6 +55,11 @@ python app\cli.py suite --input examples\external-adoption\support-assistant\sen
 The fixture's `sentinel-release-gate.yml` is the copy-paste workflow for that
 app-shaped example.
 
+If you want the v0.1.3 conversion proof path, connect the suite in your docs
+to:
+
+- `docs/proof-gallery/customer-operations-conversion.md`
+
 ## Write A Suite JSON File
 
 A suite is a JSON file with a `cases` array. Each case supplies trusted
@@ -111,6 +116,7 @@ For a broader proof set:
 ```powershell
 python app\cli.py suite --input samples\mixed-proof-suite.json --out out\mixed-proof-suite-report.json --fail-on-fail
 python app\cli.py suite --input samples\agent-policy-suite.json --out out\agent-policy-suite-report.json --fail-on-fail
+python app\cli.py suite --input samples\customer-shaped-regression-suite.json --out out\customer-shaped-regression-suite-report.json --fail-on-fail
 ```
 
 ## Collect Evidence Artifacts From CI

@@ -372,3 +372,13 @@ back to product proof work.
 That keeps the project story tidy:
 
 > Turn a published proof release into a current, trustworthy front door.
+
+## Stage 30 Commercial Story
+
+Sentinel now has a published `v0.1.3 Proof Candidate` release pack in docs-first
+form: launch text, proof gallery updates, and conversion walkthroughs now point to
+the current release while runtime behavior remains unchanged.
+
+That locks the current milestone state:
+
+> Lock the release story as shipped and prepare the next proof with no runtime risk.

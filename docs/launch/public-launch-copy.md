@@ -1,10 +1,14 @@
 # Public Launch Copy
 
-Use these snippets for the live `v0.1.2 Customer Proof` release.
+Use these snippets for the live `v0.1.3 Proof Candidate` release.
 
 Release:
 
-https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.2
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3
+
+Release notes:
+
+`RELEASE_NOTES.md`
 
 Live demo:
 
@@ -12,34 +16,36 @@ https://sentinel-manifold-public.onrender.com/
 
 ## Short Post
 
-Sentinel Manifold `v0.1.2 Customer Proof` is live.
+Sentinel Manifold `v0.1.3 Proof Candidate` is live.
 
-It is a source-available AI release gate that now has customer-shaped regression
-proof: support ops, regulated claims/payments, agentic CRM/email workflows, and
-code-review release notes all run in CI and upload evidence artifacts.
+It is a source-available AI release gate with buyer-specific proof in support
+operations and regulated workflow, including conversion-facing customer examples.
 
-External demo repo:
-
-https://github.com/Martin123132/sentinel-support-assistant-demo
-
-Public evidence examples:
+Public evidence examples are available at:
 
 https://github.com/Martin123132/sentinel-manifold-public/tree/main/docs/evidence-examples
 
+Public proof gallery is here:
+
+https://github.com/Martin123132/sentinel-manifold-public/tree/main/docs/proof-gallery
+
 ## Slightly Longer Post
 
-Sentinel Manifold `v0.1.2 Customer Proof` packages the next proof layer after
-the adoption release.
+Sentinel Manifold `v0.1.3 Proof Candidate` is live. It keeps the bounded demo
+sandbox, admin-only evidence export, and CI release-gate artifact story while
+making it clearer how support and regulated behavior changes are blocked before
+release.
 
-The product story is still simple: fail releases when AI behavior regresses.
+The product story is still simple:
+
+> Fail releases when AI behavior regresses.
 
 What is new in this release pack:
 
-- public evidence examples for regulated workflow, agent/tool boundaries, and code review
-- a policy tuning suite for near-miss buyer wording
-- a customer-shaped regression suite with support, regulated, agentic, and code-review release stories
-- CI artifacts for the expanded release-gate proof
-- the same bounded public sandbox and admin-only evidence export boundary
+- conversion proof walkthrough for support + regulated handoff in
+  `docs/proof-gallery/customer-operations-conversion.md`
+- docs alignment around `v0.1.3` as current public release
+- stable external adoption references and evidence-reader workflow links
 
 Repo:
 
@@ -65,5 +71,6 @@ or overclaiming outputs before they ship, with evidence reviewers can inspect.
 
 ## Proof Line
 
-Run the public demo suite, inspect the checked-in evidence examples, then run
-the customer-shaped regression suite to see the release-gate proof files.
+Run the public demo suite, inspect the checked-in evidence examples, then run the
+customer-shaped regression suite and review
+`docs/proof-gallery/customer-operations-conversion.md`.
