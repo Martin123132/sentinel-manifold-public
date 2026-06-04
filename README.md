@@ -3,7 +3,8 @@
 [![CI](https://github.com/Martin123132/sentinel-manifold-public/actions/workflows/ci.yml/badge.svg)](https://github.com/Martin123132/sentinel-manifold-public/actions/workflows/ci.yml)
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://dashboard.render.com/blueprint/new?repo=https://github.com/Martin123132/sentinel-manifold-public)
 
-An attention-first MVP for an AI Guardrail Gateway.
+A source-available AI release gate for catching behavior regressions before they
+ship.
 
 Live public sandbox: https://sentinel-manifold-public.onrender.com/
 
@@ -17,7 +18,10 @@ https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3
 It packages buyer-specific evidence examples, policy tuning, the customer-shaped
 regression suite, and a conversion-focused proof walkthrough.
 
-Previous release: `v0.1.1 Adoption Proof`
+Previous release: `v0.1.2 Customer Proof`
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.2
+
+Earlier release: `v0.1.1 Adoption Proof`
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.1
 
 Earlier release: `v0.1.0 Public Proof`

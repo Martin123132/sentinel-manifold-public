@@ -8,7 +8,9 @@ Current release checklist: [v0.1.3 Proof Candidate](https://github.com/Martin123
 
 - GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3
 - Tag: `v0.1.3`
-- Target commit: `85fd519d490c4231eaf9e16217aa788f86b4bbd8`
+- Target commit: `61ec52cade15e939309a22205718d273b73d6662`
+- CI run: https://github.com/Martin123132/sentinel-manifold-public/actions/runs/26881961975
+- Published: `2026-06-03T11:32:55Z`
 - Live sandbox: https://sentinel-manifold-public.onrender.com/
 - Public evidence examples: `docs/evidence-examples/`
 - Conversion proof walkthrough:

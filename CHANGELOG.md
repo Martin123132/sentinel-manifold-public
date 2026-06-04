@@ -6,7 +6,8 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ### Changed
 
-- v0.1.3 release is now published; no additional changes are staged in this cycle.
+- Tighten post-`v0.1.3` release hygiene: release chronology, checklist status,
+  and public-facing proof wording.
 
 ## v0.1.3 Proof Candidate - 2026-06-03
 
@@ -31,9 +32,10 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ### Changed
 
-- Clean up post-release docs now that `v0.1.1 Adoption Proof` is live.
+- Publish `v0.1.2 Customer Proof` as the customer-shaped proof release after
+  `v0.1.1 Adoption Proof`.
 - Point README, roadmap, launch copy, and checklist materials at the live
-  `v0.1.1` GitHub Release.
+  `v0.1.2` GitHub Release.
 - Add public evidence examples for regulated workflow, agent/tool boundaries,
   and code-review release gates.
 - Extend the evidence example builder so docs examples can be rebuilt from

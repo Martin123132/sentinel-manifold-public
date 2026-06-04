@@ -24,7 +24,7 @@ suites:
 The public demo remains bounded and easy to verify:
 
 - health mode stays public sandbox,
-- providers stay to `local_demo`,
+- provider listings stay limited to `local_demo`,
 - protected routes remain protected,
 - demo suite still reports PASS with `5` cases, `5` passed, `0` failed.
 
