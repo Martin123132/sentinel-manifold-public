@@ -33,6 +33,7 @@ evidence bundles when you need a proof package.
 
 - Trial users: start with [TRIAL_GUIDE.md](TRIAL_GUIDE.md), then run
   `python scripts/run-proof-pack.py`.
+- Trial feedback loop: read [docs/trial-adoption.md](docs/trial-adoption.md).
 - New visitors: start with the [30 Second Demo](#30-second-demo).
 - Buyers and reviewers: browse the [Proof Gallery](docs/proof-gallery/README.md).
 - Evidence reviewers: inspect the [public evidence examples](docs/evidence-examples/README.md).
@@ -148,8 +149,8 @@ python scripts/run-proof-pack.py
 ```
 
 See [TRIAL_GUIDE.md](TRIAL_GUIDE.md) for the 10-minute trial path and
-[docs/trial-feedback-template.md](docs/trial-feedback-template.md) for useful
-feedback notes.
+[docs/trial-adoption.md](docs/trial-adoption.md) for the full trial feedback
+loop.
 
 The first build is deliberately dependency-light:
 

@@ -30,6 +30,7 @@ This release candidate focuses on adoption friction:
 - `TRIAL_GUIDE.md`
 - `scripts/run-proof-pack.py`
 - `scripts/run-proof-pack.ps1`
+- `docs/trial-adoption.md`
 - `docs/trial-feedback-template.md`
 - GitHub issue templates under `.github/ISSUE_TEMPLATE/`
 - `docs/launch/v0.1.4-trial-adoption-checklist.md`

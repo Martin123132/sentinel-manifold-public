@@ -95,8 +95,9 @@ Helpful trial feedback includes:
 - whether the result matched your expectation,
 - any wording that felt confusing in the report or evidence.
 
-Use [docs/trial-feedback-template.md](docs/trial-feedback-template.md), or open
-one of the GitHub issue templates.
+Use [docs/trial-adoption.md](docs/trial-adoption.md) for the full loop,
+[docs/trial-feedback-template.md](docs/trial-feedback-template.md) for notes, or
+open one of the GitHub issue templates.
 
 ## 7. Commercial Boundary
 

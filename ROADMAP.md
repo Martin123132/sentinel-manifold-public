@@ -31,7 +31,8 @@ summaries. The customer-shaped regression suite now frames that proof as support
 operations, regulated claims/payments, agentic CRM/email workflows, and
 code-review release notes. The trial adoption pack now gives first-time testers
 a 10-minute guide, a cross-platform one-command proof-pack runner, feedback
-templates, and issue forms for reporting false positives or missed drift.
+templates, issue forms for reporting false positives or missed drift, and test
+coverage for the proof-pack runner's suite list.
 
 The first public release is complete: `v0.1.0 Public Proof` packages the live
 demo, CI release gate, integration guide, commercial boundary, and admin evidence
