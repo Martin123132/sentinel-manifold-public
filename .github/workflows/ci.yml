@@ -143,6 +143,9 @@ jobs:
         run: python app/cli.py suite --input samples/mixed-proof-suite.json --out out/mixed-proof-suite-report.json --fail-on-fail
 
       - name: Run trial proof pack script
+        run: python scripts/run-proof-pack.py
+
+      - name: Run Windows trial wrapper
         shell: pwsh
         run: ./scripts/run-proof-pack.ps1
 

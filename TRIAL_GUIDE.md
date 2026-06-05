@@ -11,10 +11,16 @@ references you provide. It does not claim external truth.
 ```powershell
 git clone https://github.com/Martin123132/sentinel-manifold-public.git
 cd sentinel-manifold-public
-powershell -ExecutionPolicy Bypass -File .\scripts\run-proof-pack.ps1
+python scripts/run-proof-pack.py
 ```
 
 The script runs the public proof suites and writes reports under `out/`.
+
+On Windows, this wrapper is also available:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\run-proof-pack.ps1
+```
 
 Expected result:
 

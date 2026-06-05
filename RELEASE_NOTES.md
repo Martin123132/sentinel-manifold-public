@@ -19,7 +19,7 @@ The product story stays the same:
 This release candidate focuses on adoption friction:
 
 - first-time testers get a 10-minute trial path,
-- local users can run the proof pack with one PowerShell command,
+- local users can run the proof pack with one cross-platform Python command,
 - GitHub issue templates capture trial reports, false positives, missed drift,
   and commercial enquiries,
 - docs point trial users toward useful, sanitized feedback instead of private
@@ -28,6 +28,7 @@ This release candidate focuses on adoption friction:
 ## What Is New
 
 - `TRIAL_GUIDE.md`
+- `scripts/run-proof-pack.py`
 - `scripts/run-proof-pack.ps1`
 - `docs/trial-feedback-template.md`
 - GitHub issue templates under `.github/ISSUE_TEMPLATE/`
@@ -36,7 +37,7 @@ This release candidate focuses on adoption friction:
 ## Try It
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\run-proof-pack.ps1
+python scripts/run-proof-pack.py
 ```
 
 For the full local trial path:

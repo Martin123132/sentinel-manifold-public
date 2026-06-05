@@ -7,8 +7,9 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 ### Added
 
 - Add `TRIAL_GUIDE.md` as a 10-minute adoption path for first-time testers.
-- Add `scripts/run-proof-pack.ps1` to run the public proof suites with one
-  command.
+- Add `scripts/run-proof-pack.py` to run the public proof suites with one
+  cross-platform command.
+- Keep `scripts/run-proof-pack.ps1` as a Windows-friendly wrapper.
 - Add trial feedback docs and GitHub issue templates for trial reports, false
   positives, missed drift, and commercial enquiries.
 - Prepare `v0.1.4 Trial Adoption` release notes and checklist as the next
