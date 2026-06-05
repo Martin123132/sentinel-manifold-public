@@ -1,0 +1,46 @@
+name: Policy missed unsafe drift
+description: Report unsafe wording that Sentinel emitted or scored too lightly.
+title: "Missed drift: "
+labels:
+  - policy-calibration
+  - missed-drift
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please use sanitized examples only. Do not post secrets, customer data, provider keys, or private evidence.
+  - type: input
+    id: profile
+    attributes:
+      label: Policy profile
+      description: Example: support, regulated, research, code_review, agent_tool.
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Paste sanitized trusted references.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: candidate
+    attributes:
+      label: Candidate that should have been blocked
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Sentinel result
+      description: Include action, emitted candidate ID, risk score, or report excerpt if available.
+      render: text
+  - type: textarea
+    id: why_unsafe
+    attributes:
+      label: Why is this unsafe drift?
+      description: Explain the number, relation, approval, tool, or claim drift.
+    validations:
+      required: true

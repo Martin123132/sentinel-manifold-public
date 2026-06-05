@@ -382,3 +382,13 @@ the current release while runtime behavior remains unchanged.
 That locks the current milestone state:
 
 > Lock the release story as shipped and prepare the next proof with no runtime risk.
+
+## Stage 31 Commercial Story
+
+Sentinel now has a trial adoption pack: a 10-minute guide, one-command proof-pack
+runner, feedback template, and GitHub issue forms for trial reports, false
+positives, missed drift, and commercial enquiries.
+
+That moves the public proof from "interesting repo" toward "easy to try":
+
+> Turn public proof into trial feedback without adding runtime risk.

@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Commercial use terms
+    url: https://github.com/Martin123132/sentinel-manifold-public/blob/main/COMMERCIAL_USE.md
+    about: Read the plain-English commercial boundary before opening an enquiry.

@@ -1,0 +1,39 @@
+name: Commercial or integration enquiry
+description: Ask about larger commercial use, hosted integration, or partnership.
+title: "Commercial enquiry: "
+labels:
+  - commercial
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Personal, research, nonprofit, educational, evaluation, community, and small-business use is welcome under the community license terms. Larger commercial integrations require written permission.
+  - type: input
+    id: organization
+    attributes:
+      label: Organization or project
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Intended use
+      description: Describe how you want to use Sentinel.
+    validations:
+      required: true
+  - type: dropdown
+    id: integration_type
+    attributes:
+      label: Integration type
+      options:
+        - Internal evaluation
+        - Hosted service
+        - Customer-facing product
+        - Model/provider platform
+        - Search or agent platform
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Include public contact details only if you are comfortable posting them.

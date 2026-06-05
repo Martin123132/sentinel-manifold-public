@@ -29,7 +29,9 @@ tuning suite turns those examples into near-miss CI checks for regulated
 approval wording, read-only agent boundaries, and code-review version/auth
 summaries. The customer-shaped regression suite now frames that proof as support
 operations, regulated claims/payments, agentic CRM/email workflows, and
-code-review release notes.
+code-review release notes. The trial adoption pack now gives first-time testers
+a 10-minute guide, a one-command proof-pack runner, feedback templates, and issue
+forms for reporting false positives or missed drift.
 
 The first public release is complete: `v0.1.0 Public Proof` packages the live
 demo, CI release gate, integration guide, commercial boundary, and admin evidence
@@ -59,11 +61,11 @@ Previous releases:
 
 ## Near-Term Milestones
 
-1. Add and verify the next public proof continuation after `v0.1.3`
-   (conversion depth, external use-case coverage, and trusted evidence continuity).
-2. Keep tuning buyer-specific false positives and false negatives from real trial
-   use in the suite.
-3. Publish `v0.1.4` when the next proof candidate is stable in docs and CI.
+1. Finish `v0.1.4 Trial Adoption`: reduce the first-run path to a clear guide,
+   one command, and useful feedback capture.
+2. Use trial feedback to tune buyer-specific false positives and false negatives.
+3. Publish `v0.1.4` when the trial adoption docs, script, issue templates, and
+   CI proof are stable.
 
 ## Boundaries
 

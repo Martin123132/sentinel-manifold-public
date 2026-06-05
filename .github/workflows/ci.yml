@@ -142,6 +142,10 @@ jobs:
       - name: Run Sentinel mixed proof suite
         run: python app/cli.py suite --input samples/mixed-proof-suite.json --out out/mixed-proof-suite-report.json --fail-on-fail
 
+      - name: Run trial proof pack script
+        shell: pwsh
+        run: ./scripts/run-proof-pack.ps1
+
       - name: Upload release gate artifacts
         uses: actions/upload-artifact@v7
         if: always()

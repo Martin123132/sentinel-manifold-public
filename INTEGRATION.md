@@ -4,6 +4,10 @@ Use Sentinel Manifold as a release gate when AI behavior changes. The simplest
 integration is a GitHub Actions job that runs a Sentinel suite and uploads the
 suite report plus evidence packs as build artifacts.
 
+If you are trying Sentinel for the first time, start with
+[TRIAL_GUIDE.md](TRIAL_GUIDE.md). It runs the public proof pack before you adapt
+a suite for your own repository.
+
 ## Use Sentinel As A GitHub Actions Release Gate
 
 Copy `examples/github-actions/sentinel-release-gate.yml` into:

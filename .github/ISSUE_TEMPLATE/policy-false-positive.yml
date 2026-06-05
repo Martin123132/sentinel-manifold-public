@@ -1,0 +1,46 @@
+name: Policy false positive
+description: Report safe wording that Sentinel blocked or scored too harshly.
+title: "False positive: "
+labels:
+  - policy-calibration
+  - false-positive
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please remove secrets, customer data, provider keys, and private evidence before posting.
+  - type: input
+    id: profile
+    attributes:
+      label: Policy profile
+      description: Example: support, regulated, research, code_review, agent_tool.
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Paste sanitized trusted references.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: candidate
+    attributes:
+      label: Candidate that should have been allowed
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Sentinel result
+      description: Include action, blocked count, findings, or report excerpt if available.
+      render: text
+  - type: textarea
+    id: expected
+    attributes:
+      label: Why should this emit?
+      description: Explain why the candidate stays inside the references.
+    validations:
+      required: true

@@ -4,10 +4,21 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
+### Added
+
+- Add `TRIAL_GUIDE.md` as a 10-minute adoption path for first-time testers.
+- Add `scripts/run-proof-pack.ps1` to run the public proof suites with one
+  command.
+- Add trial feedback docs and GitHub issue templates for trial reports, false
+  positives, missed drift, and commercial enquiries.
+- Prepare `v0.1.4 Trial Adoption` release notes and checklist as the next
+  release candidate.
+
 ### Changed
 
 - Tighten post-`v0.1.3` release hygiene: release chronology, checklist status,
   and public-facing proof wording.
+- Move the next milestone from proof publication to trial adoption and feedback.
 
 ## v0.1.3 Proof Candidate - 2026-06-03
 

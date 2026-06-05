@@ -1,0 +1,40 @@
+name: I tried Sentinel
+description: Share what happened when you ran the trial guide or proof pack.
+title: "Trial report: "
+labels:
+  - trial-feedback
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for trying Sentinel. Please do not include secrets, provider keys, customer data, or private evidence.
+  - type: input
+    id: use_case
+    attributes:
+      label: What did you test?
+      description: Example: support assistant, code review summary, agent tool boundary.
+    validations:
+      required: true
+  - type: textarea
+    id: commands
+    attributes:
+      label: Commands or suite used
+      description: Paste the command or suite file you ran.
+      render: shell
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options:
+        - PASS
+        - FAIL
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: What was useful or confusing?
+      description: Tell us what helped, what did not, and what you expected.
+    validations:
+      required: true

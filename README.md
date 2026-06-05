@@ -31,12 +31,16 @@ The current public proof story is practical: run the live sandbox, inspect the
 five-case demo suite, copy the CI workflow into another repo, and export admin
 evidence bundles when you need a proof package.
 
+- Trial users: start with [TRIAL_GUIDE.md](TRIAL_GUIDE.md), then run
+  `powershell -ExecutionPolicy Bypass -File .\scripts\run-proof-pack.ps1`.
 - New visitors: start with the [30 Second Demo](#30-second-demo).
 - Buyers and reviewers: browse the [Proof Gallery](docs/proof-gallery/README.md).
 - Evidence reviewers: inspect the [public evidence examples](docs/evidence-examples/README.md).
 - Developers: use [INTEGRATION.md](INTEGRATION.md) and the copy-paste GitHub Actions workflow.
 - Admins: unlock the hosted demo and export the evidence bundle described in [DEMO_PROOF.md](DEMO_PROOF.md).
-- Release text: see [RELEASE_NOTES.md](RELEASE_NOTES.md) and [CHANGELOG.md](CHANGELOG.md).
+- Current release: see the
+  [v0.1.3 GitHub Release](https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3).
+- Next release draft: see [RELEASE_NOTES.md](RELEASE_NOTES.md) and [CHANGELOG.md](CHANGELOG.md).
 - For current proof milestones and launch status, see
   [Post-Release Checklist](docs/launch/post-release-checklist.md).
 
@@ -136,6 +140,16 @@ Run the release-gate suite locally:
 ```powershell
 python app\cli.py suite --input samples\regression-suite.json --out out\suite-report.json --fail-on-fail
 ```
+
+Or run the public proof pack:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\run-proof-pack.ps1
+```
+
+See [TRIAL_GUIDE.md](TRIAL_GUIDE.md) for the 10-minute trial path and
+[docs/trial-feedback-template.md](docs/trial-feedback-template.md) for useful
+feedback notes.
 
 The first build is deliberately dependency-light:
 
@@ -557,8 +571,7 @@ Product proof:
 
 ## Next Build Steps
 
-- Validate the next milestone after `v0.1.3` (external adoption and trust
-  continuation): add a stronger conversion walkthrough and keep suite precision under
-  real trial feedback.
-- Track future release prep in `CHANGELOG.md` and the roadmap.
+- Prepare `v0.1.4 Trial Adoption`: make it easier for a new visitor to run the
+  proof pack and report useful trial feedback.
+- Keep trial friction low before adding larger runtime features.
 - Keep tuning false positives and false negatives as real users try the packs.
