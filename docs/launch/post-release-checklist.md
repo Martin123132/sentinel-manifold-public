@@ -2,12 +2,21 @@
 
 Use this checklist after publishing a public Sentinel release.
 
-Current release checklist: [v0.1.3 Proof Candidate](https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3).
-
-Next release candidate checklist:
+Current release checklist:
 [v0.1.4 Trial Adoption](v0.1.4-trial-adoption-checklist.md).
 
-## v0.1.3 Proof Candidate
+## v0.1.4 Trial Adoption
+
+- GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4
+- Tag: `v0.1.4`
+- Release target: tag `v0.1.4`
+- Live sandbox: https://sentinel-manifold-public.onrender.com/
+- Trial guide: `TRIAL_GUIDE.md`
+- Trial adoption loop: `docs/trial-adoption.md`
+- Proof-pack runner: `scripts/run-proof-pack.py`
+- Release text: `RELEASE_NOTES.md`, `CHANGELOG.md`
+
+## Previous Release: v0.1.3 Proof Candidate
 
 - GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3
 - Tag: `v0.1.3`
@@ -19,8 +28,6 @@ Next release candidate checklist:
 - Conversion proof walkthrough:
   - `docs/proof-gallery/customer-operations-conversion.md`
 - Launch/copy assets: `docs/launch/public-launch-copy.md`
-- Published release text: GitHub Release body and `CHANGELOG.md`
-- Next draft release text: `RELEASE_NOTES.md`
 
 ## Previous Release: v0.1.2 Customer Proof
 

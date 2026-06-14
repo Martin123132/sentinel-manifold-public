@@ -47,13 +47,18 @@ buyer evidence examples, policy tuning, and customer-shaped regression stories.
 The fourth public release is now live: `v0.1.3 Proof Candidate`, with a
 conversion-focused proof walkthrough for support-to-regulated handoff checks.
 
+The fifth public release is now live: `v0.1.4 Trial Adoption`, with a
+10-minute trial guide, cross-platform proof-pack runner, trial feedback loop,
+issue templates, and runner test coverage.
+
 The hosted dashboard now presents that proof in the first screen: public sandbox
 status, release link, CI artifact cue, and demo-suite PASS target.
 
-Current release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3
+Current release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4
 
 Previous releases:
 
+- https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3
 - https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.2
 - https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.1
 - https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.0
@@ -62,11 +67,10 @@ Previous releases:
 
 ## Near-Term Milestones
 
-1. Finish `v0.1.4 Trial Adoption`: reduce the first-run path to a clear guide,
-   cross-platform command, and useful feedback capture.
-2. Use trial feedback to tune buyer-specific false positives and false negatives.
-3. Publish `v0.1.4` when the trial adoption docs, script, issue templates, and
-   CI proof are stable.
+1. Collect real trial feedback from the `v0.1.4` guide, proof-pack runner, and
+   issue templates.
+2. Use trial reports to tune buyer-specific false positives and false negatives.
+3. Prepare the next proof release once trial feedback shows the strongest gap.
 
 ## Boundaries
 

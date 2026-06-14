@@ -1,22 +1,19 @@
 # v0.1.4 Trial Adoption
 
-Draft release notes for the next planned public release. This release has not
-been tagged or published yet.
+Live release:
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4
 
-Current published release:
-https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3
+Sentinel Manifold `v0.1.4 Trial Adoption` packages the next step after public
+proof: make it easy for a new tester to try Sentinel, run the proof suites, and
+report useful feedback.
 
 ## Product Proof
-
-`v0.1.4 Trial Adoption` packages the next step after public proof: make it easy
-for a new tester to try Sentinel, run the proof suites, and report useful
-feedback.
 
 The product story stays the same:
 
 > Fail releases when AI behavior regresses.
 
-This release candidate focuses on adoption friction:
+This release focuses on adoption friction:
 
 - first-time testers get a 10-minute trial path,
 - local users can run the proof pack with one cross-platform Python command,
@@ -34,6 +31,7 @@ This release candidate focuses on adoption friction:
 - `docs/trial-feedback-template.md`
 - GitHub issue templates under `.github/ISSUE_TEMPLATE/`
 - `docs/launch/v0.1.4-trial-adoption-checklist.md`
+- proof-pack runner unit tests
 
 ## Try It
 

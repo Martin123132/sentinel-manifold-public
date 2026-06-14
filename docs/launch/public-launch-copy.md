@@ -1,14 +1,10 @@
 # Public Launch Copy
 
-Use these snippets for the live `v0.1.3 Proof Candidate` release.
+Use these snippets for the live `v0.1.4 Trial Adoption` release.
 
 Release:
 
-https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3
-
-Release notes:
-
-`RELEASE_NOTES.md`
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4
 
 Live demo:
 
@@ -16,25 +12,22 @@ https://sentinel-manifold-public.onrender.com/
 
 ## Short Post
 
-Sentinel Manifold `v0.1.3 Proof Candidate` is live.
+Sentinel Manifold `v0.1.4 Trial Adoption` is live.
 
-It is a source-available AI release gate with buyer-specific proof in support
-operations and regulated workflow, including conversion-facing customer examples.
+It is a source-available AI release gate that now has a clearer first-trial
+path: a 10-minute guide, cross-platform proof-pack runner, feedback loop, and
+issue templates for reporting false positives or missed unsafe drift.
 
-Public evidence examples are available at:
+Trial guide:
 
-https://github.com/Martin123132/sentinel-manifold-public/tree/main/docs/evidence-examples
-
-Public proof gallery is here:
-
-https://github.com/Martin123132/sentinel-manifold-public/tree/main/docs/proof-gallery
+https://github.com/Martin123132/sentinel-manifold-public/blob/main/TRIAL_GUIDE.md
 
 ## Slightly Longer Post
 
-Sentinel Manifold `v0.1.3 Proof Candidate` is live. It keeps the bounded demo
+Sentinel Manifold `v0.1.4 Trial Adoption` is live. It keeps the bounded demo
 sandbox, admin-only evidence export, and CI release-gate artifact story while
-making it clearer how support and regulated behavior changes are blocked before
-release.
+making it easier for new testers to run the proof pack and report useful
+feedback.
 
 The product story is still simple:
 
@@ -42,10 +35,12 @@ The product story is still simple:
 
 What is new in this release pack:
 
-- conversion proof walkthrough for support + regulated handoff in
-  `docs/proof-gallery/customer-operations-conversion.md`
-- docs alignment around `v0.1.3` as current public release
-- stable external adoption references and evidence-reader workflow links
+- 10-minute trial guide,
+- cross-platform proof-pack runner,
+- Windows-friendly wrapper,
+- trial adoption loop documentation,
+- feedback and GitHub issue templates,
+- runner tests so the trial suite list stays stable.
 
 Repo:
 
@@ -71,6 +66,5 @@ or overclaiming outputs before they ship, with evidence reviewers can inspect.
 
 ## Proof Line
 
-Run the public demo suite, inspect the checked-in evidence examples, then run the
-customer-shaped regression suite and review
-`docs/proof-gallery/customer-operations-conversion.md`.
+Run the public demo suite, then run `python scripts/run-proof-pack.py` locally
+to see the proof pack PASS before adapting one suite to your own project.

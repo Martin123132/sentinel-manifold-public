@@ -12,13 +12,16 @@ Sentinel Manifold checks candidate LLM outputs against supplied reference materi
 
 ## Public Proof Release
 
-`v0.1.3 Proof Candidate` is live:
+`v0.1.4 Trial Adoption` is live:
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4
+
+It packages the 10-minute trial path, cross-platform proof-pack runner, trial
+feedback loop, issue templates, and runner tests.
+
+Previous release: `v0.1.3 Proof Candidate`
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3
 
-It packages buyer-specific evidence examples, policy tuning, the customer-shaped
-regression suite, and a conversion-focused proof walkthrough.
-
-Previous release: `v0.1.2 Customer Proof`
+Earlier release: `v0.1.2 Customer Proof`
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.2
 
 Earlier release: `v0.1.1 Adoption Proof`
@@ -40,8 +43,8 @@ evidence bundles when you need a proof package.
 - Developers: use [INTEGRATION.md](INTEGRATION.md) and the copy-paste GitHub Actions workflow.
 - Admins: unlock the hosted demo and export the evidence bundle described in [DEMO_PROOF.md](DEMO_PROOF.md).
 - Current release: see the
-  [v0.1.3 GitHub Release](https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3).
-- Next release draft: see [RELEASE_NOTES.md](RELEASE_NOTES.md) and [CHANGELOG.md](CHANGELOG.md).
+  [v0.1.4 GitHub Release](https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4).
+- Release text: see [RELEASE_NOTES.md](RELEASE_NOTES.md) and [CHANGELOG.md](CHANGELOG.md).
 - For current proof milestones and launch status, see
   [Post-Release Checklist](docs/launch/post-release-checklist.md).
 
@@ -572,7 +575,7 @@ Product proof:
 
 ## Next Build Steps
 
-- Prepare `v0.1.4 Trial Adoption`: make it easier for a new visitor to run the
-  proof pack and report useful trial feedback.
-- Keep trial friction low before adding larger runtime features.
+- Collect trial feedback from the `v0.1.4` guide, issue templates, and proof-pack
+  runner.
+- Use real trial reports to prioritize policy tuning and onboarding polish.
 - Keep tuning false positives and false negatives as real users try the packs.

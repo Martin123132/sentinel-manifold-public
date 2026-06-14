@@ -385,10 +385,11 @@ That locks the current milestone state:
 
 ## Stage 31 Commercial Story
 
-Sentinel now has a trial adoption pack: a 10-minute guide, cross-platform
-one-command proof-pack runner, feedback template, and GitHub issue forms for
-trial reports, false positives, missed drift, and commercial enquiries. The
-runner also has focused tests so the trial suite list stays stable.
+Sentinel now has a published `v0.1.4 Trial Adoption` release: a 10-minute guide,
+cross-platform one-command proof-pack runner, feedback template, and GitHub
+issue forms for trial reports, false positives, missed drift, and commercial
+enquiries. The runner also has focused tests so the trial suite list stays
+stable.
 
 That moves the public proof from "interesting repo" toward "easy to try":
 
