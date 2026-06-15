@@ -9,7 +9,9 @@ Current release checklist:
 
 - GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.5
 - Tag: `v0.1.5`
-- Release target: tag `v0.1.5`
+- Target commit: `6f04cb375a7b053087d2f8dcef74cc08931cad9b`
+- CI run: https://github.com/Martin123132/sentinel-manifold-public/actions/runs/27583553254
+- Published: `2026-06-15T23:38:11Z`
 - Live sandbox: https://sentinel-manifold-public.onrender.com/
 - Suite authoring guide: `docs/suite-authoring.md`
 - First custom suite: `samples/first-custom-suite.json`
