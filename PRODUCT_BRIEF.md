@@ -405,3 +405,13 @@ gate.
 That moves trial adoption toward real buyer use:
 
 > Help teams write their first Sentinel suite without changing the runtime.
+
+## Stage 33 Commercial Story
+
+Sentinel now includes a first custom suite walkthrough for a fake subscription
+support copilot. It shows a buyer how to turn policy references into safe and
+unsafe cases, validate the suite, run it locally, and collect the CI report.
+
+That makes the authoring kit concrete:
+
+> Show the first custom release gate from policy text to PASS report.

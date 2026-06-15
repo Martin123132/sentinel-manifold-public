@@ -8,6 +8,7 @@ python -m compileall app
 python -m py_compile scripts\validate-suite.py
 node --check web\app.js
 python scripts\validate-suite.py --run samples\templates\*.json
+python scripts\validate-suite.py --run samples\first-custom-suite.json
 python app\cli.py suite --input samples\regression-suite.json --out out\suite-report.json --fail-on-fail
 powershell -ExecutionPolicy Bypass -File .\scripts\docker-smoke.ps1 -RunSuite
 powershell -ExecutionPolicy Bypass -File .\scripts\docker-smoke.ps1 -RunSuite -PublicDemo -HostPort 8789

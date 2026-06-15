@@ -19,8 +19,9 @@ It packages the 10-minute trial path, cross-platform proof-pack runner, trial
 feedback loop, issue templates, and runner tests.
 
 Next candidate: `v0.1.5 Suite Authoring Kit`. The repo now includes runnable
-suite templates plus a validator so trial users can write their own release-gate
-cases without changing Sentinel runtime behavior.
+suite templates, a validator, and a first custom suite walkthrough so trial
+users can write their own release-gate cases without changing Sentinel runtime
+behavior.
 
 Previous release: `v0.1.3 Proof Candidate`
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3
@@ -42,6 +43,7 @@ evidence bundles when you need a proof package.
   `python scripts/run-proof-pack.py`.
 - Suite authors: start with [docs/suite-authoring.md](docs/suite-authoring.md),
   then copy a template from `samples/templates/`.
+- First custom suite: follow [docs/first-custom-suite.md](docs/first-custom-suite.md).
 - Trial feedback loop: read [docs/trial-adoption.md](docs/trial-adoption.md).
 - New visitors: start with the [30 Second Demo](#30-second-demo).
 - Buyers and reviewers: browse the [Proof Gallery](docs/proof-gallery/README.md).
@@ -183,6 +185,11 @@ Available templates:
 See [docs/suite-authoring.md](docs/suite-authoring.md) for suite anatomy,
 expectation fields, policy profiles, safe wording examples, and the
 reference-bound proof boundary.
+
+For a full worked example, open [docs/first-custom-suite.md](docs/first-custom-suite.md).
+It uses [samples/first-custom-suite.json](samples/first-custom-suite.json) to
+show a subscription-support copilot release gate from policy references through
+CI report output.
 
 The first build is deliberately dependency-light:
 
@@ -383,11 +390,11 @@ Product proof:
 
 > Fail releases when AI behavior regresses.
 
-The bundled GitHub Actions workflow validates the suite templates, runs the
-regression, agent, buyer-depth, policy calibration, policy tuning,
-customer-shaped regression, integration, and external adoption suites, then
-uploads a `sentinel-release-gate` artifact containing suite reports plus every
-generated evidence pack.
+The bundled GitHub Actions workflow validates the suite templates and first
+custom suite, runs the regression, agent, buyer-depth, policy calibration,
+policy tuning, customer-shaped regression, first custom, integration, and
+external adoption suites, then uploads a `sentinel-release-gate` artifact
+containing suite reports plus every generated evidence pack.
 
 ## Use In Another Repo
 

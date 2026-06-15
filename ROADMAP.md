@@ -35,7 +35,8 @@ templates, issue forms for reporting false positives or missed drift, and test
 coverage for the proof-pack runner's suite list. The next candidate adds a
 Suite Authoring Kit: runnable templates, a dependency-free validator, and a
 plain-English authoring guide so trial users can create their own release-gate
-cases.
+cases. A first custom suite walkthrough now shows the same pattern end to end
+for a fake subscription-support copilot.
 
 The first public release is complete: `v0.1.0 Public Proof` packages the live
 demo, CI release gate, integration guide, commercial boundary, and admin evidence

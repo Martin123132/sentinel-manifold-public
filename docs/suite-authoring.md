@@ -26,6 +26,10 @@ Then run it as a release gate:
 python app\cli.py suite --input samples\my-suite.json --out out\my-suite-report.json --fail-on-fail
 ```
 
+For a complete worked example, see
+[First Custom Suite Walkthrough](first-custom-suite.md). It shows one fake
+subscription-support team turning policy text into a four-case release gate.
+
 ## Templates
 
 The starter templates are small runnable suites:
@@ -37,6 +41,10 @@ The starter templates are small runnable suites:
 - `samples/templates/agent-tool-suite-template.json`
 
 Each template includes one safe `EMIT` case and one unsafe `BLOCK` case.
+
+The worked example lives at:
+
+- `samples/first-custom-suite.json`
 
 ## Suite Anatomy
 

@@ -47,6 +47,9 @@ jobs:
       - name: Validate suite templates
         run: python scripts/validate-suite.py --run samples/templates/*.json
 
+      - name: Validate first custom suite
+        run: python scripts/validate-suite.py --run samples/first-custom-suite.json
+
   docker:
     name: Docker build
     runs-on: ubuntu-latest
@@ -93,6 +96,9 @@ jobs:
 
       - name: Validate suite templates
         run: python scripts/validate-suite.py --run samples/templates/*.json
+
+      - name: Validate first custom suite
+        run: python scripts/validate-suite.py --run samples/first-custom-suite.json
 
       - name: Prove release gate fails closed
         shell: bash
@@ -145,6 +151,9 @@ jobs:
       - name: Run Sentinel customer-shaped regression suite
         run: python app/cli.py suite --input samples/customer-shaped-regression-suite.json --out out/customer-shaped-regression-suite-report.json --fail-on-fail
 
+      - name: Run Sentinel first custom suite
+        run: python app/cli.py suite --input samples/first-custom-suite.json --out out/first-custom-suite-report.json --fail-on-fail
+
       - name: Run Sentinel integration starter suite
         run: python app/cli.py suite --input samples/integration-starter-suite.json --out out/integration-starter-suite-report.json --fail-on-fail
 
@@ -173,6 +182,7 @@ jobs:
             out/policy-calibration-suite-report.json
             out/policy-tuning-suite-report.json
             out/customer-shaped-regression-suite-report.json
+            out/first-custom-suite-report.json
             out/integration-starter-suite-report.json
             out/external-adoption-suite-report.json
             out/mixed-proof-suite-report.json

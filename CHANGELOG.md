@@ -13,6 +13,8 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
   run suites without writing evidence.
 - Add `docs/suite-authoring.md` and a `v0.1.5 Suite Authoring Kit` candidate
   checklist.
+- Add `samples/first-custom-suite.json` and `docs/first-custom-suite.md` as a
+  worked subscription-support example from policy references to CI report.
 - Add unit tests for suite template validation, validator error handling, and
   glob expansion.
 
@@ -21,6 +23,8 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 - Update trial and integration docs to start new suite authors from templates
   and validator checks.
 - Update CI to compile the validator and run all templates through validation.
+- Update CI to run the first custom suite and upload
+  `out/first-custom-suite-report.json`.
 
 ## v0.1.4 Trial Adoption - 2026-06-14
 

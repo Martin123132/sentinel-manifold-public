@@ -10,7 +10,8 @@ a suite for your own repository.
 
 If you are writing a suite from scratch, start with
 [docs/suite-authoring.md](docs/suite-authoring.md) and copy one of the runnable
-templates under `samples/templates/`.
+templates under `samples/templates/`. For one end-to-end example, see
+[docs/first-custom-suite.md](docs/first-custom-suite.md).
 
 ## Use Sentinel As A GitHub Actions Release Gate
 
@@ -80,6 +81,13 @@ copy samples\templates\agent-tool-suite-template.json samples\my-agent-suite.jso
 python scripts\validate-suite.py --run samples\my-agent-suite.json
 ```
 
+For a complete worked example, run:
+
+```powershell
+python scripts\validate-suite.py --run samples\first-custom-suite.json
+python app\cli.py suite --input samples\first-custom-suite.json --out out\first-custom-suite-report.json --fail-on-fail
+```
+
 ```json
 {
   "id": "support-drift",
@@ -140,6 +148,7 @@ python app\cli.py suite --input samples\customer-shaped-regression-suite.json --
 The workflow uploads:
 
 - `out/integration-starter-suite-report.json`
+- `out/first-custom-suite-report.json`, when using the worked custom-suite example
 - `out/external-adoption-suite-report.json`, when using the support-assistant fixture
 - `out/audits/*.evidence.json`
 

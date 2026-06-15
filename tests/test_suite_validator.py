@@ -1,4 +1,5 @@
 import importlib.util
+import json
 from pathlib import Path
 import unittest
 
@@ -67,6 +68,16 @@ class SuiteValidatorTests(unittest.TestCase):
         path = ROOT / "samples" / "integration-starter-suite.json"
 
         self.assertEqual(self.validator.validate_suite_file(path, run=True), [])
+
+    def test_first_custom_suite_validates_and_runs(self):
+        path = ROOT / "samples" / "first-custom-suite.json"
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        report = self.validator.run_suite(payload, save_evidence=False)
+
+        self.assertEqual(self.validator.validate_suite_file(path, run=True), [])
+        self.assertEqual(report["status"], "PASS")
+        self.assertEqual(report["summary"]["case_count"], 4)
+        self.assertEqual(report["summary"]["failed"], 0)
 
     def test_expand_suite_paths_handles_globs(self):
         paths = self.validator.expand_suite_paths([str(ROOT / "samples" / "templates" / "*.json")])
