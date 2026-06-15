@@ -4,7 +4,23 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
-No unreleased changes yet.
+### Added
+
+- Add a Suite Authoring Kit with five runnable templates under
+  `samples/templates/` for support, regulated workflow, research claims, code
+  review, and agent/tool boundaries.
+- Add `scripts/validate-suite.py` to validate suite JSON shape and optionally
+  run suites without writing evidence.
+- Add `docs/suite-authoring.md` and a `v0.1.5 Suite Authoring Kit` candidate
+  checklist.
+- Add unit tests for suite template validation, validator error handling, and
+  glob expansion.
+
+### Changed
+
+- Update trial and integration docs to start new suite authors from templates
+  and validator checks.
+- Update CI to compile the validator and run all templates through validation.
 
 ## v0.1.4 Trial Adoption - 2026-06-14
 

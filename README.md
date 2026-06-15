@@ -18,6 +18,10 @@ https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4
 It packages the 10-minute trial path, cross-platform proof-pack runner, trial
 feedback loop, issue templates, and runner tests.
 
+Next candidate: `v0.1.5 Suite Authoring Kit`. The repo now includes runnable
+suite templates plus a validator so trial users can write their own release-gate
+cases without changing Sentinel runtime behavior.
+
 Previous release: `v0.1.3 Proof Candidate`
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3
 
@@ -36,6 +40,8 @@ evidence bundles when you need a proof package.
 
 - Trial users: start with [TRIAL_GUIDE.md](TRIAL_GUIDE.md), then run
   `python scripts/run-proof-pack.py`.
+- Suite authors: start with [docs/suite-authoring.md](docs/suite-authoring.md),
+  then copy a template from `samples/templates/`.
 - Trial feedback loop: read [docs/trial-adoption.md](docs/trial-adoption.md).
 - New visitors: start with the [30 Second Demo](#30-second-demo).
 - Buyers and reviewers: browse the [Proof Gallery](docs/proof-gallery/README.md).
@@ -44,7 +50,8 @@ evidence bundles when you need a proof package.
 - Admins: unlock the hosted demo and export the evidence bundle described in [DEMO_PROOF.md](DEMO_PROOF.md).
 - Current release: see the
   [v0.1.4 GitHub Release](https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4).
-- Release text: see [RELEASE_NOTES.md](RELEASE_NOTES.md) and [CHANGELOG.md](CHANGELOG.md).
+- Next release draft: see [RELEASE_NOTES.md](RELEASE_NOTES.md).
+- Release history: see [CHANGELOG.md](CHANGELOG.md).
 - For current proof milestones and launch status, see
   [Post-Release Checklist](docs/launch/post-release-checklist.md).
 
@@ -154,6 +161,28 @@ python scripts/run-proof-pack.py
 See [TRIAL_GUIDE.md](TRIAL_GUIDE.md) for the 10-minute trial path and
 [docs/trial-adoption.md](docs/trial-adoption.md) for the full trial feedback
 loop.
+
+## Suite Authoring Kit
+
+Write your own release-gate suite by copying a runnable template:
+
+```powershell
+copy samples\templates\support-suite-template.json samples\my-suite.json
+python scripts\validate-suite.py --run samples\my-suite.json
+python app\cli.py suite --input samples\my-suite.json --out out\my-suite-report.json --fail-on-fail
+```
+
+Available templates:
+
+- `samples/templates/support-suite-template.json`
+- `samples/templates/regulated-suite-template.json`
+- `samples/templates/research-suite-template.json`
+- `samples/templates/code-review-suite-template.json`
+- `samples/templates/agent-tool-suite-template.json`
+
+See [docs/suite-authoring.md](docs/suite-authoring.md) for suite anatomy,
+expectation fields, policy profiles, safe wording examples, and the
+reference-bound proof boundary.
 
 The first build is deliberately dependency-light:
 
@@ -298,6 +327,12 @@ Run a custom suite:
 python app\cli.py suite --input samples\regression-suite.json --out out\suite-report.json
 ```
 
+Validate a suite before running it in CI:
+
+```powershell
+python scripts\validate-suite.py --run samples\templates\*.json
+```
+
 Run the deeper mixed-buyer proof suite:
 
 ```powershell
@@ -348,10 +383,11 @@ Product proof:
 
 > Fail releases when AI behavior regresses.
 
-The bundled GitHub Actions workflow runs the regression, agent, buyer-depth,
-policy calibration, policy tuning, customer-shaped regression, integration, and
-external adoption suites, then uploads a `sentinel-release-gate` artifact
-containing suite reports plus every generated evidence pack.
+The bundled GitHub Actions workflow validates the suite templates, runs the
+regression, agent, buyer-depth, policy calibration, policy tuning,
+customer-shaped regression, integration, and external adoption suites, then
+uploads a `sentinel-release-gate` artifact containing suite reports plus every
+generated evidence pack.
 
 ## Use In Another Repo
 
@@ -575,7 +611,8 @@ Product proof:
 
 ## Next Build Steps
 
-- Collect trial feedback from the `v0.1.4` guide, issue templates, and proof-pack
-  runner.
-- Use real trial reports to prioritize policy tuning and onboarding polish.
+- Use the Suite Authoring Kit with trial users and turn confusing parts into
+  simpler templates or validator messages.
+- Prepare `v0.1.5 Suite Authoring Kit` once CI is green and docs links are
+  checked.
 - Keep tuning false positives and false negatives as real users try the packs.

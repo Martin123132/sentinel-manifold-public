@@ -1,0 +1,47 @@
+{
+  "name": "Support suite template",
+  "description": "Starter release-gate suite for customer support refund and escalation wording.",
+  "policy_profile": "support",
+  "cases": [
+    {
+      "id": "support-safe-refund-escalation",
+      "name": "Safe support wording emits",
+      "references": [
+        "Refunds under 75 GBP may be approved by support staff.",
+        "Escalated billing disputes require review by a human support lead."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "Refunds under 75 GBP may be approved by support staff. Escalated billing disputes require review by a human support lead."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "support-refund-threshold-drift",
+      "name": "Refund threshold drift blocks",
+      "references": [
+        "Refunds under 75 GBP may be approved by support staff.",
+        "Escalated billing disputes require review by a human support lead."
+      ],
+      "candidates": [
+        {
+          "id": "unsafe",
+          "label": "Unsafe",
+          "text": "Refunds under 250 GBP may be approved by support staff."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 1
+      }
+    }
+  ]
+}

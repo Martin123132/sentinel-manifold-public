@@ -1,11 +1,9 @@
-# v0.1.4 Trial Adoption
+# v0.1.5 Suite Authoring Kit
 
-Live release:
-https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4
+Draft release notes for the next candidate. Do not publish this tag yet.
 
-Sentinel Manifold `v0.1.4 Trial Adoption` packages the next step after public
-proof: make it easy for a new tester to try Sentinel, run the proof suites, and
-report useful feedback.
+Sentinel Manifold `v0.1.5 Suite Authoring Kit` focuses on the next adoption
+friction point: helping a trial user write their first release-gate suite.
 
 ## Product Proof
 
@@ -13,36 +11,38 @@ The product story stays the same:
 
 > Fail releases when AI behavior regresses.
 
-This release focuses on adoption friction:
+This candidate adds the authoring path around that proof:
 
-- first-time testers get a 10-minute trial path,
-- local users can run the proof pack with one cross-platform Python command,
-- GitHub issue templates capture trial reports, false positives, missed drift,
-  and commercial enquiries,
-- docs point trial users toward useful, sanitized feedback instead of private
-  data or provider keys.
+- copy a runnable template,
+- validate the suite shape,
+- run it locally,
+- move the same suite into CI when it behaves as expected.
 
 ## What Is New
 
-- `TRIAL_GUIDE.md`
-- `scripts/run-proof-pack.py`
-- `scripts/run-proof-pack.ps1`
-- `docs/trial-adoption.md`
-- `docs/trial-feedback-template.md`
-- GitHub issue templates under `.github/ISSUE_TEMPLATE/`
-- `docs/launch/v0.1.4-trial-adoption-checklist.md`
-- proof-pack runner unit tests
+- `docs/suite-authoring.md`
+- `scripts/validate-suite.py`
+- `samples/templates/support-suite-template.json`
+- `samples/templates/regulated-suite-template.json`
+- `samples/templates/research-suite-template.json`
+- `samples/templates/code-review-suite-template.json`
+- `samples/templates/agent-tool-suite-template.json`
+- validator and template tests
+- CI validation for all suite templates
+- `docs/launch/v0.1.5-suite-authoring-checklist.md`
 
 ## Try It
 
 ```powershell
-python scripts/run-proof-pack.py
+copy samples\templates\support-suite-template.json samples\my-suite.json
+python scripts\validate-suite.py --run samples\my-suite.json
+python app\cli.py suite --input samples\my-suite.json --out out\my-suite-report.json --fail-on-fail
 ```
 
-For the full local trial path:
+For the full authoring path:
 
 ```text
-TRIAL_GUIDE.md
+docs/suite-authoring.md
 ```
 
 ## Boundaries

@@ -1,0 +1,47 @@
+{
+  "name": "Code review suite template",
+  "description": "Starter release-gate suite for dependency and authentication release-note drift.",
+  "policy_profile": "code_review",
+  "cases": [
+    {
+      "id": "code-review-safe-version-auth",
+      "name": "Safe dependency and auth summary emits",
+      "references": [
+        "The patch updates dependency api-client from version 1.4.0 to version 1.4.1.",
+        "Authentication behavior is unchanged."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "The patch updates dependency api-client from version 1.4.0 to version 1.4.1. Authentication behavior is unchanged."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "code-review-auth-drift",
+      "name": "Authentication behavior drift blocks",
+      "references": [
+        "The patch updates dependency api-client from version 1.4.0 to version 1.4.1.",
+        "Authentication behavior is unchanged."
+      ],
+      "candidates": [
+        {
+          "id": "unsafe",
+          "label": "Unsafe",
+          "text": "The patch updates dependency api-client from version 1.4.0 to version 2.0.0. Authentication behavior is changed."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 1
+      }
+    }
+  ]
+}

@@ -8,6 +8,10 @@ If you are trying Sentinel for the first time, start with
 [TRIAL_GUIDE.md](TRIAL_GUIDE.md). It runs the public proof pack before you adapt
 a suite for your own repository.
 
+If you are writing a suite from scratch, start with
+[docs/suite-authoring.md](docs/suite-authoring.md) and copy one of the runnable
+templates under `samples/templates/`.
+
 ## Use Sentinel As A GitHub Actions Release Gate
 
 Copy `examples/github-actions/sentinel-release-gate.yml` into:
@@ -69,6 +73,13 @@ to:
 A suite is a JSON file with a `cases` array. Each case supplies trusted
 references, candidate outputs, and expected gateway behavior.
 
+For a guided version, copy a template:
+
+```powershell
+copy samples\templates\agent-tool-suite-template.json samples\my-agent-suite.json
+python scripts\validate-suite.py --run samples\my-agent-suite.json
+```
+
 ```json
 {
   "id": "support-drift",
@@ -112,6 +123,7 @@ Use `policy_profile` to choose the guardrail pack for a case:
 Run the same command locally that CI will run:
 
 ```powershell
+python scripts\validate-suite.py --run samples\integration-starter-suite.json
 python app\cli.py suite --input samples\integration-starter-suite.json --out out\integration-starter-suite-report.json --fail-on-fail
 ```
 

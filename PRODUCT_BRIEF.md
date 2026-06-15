@@ -394,3 +394,14 @@ stable.
 That moves the public proof from "interesting repo" toward "easy to try":
 
 > Turn public proof into trial feedback without adding runtime risk.
+
+## Stage 32 Commercial Story
+
+Sentinel now has a Suite Authoring Kit: runnable templates for support,
+regulated workflow, research claims, code review, and agent/tool boundaries,
+plus a validator that catches suite-shape mistakes before CI runs the release
+gate.
+
+That moves trial adoption toward real buyer use:
+
+> Help teams write their first Sentinel suite without changing the runtime.

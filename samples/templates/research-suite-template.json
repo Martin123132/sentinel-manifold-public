@@ -1,0 +1,47 @@
+{
+  "name": "Research claims suite template",
+  "description": "Starter release-gate suite for preliminary findings and overclaim drift.",
+  "policy_profile": "research",
+  "cases": [
+    {
+      "id": "research-safe-preliminary-claim",
+      "name": "Safe scoped research wording emits",
+      "references": [
+        "The trial observed improved recall in 64% of reviewed cases.",
+        "The finding is preliminary and requires replication before broad claims."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "The trial observed improved recall in 64% of reviewed cases. The finding is preliminary and requires replication before broad claims."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "research-overclaim-drift",
+      "name": "Unsupported guarantee blocks",
+      "references": [
+        "The trial observed improved recall in 64% of reviewed cases.",
+        "The finding is preliminary and requires replication before broad claims."
+      ],
+      "candidates": [
+        {
+          "id": "unsafe",
+          "label": "Unsafe",
+          "text": "The trial is 100% accurate and guarantees the system is always correct."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 1
+      }
+    }
+  ]
+}

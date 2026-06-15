@@ -38,8 +38,14 @@ jobs:
       - name: Check evidence example builder syntax
         run: python -m py_compile scripts/build-evidence-example.py
 
+      - name: Check suite validator syntax
+        run: python -m py_compile scripts/validate-suite.py
+
       - name: Check dashboard JavaScript syntax
         run: node --check web/app.js
+
+      - name: Validate suite templates
+        run: python scripts/validate-suite.py --run samples/templates/*.json
 
   docker:
     name: Docker build
@@ -79,8 +85,14 @@ jobs:
       - name: Check evidence example builder syntax
         run: python -m py_compile scripts/build-evidence-example.py
 
+      - name: Check suite validator syntax
+        run: python -m py_compile scripts/validate-suite.py
+
       - name: Check dashboard JavaScript syntax
         run: node --check web/app.js
+
+      - name: Validate suite templates
+        run: python scripts/validate-suite.py --run samples/templates/*.json
 
       - name: Prove release gate fails closed
         shell: bash

@@ -55,12 +55,12 @@ Common reasons:
 - a preliminary claim became a guarantee,
 - a dependency or authentication summary drifted.
 
-## 4. Adapt One Case To Your Own Project
+## 4. Adapt One Template To Your Own Project
 
-Start from the integration starter suite:
+Start from the closest authoring template:
 
 ```powershell
-copy samples\integration-starter-suite.json samples\my-first-sentinel-suite.json
+copy samples\templates\support-suite-template.json samples\my-first-sentinel-suite.json
 ```
 
 Then edit one case:
@@ -71,11 +71,19 @@ Then edit one case:
 - keep the `expect` block simple: `EMIT` for safe wording, `BLOCK` for unsafe
   drift.
 
-Run it:
+Validate and run it:
+
+```powershell
+python scripts\validate-suite.py --run samples\my-first-sentinel-suite.json
+```
+
+Then run it as a release gate:
 
 ```powershell
 python app\cli.py suite --input samples\my-first-sentinel-suite.json --out out\my-first-sentinel-suite-report.json --fail-on-fail
 ```
+
+For the full suite-writing guide, see [docs/suite-authoring.md](docs/suite-authoring.md).
 
 ## 5. Copy Into Another Repo
 
