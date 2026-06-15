@@ -32,7 +32,7 @@ operations, regulated claims/payments, agentic CRM/email workflows, and
 code-review release notes. The trial adoption pack now gives first-time testers
 a 10-minute guide, a cross-platform one-command proof-pack runner, feedback
 templates, issue forms for reporting false positives or missed drift, and test
-coverage for the proof-pack runner's suite list. The next candidate adds a
+coverage for the proof-pack runner's suite list. The latest release adds a
 Suite Authoring Kit: runnable templates, a dependency-free validator, and a
 plain-English authoring guide so trial users can create their own release-gate
 cases. A first custom suite walkthrough now shows the same pattern end to end
@@ -55,15 +55,18 @@ The fifth public release is now live: `v0.1.4 Trial Adoption`, with a
 10-minute trial guide, cross-platform proof-pack runner, trial feedback loop,
 issue templates, and runner test coverage.
 
+The sixth public release is now live: `v0.1.5 Suite Authoring Kit`, with
+runnable suite templates, a suite validator, a worked first custom suite, and CI
+validation for authoring examples.
+
 The hosted dashboard now presents that proof in the first screen: public sandbox
 status, release link, CI artifact cue, and demo-suite PASS target.
 
-Current release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4
-
-Next candidate: `v0.1.5 Suite Authoring Kit`
+Current release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.5
 
 Previous releases:
 
+- https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4
 - https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3
 - https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.2
 - https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.1
@@ -73,9 +76,10 @@ Previous releases:
 
 ## Near-Term Milestones
 
-1. Use the Suite Authoring Kit with trial users and improve any confusing
-   template or validator wording.
-2. Prepare `v0.1.5 Suite Authoring Kit` once the candidate remains green in CI.
+1. Build a Suite Catalog with more buyer starter packs for common first use
+   cases.
+2. Use the Suite Authoring Kit with trial users and improve confusing template
+   or validator wording.
 3. Use trial reports to tune buyer-specific false positives and false negatives.
 
 ## Boundaries

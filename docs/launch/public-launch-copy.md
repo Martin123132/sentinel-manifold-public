@@ -1,10 +1,10 @@
 # Public Launch Copy
 
-Use these snippets for the live `v0.1.4 Trial Adoption` release.
+Use these snippets for the live `v0.1.5 Suite Authoring Kit` release.
 
 Release:
 
-https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.5
 
 Live demo:
 
@@ -12,22 +12,21 @@ https://sentinel-manifold-public.onrender.com/
 
 ## Short Post
 
-Sentinel Manifold `v0.1.4 Trial Adoption` is live.
+Sentinel Manifold `v0.1.5 Suite Authoring Kit` is live.
 
-It is a source-available AI release gate that now has a clearer first-trial
-path: a 10-minute guide, cross-platform proof-pack runner, feedback loop, and
-issue templates for reporting false positives or missed unsafe drift.
+It is a source-available AI release gate that now has a clearer suite-writing
+path: runnable templates, a validator, and a worked first custom suite that
+goes from policy text to CI report.
 
-Trial guide:
+Authoring guide:
 
-https://github.com/Martin123132/sentinel-manifold-public/blob/main/TRIAL_GUIDE.md
+https://github.com/Martin123132/sentinel-manifold-public/blob/main/docs/suite-authoring.md
 
 ## Slightly Longer Post
 
-Sentinel Manifold `v0.1.4 Trial Adoption` is live. It keeps the bounded demo
+Sentinel Manifold `v0.1.5 Suite Authoring Kit` is live. It keeps the bounded demo
 sandbox, admin-only evidence export, and CI release-gate artifact story while
-making it easier for new testers to run the proof pack and report useful
-feedback.
+making it easier for new testers to write their own release-gate suites.
 
 The product story is still simple:
 
@@ -35,12 +34,12 @@ The product story is still simple:
 
 What is new in this release pack:
 
-- 10-minute trial guide,
-- cross-platform proof-pack runner,
-- Windows-friendly wrapper,
-- trial adoption loop documentation,
-- feedback and GitHub issue templates,
-- runner tests so the trial suite list stays stable.
+- suite authoring guide,
+- five runnable suite templates,
+- dependency-free suite validator,
+- first custom suite walkthrough,
+- CI validation for authoring examples,
+- first custom suite report artifact.
 
 Repo:
 
@@ -67,4 +66,6 @@ or overclaiming outputs before they ship, with evidence reviewers can inspect.
 ## Proof Line
 
 Run the public demo suite, then run `python scripts/run-proof-pack.py` locally
-to see the proof pack PASS before adapting one suite to your own project.
+to see the proof pack PASS. Then copy a template and run
+`python scripts/validate-suite.py --run samples/first-custom-suite.json` to see
+the authoring path PASS too.

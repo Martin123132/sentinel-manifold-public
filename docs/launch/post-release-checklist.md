@@ -3,9 +3,20 @@
 Use this checklist after publishing a public Sentinel release.
 
 Current release checklist:
-[v0.1.4 Trial Adoption](v0.1.4-trial-adoption-checklist.md).
+[v0.1.5 Suite Authoring Kit](v0.1.5-suite-authoring-checklist.md).
 
-## v0.1.4 Trial Adoption
+## v0.1.5 Suite Authoring Kit
+
+- GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.5
+- Tag: `v0.1.5`
+- Release target: tag `v0.1.5`
+- Live sandbox: https://sentinel-manifold-public.onrender.com/
+- Suite authoring guide: `docs/suite-authoring.md`
+- First custom suite: `samples/first-custom-suite.json`
+- First custom walkthrough: `docs/first-custom-suite.md`
+- Release text: `RELEASE_NOTES.md`, `CHANGELOG.md`
+
+## Previous Release: v0.1.4 Trial Adoption
 
 - GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4
 - Tag: `v0.1.4`

@@ -1,6 +1,7 @@
 # v0.1.5 Suite Authoring Kit
 
-Draft release notes for the next candidate. Do not publish this tag yet.
+Live release:
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.5
 
 Sentinel Manifold `v0.1.5 Suite Authoring Kit` focuses on the next adoption
 friction point: helping a trial user write their first release-gate suite and
@@ -12,7 +13,7 @@ The product story stays the same:
 
 > Fail releases when AI behavior regresses.
 
-This candidate adds the authoring path around that proof:
+This release adds the authoring path around that proof:
 
 - copy a runnable template,
 - validate the suite shape,

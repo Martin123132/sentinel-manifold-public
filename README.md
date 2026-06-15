@@ -12,18 +12,17 @@ Sentinel Manifold checks candidate LLM outputs against supplied reference materi
 
 ## Public Proof Release
 
-`v0.1.4 Trial Adoption` is live:
+`v0.1.5 Suite Authoring Kit` is live:
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.5
+
+It packages runnable suite templates, a dependency-free validator, a worked
+first custom suite, CI validation, and the docs needed to write a release-gate
+suite without changing Sentinel runtime behavior.
+
+Previous release: `v0.1.4 Trial Adoption`
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4
 
-It packages the 10-minute trial path, cross-platform proof-pack runner, trial
-feedback loop, issue templates, and runner tests.
-
-Next candidate: `v0.1.5 Suite Authoring Kit`. The repo now includes runnable
-suite templates, a validator, and a first custom suite walkthrough so trial
-users can write their own release-gate cases without changing Sentinel runtime
-behavior.
-
-Previous release: `v0.1.3 Proof Candidate`
+Earlier release: `v0.1.3 Proof Candidate`
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.3
 
 Earlier release: `v0.1.2 Customer Proof`
@@ -51,9 +50,9 @@ evidence bundles when you need a proof package.
 - Developers: use [INTEGRATION.md](INTEGRATION.md) and the copy-paste GitHub Actions workflow.
 - Admins: unlock the hosted demo and export the evidence bundle described in [DEMO_PROOF.md](DEMO_PROOF.md).
 - Current release: see the
-  [v0.1.4 GitHub Release](https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4).
-- Next release draft: see [RELEASE_NOTES.md](RELEASE_NOTES.md).
-- Release history: see [CHANGELOG.md](CHANGELOG.md).
+  [v0.1.5 GitHub Release](https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.5).
+- Release text and history: see [RELEASE_NOTES.md](RELEASE_NOTES.md) and
+  [CHANGELOG.md](CHANGELOG.md).
 - For current proof milestones and launch status, see
   [Post-Release Checklist](docs/launch/post-release-checklist.md).
 
@@ -618,8 +617,8 @@ Product proof:
 
 ## Next Build Steps
 
-- Use the Suite Authoring Kit with trial users and turn confusing parts into
-  simpler templates or validator messages.
-- Prepare `v0.1.5 Suite Authoring Kit` once CI is green and docs links are
-  checked.
+- Build a Suite Catalog with more buyer starter packs for support, regulated
+  workflows, research, code review, and agent/tool boundaries.
+- Use trial feedback to turn confusing authoring steps into clearer templates
+  or validator messages.
 - Keep tuning false positives and false negatives as real users try the packs.

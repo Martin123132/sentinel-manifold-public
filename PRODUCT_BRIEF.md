@@ -415,3 +415,13 @@ unsafe cases, validate the suite, run it locally, and collect the CI report.
 That makes the authoring kit concrete:
 
 > Show the first custom release gate from policy text to PASS report.
+
+## Stage 34 Commercial Story
+
+Sentinel now has a live `v0.1.5 Suite Authoring Kit` release. It packages the
+suite templates, validator, first custom suite walkthrough, and CI artifact into
+one public milestone.
+
+That turns authoring support into a release people can point at:
+
+> Publish the path from first policy reference to working release gate.
