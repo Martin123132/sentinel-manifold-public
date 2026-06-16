@@ -12,16 +12,15 @@ Sentinel Manifold checks candidate LLM outputs against supplied reference materi
 
 ## Public Proof Release
 
-`v0.1.5 Suite Authoring Kit` is live:
+`v0.1.6 Suite Catalog` is live:
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.6
+
+It packages five runnable buyer starter packs, a catalog guide, validator
+coverage, and CI catalog suite reports so new teams can start from the closest
+release-gate example without changing Sentinel runtime behavior.
+
+Previous release: `v0.1.5 Suite Authoring Kit`
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.5
-
-It packages runnable suite templates, a dependency-free validator, a worked
-first custom suite, CI validation, and the docs needed to write a release-gate
-suite without changing Sentinel runtime behavior.
-
-Next candidate: `v0.1.6 Suite Catalog`. The repo now includes five runnable
-buyer starter packs under `samples/catalog/`, with catalog suite reports wired
-into CI.
 
 Previous release: `v0.1.4 Trial Adoption`
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.4
@@ -55,8 +54,8 @@ evidence bundles when you need a proof package.
 - Developers: use [INTEGRATION.md](INTEGRATION.md) and the copy-paste GitHub Actions workflow.
 - Admins: unlock the hosted demo and export the evidence bundle described in [DEMO_PROOF.md](DEMO_PROOF.md).
 - Current release: see the
-  [v0.1.5 GitHub Release](https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.5).
-- Next release draft: see [RELEASE_NOTES.md](RELEASE_NOTES.md).
+  [v0.1.6 GitHub Release](https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.6).
+- Current release notes: see [RELEASE_NOTES.md](RELEASE_NOTES.md).
 - Release history: see [CHANGELOG.md](CHANGELOG.md).
 - For current proof milestones and launch status, see
   [Post-Release Checklist](docs/launch/post-release-checklist.md).
@@ -627,9 +626,8 @@ Product proof:
 
 ## Next Build Steps
 
-- Prepare the next proof release around the Suite Catalog once CI and docs stay
-  green.
-- Publish `v0.1.6 Suite Catalog` once the release pack is reviewed and green.
-- Use trial feedback to turn confusing catalog cases into clearer templates or
-  validator messages.
+- Collect trial feedback on the Suite Catalog starter packs.
+- Turn confusing catalog cases into clearer templates or validator messages.
+- Add more buyer-specific evidence examples where reviewers need a concrete
+  proof pack.
 - Keep tuning false positives and false negatives as real users try the packs.

@@ -1,6 +1,6 @@
 # Public Launch Copy
 
-Use these snippets once `v0.1.6 Suite Catalog` is published.
+Use these snippets for the live `v0.1.6 Suite Catalog` release.
 
 Release:
 

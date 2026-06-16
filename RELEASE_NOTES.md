@@ -1,6 +1,7 @@
 # v0.1.6 Suite Catalog
 
-Draft release notes for the next milestone. Do not publish this tag yet.
+Live release:
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.6
 
 Sentinel Manifold `v0.1.6 Suite Catalog` packages the next adoption layer after
 the Suite Authoring Kit: ready-made buyer starter packs for common first use
@@ -12,7 +13,7 @@ The product story stays the same:
 
 > Fail releases when AI behavior regresses.
 
-This release candidate makes that proof easier to adapt:
+This release makes that proof easier to adapt:
 
 - choose the closest buyer starter pack,
 - validate it with the suite validator,

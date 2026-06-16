@@ -3,9 +3,22 @@
 Use this checklist after publishing a public Sentinel release.
 
 Current release checklist:
-[v0.1.5 Suite Authoring Kit](v0.1.5-suite-authoring-checklist.md).
+[v0.1.6 Suite Catalog](v0.1.6-suite-catalog-checklist.md).
 
-## v0.1.5 Suite Authoring Kit
+## v0.1.6 Suite Catalog
+
+- GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.6
+- Tag: `v0.1.6`
+- Target commit: recorded after publication.
+- CI run: latest green `main` release-lock run before publication.
+- Published: recorded after publication.
+- Live sandbox: https://sentinel-manifold-public.onrender.com/
+- Suite catalog guide: `docs/suite-catalog.md`
+- Catalog suites: `samples/catalog/`
+- Catalog validation: `python scripts\validate-suite.py --run samples\catalog\*.json`
+- Release text: `RELEASE_NOTES.md`, `CHANGELOG.md`
+
+## Previous Release: v0.1.5 Suite Authoring Kit
 
 - GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.5
 - Tag: `v0.1.5`

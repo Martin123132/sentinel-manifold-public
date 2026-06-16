@@ -446,3 +446,14 @@ artifacts, and test coverage into one milestone.
 That turns the catalog from useful docs into a public adoption release:
 
 > Package buyer starter packs as the next proof release.
+
+## Stage 37 Commercial Story
+
+Sentinel now has a live `v0.1.6 Suite Catalog` release. The release packages
+five buyer starter packs, catalog guidance, validation coverage, and CI catalog
+reports into one adoption milestone.
+
+That makes the next trial conversation easier:
+
+> Pick the closest buyer proof pack, replace the references, and run a release
+> gate with evidence.
