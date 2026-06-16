@@ -469,3 +469,13 @@ That turns catalog adoption into visible proof:
 
 > Pick a buyer starter pack, then inspect the exact evidence a passing gate
 > produces.
+
+## Stage 39 Commercial Story
+
+Sentinel now has a prepared `v0.1.7 Catalog Evidence` release pack. The release
+story packages the catalog evidence index, five static catalog proof bundles,
+Suite Catalog links, and integrity tests into one public milestone.
+
+That makes the catalog proof easier to share:
+
+> Package the inspectable catalog evidence as the next proof release.

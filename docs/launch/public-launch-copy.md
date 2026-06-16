@@ -1,10 +1,10 @@
 # Public Launch Copy
 
-Use these snippets for the live `v0.1.6 Suite Catalog` release.
+Use these snippets once `v0.1.7 Catalog Evidence` is published.
 
 Release:
 
-https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.6
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.7
 
 Live demo:
 
@@ -12,22 +12,21 @@ https://sentinel-manifold-public.onrender.com/
 
 ## Short Post
 
-Sentinel Manifold `v0.1.6 Suite Catalog` is live.
+Sentinel Manifold `v0.1.7 Catalog Evidence` is live.
 
-It is a source-available AI release gate that now has ready-made buyer starter
-packs: support operations, regulated approval, research claims, code review, and
-agent/tool boundary suites.
+It is a source-available AI release gate that now has inspectable public
+evidence examples for every Suite Catalog starter pack.
 
-Suite catalog:
+Catalog evidence:
 
-https://github.com/Martin123132/sentinel-manifold-public/blob/main/docs/suite-catalog.md
+https://github.com/Martin123132/sentinel-manifold-public/blob/main/docs/evidence-examples/catalog/README.md
 
 ## Slightly Longer Post
 
-Sentinel Manifold `v0.1.6 Suite Catalog` is live. It keeps the bounded demo
+Sentinel Manifold `v0.1.7 Catalog Evidence` is live. It keeps the bounded demo
 sandbox, admin-only evidence export, and CI release-gate artifact story while
-making it easier for new testers to choose a buyer-shaped starter pack and
-adapt it to their own references.
+making every Suite Catalog starter pack easier to inspect before a team adapts
+it to their own references.
 
 The product story is still simple:
 
@@ -35,13 +34,13 @@ The product story is still simple:
 
 What is new in this release pack:
 
-- suite catalog guide,
-- support operations starter suite,
-- regulated approval starter suite,
-- research claims starter suite,
-- code-review release starter suite,
-- agent/tool boundary starter suite,
-- catalog suite report artifacts in CI.
+- catalog evidence index,
+- support operations evidence example,
+- regulated approval evidence example,
+- research claims evidence example,
+- code-review release evidence example,
+- agent/tool boundary evidence example,
+- tests proving each catalog evidence pack is complete and verified.
 
 Repo:
 
@@ -69,5 +68,6 @@ or overclaiming outputs before they ship, with evidence reviewers can inspect.
 
 Run the public demo suite, then run `python scripts/run-proof-pack.py` locally
 to see the proof pack PASS. Then run
-`python scripts/validate-suite.py --run samples/catalog/*.json` to see all
-buyer starter packs PASS too.
+`python scripts/validate-suite.py --run samples/catalog/*.json` and inspect
+`docs/evidence-examples/catalog/` to see what the passing catalog evidence looks
+like.

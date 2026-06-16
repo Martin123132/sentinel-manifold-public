@@ -19,6 +19,10 @@ It packages five runnable buyer starter packs, a catalog guide, validator
 coverage, and CI catalog suite reports so new teams can start from the closest
 release-gate example without changing Sentinel runtime behavior.
 
+Next candidate: `v0.1.7 Catalog Evidence`. The repo now includes checked-in
+public evidence examples for every Suite Catalog starter pack, so reviewers can
+inspect the exact proof bundles each passing catalog gate produces.
+
 Previous release: `v0.1.5 Suite Authoring Kit`
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.5
 
@@ -55,7 +59,7 @@ evidence bundles when you need a proof package.
 - Admins: unlock the hosted demo and export the evidence bundle described in [DEMO_PROOF.md](DEMO_PROOF.md).
 - Current release: see the
   [v0.1.6 GitHub Release](https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.6).
-- Current release notes: see [RELEASE_NOTES.md](RELEASE_NOTES.md).
+- Next release draft: see [RELEASE_NOTES.md](RELEASE_NOTES.md).
 - Release history: see [CHANGELOG.md](CHANGELOG.md).
 - For current proof milestones and launch status, see
   [Post-Release Checklist](docs/launch/post-release-checklist.md).
@@ -631,8 +635,9 @@ Product proof:
 
 ## Next Build Steps
 
-- Collect trial feedback on the Suite Catalog starter packs.
-- Turn confusing catalog cases into clearer templates or validator messages.
-- Add more buyer-specific evidence examples where reviewers need a concrete
-  proof pack.
+- Publish `v0.1.7 Catalog Evidence` once the release pack is reviewed and green.
+- Add a config-driven helper to rebuild all catalog evidence examples with one
+  command.
+- Turn confusing catalog cases into clearer templates, evidence examples, or
+  validator messages.
 - Keep tuning false positives and false negatives as real users try the packs.

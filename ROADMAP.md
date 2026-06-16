@@ -65,10 +65,15 @@ validation for authoring examples.
 The seventh public release is now live: `v0.1.6 Suite Catalog`, which packages
 five runnable buyer starter packs and CI catalog report artifacts.
 
+The next candidate is `v0.1.7 Catalog Evidence`, which packages static public
+evidence examples for every Suite Catalog starter pack.
+
 The hosted dashboard now presents that proof in the first screen: public sandbox
 status, release link, CI artifact cue, and demo-suite PASS target.
 
 Current release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.6
+
+Next candidate: `v0.1.7 Catalog Evidence`
 
 Previous releases:
 
@@ -83,8 +88,8 @@ Previous releases:
 
 ## Near-Term Milestones
 
-1. Collect feedback on the Suite Catalog starter packs from trial users.
-2. Improve confusing template, catalog, evidence-example, or validator wording.
+1. Publish `v0.1.7 Catalog Evidence` once release checks stay green.
+2. Add a config-driven helper to rebuild all catalog evidence examples.
 3. Use trial reports to tune buyer-specific false positives and false negatives.
 
 ## Boundaries

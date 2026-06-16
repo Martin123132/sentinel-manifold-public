@@ -1,11 +1,10 @@
-# v0.1.6 Suite Catalog
+# v0.1.7 Catalog Evidence
 
-Live release:
-https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.6
+Draft release notes for the next milestone. Do not publish this tag yet.
 
-Sentinel Manifold `v0.1.6 Suite Catalog` packages the next adoption layer after
-the Suite Authoring Kit: ready-made buyer starter packs for common first use
-cases.
+Sentinel Manifold `v0.1.7 Catalog Evidence` packages the proof layer after the
+Suite Catalog: every buyer starter pack now has a static, inspectable evidence
+example.
 
 ## Product Proof
 
@@ -13,37 +12,36 @@ The product story stays the same:
 
 > Fail releases when AI behavior regresses.
 
-This release makes that proof easier to adapt:
+This release candidate makes that proof easier to trust:
 
 - choose the closest buyer starter pack,
-- validate it with the suite validator,
-- replace references and candidates with your own wording,
-- run it locally and in CI,
-- collect catalog suite reports as release-gate artifacts.
+- inspect a checked-in evidence example for that pack,
+- see the readable summary, manifest, suite report, evidence JSON, and
+  verification JSON,
+- then replace references and candidates with your own wording,
+- run the same gate locally and in CI.
 
 ## What Is New
 
-- `docs/suite-catalog.md`
-- `samples/catalog/support-operations-suite.json`
-- `samples/catalog/regulated-approval-suite.json`
-- `samples/catalog/research-claims-suite.json`
-- `samples/catalog/code-review-release-suite.json`
-- `samples/catalog/agent-tool-boundary-suite.json`
-- catalog suite validation in CI
-- catalog suite reports in the `sentinel-release-gate` artifact
-- tests proving every catalog pack validates and passes
+- `docs/evidence-examples/catalog/README.md`
+- static evidence examples for all five Suite Catalog starter packs
+- catalog pack README pages with buyer-shaped proof summaries
+- `summary.md`, `evidence-reader.md`, `manifest.json`, `suite-report.json`,
+  evidence JSON, and verification JSON for each catalog pack
+- Suite Catalog links from each starter pack to its evidence example
+- tests proving every catalog evidence pack is complete and integrity-verified
 
 ## Try It
 
 ```powershell
-python scripts\validate-suite.py --run samples\catalog\support-operations-suite.json
-python app\cli.py suite --input samples\catalog\support-operations-suite.json --out out\catalog-support-operations-suite-report.json --fail-on-fail
+python scripts\validate-suite.py --run samples\catalog\*.json
+python scripts\run-proof-pack.py --full
 ```
 
-For the full catalog:
+For the evidence examples:
 
 ```text
-docs/suite-catalog.md
+docs/evidence-examples/catalog/README.md
 ```
 
 ## Boundaries
