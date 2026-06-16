@@ -1,11 +1,10 @@
-# v0.1.5 Suite Authoring Kit
+# v0.1.6 Suite Catalog
 
-Live release:
-https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.5
+Draft release notes for the next milestone. Do not publish this tag yet.
 
-Sentinel Manifold `v0.1.5 Suite Authoring Kit` focuses on the next adoption
-friction point: helping a trial user write their first release-gate suite and
-see one worked example from policy text to CI report.
+Sentinel Manifold `v0.1.6 Suite Catalog` packages the next adoption layer after
+the Suite Authoring Kit: ready-made buyer starter packs for common first use
+cases.
 
 ## Product Proof
 
@@ -13,42 +12,37 @@ The product story stays the same:
 
 > Fail releases when AI behavior regresses.
 
-This release adds the authoring path around that proof:
+This release candidate makes that proof easier to adapt:
 
-- copy a runnable template,
-- validate the suite shape,
-- run it locally,
-- inspect a worked custom-suite walkthrough,
-- move the same suite into CI when it behaves as expected.
+- choose the closest buyer starter pack,
+- validate it with the suite validator,
+- replace references and candidates with your own wording,
+- run it locally and in CI,
+- collect catalog suite reports as release-gate artifacts.
 
 ## What Is New
 
-- `docs/suite-authoring.md`
-- `scripts/validate-suite.py`
-- `samples/templates/support-suite-template.json`
-- `samples/templates/regulated-suite-template.json`
-- `samples/templates/research-suite-template.json`
-- `samples/templates/code-review-suite-template.json`
-- `samples/templates/agent-tool-suite-template.json`
-- `docs/first-custom-suite.md`
-- `samples/first-custom-suite.json`
-- validator and template tests
-- CI validation for all suite templates and the first custom suite
-- `docs/launch/v0.1.5-suite-authoring-checklist.md`
+- `docs/suite-catalog.md`
+- `samples/catalog/support-operations-suite.json`
+- `samples/catalog/regulated-approval-suite.json`
+- `samples/catalog/research-claims-suite.json`
+- `samples/catalog/code-review-release-suite.json`
+- `samples/catalog/agent-tool-boundary-suite.json`
+- catalog suite validation in CI
+- catalog suite reports in the `sentinel-release-gate` artifact
+- tests proving every catalog pack validates and passes
 
 ## Try It
 
 ```powershell
-copy samples\templates\support-suite-template.json samples\my-suite.json
-python scripts\validate-suite.py --run samples\my-suite.json
-python app\cli.py suite --input samples\my-suite.json --out out\my-suite-report.json --fail-on-fail
+python scripts\validate-suite.py --run samples\catalog\support-operations-suite.json
+python app\cli.py suite --input samples\catalog\support-operations-suite.json --out out\catalog-support-operations-suite-report.json --fail-on-fail
 ```
 
-For the full authoring path and the worked example:
+For the full catalog:
 
 ```text
-docs/suite-authoring.md
-docs/first-custom-suite.md
+docs/suite-catalog.md
 ```
 
 ## Boundaries

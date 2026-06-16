@@ -61,10 +61,15 @@ The sixth public release is now live: `v0.1.5 Suite Authoring Kit`, with
 runnable suite templates, a suite validator, a worked first custom suite, and CI
 validation for authoring examples.
 
+The next candidate is `v0.1.6 Suite Catalog`, which packages five runnable buyer
+starter packs and CI catalog report artifacts.
+
 The hosted dashboard now presents that proof in the first screen: public sandbox
 status, release link, CI artifact cue, and demo-suite PASS target.
 
 Current release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.5
+
+Next candidate: `v0.1.6 Suite Catalog`
 
 Previous releases:
 
@@ -78,8 +83,7 @@ Previous releases:
 
 ## Near-Term Milestones
 
-1. Prepare the next proof release around the Suite Catalog once CI and docs stay
-   green.
+1. Publish `v0.1.6 Suite Catalog` once release checks stay green.
 2. Use the Suite Authoring Kit with trial users and improve confusing template
    or validator wording.
 3. Use trial reports to tune buyer-specific false positives and false negatives.

@@ -436,3 +436,13 @@ report.
 That makes adoption faster for teams with a known first use case:
 
 > Pick the closest buyer pack, replace the references, and run the release gate.
+
+## Stage 36 Commercial Story
+
+Sentinel now has a prepared `v0.1.6 Suite Catalog` release pack. The release
+story packages the catalog guide, five buyer starter suites, CI catalog report
+artifacts, and test coverage into one milestone.
+
+That turns the catalog from useful docs into a public adoption release:
+
+> Package buyer starter packs as the next proof release.

@@ -4,6 +4,10 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
+No unreleased changes yet.
+
+## v0.1.6 Suite Catalog - 2026-06-16
+
 ### Added
 
 - Add `docs/suite-catalog.md` as a buyer starter-pack guide for suite authors.
