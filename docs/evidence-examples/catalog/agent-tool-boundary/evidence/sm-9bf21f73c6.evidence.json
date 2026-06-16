@@ -1,0 +1,166 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-9bf21f73c6",
+  "created_at": 1781633536,
+  "saved_at": 1781633536,
+  "gateway_action": "BLOCK",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "agent_tool",
+    "policy_name": "Agent Tool Boundary",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": null,
+    "model": null,
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "The calendar agent reads calendar events.",
+      "The calendar agent writes draft reminders.",
+      "The calendar agent requires user approval before sending reminders."
+    ],
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The calendar agent sends reminders without user approval."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "5ad767f6471a49c220933f3291782da8e7859e95bd80147a8b4ce28ce615a421",
+    "candidates_sha256": "4a476adb21716f15adc083fd5dbc1d5375bbd990dfaa504e54e0b3c70e97761c",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-9bf21f73c6",
+    "created_at": 1781633536,
+    "action": "BLOCK",
+    "emitted_candidate_id": null,
+    "emitted_text": null,
+    "summary": {
+      "headline": "Every candidate was blocked by reference-bound guardrails.",
+      "action": "BLOCK",
+      "candidate_count": 1,
+      "blocked_count": 1,
+      "reference_relations": 3,
+      "highest_risk_candidate": "Unsafe",
+      "highest_risk_score": 77
+    },
+    "mode": "strict",
+    "policy_profile": "agent_tool",
+    "policy_name": "Agent Tool Boundary",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 3,
+      "numbers": [],
+      "units": [],
+      "entities": [],
+      "content_token_count": 12,
+      "relations": [
+        {
+          "subject": "calendar agent",
+          "predicate": "read",
+          "object": "calendar events"
+        },
+        {
+          "subject": "calendar agent",
+          "predicate": "require",
+          "object": "user approval before sending reminders"
+        },
+        {
+          "subject": "calendar agent",
+          "predicate": "write",
+          "object": "draft reminders"
+        }
+      ]
+    },
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The calendar agent sends reminders without user approval.",
+        "verdict": "CONTRADICTION",
+        "safe_to_emit": false,
+        "risk_score": 77,
+        "findings": [
+          {
+            "code": "known_participant_unsupported_relation",
+            "label": "Unsupported Relation",
+            "severity": 26,
+            "message": "Candidate links known reference participants through an unsupported relation.",
+            "evidence": "calendar agent send reminders without user approval",
+            "fix": "Add a source for the relation or remove it from the answer."
+          },
+          {
+            "code": "unsupported_negation",
+            "label": "Unsupported Negation",
+            "severity": 30,
+            "message": "Candidate removes required approval or review from the supplied references.",
+            "evidence": "The calendar agent requires user approval before sending reminders.",
+            "fix": "Keep the referenced approval or review step, or provide a source that removes it."
+          }
+        ],
+        "relations": [
+          {
+            "subject": "calendar agent",
+            "predicate": "send",
+            "object": "reminders without user approval"
+          }
+        ],
+        "literal_drift": {
+          "novel_numbers": [],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 0.385,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 1,
+          "finding_count": 2
+        },
+        "token_shocks": [
+          {
+            "token": "sends",
+            "score": 0.62
+          },
+          {
+            "token": "calendar",
+            "score": 0.05
+          },
+          {
+            "token": "agent",
+            "score": 0.05
+          },
+          {
+            "token": "reminders",
+            "score": 0.05
+          },
+          {
+            "token": "user",
+            "score": 0.05
+          },
+          {
+            "token": "approval",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "add22c7a5ed29dbd905f2f83ddce1ea20ca4252567f23c14dafc2a930cf3d2b7"
+  }
+}

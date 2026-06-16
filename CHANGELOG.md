@@ -4,7 +4,14 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
-No unreleased changes yet.
+### Added
+
+- Add static public evidence examples for every Suite Catalog starter pack:
+  support operations, regulated approval, research claims, code-review release
+  notes, and agent/tool boundaries.
+- Add a catalog evidence index under `docs/evidence-examples/catalog/`.
+- Link catalog packs to their inspectable evidence examples from
+  `docs/suite-catalog.md`.
 
 ## v0.1.6 Suite Catalog - 2026-06-16
 

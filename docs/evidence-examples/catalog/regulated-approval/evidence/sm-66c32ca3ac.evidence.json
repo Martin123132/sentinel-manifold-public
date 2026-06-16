@@ -1,0 +1,143 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-66c32ca3ac",
+  "created_at": 1781633535,
+  "saved_at": 1781633535,
+  "gateway_action": "EMIT",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "regulated",
+    "policy_name": "Regulated Workflow",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": null,
+    "model": null,
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "Payments over 1000 GBP require manager approval before release.",
+      "Claims over 5000 GBP require enhanced review.",
+      "Data export requests require identity verification before release."
+    ],
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "Payments over 1000 GBP require manager approval before release. Claims over 5000 GBP require enhanced review. Data export requests require identity verification before release."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "2e383a1f0003ef6be2187d7c40ca743b179436c2142512f1bb08de56c132ffeb",
+    "candidates_sha256": "b7e08cd1a62833888bce5e38edeeea0cdc0f422bfeea54b7aa79a70aca880d62",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-66c32ca3ac",
+    "created_at": 1781633535,
+    "action": "EMIT",
+    "emitted_candidate_id": "safe",
+    "emitted_text": "Payments over 1000 GBP require manager approval before release. Claims over 5000 GBP require enhanced review. Data export requests require identity verification before release.",
+    "summary": {
+      "headline": "Safe emitted with risk 8.",
+      "action": "EMIT",
+      "candidate_count": 1,
+      "blocked_count": 0,
+      "reference_relations": 0,
+      "highest_risk_candidate": "Safe",
+      "highest_risk_score": 8
+    },
+    "mode": "strict",
+    "policy_profile": "regulated",
+    "policy_name": "Regulated Workflow",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 0,
+      "numbers": [
+        "1000",
+        "5000"
+      ],
+      "units": [],
+      "entities": [
+        "claims",
+        "data",
+        "gbp",
+        "payments"
+      ],
+      "content_token_count": 16,
+      "relations": []
+    },
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "Payments over 1000 GBP require manager approval before release. Claims over 5000 GBP require enhanced review. Data export requests require identity verification before release.",
+        "verdict": "EMIT",
+        "safe_to_emit": true,
+        "risk_score": 8,
+        "findings": [],
+        "relations": [],
+        "literal_drift": {
+          "novel_numbers": [],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 1.0,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 0,
+          "finding_count": 0
+        },
+        "token_shocks": [
+          {
+            "token": "payments",
+            "score": 0.05
+          },
+          {
+            "token": "over",
+            "score": 0.05
+          },
+          {
+            "token": "gbp",
+            "score": 0.05
+          },
+          {
+            "token": "require",
+            "score": 0.05
+          },
+          {
+            "token": "manager",
+            "score": 0.05
+          },
+          {
+            "token": "approval",
+            "score": 0.05
+          },
+          {
+            "token": "before",
+            "score": 0.05
+          },
+          {
+            "token": "release",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "bbe1c7de03c3aa0d1f964d0f027e16170c522f0483a00a110a21577f36318ca7"
+  }
+}

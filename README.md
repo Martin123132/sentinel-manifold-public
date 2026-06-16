@@ -103,10 +103,15 @@ sanitized proof packs generated from public suites. They cover:
 - [regulated workflow](docs/evidence-examples/regulated-workflow/README.md)
 - [agent tool boundary](docs/evidence-examples/agent-tool-boundary/README.md)
 - [code review](docs/evidence-examples/code-review/README.md)
+- [catalog starter packs](docs/evidence-examples/catalog/README.md)
 
 Each pack includes `summary.md`, `evidence-reader.md`, `manifest.json`, the
 suite report, evidence JSON, and verification JSON so reviewers can inspect the
 evidence format without an admin key.
+
+The catalog examples make the `v0.1.6` Suite Catalog inspectable too: each
+buyer starter pack has a public evidence bundle showing `3` checks, `1`
+emitted, and `2` blocked.
 
 Real hosted audit history and bundle export remain admin-only.
 

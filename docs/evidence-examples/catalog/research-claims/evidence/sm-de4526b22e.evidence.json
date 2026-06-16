@@ -1,0 +1,162 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-de4526b22e",
+  "created_at": 1781633535,
+  "saved_at": 1781633535,
+  "gateway_action": "EMIT",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "research",
+    "policy_name": "Research Claims",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": null,
+    "model": null,
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "The evaluation observed improved recall in 64% of reviewed cases.",
+      "The finding is preliminary and requires replication before broad claims.",
+      "The system reduced review time in 12 internal test runs."
+    ],
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "The evaluation observed improved recall in 64% of reviewed cases. The finding is preliminary and requires replication before broad claims. The system reduced review time in 12 internal test runs."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "fe4a53100b014d1906358b4325f8907e68a9b94ef0659d2614e07799a1a839c7",
+    "candidates_sha256": "c73148dc4cd458f20bffad22703f3986c46c1951b74845a66d50a63021f654f4",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-de4526b22e",
+    "created_at": 1781633535,
+    "action": "EMIT",
+    "emitted_candidate_id": "safe",
+    "emitted_text": "The evaluation observed improved recall in 64% of reviewed cases. The finding is preliminary and requires replication before broad claims. The system reduced review time in 12 internal test runs.",
+    "summary": {
+      "headline": "Safe emitted with risk 0.",
+      "action": "EMIT",
+      "candidate_count": 1,
+      "blocked_count": 0,
+      "reference_relations": 2,
+      "highest_risk_candidate": "Safe",
+      "highest_risk_score": 0
+    },
+    "mode": "strict",
+    "policy_profile": "research",
+    "policy_name": "Research Claims",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 2,
+      "numbers": [
+        "12",
+        "64"
+      ],
+      "units": [
+        "%"
+      ],
+      "entities": [],
+      "content_token_count": 20,
+      "relations": [
+        {
+          "subject": "finding",
+          "predicate": "is_a",
+          "object": "preliminary and requires replication before broad claims"
+        },
+        {
+          "subject": "finding is preliminary",
+          "predicate": "require",
+          "object": "replication before broad claims"
+        }
+      ]
+    },
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "The evaluation observed improved recall in 64% of reviewed cases. The finding is preliminary and requires replication before broad claims. The system reduced review time in 12 internal test runs.",
+        "verdict": "EMIT",
+        "safe_to_emit": true,
+        "risk_score": 0,
+        "findings": [],
+        "relations": [
+          {
+            "subject": "finding",
+            "predicate": "is_a",
+            "object": "preliminary and requires replication before broad claims"
+          },
+          {
+            "subject": "finding is preliminary",
+            "predicate": "require",
+            "object": "replication before broad claims"
+          }
+        ],
+        "literal_drift": {
+          "novel_numbers": [],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 1.0,
+          "relation_support": 1.0,
+          "supported_relations": 2,
+          "extracted_relations": 2,
+          "finding_count": 0
+        },
+        "token_shocks": [
+          {
+            "token": "evaluation",
+            "score": 0.05
+          },
+          {
+            "token": "observed",
+            "score": 0.05
+          },
+          {
+            "token": "improved",
+            "score": 0.05
+          },
+          {
+            "token": "recall",
+            "score": 0.05
+          },
+          {
+            "token": "reviewed",
+            "score": 0.05
+          },
+          {
+            "token": "cases",
+            "score": 0.05
+          },
+          {
+            "token": "finding",
+            "score": 0.05
+          },
+          {
+            "token": "preliminary",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "11802a190dabe06ab6905185794146df7c5522912874daa49bb9cab6dfdbc30f"
+  }
+}

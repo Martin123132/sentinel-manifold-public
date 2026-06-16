@@ -1,0 +1,163 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-b0383f1df2",
+  "created_at": 1781633536,
+  "saved_at": 1781633536,
+  "gateway_action": "EMIT",
+  "request": {
+    "mode": "balanced",
+    "policy_profile": "code_review",
+    "policy_name": "Code Review",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": false
+    },
+    "provider": null,
+    "model": null,
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "The patch updates dependency auth-client from version 2.1.0 to version 2.1.1.",
+      "Authentication behavior is unchanged.",
+      "The migration script reads user records."
+    ],
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "The patch updates dependency auth-client from version 2.1.0 to version 2.1.1. Authentication behavior is unchanged. The migration script reads user records."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "55fe4d3b0d33da2d6b04fc8439ab5db5ba5958f9614da37457730ab0db9a136e",
+    "candidates_sha256": "ef02e83f6518750a41dd144702865e3cf62857924f085cdd3dc09046d996c0b8",
+    "policy_sha256": "c1c7a108528780fff9b3f25c8313252c7a462f010ff11d6cb3116916f676644b"
+  },
+  "result": {
+    "check_id": "sm-b0383f1df2",
+    "created_at": 1781633536,
+    "action": "EMIT",
+    "emitted_candidate_id": "safe",
+    "emitted_text": "The patch updates dependency auth-client from version 2.1.0 to version 2.1.1. Authentication behavior is unchanged. The migration script reads user records.",
+    "summary": {
+      "headline": "Safe emitted with risk 0.",
+      "action": "EMIT",
+      "candidate_count": 1,
+      "blocked_count": 0,
+      "reference_relations": 2,
+      "highest_risk_candidate": "Safe",
+      "highest_risk_score": 0
+    },
+    "mode": "balanced",
+    "policy_profile": "code_review",
+    "policy_name": "Code Review",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": false
+    },
+    "reference_model": {
+      "relation_count": 2,
+      "numbers": [
+        "0",
+        "1",
+        "2.1"
+      ],
+      "units": [],
+      "entities": [
+        "authentication"
+      ],
+      "content_token_count": 13,
+      "relations": [
+        {
+          "subject": "authentication behavior",
+          "predicate": "is_a",
+          "object": "unchanged"
+        },
+        {
+          "subject": "migration script",
+          "predicate": "read",
+          "object": "user records"
+        }
+      ]
+    },
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "The patch updates dependency auth-client from version 2.1.0 to version 2.1.1. Authentication behavior is unchanged. The migration script reads user records.",
+        "verdict": "EMIT",
+        "safe_to_emit": true,
+        "risk_score": 0,
+        "findings": [],
+        "relations": [
+          {
+            "subject": "authentication behavior",
+            "predicate": "is_a",
+            "object": "unchanged"
+          },
+          {
+            "subject": "migration script",
+            "predicate": "read",
+            "object": "user records"
+          }
+        ],
+        "literal_drift": {
+          "novel_numbers": [],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 1.0,
+          "relation_support": 1.0,
+          "supported_relations": 2,
+          "extracted_relations": 2,
+          "finding_count": 0
+        },
+        "token_shocks": [
+          {
+            "token": "auth-client",
+            "score": 0.62
+          },
+          {
+            "token": "patch",
+            "score": 0.05
+          },
+          {
+            "token": "updates",
+            "score": 0.05
+          },
+          {
+            "token": "dependency",
+            "score": 0.05
+          },
+          {
+            "token": "version",
+            "score": 0.05
+          },
+          {
+            "token": "version",
+            "score": 0.05
+          },
+          {
+            "token": "authentication",
+            "score": 0.05
+          },
+          {
+            "token": "behavior",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "8b6cdc8ba5d3be2f87e09dc4da12699d4876edf5fd20ec108fc4b69a57e5c710"
+  }
+}

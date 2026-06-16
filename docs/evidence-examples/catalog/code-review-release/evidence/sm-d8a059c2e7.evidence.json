@@ -1,0 +1,142 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-d8a059c2e7",
+  "created_at": 1781633536,
+  "saved_at": 1781633536,
+  "gateway_action": "BLOCK",
+  "request": {
+    "mode": "balanced",
+    "policy_profile": "code_review",
+    "policy_name": "Code Review",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": false
+    },
+    "provider": null,
+    "model": null,
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "The migration script reads user records."
+    ],
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The migration script modifies production data."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "3977ce51b6af117816391f7e4f8f4d0f1b45df4ccabfdc943270539995308d92",
+    "candidates_sha256": "7d1275a78afc65ab71c6642c0d135eb1a98bbd33a4b7446a56fec0af1028cc40",
+    "policy_sha256": "c1c7a108528780fff9b3f25c8313252c7a462f010ff11d6cb3116916f676644b"
+  },
+  "result": {
+    "check_id": "sm-d8a059c2e7",
+    "created_at": 1781633536,
+    "action": "BLOCK",
+    "emitted_candidate_id": null,
+    "emitted_text": null,
+    "summary": {
+      "headline": "Every candidate was blocked by reference-bound guardrails.",
+      "action": "BLOCK",
+      "candidate_count": 1,
+      "blocked_count": 1,
+      "reference_relations": 1,
+      "highest_risk_candidate": "Unsafe",
+      "highest_risk_score": 43
+    },
+    "mode": "balanced",
+    "policy_profile": "code_review",
+    "policy_name": "Code Review",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": false
+    },
+    "reference_model": {
+      "relation_count": 1,
+      "numbers": [],
+      "units": [],
+      "entities": [],
+      "content_token_count": 5,
+      "relations": [
+        {
+          "subject": "migration script",
+          "predicate": "read",
+          "object": "user records"
+        }
+      ]
+    },
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The migration script modifies production data.",
+        "verdict": "DRIFT",
+        "safe_to_emit": false,
+        "risk_score": 43,
+        "findings": [
+          {
+            "code": "known_participant_unsupported_relation",
+            "label": "Unsupported Relation",
+            "severity": 26,
+            "message": "Candidate links known reference participants through an unsupported relation.",
+            "evidence": "migration script modify production data",
+            "fix": "Add a source for the relation or remove it from the answer."
+          }
+        ],
+        "relations": [
+          {
+            "subject": "migration script",
+            "predicate": "modify",
+            "object": "production data"
+          }
+        ],
+        "literal_drift": {
+          "novel_numbers": [],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 0.25,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 1,
+          "finding_count": 1
+        },
+        "token_shocks": [
+          {
+            "token": "modifies",
+            "score": 0.62
+          },
+          {
+            "token": "production",
+            "score": 0.62
+          },
+          {
+            "token": "data",
+            "score": 0.62
+          },
+          {
+            "token": "migration",
+            "score": 0.05
+          },
+          {
+            "token": "script",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "f7734c29e3c6bae64a7869bb60d17c4ba158c313de7f83d8f5f736a1842812a3"
+  }
+}

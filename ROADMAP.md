@@ -38,7 +38,8 @@ plain-English authoring guide so trial users can create their own release-gate
 cases. A first custom suite walkthrough now shows the same pattern end to end
 for a fake subscription-support copilot. The Suite Catalog now adds runnable
 buyer starter packs for support operations, regulated approval, research
-claims, code review, and agent/tool boundaries.
+claims, code review, and agent/tool boundaries. Catalog evidence examples now
+make each starter pack inspectable as a static proof bundle.
 
 The first public release is complete: `v0.1.0 Public Proof` packages the live
 demo, CI release gate, integration guide, commercial boundary, and admin evidence
@@ -83,7 +84,7 @@ Previous releases:
 ## Near-Term Milestones
 
 1. Collect feedback on the Suite Catalog starter packs from trial users.
-2. Improve confusing template, catalog, or validator wording.
+2. Improve confusing template, catalog, evidence-example, or validator wording.
 3. Use trial reports to tune buyer-specific false positives and false negatives.
 
 ## Boundaries

@@ -1,0 +1,78 @@
+{
+  "suite_id": "sms-e443b4a699",
+  "name": "Catalog: code-review release gate",
+  "description": "Starter pack for dependency version, authentication, and production-data drift.",
+  "created_at": 1781633536,
+  "duration_ms": 14,
+  "status": "PASS",
+  "errors": [],
+  "summary": {
+    "case_count": 3,
+    "passed": 3,
+    "failed": 0,
+    "emit_count": 1,
+    "block_count": 2
+  },
+  "cases": [
+    {
+      "id": "code-review-catalog-safe-version-auth-data",
+      "name": "Safe release-note summary emits",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-b0383f1df2",
+      "action": "EMIT",
+      "emitted_candidate_id": "safe",
+      "highest_risk_score": 0,
+      "blocked_count": 0,
+      "candidate_count": 1,
+      "policy_profile": "code_review",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-b0383f1df2.evidence.json",
+        "digest": "8b6cdc8ba5d3be2f87e09dc4da12699d4876edf5fd20ec108fc4b69a57e5c710",
+        "algorithm": "sha256-canonical-json"
+      }
+    },
+    {
+      "id": "code-review-catalog-version-drift",
+      "name": "Dependency version drift blocks",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-084de98f83",
+      "action": "BLOCK",
+      "emitted_candidate_id": null,
+      "highest_risk_score": 32,
+      "blocked_count": 1,
+      "candidate_count": 1,
+      "policy_profile": "code_review",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-084de98f83.evidence.json",
+        "digest": "0357bdff61e80e2da3fce27eee88215aa88a9a880cb8bc5c3c892147ed3f4449",
+        "algorithm": "sha256-canonical-json"
+      }
+    },
+    {
+      "id": "code-review-catalog-production-write-drift",
+      "name": "Production data write drift blocks",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-d8a059c2e7",
+      "action": "BLOCK",
+      "emitted_candidate_id": null,
+      "highest_risk_score": 43,
+      "blocked_count": 1,
+      "candidate_count": 1,
+      "policy_profile": "code_review",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-d8a059c2e7.evidence.json",
+        "digest": "f7734c29e3c6bae64a7869bb60d17c4ba158c313de7f83d8f5f736a1842812a3",
+        "algorithm": "sha256-canonical-json"
+      }
+    }
+  ]
+}

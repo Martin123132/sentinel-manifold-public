@@ -1,0 +1,180 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-3e5e5acb06",
+  "created_at": 1781633536,
+  "saved_at": 1781633536,
+  "gateway_action": "EMIT",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "agent_tool",
+    "policy_name": "Agent Tool Boundary",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": null,
+    "model": null,
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "The calendar agent reads calendar events.",
+      "The calendar agent writes draft reminders.",
+      "The calendar agent requires user approval before sending reminders.",
+      "The support agent uses read only CRM access."
+    ],
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "The calendar agent reads calendar events. The calendar agent writes draft reminders. The calendar agent requires user approval before sending reminders. The support agent uses read only CRM access."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "a31c4e8fa40161646e8dcc72f86316bee5d6f914d8a3247b5a62c141cae60d2b",
+    "candidates_sha256": "aa8b40f50a0bda23e278ad8417e938aa8a542be854bede54b699a4ce2139dd97",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-3e5e5acb06",
+    "created_at": 1781633536,
+    "action": "EMIT",
+    "emitted_candidate_id": "safe",
+    "emitted_text": "The calendar agent reads calendar events. The calendar agent writes draft reminders. The calendar agent requires user approval before sending reminders. The support agent uses read only CRM access.",
+    "summary": {
+      "headline": "Safe emitted with risk 0.",
+      "action": "EMIT",
+      "candidate_count": 1,
+      "blocked_count": 0,
+      "reference_relations": 4,
+      "highest_risk_candidate": "Safe",
+      "highest_risk_score": 0
+    },
+    "mode": "strict",
+    "policy_profile": "agent_tool",
+    "policy_name": "Agent Tool Boundary",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 4,
+      "numbers": [],
+      "units": [],
+      "entities": [
+        "crm"
+      ],
+      "content_token_count": 17,
+      "relations": [
+        {
+          "subject": "calendar agent",
+          "predicate": "read",
+          "object": "calendar events"
+        },
+        {
+          "subject": "calendar agent",
+          "predicate": "require",
+          "object": "user approval before sending reminders"
+        },
+        {
+          "subject": "calendar agent",
+          "predicate": "write",
+          "object": "draft reminders"
+        },
+        {
+          "subject": "support agent",
+          "predicate": "use",
+          "object": "read only crm access"
+        }
+      ]
+    },
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "The calendar agent reads calendar events. The calendar agent writes draft reminders. The calendar agent requires user approval before sending reminders. The support agent uses read only CRM access.",
+        "verdict": "EMIT",
+        "safe_to_emit": true,
+        "risk_score": 0,
+        "findings": [],
+        "relations": [
+          {
+            "subject": "calendar agent",
+            "predicate": "read",
+            "object": "calendar events"
+          },
+          {
+            "subject": "calendar agent",
+            "predicate": "require",
+            "object": "user approval before sending reminders"
+          },
+          {
+            "subject": "calendar agent",
+            "predicate": "write",
+            "object": "draft reminders"
+          },
+          {
+            "subject": "support agent",
+            "predicate": "use",
+            "object": "read only crm access"
+          }
+        ],
+        "literal_drift": {
+          "novel_numbers": [],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 1.0,
+          "relation_support": 1.0,
+          "supported_relations": 4,
+          "extracted_relations": 4,
+          "finding_count": 0
+        },
+        "token_shocks": [
+          {
+            "token": "calendar",
+            "score": 0.05
+          },
+          {
+            "token": "agent",
+            "score": 0.05
+          },
+          {
+            "token": "reads",
+            "score": 0.05
+          },
+          {
+            "token": "calendar",
+            "score": 0.05
+          },
+          {
+            "token": "events",
+            "score": 0.05
+          },
+          {
+            "token": "calendar",
+            "score": 0.05
+          },
+          {
+            "token": "agent",
+            "score": 0.05
+          },
+          {
+            "token": "writes",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "05685211bfd1c328e2d95e0eaa3be08d6973a3565723bdba8c5f1a7dfa5926b6"
+  }
+}

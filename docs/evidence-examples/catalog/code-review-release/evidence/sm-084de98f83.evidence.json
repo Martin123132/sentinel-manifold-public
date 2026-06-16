@@ -1,0 +1,140 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-084de98f83",
+  "created_at": 1781633536,
+  "saved_at": 1781633536,
+  "gateway_action": "BLOCK",
+  "request": {
+    "mode": "balanced",
+    "policy_profile": "code_review",
+    "policy_name": "Code Review",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": false
+    },
+    "provider": null,
+    "model": null,
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "The patch updates dependency auth-client from version 2.1.0 to version 2.1.1."
+    ],
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The patch updates dependency auth-client from version 2.1.0 to version 3.0.0."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "3febe749031f9cac3f70fbd364069489103d8f8e9a29048d0cf2689409d97cef",
+    "candidates_sha256": "8b51ecaca62c1679c58976f6748fe9c81ae46bc0075cd952293c0016b2354d74",
+    "policy_sha256": "c1c7a108528780fff9b3f25c8313252c7a462f010ff11d6cb3116916f676644b"
+  },
+  "result": {
+    "check_id": "sm-084de98f83",
+    "created_at": 1781633536,
+    "action": "BLOCK",
+    "emitted_candidate_id": null,
+    "emitted_text": null,
+    "summary": {
+      "headline": "Every candidate was blocked by reference-bound guardrails.",
+      "action": "BLOCK",
+      "candidate_count": 1,
+      "blocked_count": 1,
+      "reference_relations": 0,
+      "highest_risk_candidate": "Unsafe",
+      "highest_risk_score": 32
+    },
+    "mode": "balanced",
+    "policy_profile": "code_review",
+    "policy_name": "Code Review",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": false
+    },
+    "reference_model": {
+      "relation_count": 0,
+      "numbers": [
+        "0",
+        "1",
+        "2.1"
+      ],
+      "units": [],
+      "entities": [],
+      "content_token_count": 5,
+      "relations": []
+    },
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The patch updates dependency auth-client from version 2.1.0 to version 3.0.0.",
+        "verdict": "CONTRADICTION",
+        "safe_to_emit": false,
+        "risk_score": 32,
+        "findings": [
+          {
+            "code": "protected_number_drift",
+            "label": "Protected Number Drift",
+            "severity": 24,
+            "message": "Candidate introduced number(s) not present in the reference material.",
+            "evidence": "3.0",
+            "fix": "Use only referenced numbers, or add a supporting source before emission."
+          }
+        ],
+        "relations": [],
+        "literal_drift": {
+          "novel_numbers": [
+            "3.0"
+          ],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 1.0,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 0,
+          "finding_count": 1
+        },
+        "token_shocks": [
+          {
+            "token": "auth-client",
+            "score": 0.62
+          },
+          {
+            "token": "patch",
+            "score": 0.05
+          },
+          {
+            "token": "updates",
+            "score": 0.05
+          },
+          {
+            "token": "dependency",
+            "score": 0.05
+          },
+          {
+            "token": "version",
+            "score": 0.05
+          },
+          {
+            "token": "version",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "0357bdff61e80e2da3fce27eee88215aa88a9a880cb8bc5c3c892147ed3f4449"
+  }
+}

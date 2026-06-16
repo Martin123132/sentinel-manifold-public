@@ -1,0 +1,141 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-ed730a9965",
+  "created_at": 1781633535,
+  "saved_at": 1781633535,
+  "gateway_action": "BLOCK",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "regulated",
+    "policy_name": "Regulated Workflow",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": null,
+    "model": null,
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "Claims over 5000 GBP require enhanced review."
+    ],
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "Claims over 50000 GBP require enhanced review."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "55737b093e2f86e90f01fa07f35e1df680be6058e4538cdd087c3f6201293c92",
+    "candidates_sha256": "c663d2e91584e14f9dc491c6f669a838622bc49abb4213b9cff4e6302fa7fb71",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-ed730a9965",
+    "created_at": 1781633535,
+    "action": "BLOCK",
+    "emitted_candidate_id": null,
+    "emitted_text": null,
+    "summary": {
+      "headline": "Every candidate was blocked by reference-bound guardrails.",
+      "action": "BLOCK",
+      "candidate_count": 1,
+      "blocked_count": 1,
+      "reference_relations": 0,
+      "highest_risk_candidate": "Unsafe",
+      "highest_risk_score": 38
+    },
+    "mode": "strict",
+    "policy_profile": "regulated",
+    "policy_name": "Regulated Workflow",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 0,
+      "numbers": [
+        "5000"
+      ],
+      "units": [],
+      "entities": [
+        "claims",
+        "gbp"
+      ],
+      "content_token_count": 6,
+      "relations": []
+    },
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "Claims over 50000 GBP require enhanced review.",
+        "verdict": "CONTRADICTION",
+        "safe_to_emit": false,
+        "risk_score": 38,
+        "findings": [
+          {
+            "code": "protected_number_drift",
+            "label": "Protected Number Drift",
+            "severity": 24,
+            "message": "Candidate introduced number(s) not present in the reference material.",
+            "evidence": "50000",
+            "fix": "Use only referenced numbers, or add a supporting source before emission."
+          }
+        ],
+        "relations": [],
+        "literal_drift": {
+          "novel_numbers": [
+            "50000"
+          ],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 1.0,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 0,
+          "finding_count": 1
+        },
+        "token_shocks": [
+          {
+            "token": "claims",
+            "score": 0.05
+          },
+          {
+            "token": "over",
+            "score": 0.05
+          },
+          {
+            "token": "gbp",
+            "score": 0.05
+          },
+          {
+            "token": "require",
+            "score": 0.05
+          },
+          {
+            "token": "enhanced",
+            "score": 0.05
+          },
+          {
+            "token": "review",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "f0b807df80a7a208af30e826e67a87f7f2c6be679fe11c59817ab90db00d7e45"
+  }
+}

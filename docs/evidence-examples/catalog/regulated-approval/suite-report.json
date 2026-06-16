@@ -1,0 +1,78 @@
+{
+  "suite_id": "sms-db90492039",
+  "name": "Catalog: regulated approval release gate",
+  "description": "Starter pack for approval, review, data export, and threshold drift.",
+  "created_at": 1781633535,
+  "duration_ms": 18,
+  "status": "PASS",
+  "errors": [],
+  "summary": {
+    "case_count": 3,
+    "passed": 3,
+    "failed": 0,
+    "emit_count": 1,
+    "block_count": 2
+  },
+  "cases": [
+    {
+      "id": "regulated-catalog-safe-approval-review-export",
+      "name": "Safe regulated workflow wording emits",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-66c32ca3ac",
+      "action": "EMIT",
+      "emitted_candidate_id": "safe",
+      "highest_risk_score": 8,
+      "blocked_count": 0,
+      "candidate_count": 1,
+      "policy_profile": "regulated",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-66c32ca3ac.evidence.json",
+        "digest": "bbe1c7de03c3aa0d1f964d0f027e16170c522f0483a00a110a21577f36318ca7",
+        "algorithm": "sha256-canonical-json"
+      }
+    },
+    {
+      "id": "regulated-catalog-approval-removal",
+      "name": "Payment approval removal blocks",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-2800ab2223",
+      "action": "BLOCK",
+      "emitted_candidate_id": null,
+      "highest_risk_score": 49,
+      "blocked_count": 1,
+      "candidate_count": 1,
+      "policy_profile": "regulated",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-2800ab2223.evidence.json",
+        "digest": "c3acf767666beaea6479a7f68496ae094103ee853a7ddb4937a0cbb7bb72b752",
+        "algorithm": "sha256-canonical-json"
+      }
+    },
+    {
+      "id": "regulated-catalog-threshold-drift",
+      "name": "Claims threshold drift blocks",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-ed730a9965",
+      "action": "BLOCK",
+      "emitted_candidate_id": null,
+      "highest_risk_score": 38,
+      "blocked_count": 1,
+      "candidate_count": 1,
+      "policy_profile": "regulated",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-ed730a9965.evidence.json",
+        "digest": "f0b807df80a7a208af30e826e67a87f7f2c6be679fe11c59817ab90db00d7e45",
+        "algorithm": "sha256-canonical-json"
+      }
+    }
+  ]
+}

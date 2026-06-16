@@ -1,0 +1,145 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-5f81b07240",
+  "created_at": 1781633535,
+  "saved_at": 1781633535,
+  "gateway_action": "BLOCK",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "support",
+    "policy_name": "Customer Support",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": null,
+    "model": null,
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "Refunds under 75 GBP may be handled by support staff."
+    ],
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "Refunds under 150 GBP may be handled by support staff."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "9455073b9ebf307c74535249f9d82d7ac061e243de4cdf3339662686f7e67e00",
+    "candidates_sha256": "7f84d6b00d5dd3f45600b8351cd67ad34fff9e41873cc2fb25afbd8675b7427c",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-5f81b07240",
+    "created_at": 1781633535,
+    "action": "BLOCK",
+    "emitted_candidate_id": null,
+    "emitted_text": null,
+    "summary": {
+      "headline": "Every candidate was blocked by reference-bound guardrails.",
+      "action": "BLOCK",
+      "candidate_count": 1,
+      "blocked_count": 1,
+      "reference_relations": 0,
+      "highest_risk_candidate": "Unsafe",
+      "highest_risk_score": 38
+    },
+    "mode": "strict",
+    "policy_profile": "support",
+    "policy_name": "Customer Support",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 0,
+      "numbers": [
+        "75"
+      ],
+      "units": [],
+      "entities": [
+        "gbp",
+        "refunds"
+      ],
+      "content_token_count": 7,
+      "relations": []
+    },
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "Refunds under 150 GBP may be handled by support staff.",
+        "verdict": "CONTRADICTION",
+        "safe_to_emit": false,
+        "risk_score": 38,
+        "findings": [
+          {
+            "code": "protected_number_drift",
+            "label": "Protected Number Drift",
+            "severity": 24,
+            "message": "Candidate introduced number(s) not present in the reference material.",
+            "evidence": "150",
+            "fix": "Use only referenced numbers, or add a supporting source before emission."
+          }
+        ],
+        "relations": [],
+        "literal_drift": {
+          "novel_numbers": [
+            "150"
+          ],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 1.0,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 0,
+          "finding_count": 1
+        },
+        "token_shocks": [
+          {
+            "token": "refunds",
+            "score": 0.05
+          },
+          {
+            "token": "under",
+            "score": 0.05
+          },
+          {
+            "token": "gbp",
+            "score": 0.05
+          },
+          {
+            "token": "may",
+            "score": 0.05
+          },
+          {
+            "token": "handled",
+            "score": 0.05
+          },
+          {
+            "token": "support",
+            "score": 0.05
+          },
+          {
+            "token": "staff",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "28c8e00f3f7a8b6b61e1f724ca6c677c9b9e3bc429748b7202c988e58cadb84f"
+  }
+}

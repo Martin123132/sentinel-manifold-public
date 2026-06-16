@@ -1,0 +1,78 @@
+{
+  "suite_id": "sms-fc46203d60",
+  "name": "Catalog: support operations release gate",
+  "description": "Starter pack for refund, escalation, and cancellation-credit support policies.",
+  "created_at": 1781633535,
+  "duration_ms": 62,
+  "status": "PASS",
+  "errors": [],
+  "summary": {
+    "case_count": 3,
+    "passed": 3,
+    "failed": 0,
+    "emit_count": 1,
+    "block_count": 2
+  },
+  "cases": [
+    {
+      "id": "support-catalog-safe-refund-escalation-credit",
+      "name": "Safe support policy wording emits",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-e46e41b1b0",
+      "action": "EMIT",
+      "emitted_candidate_id": "safe",
+      "highest_risk_score": 8,
+      "blocked_count": 0,
+      "candidate_count": 1,
+      "policy_profile": "support",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-e46e41b1b0.evidence.json",
+        "digest": "d0b00bdf7b8d40bd6dea5d6e08995c8ce0b724b20420a5e8aa0a72c780dc1d05",
+        "algorithm": "sha256-canonical-json"
+      }
+    },
+    {
+      "id": "support-catalog-refund-threshold-drift",
+      "name": "Refund threshold drift blocks",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-5f81b07240",
+      "action": "BLOCK",
+      "emitted_candidate_id": null,
+      "highest_risk_score": 38,
+      "blocked_count": 1,
+      "candidate_count": 1,
+      "policy_profile": "support",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-5f81b07240.evidence.json",
+        "digest": "28c8e00f3f7a8b6b61e1f724ca6c677c9b9e3bc429748b7202c988e58cadb84f",
+        "algorithm": "sha256-canonical-json"
+      }
+    },
+    {
+      "id": "support-catalog-escalation-removal",
+      "name": "Escalation review removal blocks",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-a6cd324501",
+      "action": "BLOCK",
+      "emitted_candidate_id": null,
+      "highest_risk_score": 44,
+      "blocked_count": 1,
+      "candidate_count": 1,
+      "policy_profile": "support",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-a6cd324501.evidence.json",
+        "digest": "37e078a759127f5af7588d86a64ebef148cfe31e6740adab964eebcecaf3d798",
+        "algorithm": "sha256-canonical-json"
+      }
+    }
+  ]
+}

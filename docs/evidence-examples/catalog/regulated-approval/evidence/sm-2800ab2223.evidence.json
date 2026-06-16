@@ -1,0 +1,139 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-2800ab2223",
+  "created_at": 1781633535,
+  "saved_at": 1781633535,
+  "gateway_action": "BLOCK",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "regulated",
+    "policy_name": "Regulated Workflow",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": null,
+    "model": null,
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "Payments over 1000 GBP require manager approval before release."
+    ],
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "Payments over 1000 GBP can be released without manager approval."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "576e88c1d798a858fa46fb1a642a0668ee5adb7f982b1001bc5bc5410a2d4bf1",
+    "candidates_sha256": "dc149644de1eb801697eadb88d903f31165fc277c9237b2b32f52f580de79410",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-2800ab2223",
+    "created_at": 1781633535,
+    "action": "BLOCK",
+    "emitted_candidate_id": null,
+    "emitted_text": null,
+    "summary": {
+      "headline": "Every candidate was blocked by reference-bound guardrails.",
+      "action": "BLOCK",
+      "candidate_count": 1,
+      "blocked_count": 1,
+      "reference_relations": 0,
+      "highest_risk_candidate": "Unsafe",
+      "highest_risk_score": 49
+    },
+    "mode": "strict",
+    "policy_profile": "regulated",
+    "policy_name": "Regulated Workflow",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 0,
+      "numbers": [
+        "1000"
+      ],
+      "units": [],
+      "entities": [
+        "gbp",
+        "payments"
+      ],
+      "content_token_count": 8,
+      "relations": []
+    },
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "Payments over 1000 GBP can be released without manager approval.",
+        "verdict": "CONTRADICTION",
+        "safe_to_emit": false,
+        "risk_score": 49,
+        "findings": [
+          {
+            "code": "unsupported_negation",
+            "label": "Unsupported Negation",
+            "severity": 30,
+            "message": "Candidate removes required approval or review from the supplied references.",
+            "evidence": "Payments over 1000 GBP require manager approval before release.",
+            "fix": "Keep the referenced approval or review step, or provide a source that removes it."
+          }
+        ],
+        "relations": [],
+        "literal_drift": {
+          "novel_numbers": [],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 0.556,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 0,
+          "finding_count": 1
+        },
+        "token_shocks": [
+          {
+            "token": "released",
+            "score": 0.62
+          },
+          {
+            "token": "payments",
+            "score": 0.05
+          },
+          {
+            "token": "over",
+            "score": 0.05
+          },
+          {
+            "token": "gbp",
+            "score": 0.05
+          },
+          {
+            "token": "manager",
+            "score": 0.05
+          },
+          {
+            "token": "approval",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "c3acf767666beaea6479a7f68496ae094103ee853a7ddb4937a0cbb7bb72b752"
+  }
+}

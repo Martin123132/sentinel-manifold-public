@@ -580,6 +580,11 @@ class GuardrailTests(unittest.TestCase):
             ("regulated-workflow", 2, 1, 1, {"regulated"}),
             ("agent-tool-boundary", 5, 1, 4, {"agent_tool"}),
             ("code-review", 2, 1, 1, {"code_review"}),
+            ("catalog/support-operations", 3, 1, 2, {"support"}),
+            ("catalog/regulated-approval", 3, 1, 2, {"regulated"}),
+            ("catalog/research-claims", 3, 1, 2, {"research"}),
+            ("catalog/code-review-release", 3, 1, 2, {"code_review"}),
+            ("catalog/agent-tool-boundary", 3, 1, 2, {"agent_tool"}),
         ]
         for example_name, count, emitted, blocked, policy_profiles in examples:
             with self.subTest(example=example_name):

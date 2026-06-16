@@ -1,0 +1,142 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-6535c58e5e",
+  "created_at": 1781633535,
+  "saved_at": 1781633535,
+  "gateway_action": "BLOCK",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "research",
+    "policy_name": "Research Claims",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": null,
+    "model": null,
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "The system reduced review time in 12 internal test runs."
+    ],
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The system reduced review time in 120 internal test runs."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "1a346affc9f64483bf88075083ba1c2d8f274b63b392e68f6d1bff4ab2cae818",
+    "candidates_sha256": "5e64d73e5c0e84325b98eeccef95adabbc634c1219913ea7f6929e82cfab4a12",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-6535c58e5e",
+    "created_at": 1781633535,
+    "action": "BLOCK",
+    "emitted_candidate_id": null,
+    "emitted_text": null,
+    "summary": {
+      "headline": "Every candidate was blocked by reference-bound guardrails.",
+      "action": "BLOCK",
+      "candidate_count": 1,
+      "blocked_count": 1,
+      "reference_relations": 0,
+      "highest_risk_candidate": "Unsafe",
+      "highest_risk_score": 38
+    },
+    "mode": "strict",
+    "policy_profile": "research",
+    "policy_name": "Research Claims",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 0,
+      "numbers": [
+        "12"
+      ],
+      "units": [],
+      "entities": [],
+      "content_token_count": 7,
+      "relations": []
+    },
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The system reduced review time in 120 internal test runs.",
+        "verdict": "CONTRADICTION",
+        "safe_to_emit": false,
+        "risk_score": 38,
+        "findings": [
+          {
+            "code": "protected_number_drift",
+            "label": "Protected Number Drift",
+            "severity": 24,
+            "message": "Candidate introduced number(s) not present in the reference material.",
+            "evidence": "120",
+            "fix": "Use only referenced numbers, or add a supporting source before emission."
+          }
+        ],
+        "relations": [],
+        "literal_drift": {
+          "novel_numbers": [
+            "120"
+          ],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 1.0,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 0,
+          "finding_count": 1
+        },
+        "token_shocks": [
+          {
+            "token": "system",
+            "score": 0.05
+          },
+          {
+            "token": "reduced",
+            "score": 0.05
+          },
+          {
+            "token": "review",
+            "score": 0.05
+          },
+          {
+            "token": "time",
+            "score": 0.05
+          },
+          {
+            "token": "internal",
+            "score": 0.05
+          },
+          {
+            "token": "test",
+            "score": 0.05
+          },
+          {
+            "token": "runs",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "97e4aee7f15482013405db9c9b52610060cfce331a650afbcae4447d9f0b9ce3"
+  }
+}

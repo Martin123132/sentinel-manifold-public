@@ -9,13 +9,13 @@ references supplied in the suite, not against external truth.
 
 ## Catalog Packs
 
-| Buyer shape | Suite | What it catches |
-| --- | --- | --- |
-| Support operations | `samples/catalog/support-operations-suite.json` | refund threshold drift and escalation review removal |
-| Regulated approval | `samples/catalog/regulated-approval-suite.json` | approval removal and claims threshold drift |
-| Research claims | `samples/catalog/research-claims-suite.json` | unsupported guarantees and evidence-count drift |
-| Code review | `samples/catalog/code-review-release-suite.json` | dependency version drift and production-data write drift |
-| Agent tool boundary | `samples/catalog/agent-tool-boundary-suite.json` | sending without approval and CRM write/delete drift |
+| Buyer shape | Suite | Evidence example | What it catches |
+| --- | --- | --- | --- |
+| Support operations | `samples/catalog/support-operations-suite.json` | [support operations](evidence-examples/catalog/support-operations/README.md) | refund threshold drift and escalation review removal |
+| Regulated approval | `samples/catalog/regulated-approval-suite.json` | [regulated approval](evidence-examples/catalog/regulated-approval/README.md) | approval removal and claims threshold drift |
+| Research claims | `samples/catalog/research-claims-suite.json` | [research claims](evidence-examples/catalog/research-claims/README.md) | unsupported guarantees and evidence-count drift |
+| Code review | `samples/catalog/code-review-release-suite.json` | [code-review release](evidence-examples/catalog/code-review-release/README.md) | dependency version drift and production-data write drift |
+| Agent tool boundary | `samples/catalog/agent-tool-boundary-suite.json` | [agent tool boundary](evidence-examples/catalog/agent-tool-boundary/README.md) | sending without approval and CRM write/delete drift |
 
 ## Try One Pack
 
@@ -65,6 +65,11 @@ out/catalog-agent-tool-boundary-suite-report.json
 
 Those reports are uploaded in the `sentinel-release-gate` artifact alongside the
 existing proof reports and evidence packs.
+
+For static public proof, each catalog pack also has a checked-in evidence
+example under [docs/evidence-examples/catalog/](evidence-examples/catalog/README.md).
+Those examples show the suite report, readable summary, manifest, evidence JSON,
+and verification JSON for the passing catalog gate.
 
 ## Next Step After Copying
 

@@ -1,0 +1,73 @@
+{
+  "schema_version": "sentinel.evidence.bundle.v1",
+  "created_at": 1781633536,
+  "limit": 3,
+  "count": 3,
+  "summary_path": "summary.md",
+  "reader_path": "evidence-reader.md",
+  "verdict": "Verified release-gate bundle",
+  "generated_files": [
+    "summary.md",
+    "evidence-reader.md",
+    "manifest.json",
+    "evidence/sm-ab3167fc69.evidence.json",
+    "verification/sm-ab3167fc69.verification.json",
+    "evidence/sm-3e5e5acb06.evidence.json",
+    "verification/sm-3e5e5acb06.verification.json",
+    "evidence/sm-9bf21f73c6.evidence.json",
+    "verification/sm-9bf21f73c6.verification.json"
+  ],
+  "summary": {
+    "total_audits": 3,
+    "emitted": 1,
+    "blocked": 2,
+    "verified": 3,
+    "failed_verification": 0,
+    "policy_profiles": [
+      "agent_tool"
+    ],
+    "newest_created_at": 1781633536,
+    "oldest_created_at": 1781633536
+  },
+  "audits": [
+    {
+      "check_id": "sm-ab3167fc69",
+      "created_at": 1781633536,
+      "action": "BLOCK",
+      "emitted": "none",
+      "risk": 74,
+      "blocked": 1,
+      "policy_profile": "agent_tool",
+      "digest": "1c8f07da9e91008c101ad6e9c9b1fa43d535b0cea7b91d08ff7b6742d693bc0b",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-ab3167fc69.evidence.json",
+      "verification_path": "verification/sm-ab3167fc69.verification.json"
+    },
+    {
+      "check_id": "sm-3e5e5acb06",
+      "created_at": 1781633536,
+      "action": "EMIT",
+      "emitted": "safe",
+      "risk": 0,
+      "blocked": 0,
+      "policy_profile": "agent_tool",
+      "digest": "05685211bfd1c328e2d95e0eaa3be08d6973a3565723bdba8c5f1a7dfa5926b6",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-3e5e5acb06.evidence.json",
+      "verification_path": "verification/sm-3e5e5acb06.verification.json"
+    },
+    {
+      "check_id": "sm-9bf21f73c6",
+      "created_at": 1781633536,
+      "action": "BLOCK",
+      "emitted": "none",
+      "risk": 77,
+      "blocked": 1,
+      "policy_profile": "agent_tool",
+      "digest": "add22c7a5ed29dbd905f2f83ddce1ea20ca4252567f23c14dafc2a930cf3d2b7",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-9bf21f73c6.evidence.json",
+      "verification_path": "verification/sm-9bf21f73c6.verification.json"
+    }
+  ]
+}

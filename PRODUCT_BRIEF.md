@@ -457,3 +457,15 @@ That makes the next trial conversation easier:
 
 > Pick the closest buyer proof pack, replace the references, and run a release
 > gate with evidence.
+
+## Stage 38 Commercial Story
+
+Sentinel now has public evidence examples for every Suite Catalog starter pack.
+Reviewers can inspect the passing support, regulated approval, research claims,
+code-review release, and agent/tool catalog gates without admin access or
+hosted audit history.
+
+That turns catalog adoption into visible proof:
+
+> Pick a buyer starter pack, then inspect the exact evidence a passing gate
+> produces.

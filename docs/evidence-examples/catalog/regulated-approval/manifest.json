@@ -1,0 +1,73 @@
+{
+  "schema_version": "sentinel.evidence.bundle.v1",
+  "created_at": 1781633535,
+  "limit": 3,
+  "count": 3,
+  "summary_path": "summary.md",
+  "reader_path": "evidence-reader.md",
+  "verdict": "Verified release-gate bundle",
+  "generated_files": [
+    "summary.md",
+    "evidence-reader.md",
+    "manifest.json",
+    "evidence/sm-2800ab2223.evidence.json",
+    "verification/sm-2800ab2223.verification.json",
+    "evidence/sm-66c32ca3ac.evidence.json",
+    "verification/sm-66c32ca3ac.verification.json",
+    "evidence/sm-ed730a9965.evidence.json",
+    "verification/sm-ed730a9965.verification.json"
+  ],
+  "summary": {
+    "total_audits": 3,
+    "emitted": 1,
+    "blocked": 2,
+    "verified": 3,
+    "failed_verification": 0,
+    "policy_profiles": [
+      "regulated"
+    ],
+    "newest_created_at": 1781633535,
+    "oldest_created_at": 1781633535
+  },
+  "audits": [
+    {
+      "check_id": "sm-2800ab2223",
+      "created_at": 1781633535,
+      "action": "BLOCK",
+      "emitted": "none",
+      "risk": 49,
+      "blocked": 1,
+      "policy_profile": "regulated",
+      "digest": "c3acf767666beaea6479a7f68496ae094103ee853a7ddb4937a0cbb7bb72b752",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-2800ab2223.evidence.json",
+      "verification_path": "verification/sm-2800ab2223.verification.json"
+    },
+    {
+      "check_id": "sm-66c32ca3ac",
+      "created_at": 1781633535,
+      "action": "EMIT",
+      "emitted": "safe",
+      "risk": 8,
+      "blocked": 0,
+      "policy_profile": "regulated",
+      "digest": "bbe1c7de03c3aa0d1f964d0f027e16170c522f0483a00a110a21577f36318ca7",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-66c32ca3ac.evidence.json",
+      "verification_path": "verification/sm-66c32ca3ac.verification.json"
+    },
+    {
+      "check_id": "sm-ed730a9965",
+      "created_at": 1781633535,
+      "action": "BLOCK",
+      "emitted": "none",
+      "risk": 38,
+      "blocked": 1,
+      "policy_profile": "regulated",
+      "digest": "f0b807df80a7a208af30e826e67a87f7f2c6be679fe11c59817ab90db00d7e45",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-ed730a9965.evidence.json",
+      "verification_path": "verification/sm-ed730a9965.verification.json"
+    }
+  ]
+}

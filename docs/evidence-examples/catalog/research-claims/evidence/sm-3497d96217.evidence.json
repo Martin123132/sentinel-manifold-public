@@ -1,0 +1,166 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-3497d96217",
+  "created_at": 1781633535,
+  "saved_at": 1781633535,
+  "gateway_action": "BLOCK",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "research",
+    "policy_name": "Research Claims",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": null,
+    "model": null,
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "The evaluation observed improved recall in 64% of reviewed cases.",
+      "The finding is preliminary and requires replication before broad claims."
+    ],
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The evaluation is 100% accurate and guarantees the system is always correct."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "acb52da2017569cd4a79b3566ce314dbdcf123ab82700c93e9f63046f13dabd8",
+    "candidates_sha256": "60957d3695d5638537a7704c8f8a59dae826ad3545532bf04494b501e1b40831",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-3497d96217",
+    "created_at": 1781633535,
+    "action": "BLOCK",
+    "emitted_candidate_id": null,
+    "emitted_text": null,
+    "summary": {
+      "headline": "Every candidate was blocked by reference-bound guardrails.",
+      "action": "BLOCK",
+      "candidate_count": 1,
+      "blocked_count": 1,
+      "reference_relations": 2,
+      "highest_risk_candidate": "Unsafe",
+      "highest_risk_score": 65
+    },
+    "mode": "strict",
+    "policy_profile": "research",
+    "policy_name": "Research Claims",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 2,
+      "numbers": [
+        "64"
+      ],
+      "units": [
+        "%"
+      ],
+      "entities": [],
+      "content_token_count": 13,
+      "relations": [
+        {
+          "subject": "finding",
+          "predicate": "is_a",
+          "object": "preliminary and requires replication before broad claims"
+        },
+        {
+          "subject": "finding is preliminary",
+          "predicate": "require",
+          "object": "replication before broad claims"
+        }
+      ]
+    },
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "The evaluation is 100% accurate and guarantees the system is always correct.",
+        "verdict": "CONTRADICTION",
+        "safe_to_emit": false,
+        "risk_score": 65,
+        "findings": [
+          {
+            "code": "protected_number_drift",
+            "label": "Protected Number Drift",
+            "severity": 24,
+            "message": "Candidate introduced number(s) not present in the reference material.",
+            "evidence": "100",
+            "fix": "Use only referenced numbers, or add a supporting source before emission."
+          },
+          {
+            "code": "unsupported_overclaim",
+            "label": "Unsupported Overclaim",
+            "severity": 16,
+            "message": "Candidate uses absolute or stronger-than-supported wording.",
+            "evidence": "100% accurate",
+            "fix": "Rewrite as a scoped claim tied to the supplied reference material."
+          }
+        ],
+        "relations": [
+          {
+            "subject": "accurate and guarantees system",
+            "predicate": "is_a",
+            "object": "always correct"
+          }
+        ],
+        "literal_drift": {
+          "novel_numbers": [
+            "100"
+          ],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 0.056,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 1,
+          "finding_count": 2
+        },
+        "token_shocks": [
+          {
+            "token": "accurate",
+            "score": 0.62
+          },
+          {
+            "token": "guarantees",
+            "score": 0.62
+          },
+          {
+            "token": "system",
+            "score": 0.62
+          },
+          {
+            "token": "always",
+            "score": 0.62
+          },
+          {
+            "token": "correct",
+            "score": 0.62
+          },
+          {
+            "token": "evaluation",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "6b9e8c493d71aa5d9c69eb4caa8b5a1d08635056426140b46de3d017f7e00291"
+  }
+}

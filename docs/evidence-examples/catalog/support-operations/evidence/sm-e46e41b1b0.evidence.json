@@ -1,0 +1,143 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-e46e41b1b0",
+  "created_at": 1781633535,
+  "saved_at": 1781633535,
+  "gateway_action": "EMIT",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "support",
+    "policy_name": "Customer Support",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": null,
+    "model": null,
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "Refunds under 75 GBP may be handled by support staff.",
+      "Escalated billing disputes require human support lead review.",
+      "Cancellation credits over 40 GBP require manager review."
+    ],
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "Refunds under 75 GBP may be handled by support staff. Escalated billing disputes require human support lead review. Cancellation credits over 40 GBP require manager review."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "c3eb79bc12e788d309f1cad3432b1b18c83aea9ebfc68a60e759ddd647c9f941",
+    "candidates_sha256": "a6d739af61ec605632b85e18042f469089fd01d73a625e720c8981c1e723eb43",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-e46e41b1b0",
+    "created_at": 1781633535,
+    "action": "EMIT",
+    "emitted_candidate_id": "safe",
+    "emitted_text": "Refunds under 75 GBP may be handled by support staff. Escalated billing disputes require human support lead review. Cancellation credits over 40 GBP require manager review.",
+    "summary": {
+      "headline": "Safe emitted with risk 8.",
+      "action": "EMIT",
+      "candidate_count": 1,
+      "blocked_count": 0,
+      "reference_relations": 0,
+      "highest_risk_candidate": "Safe",
+      "highest_risk_score": 8
+    },
+    "mode": "strict",
+    "policy_profile": "support",
+    "policy_name": "Customer Support",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 0,
+      "numbers": [
+        "40",
+        "75"
+      ],
+      "units": [],
+      "entities": [
+        "cancellation",
+        "escalated",
+        "gbp",
+        "refunds"
+      ],
+      "content_token_count": 18,
+      "relations": []
+    },
+    "candidates": [
+      {
+        "id": "safe",
+        "label": "Safe",
+        "text": "Refunds under 75 GBP may be handled by support staff. Escalated billing disputes require human support lead review. Cancellation credits over 40 GBP require manager review.",
+        "verdict": "EMIT",
+        "safe_to_emit": true,
+        "risk_score": 8,
+        "findings": [],
+        "relations": [],
+        "literal_drift": {
+          "novel_numbers": [],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 1.0,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 0,
+          "finding_count": 0
+        },
+        "token_shocks": [
+          {
+            "token": "refunds",
+            "score": 0.05
+          },
+          {
+            "token": "under",
+            "score": 0.05
+          },
+          {
+            "token": "gbp",
+            "score": 0.05
+          },
+          {
+            "token": "may",
+            "score": 0.05
+          },
+          {
+            "token": "handled",
+            "score": 0.05
+          },
+          {
+            "token": "support",
+            "score": 0.05
+          },
+          {
+            "token": "staff",
+            "score": 0.05
+          },
+          {
+            "token": "escalated",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "d0b00bdf7b8d40bd6dea5d6e08995c8ce0b724b20420a5e8aa0a72c780dc1d05"
+  }
+}

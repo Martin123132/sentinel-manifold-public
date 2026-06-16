@@ -1,0 +1,73 @@
+{
+  "schema_version": "sentinel.evidence.bundle.v1",
+  "created_at": 1781633535,
+  "limit": 3,
+  "count": 3,
+  "summary_path": "summary.md",
+  "reader_path": "evidence-reader.md",
+  "verdict": "Verified release-gate bundle",
+  "generated_files": [
+    "summary.md",
+    "evidence-reader.md",
+    "manifest.json",
+    "evidence/sm-3497d96217.evidence.json",
+    "verification/sm-3497d96217.verification.json",
+    "evidence/sm-6535c58e5e.evidence.json",
+    "verification/sm-6535c58e5e.verification.json",
+    "evidence/sm-de4526b22e.evidence.json",
+    "verification/sm-de4526b22e.verification.json"
+  ],
+  "summary": {
+    "total_audits": 3,
+    "emitted": 1,
+    "blocked": 2,
+    "verified": 3,
+    "failed_verification": 0,
+    "policy_profiles": [
+      "research"
+    ],
+    "newest_created_at": 1781633535,
+    "oldest_created_at": 1781633535
+  },
+  "audits": [
+    {
+      "check_id": "sm-3497d96217",
+      "created_at": 1781633535,
+      "action": "BLOCK",
+      "emitted": "none",
+      "risk": 65,
+      "blocked": 1,
+      "policy_profile": "research",
+      "digest": "6b9e8c493d71aa5d9c69eb4caa8b5a1d08635056426140b46de3d017f7e00291",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-3497d96217.evidence.json",
+      "verification_path": "verification/sm-3497d96217.verification.json"
+    },
+    {
+      "check_id": "sm-6535c58e5e",
+      "created_at": 1781633535,
+      "action": "BLOCK",
+      "emitted": "none",
+      "risk": 38,
+      "blocked": 1,
+      "policy_profile": "research",
+      "digest": "97e4aee7f15482013405db9c9b52610060cfce331a650afbcae4447d9f0b9ce3",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-6535c58e5e.evidence.json",
+      "verification_path": "verification/sm-6535c58e5e.verification.json"
+    },
+    {
+      "check_id": "sm-de4526b22e",
+      "created_at": 1781633535,
+      "action": "EMIT",
+      "emitted": "safe",
+      "risk": 0,
+      "blocked": 0,
+      "policy_profile": "research",
+      "digest": "11802a190dabe06ab6905185794146df7c5522912874daa49bb9cab6dfdbc30f",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-de4526b22e.evidence.json",
+      "verification_path": "verification/sm-de4526b22e.verification.json"
+    }
+  ]
+}

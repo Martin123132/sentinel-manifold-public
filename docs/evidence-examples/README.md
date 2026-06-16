@@ -21,6 +21,7 @@ Each example contains:
 | [Regulated workflow](regulated-workflow/README.md) | Approval and threshold wording cannot quietly relax from the supplied references. | `2` checks, `1` emitted, `1` blocked |
 | [Agent tool boundary](agent-tool-boundary/README.md) | Read-only or approval-bound agents cannot drift into storing credentials, sending, writing, deleting, or unapproved release. | `5` checks, `1` emitted, `4` blocked |
 | [Code review](code-review/README.md) | AI patch summaries cannot change dependency versions or authentication behavior. | `2` checks, `1` emitted, `1` blocked |
+| [Catalog starter packs](catalog/README.md) | Every Suite Catalog starter pack has an inspectable passing evidence example. | `5` packs, `15` checks, `5` emitted, `10` blocked |
 
 ## Reference Boundary
 

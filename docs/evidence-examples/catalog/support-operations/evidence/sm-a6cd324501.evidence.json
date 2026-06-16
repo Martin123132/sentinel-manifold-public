@@ -1,0 +1,144 @@
+{
+  "schema_version": "sentinel.evidence.v1",
+  "check_id": "sm-a6cd324501",
+  "created_at": 1781633535,
+  "saved_at": 1781633535,
+  "gateway_action": "BLOCK",
+  "request": {
+    "mode": "strict",
+    "policy_profile": "support",
+    "policy_name": "Customer Support",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "provider": null,
+    "model": null,
+    "prompt": null,
+    "provider_trace": null,
+    "compat_request": null,
+    "references": [
+      "Escalated billing disputes require human support lead review."
+    ],
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "Escalated billing disputes do not require human support lead review."
+      }
+    ]
+  },
+  "request_hashes": {
+    "references_sha256": "dd422ba746d7f8417d953ac715276a580452838a6672c51d5d70cc2ca55b4551",
+    "candidates_sha256": "fd5ccc97a6105bf8000059c9e89351456b995ceebcc4619e2d9c95792d54145f",
+    "policy_sha256": "5298f1ca24977e186b0343578404f1dd660854ae19bd8399a81e81ea1f87b52a"
+  },
+  "result": {
+    "check_id": "sm-a6cd324501",
+    "created_at": 1781633535,
+    "action": "BLOCK",
+    "emitted_candidate_id": null,
+    "emitted_text": null,
+    "summary": {
+      "headline": "Every candidate was blocked by reference-bound guardrails.",
+      "action": "BLOCK",
+      "candidate_count": 1,
+      "blocked_count": 1,
+      "reference_relations": 0,
+      "highest_risk_candidate": "Unsafe",
+      "highest_risk_score": 44
+    },
+    "mode": "strict",
+    "policy_profile": "support",
+    "policy_name": "Customer Support",
+    "policy": {
+      "relation_clamps": true,
+      "literal_guards": true,
+      "negation_guards": true,
+      "overclaim_guards": true
+    },
+    "reference_model": {
+      "relation_count": 0,
+      "numbers": [],
+      "units": [],
+      "entities": [
+        "escalated"
+      ],
+      "content_token_count": 8,
+      "relations": []
+    },
+    "candidates": [
+      {
+        "id": "unsafe",
+        "label": "Unsafe",
+        "text": "Escalated billing disputes do not require human support lead review.",
+        "verdict": "CONTRADICTION",
+        "safe_to_emit": false,
+        "risk_score": 44,
+        "findings": [
+          {
+            "code": "unsupported_negation",
+            "label": "Unsupported Negation",
+            "severity": 30,
+            "message": "Candidate removes required approval or review from the supplied references.",
+            "evidence": "Escalated billing disputes require human support lead review.",
+            "fix": "Keep the referenced approval or review step, or provide a source that removes it."
+          }
+        ],
+        "relations": [],
+        "literal_drift": {
+          "novel_numbers": [],
+          "novel_units": [],
+          "novel_entities": []
+        },
+        "metrics": {
+          "evidence_overlap": 1.0,
+          "relation_support": 0.0,
+          "supported_relations": 0,
+          "extracted_relations": 0,
+          "finding_count": 1
+        },
+        "token_shocks": [
+          {
+            "token": "escalated",
+            "score": 0.05
+          },
+          {
+            "token": "billing",
+            "score": 0.05
+          },
+          {
+            "token": "disputes",
+            "score": 0.05
+          },
+          {
+            "token": "require",
+            "score": 0.05
+          },
+          {
+            "token": "human",
+            "score": 0.05
+          },
+          {
+            "token": "support",
+            "score": 0.05
+          },
+          {
+            "token": "lead",
+            "score": 0.05
+          },
+          {
+            "token": "review",
+            "score": 0.05
+          }
+        ]
+      }
+    ]
+  },
+  "integrity": {
+    "algorithm": "sha256-canonical-json",
+    "digest": "37e078a759127f5af7588d86a64ebef148cfe31e6740adab964eebcecaf3d798"
+  }
+}

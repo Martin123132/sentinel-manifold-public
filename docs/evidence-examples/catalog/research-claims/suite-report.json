@@ -1,0 +1,78 @@
+{
+  "suite_id": "sms-6e378c20a1",
+  "name": "Catalog: research claims release gate",
+  "description": "Starter pack for preliminary claims, unsupported guarantees, and evidence-count drift.",
+  "created_at": 1781633535,
+  "duration_ms": 16,
+  "status": "PASS",
+  "errors": [],
+  "summary": {
+    "case_count": 3,
+    "passed": 3,
+    "failed": 0,
+    "emit_count": 1,
+    "block_count": 2
+  },
+  "cases": [
+    {
+      "id": "research-catalog-safe-preliminary-claim",
+      "name": "Safe scoped research wording emits",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-de4526b22e",
+      "action": "EMIT",
+      "emitted_candidate_id": "safe",
+      "highest_risk_score": 0,
+      "blocked_count": 0,
+      "candidate_count": 1,
+      "policy_profile": "research",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-de4526b22e.evidence.json",
+        "digest": "11802a190dabe06ab6905185794146df7c5522912874daa49bb9cab6dfdbc30f",
+        "algorithm": "sha256-canonical-json"
+      }
+    },
+    {
+      "id": "research-catalog-overclaim-drift",
+      "name": "Unsupported guarantee blocks",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-3497d96217",
+      "action": "BLOCK",
+      "emitted_candidate_id": null,
+      "highest_risk_score": 65,
+      "blocked_count": 1,
+      "candidate_count": 1,
+      "policy_profile": "research",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-3497d96217.evidence.json",
+        "digest": "6b9e8c493d71aa5d9c69eb4caa8b5a1d08635056426140b46de3d017f7e00291",
+        "algorithm": "sha256-canonical-json"
+      }
+    },
+    {
+      "id": "research-catalog-test-run-drift",
+      "name": "Evidence count drift blocks",
+      "passed": true,
+      "status": "PASS",
+      "errors": [],
+      "check_id": "sm-6535c58e5e",
+      "action": "BLOCK",
+      "emitted_candidate_id": null,
+      "highest_risk_score": 38,
+      "blocked_count": 1,
+      "candidate_count": 1,
+      "policy_profile": "research",
+      "evidence": {
+        "schema_version": "sentinel.evidence.v1",
+        "path": "evidence/sm-6535c58e5e.evidence.json",
+        "digest": "97e4aee7f15482013405db9c9b52610060cfce331a650afbcae4447d9f0b9ce3",
+        "algorithm": "sha256-canonical-json"
+      }
+    }
+  ]
+}
