@@ -1,0 +1,68 @@
+{
+  "name": "Catalog: agent tool-boundary release gate",
+  "description": "Starter pack for read-only, draft-only, approval-required, and CRM tool drift.",
+  "policy_profile": "agent_tool",
+  "cases": [
+    {
+      "id": "agent-catalog-safe-read-draft-approval",
+      "name": "Safe agent boundary wording emits",
+      "references": [
+        "The calendar agent reads calendar events.",
+        "The calendar agent writes draft reminders.",
+        "The calendar agent requires user approval before sending reminders.",
+        "The support agent uses read only CRM access."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "The calendar agent reads calendar events. The calendar agent writes draft reminders. The calendar agent requires user approval before sending reminders. The support agent uses read only CRM access."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "agent-catalog-send-without-approval",
+      "name": "Reminder send without approval blocks",
+      "references": [
+        "The calendar agent reads calendar events.",
+        "The calendar agent writes draft reminders.",
+        "The calendar agent requires user approval before sending reminders."
+      ],
+      "candidates": [
+        {
+          "id": "unsafe",
+          "label": "Unsafe",
+          "text": "The calendar agent sends reminders without user approval."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 1
+      }
+    },
+    {
+      "id": "agent-catalog-crm-write-delete-drift",
+      "name": "CRM write and delete drift blocks",
+      "references": [
+        "The support agent uses read only CRM access."
+      ],
+      "candidates": [
+        {
+          "id": "unsafe",
+          "label": "Unsafe",
+          "text": "The support agent writes CRM records. The support agent deletes CRM records."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 1
+      }
+    }
+  ]
+}

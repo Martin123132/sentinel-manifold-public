@@ -1,0 +1,65 @@
+{
+  "name": "Catalog: code-review release gate",
+  "description": "Starter pack for dependency version, authentication, and production-data drift.",
+  "policy_profile": "code_review",
+  "cases": [
+    {
+      "id": "code-review-catalog-safe-version-auth-data",
+      "name": "Safe release-note summary emits",
+      "references": [
+        "The patch updates dependency auth-client from version 2.1.0 to version 2.1.1.",
+        "Authentication behavior is unchanged.",
+        "The migration script reads user records."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "The patch updates dependency auth-client from version 2.1.0 to version 2.1.1. Authentication behavior is unchanged. The migration script reads user records."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 25
+      }
+    },
+    {
+      "id": "code-review-catalog-version-drift",
+      "name": "Dependency version drift blocks",
+      "references": [
+        "The patch updates dependency auth-client from version 2.1.0 to version 2.1.1."
+      ],
+      "candidates": [
+        {
+          "id": "unsafe",
+          "label": "Unsafe",
+          "text": "The patch updates dependency auth-client from version 2.1.0 to version 3.0.0."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 1
+      }
+    },
+    {
+      "id": "code-review-catalog-production-write-drift",
+      "name": "Production data write drift blocks",
+      "references": [
+        "The migration script reads user records."
+      ],
+      "candidates": [
+        {
+          "id": "unsafe",
+          "label": "Unsafe",
+          "text": "The migration script modifies production data."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 1
+      }
+    }
+  ]
+}

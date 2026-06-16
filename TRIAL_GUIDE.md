@@ -85,6 +85,7 @@ python app\cli.py suite --input samples\my-first-sentinel-suite.json --out out\m
 
 For the full suite-writing guide, see [docs/suite-authoring.md](docs/suite-authoring.md).
 For a complete worked example, see [docs/first-custom-suite.md](docs/first-custom-suite.md).
+For buyer-shaped starter packs, see [docs/suite-catalog.md](docs/suite-catalog.md).
 
 ## 5. Copy Into Another Repo
 

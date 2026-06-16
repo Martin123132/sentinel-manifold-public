@@ -12,6 +12,7 @@ If you are writing a suite from scratch, start with
 [docs/suite-authoring.md](docs/suite-authoring.md) and copy one of the runnable
 templates under `samples/templates/`. For one end-to-end example, see
 [docs/first-custom-suite.md](docs/first-custom-suite.md).
+For buyer-shaped starter packs, see [docs/suite-catalog.md](docs/suite-catalog.md).
 
 ## Use Sentinel As A GitHub Actions Release Gate
 

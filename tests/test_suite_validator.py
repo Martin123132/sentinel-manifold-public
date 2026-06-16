@@ -29,6 +29,20 @@ class SuiteValidatorTests(unittest.TestCase):
             with self.subTest(template=template_path.name):
                 self.assertEqual(self.validator.validate_suite_file(template_path, run=True), [])
 
+    def test_catalog_suites_validate_and_run(self):
+        catalog_paths = sorted((ROOT / "samples" / "catalog").glob("*.json"))
+
+        self.assertEqual(len(catalog_paths), 5)
+        for catalog_path in catalog_paths:
+            with self.subTest(catalog=catalog_path.name):
+                payload = json.loads(catalog_path.read_text(encoding="utf-8"))
+                report = self.validator.run_suite(payload, save_evidence=False)
+
+                self.assertEqual(self.validator.validate_suite_file(catalog_path, run=True), [])
+                self.assertEqual(report["status"], "PASS")
+                self.assertEqual(report["summary"]["case_count"], 3)
+                self.assertEqual(report["summary"]["failed"], 0)
+
     def test_invalid_policy_profile_is_rejected(self):
         payload = {
             "policy_profile": "unknown",

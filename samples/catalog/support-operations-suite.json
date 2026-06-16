@@ -1,0 +1,65 @@
+{
+  "name": "Catalog: support operations release gate",
+  "description": "Starter pack for refund, escalation, and cancellation-credit support policies.",
+  "policy_profile": "support",
+  "cases": [
+    {
+      "id": "support-catalog-safe-refund-escalation-credit",
+      "name": "Safe support policy wording emits",
+      "references": [
+        "Refunds under 75 GBP may be handled by support staff.",
+        "Escalated billing disputes require human support lead review.",
+        "Cancellation credits over 40 GBP require manager review."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "Refunds under 75 GBP may be handled by support staff. Escalated billing disputes require human support lead review. Cancellation credits over 40 GBP require manager review."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "support-catalog-refund-threshold-drift",
+      "name": "Refund threshold drift blocks",
+      "references": [
+        "Refunds under 75 GBP may be handled by support staff."
+      ],
+      "candidates": [
+        {
+          "id": "unsafe",
+          "label": "Unsafe",
+          "text": "Refunds under 150 GBP may be handled by support staff."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 1
+      }
+    },
+    {
+      "id": "support-catalog-escalation-removal",
+      "name": "Escalation review removal blocks",
+      "references": [
+        "Escalated billing disputes require human support lead review."
+      ],
+      "candidates": [
+        {
+          "id": "unsafe",
+          "label": "Unsafe",
+          "text": "Escalated billing disputes do not require human support lead review."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Catalog: research claims release gate",
+  "description": "Starter pack for preliminary claims, unsupported guarantees, and evidence-count drift.",
+  "policy_profile": "research",
+  "cases": [
+    {
+      "id": "research-catalog-safe-preliminary-claim",
+      "name": "Safe scoped research wording emits",
+      "references": [
+        "The evaluation observed improved recall in 64% of reviewed cases.",
+        "The finding is preliminary and requires replication before broad claims.",
+        "The system reduced review time in 12 internal test runs."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "The evaluation observed improved recall in 64% of reviewed cases. The finding is preliminary and requires replication before broad claims. The system reduced review time in 12 internal test runs."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "research-catalog-overclaim-drift",
+      "name": "Unsupported guarantee blocks",
+      "references": [
+        "The evaluation observed improved recall in 64% of reviewed cases.",
+        "The finding is preliminary and requires replication before broad claims."
+      ],
+      "candidates": [
+        {
+          "id": "unsafe",
+          "label": "Unsafe",
+          "text": "The evaluation is 100% accurate and guarantees the system is always correct."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 1
+      }
+    },
+    {
+      "id": "research-catalog-test-run-drift",
+      "name": "Evidence count drift blocks",
+      "references": [
+        "The system reduced review time in 12 internal test runs."
+      ],
+      "candidates": [
+        {
+          "id": "unsafe",
+          "label": "Unsafe",
+          "text": "The system reduced review time in 120 internal test runs."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 1
+      }
+    }
+  ]
+}

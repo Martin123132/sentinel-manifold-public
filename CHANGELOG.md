@@ -4,7 +4,18 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
-No unreleased changes yet.
+### Added
+
+- Add `docs/suite-catalog.md` as a buyer starter-pack guide for suite authors.
+- Add five runnable catalog suites under `samples/catalog/` for support
+  operations, regulated approval, research claims, code-review release notes,
+  and agent/tool boundaries.
+- Add tests proving every catalog suite validates and passes.
+
+### Changed
+
+- Update CI to validate the suite catalog, run each catalog suite, and upload
+  catalog suite reports in the `sentinel-release-gate` artifact.
 
 ## v0.1.5 Suite Authoring Kit - 2026-06-16
 

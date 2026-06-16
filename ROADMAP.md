@@ -36,7 +36,9 @@ coverage for the proof-pack runner's suite list. The latest release adds a
 Suite Authoring Kit: runnable templates, a dependency-free validator, and a
 plain-English authoring guide so trial users can create their own release-gate
 cases. A first custom suite walkthrough now shows the same pattern end to end
-for a fake subscription-support copilot.
+for a fake subscription-support copilot. The Suite Catalog now adds runnable
+buyer starter packs for support operations, regulated approval, research
+claims, code review, and agent/tool boundaries.
 
 The first public release is complete: `v0.1.0 Public Proof` packages the live
 demo, CI release gate, integration guide, commercial boundary, and admin evidence
@@ -76,8 +78,8 @@ Previous releases:
 
 ## Near-Term Milestones
 
-1. Build a Suite Catalog with more buyer starter packs for common first use
-   cases.
+1. Prepare the next proof release around the Suite Catalog once CI and docs stay
+   green.
 2. Use the Suite Authoring Kit with trial users and improve confusing template
    or validator wording.
 3. Use trial reports to tune buyer-specific false positives and false negatives.

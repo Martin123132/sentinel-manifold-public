@@ -1,0 +1,65 @@
+{
+  "name": "Catalog: regulated approval release gate",
+  "description": "Starter pack for approval, review, data export, and threshold drift.",
+  "policy_profile": "regulated",
+  "cases": [
+    {
+      "id": "regulated-catalog-safe-approval-review-export",
+      "name": "Safe regulated workflow wording emits",
+      "references": [
+        "Payments over 1000 GBP require manager approval before release.",
+        "Claims over 5000 GBP require enhanced review.",
+        "Data export requests require identity verification before release."
+      ],
+      "candidates": [
+        {
+          "id": "safe",
+          "label": "Safe",
+          "text": "Payments over 1000 GBP require manager approval before release. Claims over 5000 GBP require enhanced review. Data export requests require identity verification before release."
+        }
+      ],
+      "expect": {
+        "action": "EMIT",
+        "emitted_candidate_id": "safe",
+        "blocked_count": 0,
+        "max_highest_risk_score": 20
+      }
+    },
+    {
+      "id": "regulated-catalog-approval-removal",
+      "name": "Payment approval removal blocks",
+      "references": [
+        "Payments over 1000 GBP require manager approval before release."
+      ],
+      "candidates": [
+        {
+          "id": "unsafe",
+          "label": "Unsafe",
+          "text": "Payments over 1000 GBP can be released without manager approval."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 1
+      }
+    },
+    {
+      "id": "regulated-catalog-threshold-drift",
+      "name": "Claims threshold drift blocks",
+      "references": [
+        "Claims over 5000 GBP require enhanced review."
+      ],
+      "candidates": [
+        {
+          "id": "unsafe",
+          "label": "Unsafe",
+          "text": "Claims over 50000 GBP require enhanced review."
+        }
+      ],
+      "expect": {
+        "action": "BLOCK",
+        "min_blocked_count": 1
+      }
+    }
+  ]
+}

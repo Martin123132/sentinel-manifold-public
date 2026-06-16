@@ -425,3 +425,14 @@ one public milestone.
 That turns authoring support into a release people can point at:
 
 > Publish the path from first policy reference to working release gate.
+
+## Stage 35 Commercial Story
+
+Sentinel now has a Suite Catalog with five buyer starter packs: support
+operations, regulated approval, research claims, code-review release notes, and
+agent/tool boundaries. Each pack is runnable in CI and produces a release-gate
+report.
+
+That makes adoption faster for teams with a known first use case:
+
+> Pick the closest buyer pack, replace the references, and run the release gate.

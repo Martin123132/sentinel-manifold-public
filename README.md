@@ -42,6 +42,7 @@ evidence bundles when you need a proof package.
   `python scripts/run-proof-pack.py`.
 - Suite authors: start with [docs/suite-authoring.md](docs/suite-authoring.md),
   then copy a template from `samples/templates/`.
+- Suite catalog: choose a buyer starter pack in [docs/suite-catalog.md](docs/suite-catalog.md).
 - First custom suite: follow [docs/first-custom-suite.md](docs/first-custom-suite.md).
 - Trial feedback loop: read [docs/trial-adoption.md](docs/trial-adoption.md).
 - New visitors: start with the [30 Second Demo](#30-second-demo).
@@ -190,6 +191,10 @@ It uses [samples/first-custom-suite.json](samples/first-custom-suite.json) to
 show a subscription-support copilot release gate from policy references through
 CI report output.
 
+For ready-made buyer starter packs, open [docs/suite-catalog.md](docs/suite-catalog.md).
+The catalog includes support operations, regulated approval, research claims,
+code review, and agent/tool boundary suites under `samples/catalog/`.
+
 The first build is deliberately dependency-light:
 
 - Python standard-library HTTP server
@@ -337,6 +342,7 @@ Validate a suite before running it in CI:
 
 ```powershell
 python scripts\validate-suite.py --run samples\templates\*.json
+python scripts\validate-suite.py --run samples\catalog\*.json
 ```
 
 Run the deeper mixed-buyer proof suite:
@@ -389,11 +395,11 @@ Product proof:
 
 > Fail releases when AI behavior regresses.
 
-The bundled GitHub Actions workflow validates the suite templates and first
-custom suite, runs the regression, agent, buyer-depth, policy calibration,
-policy tuning, customer-shaped regression, first custom, integration, and
-external adoption suites, then uploads a `sentinel-release-gate` artifact
-containing suite reports plus every generated evidence pack.
+The bundled GitHub Actions workflow validates the suite templates, first custom
+suite, and suite catalog, runs the regression, agent, buyer-depth, policy
+calibration, policy tuning, customer-shaped regression, first custom, catalog,
+integration, and external adoption suites, then uploads a `sentinel-release-gate`
+artifact containing suite reports plus every generated evidence pack.
 
 ## Use In Another Repo
 
@@ -617,8 +623,8 @@ Product proof:
 
 ## Next Build Steps
 
-- Build a Suite Catalog with more buyer starter packs for support, regulated
-  workflows, research, code review, and agent/tool boundaries.
-- Use trial feedback to turn confusing authoring steps into clearer templates
-  or validator messages.
+- Prepare the next proof release around the Suite Catalog once CI and docs stay
+  green.
+- Use trial feedback to turn confusing catalog cases into clearer templates or
+  validator messages.
 - Keep tuning false positives and false negatives as real users try the packs.

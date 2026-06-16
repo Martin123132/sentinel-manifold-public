@@ -30,6 +30,8 @@ For a complete worked example, see
 [First Custom Suite Walkthrough](first-custom-suite.md). It shows one fake
 subscription-support team turning policy text into a four-case release gate.
 
+For ready-made buyer packs, see [Suite Catalog](suite-catalog.md).
+
 ## Templates
 
 The starter templates are small runnable suites:
@@ -45,6 +47,14 @@ Each template includes one safe `EMIT` case and one unsafe `BLOCK` case.
 The worked example lives at:
 
 - `samples/first-custom-suite.json`
+
+The buyer starter catalog lives at:
+
+- `samples/catalog/support-operations-suite.json`
+- `samples/catalog/regulated-approval-suite.json`
+- `samples/catalog/research-claims-suite.json`
+- `samples/catalog/code-review-release-suite.json`
+- `samples/catalog/agent-tool-boundary-suite.json`
 
 ## Suite Anatomy
 
