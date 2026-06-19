@@ -1,0 +1,31 @@
+{
+  "schema_version": "sentinel.evidence.examples.v1",
+  "description": "Rebuild all public Suite Catalog evidence examples.",
+  "examples": [
+    {
+      "id": "support-operations",
+      "suite": "samples/catalog/support-operations-suite.json",
+      "out_dir": "docs/evidence-examples/catalog/support-operations"
+    },
+    {
+      "id": "regulated-approval",
+      "suite": "samples/catalog/regulated-approval-suite.json",
+      "out_dir": "docs/evidence-examples/catalog/regulated-approval"
+    },
+    {
+      "id": "research-claims",
+      "suite": "samples/catalog/research-claims-suite.json",
+      "out_dir": "docs/evidence-examples/catalog/research-claims"
+    },
+    {
+      "id": "code-review-release",
+      "suite": "samples/catalog/code-review-release-suite.json",
+      "out_dir": "docs/evidence-examples/catalog/code-review-release"
+    },
+    {
+      "id": "agent-tool-boundary",
+      "suite": "samples/catalog/agent-tool-boundary-suite.json",
+      "out_dir": "docs/evidence-examples/catalog/agent-tool-boundary"
+    }
+  ]
+}

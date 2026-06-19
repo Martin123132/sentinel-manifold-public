@@ -28,6 +28,11 @@ GENERATED_DIRS = ("evidence", "verification")
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Build a sanitized public evidence example.")
     parser.add_argument(
+        "--config",
+        type=Path,
+        help="JSON config listing evidence examples to build.",
+    )
+    parser.add_argument(
         "--suite",
         type=Path,
         default=Path("examples") / "external-adoption" / "support-assistant" / "sentinel-suite.json",
@@ -47,11 +52,31 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    suite_path = _resolve_repo_path(args.suite)
-    out_dir = _resolve_repo_path(args.out_dir)
+    if args.config:
+        config_path = _resolve_repo_path(args.config)
+        config = json.loads(config_path.read_text(encoding="utf-8"))
+        examples = _load_config_examples(config)
+        for example in examples:
+            _build_example(
+                suite_path=_resolve_repo_path(Path(example["suite"])),
+                out_dir=_resolve_repo_path(Path(example["out_dir"])),
+                case_ids=[str(case_id) for case_id in example.get("case_ids", [])],
+            )
+        return 0
+
+    _build_example(
+        suite_path=_resolve_repo_path(args.suite),
+        out_dir=_resolve_repo_path(args.out_dir),
+        case_ids=args.case_id,
+    )
+
+    return 0
+
+
+def _build_example(*, suite_path: Path, out_dir: Path, case_ids: list[str]) -> None:
     suite = json.loads(suite_path.read_text(encoding="utf-8"))
-    if args.case_id:
-        suite = _filter_suite_cases(suite, args.case_id)
+    if case_ids:
+        suite = _filter_suite_cases(suite, case_ids)
 
     with tempfile.TemporaryDirectory() as tmp:
         evidence_dir = Path(tmp) / "audits"
@@ -67,7 +92,22 @@ def main(argv: list[str] | None = None) -> int:
         bundle = build_evidence_bundle(evidence_dir, limit=int(report["summary"]["case_count"]))
         _extract_sanitized_bundle(bundle, out_dir)
 
-    return 0
+
+def _load_config_examples(config: Any) -> list[dict[str, Any]]:
+    if not isinstance(config, dict):
+        raise SystemExit("Evidence example config must be a JSON object.")
+    examples = config.get("examples")
+    if not isinstance(examples, list) or not examples:
+        raise SystemExit("Evidence example config must include a non-empty examples array.")
+    for index, example in enumerate(examples, start=1):
+        if not isinstance(example, dict):
+            raise SystemExit(f"Config example {index} must be an object.")
+        if not example.get("suite") or not example.get("out_dir"):
+            raise SystemExit(f"Config example {index} must include suite and out_dir.")
+        case_ids = example.get("case_ids", [])
+        if case_ids and not isinstance(case_ids, list):
+            raise SystemExit(f"Config example {index} case_ids must be an array when provided.")
+    return examples
 
 
 def _resolve_repo_path(path: Path) -> Path:

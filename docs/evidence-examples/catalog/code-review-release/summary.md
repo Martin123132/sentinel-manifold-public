@@ -8,11 +8,11 @@ Human-readable release-gate summary for the exported evidence packs.
 
 | Total audits | Emitted | Blocked | Verified | Failed verification | Newest check | Oldest check |
 | --- | --- | --- | --- | --- | --- | --- |
-| 3 | 1 | 2 | 3 | 0 | 2026-06-16 18:12:16 UTC | 2026-06-16 18:12:16 UTC |
+| 3 | 1 | 2 | 3 | 0 | 2026-06-19 18:23:53 UTC | 2026-06-19 18:23:53 UTC |
 
 ## Bundle Summary
 
-- Created: 2026-06-16 18:12:16 UTC
+- Created: 2026-06-19 18:23:53 UTC
 - Export limit: 3
 - Total audits: 3
 - Emitted: 1
@@ -20,8 +20,8 @@ Human-readable release-gate summary for the exported evidence packs.
 - Integrity verified: 3
 - Failed verification: 0
 - Policy profiles: code_review
-- Newest check: 2026-06-16 18:12:16 UTC
-- Oldest check: 2026-06-16 18:12:16 UTC
+- Newest check: 2026-06-19 18:23:53 UTC
+- Oldest check: 2026-06-19 18:23:53 UTC
 
 ## What This Proves
 
@@ -39,6 +39,6 @@ Human-readable release-gate summary for the exported evidence packs.
 
 | Check | Action | Policy | Risk | Blocked | Integrity |
 | --- | --- | --- | --- | --- | --- |
-| sm-d8a059c2e7 | BLOCK | code_review | 43 | 1 | verified |
 | sm-084de98f83 | BLOCK | code_review | 32 | 1 | verified |
+| sm-d8a059c2e7 | BLOCK | code_review | 43 | 1 | verified |
 | sm-b0383f1df2 | EMIT | code_review | 0 | 0 | verified |

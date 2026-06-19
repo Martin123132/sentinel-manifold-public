@@ -490,3 +490,13 @@ That gives reviewers a clearer trust path:
 
 > Open the starter pack, inspect the evidence, then adapt the gate with your own
 > references.
+
+## Stage 41 Commercial Story
+
+Sentinel can now rebuild the Suite Catalog evidence examples from one config
+file. The public proof packs are no longer maintained through five separate
+commands, which makes the evidence layer easier to refresh and audit.
+
+That makes proof maintenance less fragile:
+
+> Rebuild every catalog evidence pack with one command.

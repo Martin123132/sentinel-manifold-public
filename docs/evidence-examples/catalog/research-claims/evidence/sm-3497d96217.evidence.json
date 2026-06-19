@@ -1,8 +1,8 @@
 {
   "schema_version": "sentinel.evidence.v1",
   "check_id": "sm-3497d96217",
-  "created_at": 1781633535,
-  "saved_at": 1781633535,
+  "created_at": 1781893433,
+  "saved_at": 1781893433,
   "gateway_action": "BLOCK",
   "request": {
     "mode": "strict",
@@ -38,7 +38,7 @@
   },
   "result": {
     "check_id": "sm-3497d96217",
-    "created_at": 1781633535,
+    "created_at": 1781893433,
     "action": "BLOCK",
     "emitted_candidate_id": null,
     "emitted_text": null,
@@ -161,6 +161,6 @@
   },
   "integrity": {
     "algorithm": "sha256-canonical-json",
-    "digest": "6b9e8c493d71aa5d9c69eb4caa8b5a1d08635056426140b46de3d017f7e00291"
+    "digest": "102713d7b95d795a9121746c8b10bf116f9b0549df94cf6d597c1123a9f05d99"
   }
 }

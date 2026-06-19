@@ -71,6 +71,12 @@ example under [docs/evidence-examples/catalog/](evidence-examples/catalog/README
 Those examples show the suite report, readable summary, manifest, evidence JSON,
 and verification JSON for the passing catalog gate.
 
+To rebuild all catalog evidence examples:
+
+```powershell
+python scripts\build-evidence-example.py --config docs\evidence-examples\catalog\catalog-examples.json
+```
+
 ## Next Step After Copying
 
 After a catalog pack passes, replace one reference and one candidate with your

@@ -2,8 +2,8 @@
   "suite_id": "sms-6e378c20a1",
   "name": "Catalog: research claims release gate",
   "description": "Starter pack for preliminary claims, unsupported guarantees, and evidence-count drift.",
-  "created_at": 1781633535,
-  "duration_ms": 16,
+  "created_at": 1781893433,
+  "duration_ms": 24,
   "status": "PASS",
   "errors": [],
   "summary": {
@@ -30,7 +30,7 @@
       "evidence": {
         "schema_version": "sentinel.evidence.v1",
         "path": "evidence/sm-de4526b22e.evidence.json",
-        "digest": "11802a190dabe06ab6905185794146df7c5522912874daa49bb9cab6dfdbc30f",
+        "digest": "84db9fc2576a9b9dd06fb744035e7a7c039088688367483ee1f561112b3ed28e",
         "algorithm": "sha256-canonical-json"
       }
     },
@@ -50,7 +50,7 @@
       "evidence": {
         "schema_version": "sentinel.evidence.v1",
         "path": "evidence/sm-3497d96217.evidence.json",
-        "digest": "6b9e8c493d71aa5d9c69eb4caa8b5a1d08635056426140b46de3d017f7e00291",
+        "digest": "102713d7b95d795a9121746c8b10bf116f9b0549df94cf6d597c1123a9f05d99",
         "algorithm": "sha256-canonical-json"
       }
     },
@@ -70,7 +70,7 @@
       "evidence": {
         "schema_version": "sentinel.evidence.v1",
         "path": "evidence/sm-6535c58e5e.evidence.json",
-        "digest": "97e4aee7f15482013405db9c9b52610060cfce331a650afbcae4447d9f0b9ce3",
+        "digest": "c37ea2af6a99d1d3dff291057a89dc529bc531ed4235a1ae9e041d5e72a0e2e1",
         "algorithm": "sha256-canonical-json"
       }
     }

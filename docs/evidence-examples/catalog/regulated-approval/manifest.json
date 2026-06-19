@@ -1,6 +1,6 @@
 {
   "schema_version": "sentinel.evidence.bundle.v1",
-  "created_at": 1781633535,
+  "created_at": 1781893433,
   "limit": 3,
   "count": 3,
   "summary_path": "summary.md",
@@ -10,12 +10,12 @@
     "summary.md",
     "evidence-reader.md",
     "manifest.json",
+    "evidence/sm-ed730a9965.evidence.json",
+    "verification/sm-ed730a9965.verification.json",
     "evidence/sm-2800ab2223.evidence.json",
     "verification/sm-2800ab2223.verification.json",
     "evidence/sm-66c32ca3ac.evidence.json",
-    "verification/sm-66c32ca3ac.verification.json",
-    "evidence/sm-ed730a9965.evidence.json",
-    "verification/sm-ed730a9965.verification.json"
+    "verification/sm-66c32ca3ac.verification.json"
   ],
   "summary": {
     "total_audits": 3,
@@ -26,48 +26,48 @@
     "policy_profiles": [
       "regulated"
     ],
-    "newest_created_at": 1781633535,
-    "oldest_created_at": 1781633535
+    "newest_created_at": 1781893433,
+    "oldest_created_at": 1781893433
   },
   "audits": [
     {
+      "check_id": "sm-ed730a9965",
+      "created_at": 1781893433,
+      "action": "BLOCK",
+      "emitted": "none",
+      "risk": 38,
+      "blocked": 1,
+      "policy_profile": "regulated",
+      "digest": "3c9087f840efe4884b96e47a9d0db046239ef3cf0fe1d600d0e3885cfbea9b0f",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-ed730a9965.evidence.json",
+      "verification_path": "verification/sm-ed730a9965.verification.json"
+    },
+    {
       "check_id": "sm-2800ab2223",
-      "created_at": 1781633535,
+      "created_at": 1781893433,
       "action": "BLOCK",
       "emitted": "none",
       "risk": 49,
       "blocked": 1,
       "policy_profile": "regulated",
-      "digest": "c3acf767666beaea6479a7f68496ae094103ee853a7ddb4937a0cbb7bb72b752",
+      "digest": "e6b36587e62ee009215f58fa54e3ba344cc38c18cbe4ce0b42fe7b6a1cec7544",
       "integrity_valid": true,
       "evidence_path": "evidence/sm-2800ab2223.evidence.json",
       "verification_path": "verification/sm-2800ab2223.verification.json"
     },
     {
       "check_id": "sm-66c32ca3ac",
-      "created_at": 1781633535,
+      "created_at": 1781893433,
       "action": "EMIT",
       "emitted": "safe",
       "risk": 8,
       "blocked": 0,
       "policy_profile": "regulated",
-      "digest": "bbe1c7de03c3aa0d1f964d0f027e16170c522f0483a00a110a21577f36318ca7",
+      "digest": "74702ab65271455c0d298aeff1af6c4af9a0db7b2da6218d2ba646f290481c19",
       "integrity_valid": true,
       "evidence_path": "evidence/sm-66c32ca3ac.evidence.json",
       "verification_path": "verification/sm-66c32ca3ac.verification.json"
-    },
-    {
-      "check_id": "sm-ed730a9965",
-      "created_at": 1781633535,
-      "action": "BLOCK",
-      "emitted": "none",
-      "risk": 38,
-      "blocked": 1,
-      "policy_profile": "regulated",
-      "digest": "f0b807df80a7a208af30e826e67a87f7f2c6be679fe11c59817ab90db00d7e45",
-      "integrity_valid": true,
-      "evidence_path": "evidence/sm-ed730a9965.evidence.json",
-      "verification_path": "verification/sm-ed730a9965.verification.json"
     }
   ]
 }

@@ -4,7 +4,15 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 ## Unreleased
 
-No unreleased changes yet.
+### Added
+
+- Add `--config` support to `scripts/build-evidence-example.py` so multiple
+  public evidence examples can be rebuilt with one command.
+- Add `docs/evidence-examples/catalog/catalog-examples.json` to rebuild all
+  Suite Catalog evidence examples.
+- Add tests proving the catalog evidence config covers all five packs and the
+  config-driven builder path works.
+- Rebuild checked-in catalog evidence examples through the new config path.
 
 ## v0.1.7 Catalog Evidence - 2026-06-19
 

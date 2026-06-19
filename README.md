@@ -634,8 +634,7 @@ Product proof:
 
 ## Next Build Steps
 
-- Add a config-driven helper to rebuild all catalog evidence examples with one
-  command.
 - Turn confusing catalog cases into clearer templates, evidence examples, or
   validator messages.
 - Keep tuning false positives and false negatives as real users try the packs.
+- Add another external adoption fixture around a non-support catalog pack.

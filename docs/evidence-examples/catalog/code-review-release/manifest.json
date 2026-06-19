@@ -1,6 +1,6 @@
 {
   "schema_version": "sentinel.evidence.bundle.v1",
-  "created_at": 1781633536,
+  "created_at": 1781893433,
   "limit": 3,
   "count": 3,
   "summary_path": "summary.md",
@@ -10,10 +10,10 @@
     "summary.md",
     "evidence-reader.md",
     "manifest.json",
-    "evidence/sm-d8a059c2e7.evidence.json",
-    "verification/sm-d8a059c2e7.verification.json",
     "evidence/sm-084de98f83.evidence.json",
     "verification/sm-084de98f83.verification.json",
+    "evidence/sm-d8a059c2e7.evidence.json",
+    "verification/sm-d8a059c2e7.verification.json",
     "evidence/sm-b0383f1df2.evidence.json",
     "verification/sm-b0383f1df2.verification.json"
   ],
@@ -26,45 +26,45 @@
     "policy_profiles": [
       "code_review"
     ],
-    "newest_created_at": 1781633536,
-    "oldest_created_at": 1781633536
+    "newest_created_at": 1781893433,
+    "oldest_created_at": 1781893433
   },
   "audits": [
     {
-      "check_id": "sm-d8a059c2e7",
-      "created_at": 1781633536,
-      "action": "BLOCK",
-      "emitted": "none",
-      "risk": 43,
-      "blocked": 1,
-      "policy_profile": "code_review",
-      "digest": "f7734c29e3c6bae64a7869bb60d17c4ba158c313de7f83d8f5f736a1842812a3",
-      "integrity_valid": true,
-      "evidence_path": "evidence/sm-d8a059c2e7.evidence.json",
-      "verification_path": "verification/sm-d8a059c2e7.verification.json"
-    },
-    {
       "check_id": "sm-084de98f83",
-      "created_at": 1781633536,
+      "created_at": 1781893433,
       "action": "BLOCK",
       "emitted": "none",
       "risk": 32,
       "blocked": 1,
       "policy_profile": "code_review",
-      "digest": "0357bdff61e80e2da3fce27eee88215aa88a9a880cb8bc5c3c892147ed3f4449",
+      "digest": "e7368e1b311d8f81d1e8c92c01759585b13553c62f0509f9f59fb105d145186f",
       "integrity_valid": true,
       "evidence_path": "evidence/sm-084de98f83.evidence.json",
       "verification_path": "verification/sm-084de98f83.verification.json"
     },
     {
+      "check_id": "sm-d8a059c2e7",
+      "created_at": 1781893433,
+      "action": "BLOCK",
+      "emitted": "none",
+      "risk": 43,
+      "blocked": 1,
+      "policy_profile": "code_review",
+      "digest": "1820dc07c9e0d45cd3df29476f2649a433627c40fcb244b2dd83727aed28f444",
+      "integrity_valid": true,
+      "evidence_path": "evidence/sm-d8a059c2e7.evidence.json",
+      "verification_path": "verification/sm-d8a059c2e7.verification.json"
+    },
+    {
       "check_id": "sm-b0383f1df2",
-      "created_at": 1781633536,
+      "created_at": 1781893433,
       "action": "EMIT",
       "emitted": "safe",
       "risk": 0,
       "blocked": 0,
       "policy_profile": "code_review",
-      "digest": "8b6cdc8ba5d3be2f87e09dc4da12699d4876edf5fd20ec108fc4b69a57e5c710",
+      "digest": "5afe073f1806068c9f688c927940e8bb77ff7f2a939867e84729a93be551e06c",
       "integrity_valid": true,
       "evidence_path": "evidence/sm-b0383f1df2.evidence.json",
       "verification_path": "verification/sm-b0383f1df2.verification.json"

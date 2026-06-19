@@ -2,8 +2,8 @@
   "suite_id": "sms-e443b4a699",
   "name": "Catalog: code-review release gate",
   "description": "Starter pack for dependency version, authentication, and production-data drift.",
-  "created_at": 1781633536,
-  "duration_ms": 14,
+  "created_at": 1781893433,
+  "duration_ms": 21,
   "status": "PASS",
   "errors": [],
   "summary": {
@@ -30,7 +30,7 @@
       "evidence": {
         "schema_version": "sentinel.evidence.v1",
         "path": "evidence/sm-b0383f1df2.evidence.json",
-        "digest": "8b6cdc8ba5d3be2f87e09dc4da12699d4876edf5fd20ec108fc4b69a57e5c710",
+        "digest": "5afe073f1806068c9f688c927940e8bb77ff7f2a939867e84729a93be551e06c",
         "algorithm": "sha256-canonical-json"
       }
     },
@@ -50,7 +50,7 @@
       "evidence": {
         "schema_version": "sentinel.evidence.v1",
         "path": "evidence/sm-084de98f83.evidence.json",
-        "digest": "0357bdff61e80e2da3fce27eee88215aa88a9a880cb8bc5c3c892147ed3f4449",
+        "digest": "e7368e1b311d8f81d1e8c92c01759585b13553c62f0509f9f59fb105d145186f",
         "algorithm": "sha256-canonical-json"
       }
     },
@@ -70,7 +70,7 @@
       "evidence": {
         "schema_version": "sentinel.evidence.v1",
         "path": "evidence/sm-d8a059c2e7.evidence.json",
-        "digest": "f7734c29e3c6bae64a7869bb60d17c4ba158c313de7f83d8f5f736a1842812a3",
+        "digest": "1820dc07c9e0d45cd3df29476f2649a433627c40fcb244b2dd83727aed28f444",
         "algorithm": "sha256-canonical-json"
       }
     }

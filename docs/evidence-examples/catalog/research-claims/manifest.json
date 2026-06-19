@@ -1,6 +1,6 @@
 {
   "schema_version": "sentinel.evidence.bundle.v1",
-  "created_at": 1781633535,
+  "created_at": 1781893433,
   "limit": 3,
   "count": 3,
   "summary_path": "summary.md",
@@ -26,45 +26,45 @@
     "policy_profiles": [
       "research"
     ],
-    "newest_created_at": 1781633535,
-    "oldest_created_at": 1781633535
+    "newest_created_at": 1781893433,
+    "oldest_created_at": 1781893433
   },
   "audits": [
     {
       "check_id": "sm-3497d96217",
-      "created_at": 1781633535,
+      "created_at": 1781893433,
       "action": "BLOCK",
       "emitted": "none",
       "risk": 65,
       "blocked": 1,
       "policy_profile": "research",
-      "digest": "6b9e8c493d71aa5d9c69eb4caa8b5a1d08635056426140b46de3d017f7e00291",
+      "digest": "102713d7b95d795a9121746c8b10bf116f9b0549df94cf6d597c1123a9f05d99",
       "integrity_valid": true,
       "evidence_path": "evidence/sm-3497d96217.evidence.json",
       "verification_path": "verification/sm-3497d96217.verification.json"
     },
     {
       "check_id": "sm-6535c58e5e",
-      "created_at": 1781633535,
+      "created_at": 1781893433,
       "action": "BLOCK",
       "emitted": "none",
       "risk": 38,
       "blocked": 1,
       "policy_profile": "research",
-      "digest": "97e4aee7f15482013405db9c9b52610060cfce331a650afbcae4447d9f0b9ce3",
+      "digest": "c37ea2af6a99d1d3dff291057a89dc529bc531ed4235a1ae9e041d5e72a0e2e1",
       "integrity_valid": true,
       "evidence_path": "evidence/sm-6535c58e5e.evidence.json",
       "verification_path": "verification/sm-6535c58e5e.verification.json"
     },
     {
       "check_id": "sm-de4526b22e",
-      "created_at": 1781633535,
+      "created_at": 1781893433,
       "action": "EMIT",
       "emitted": "safe",
       "risk": 0,
       "blocked": 0,
       "policy_profile": "research",
-      "digest": "11802a190dabe06ab6905185794146df7c5522912874daa49bb9cab6dfdbc30f",
+      "digest": "84db9fc2576a9b9dd06fb744035e7a7c039088688367483ee1f561112b3ed28e",
       "integrity_valid": true,
       "evidence_path": "evidence/sm-de4526b22e.evidence.json",
       "verification_path": "verification/sm-de4526b22e.verification.json"

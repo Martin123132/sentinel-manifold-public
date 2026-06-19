@@ -32,9 +32,9 @@ Sentinel does not claim external truth. It proves that saved outputs were checke
 - `summary.md`
 - `evidence-reader.md`
 - `manifest.json`
+- `evidence/sm-9bf21f73c6.evidence.json`
+- `verification/sm-9bf21f73c6.verification.json`
 - `evidence/sm-ab3167fc69.evidence.json`
 - `verification/sm-ab3167fc69.verification.json`
 - `evidence/sm-3e5e5acb06.evidence.json`
 - `verification/sm-3e5e5acb06.verification.json`
-- `evidence/sm-9bf21f73c6.evidence.json`
-- `verification/sm-9bf21f73c6.verification.json`

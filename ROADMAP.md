@@ -39,7 +39,8 @@ cases. A first custom suite walkthrough now shows the same pattern end to end
 for a fake subscription-support copilot. The Suite Catalog now adds runnable
 buyer starter packs for support operations, regulated approval, research
 claims, code review, and agent/tool boundaries. Catalog evidence examples now
-make each starter pack inspectable as a static proof bundle.
+make each starter pack inspectable as a static proof bundle. The evidence
+example builder can now rebuild all catalog proof packs from one config file.
 
 The first public release is complete: `v0.1.0 Public Proof` packages the live
 demo, CI release gate, integration guide, commercial boundary, and admin evidence
@@ -87,9 +88,9 @@ Previous releases:
 
 ## Near-Term Milestones
 
-1. Add a config-driven helper to rebuild all catalog evidence examples.
-2. Use trial reports to tune buyer-specific false positives and false negatives.
-3. Add another external adoption fixture around a non-support catalog pack.
+1. Use trial reports to tune buyer-specific false positives and false negatives.
+2. Add another external adoption fixture around a non-support catalog pack.
+3. Prepare the next proof release once the builder polish has stayed green.
 
 ## Boundaries
 

@@ -1,8 +1,8 @@
 {
   "schema_version": "sentinel.evidence.v1",
   "check_id": "sm-3e5e5acb06",
-  "created_at": 1781633536,
-  "saved_at": 1781633536,
+  "created_at": 1781893433,
+  "saved_at": 1781893433,
   "gateway_action": "EMIT",
   "request": {
     "mode": "strict",
@@ -40,7 +40,7 @@
   },
   "result": {
     "check_id": "sm-3e5e5acb06",
-    "created_at": 1781633536,
+    "created_at": 1781893433,
     "action": "EMIT",
     "emitted_candidate_id": "safe",
     "emitted_text": "The calendar agent reads calendar events. The calendar agent writes draft reminders. The calendar agent requires user approval before sending reminders. The support agent uses read only CRM access.",
@@ -175,6 +175,6 @@
   },
   "integrity": {
     "algorithm": "sha256-canonical-json",
-    "digest": "05685211bfd1c328e2d95e0eaa3be08d6973a3565723bdba8c5f1a7dfa5926b6"
+    "digest": "1825469660b75bb776616efc9c3fc772c036f30668c508bd860bad2457077047"
   }
 }

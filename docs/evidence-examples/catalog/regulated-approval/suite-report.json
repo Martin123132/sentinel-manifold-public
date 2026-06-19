@@ -2,7 +2,7 @@
   "suite_id": "sms-db90492039",
   "name": "Catalog: regulated approval release gate",
   "description": "Starter pack for approval, review, data export, and threshold drift.",
-  "created_at": 1781633535,
+  "created_at": 1781893433,
   "duration_ms": 18,
   "status": "PASS",
   "errors": [],
@@ -30,7 +30,7 @@
       "evidence": {
         "schema_version": "sentinel.evidence.v1",
         "path": "evidence/sm-66c32ca3ac.evidence.json",
-        "digest": "bbe1c7de03c3aa0d1f964d0f027e16170c522f0483a00a110a21577f36318ca7",
+        "digest": "74702ab65271455c0d298aeff1af6c4af9a0db7b2da6218d2ba646f290481c19",
         "algorithm": "sha256-canonical-json"
       }
     },
@@ -50,7 +50,7 @@
       "evidence": {
         "schema_version": "sentinel.evidence.v1",
         "path": "evidence/sm-2800ab2223.evidence.json",
-        "digest": "c3acf767666beaea6479a7f68496ae094103ee853a7ddb4937a0cbb7bb72b752",
+        "digest": "e6b36587e62ee009215f58fa54e3ba344cc38c18cbe4ce0b42fe7b6a1cec7544",
         "algorithm": "sha256-canonical-json"
       }
     },
@@ -70,7 +70,7 @@
       "evidence": {
         "schema_version": "sentinel.evidence.v1",
         "path": "evidence/sm-ed730a9965.evidence.json",
-        "digest": "f0b807df80a7a208af30e826e67a87f7f2c6be679fe11c59817ab90db00d7e45",
+        "digest": "3c9087f840efe4884b96e47a9d0db046239ef3cf0fe1d600d0e3885cfbea9b0f",
         "algorithm": "sha256-canonical-json"
       }
     }

@@ -2,8 +2,8 @@
   "suite_id": "sms-fc46203d60",
   "name": "Catalog: support operations release gate",
   "description": "Starter pack for refund, escalation, and cancellation-credit support policies.",
-  "created_at": 1781633535,
-  "duration_ms": 62,
+  "created_at": 1781893433,
+  "duration_ms": 19,
   "status": "PASS",
   "errors": [],
   "summary": {
@@ -30,7 +30,7 @@
       "evidence": {
         "schema_version": "sentinel.evidence.v1",
         "path": "evidence/sm-e46e41b1b0.evidence.json",
-        "digest": "d0b00bdf7b8d40bd6dea5d6e08995c8ce0b724b20420a5e8aa0a72c780dc1d05",
+        "digest": "19a1e225f70d9a19f8c39f1818de1151067b16caf5976ac3322bdef3483e5ac2",
         "algorithm": "sha256-canonical-json"
       }
     },
@@ -50,7 +50,7 @@
       "evidence": {
         "schema_version": "sentinel.evidence.v1",
         "path": "evidence/sm-5f81b07240.evidence.json",
-        "digest": "28c8e00f3f7a8b6b61e1f724ca6c677c9b9e3bc429748b7202c988e58cadb84f",
+        "digest": "3ef3f9e731aefdc35e95cbe185bc1f4c26c9314d44c03aec5fc05ef6e58fd2b7",
         "algorithm": "sha256-canonical-json"
       }
     },
@@ -70,7 +70,7 @@
       "evidence": {
         "schema_version": "sentinel.evidence.v1",
         "path": "evidence/sm-a6cd324501.evidence.json",
-        "digest": "37e078a759127f5af7588d86a64ebef148cfe31e6740adab964eebcecaf3d798",
+        "digest": "7b2ec7d49158cf7a3fabef8a8cea99806661ae4a4b85fd5d482b3b017c212f4d",
         "algorithm": "sha256-canonical-json"
       }
     }

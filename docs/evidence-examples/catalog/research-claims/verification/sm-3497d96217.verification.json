@@ -4,8 +4,8 @@
   "check_id": "sm-3497d96217",
   "algorithm": "sha256-canonical-json",
   "integrity_valid": true,
-  "supplied_digest": "6b9e8c493d71aa5d9c69eb4caa8b5a1d08635056426140b46de3d017f7e00291",
-  "recomputed_digest": "6b9e8c493d71aa5d9c69eb4caa8b5a1d08635056426140b46de3d017f7e00291",
+  "supplied_digest": "102713d7b95d795a9121746c8b10bf116f9b0549df94cf6d597c1123a9f05d99",
+  "recomputed_digest": "102713d7b95d795a9121746c8b10bf116f9b0549df94cf6d597c1123a9f05d99",
   "request_hashes_valid": true,
   "request_hashes": {
     "references_sha256": {

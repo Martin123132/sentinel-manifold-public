@@ -3,6 +3,7 @@ from contextlib import contextmanager
 import io
 import json
 import os
+import subprocess
 import sys
 import tempfile
 import threading
@@ -646,6 +647,76 @@ class GuardrailTests(unittest.TestCase):
         self.assertNotIn("D:\\", example_text)
         self.assertNotIn("C:\\", example_text)
         self.assertNotIn("\\Temp\\", example_text)
+
+    def test_catalog_evidence_config_covers_all_packs(self):
+        config_path = ROOT / "docs" / "evidence-examples" / "catalog" / "catalog-examples.json"
+        config = json.loads(config_path.read_text(encoding="utf-8"))
+        examples = config["examples"]
+
+        self.assertEqual(config["schema_version"], "sentinel.evidence.examples.v1")
+        self.assertEqual(len(examples), 5)
+        self.assertEqual(
+            {example["id"] for example in examples},
+            {
+                "support-operations",
+                "regulated-approval",
+                "research-claims",
+                "code-review-release",
+                "agent-tool-boundary",
+            },
+        )
+        for example in examples:
+            suite_path = ROOT / example["suite"]
+            out_dir = ROOT / example["out_dir"]
+            with self.subTest(example=example["id"]):
+                self.assertTrue(suite_path.exists(), example["suite"])
+                self.assertTrue(out_dir.exists(), example["out_dir"])
+                self.assertEqual(
+                    out_dir,
+                    ROOT / "docs" / "evidence-examples" / "catalog" / example["id"],
+                )
+
+    def test_build_evidence_example_config_rebuilds_catalog_pack(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            config_path = Path(tmp) / "config.json"
+            out_dir = Path(tmp) / "support-operations"
+            config_path.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "sentinel.evidence.examples.v1",
+                        "examples": [
+                            {
+                                "id": "support-operations",
+                                "suite": "samples/catalog/support-operations-suite.json",
+                                "out_dir": str(out_dir),
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    "scripts/build-evidence-example.py",
+                    "--config",
+                    str(config_path),
+                ],
+                cwd=ROOT,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stderr)
+            (out_dir / "README.md").write_text("# Temporary evidence example\n", encoding="utf-8")
+            self._assert_public_evidence_example(
+                out_dir,
+                count=3,
+                emitted=1,
+                blocked=2,
+                policy_profiles={"support"},
+            )
 
     def test_evidence_pack_round_trip_verifies_integrity(self):
         payload = {
