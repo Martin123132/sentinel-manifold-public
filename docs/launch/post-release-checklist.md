@@ -9,9 +9,9 @@ Current release checklist:
 
 - GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.7
 - Tag: `v0.1.7`
-- Target commit: recorded after publication.
-- CI run: latest green `main` release-lock run before publication.
-- Published: recorded after publication.
+- Target commit: `1c417ab8e30086d98fc2550149d89486dc99adc0`
+- CI run: https://github.com/Martin123132/sentinel-manifold-public/actions/runs/27841787397
+- Published: `2026-06-19T18:16:34Z`
 - Live sandbox: https://sentinel-manifold-public.onrender.com/
 - Catalog evidence examples: `docs/evidence-examples/catalog/`
 - Suite catalog guide: `docs/suite-catalog.md`
