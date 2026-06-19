@@ -3,9 +3,21 @@
 Use this checklist after publishing a public Sentinel release.
 
 Current release checklist:
-[v0.1.6 Suite Catalog](v0.1.6-suite-catalog-checklist.md).
+[v0.1.7 Catalog Evidence](v0.1.7-catalog-evidence-checklist.md).
 
-## v0.1.6 Suite Catalog
+## v0.1.7 Catalog Evidence
+
+- GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.7
+- Tag: `v0.1.7`
+- Target commit: recorded after publication.
+- CI run: latest green `main` release-lock run before publication.
+- Published: recorded after publication.
+- Live sandbox: https://sentinel-manifold-public.onrender.com/
+- Catalog evidence examples: `docs/evidence-examples/catalog/`
+- Suite catalog guide: `docs/suite-catalog.md`
+- Release text: `RELEASE_NOTES.md`, `CHANGELOG.md`
+
+## Previous Release: v0.1.6 Suite Catalog
 
 - GitHub Release: https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.6
 - Tag: `v0.1.6`

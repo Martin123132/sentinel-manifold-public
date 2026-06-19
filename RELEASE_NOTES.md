@@ -1,6 +1,7 @@
 # v0.1.7 Catalog Evidence
 
-Draft release notes for the next milestone. Do not publish this tag yet.
+Live release:
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.7
 
 Sentinel Manifold `v0.1.7 Catalog Evidence` packages the proof layer after the
 Suite Catalog: every buyer starter pack now has a static, inspectable evidence
@@ -12,7 +13,7 @@ The product story stays the same:
 
 > Fail releases when AI behavior regresses.
 
-This release candidate makes that proof easier to trust:
+This release makes that proof easier to trust:
 
 - choose the closest buyer starter pack,
 - inspect a checked-in evidence example for that pack,

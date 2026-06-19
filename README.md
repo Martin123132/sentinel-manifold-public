@@ -12,16 +12,15 @@ Sentinel Manifold checks candidate LLM outputs against supplied reference materi
 
 ## Public Proof Release
 
-`v0.1.6 Suite Catalog` is live:
+`v0.1.7 Catalog Evidence` is live:
+https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.7
+
+It packages static public evidence examples for every Suite Catalog starter
+pack, so reviewers can inspect the exact proof bundles each passing catalog
+gate produces without admin access.
+
+Previous release: `v0.1.6 Suite Catalog`
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.6
-
-It packages five runnable buyer starter packs, a catalog guide, validator
-coverage, and CI catalog suite reports so new teams can start from the closest
-release-gate example without changing Sentinel runtime behavior.
-
-Next candidate: `v0.1.7 Catalog Evidence`. The repo now includes checked-in
-public evidence examples for every Suite Catalog starter pack, so reviewers can
-inspect the exact proof bundles each passing catalog gate produces.
 
 Previous release: `v0.1.5 Suite Authoring Kit`
 https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.5
@@ -58,8 +57,8 @@ evidence bundles when you need a proof package.
 - Developers: use [INTEGRATION.md](INTEGRATION.md) and the copy-paste GitHub Actions workflow.
 - Admins: unlock the hosted demo and export the evidence bundle described in [DEMO_PROOF.md](DEMO_PROOF.md).
 - Current release: see the
-  [v0.1.6 GitHub Release](https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.6).
-- Next release draft: see [RELEASE_NOTES.md](RELEASE_NOTES.md).
+  [v0.1.7 GitHub Release](https://github.com/Martin123132/sentinel-manifold-public/releases/tag/v0.1.7).
+- Current release notes: see [RELEASE_NOTES.md](RELEASE_NOTES.md).
 - Release history: see [CHANGELOG.md](CHANGELOG.md).
 - For current proof milestones and launch status, see
   [Post-Release Checklist](docs/launch/post-release-checklist.md).
@@ -113,7 +112,7 @@ Each pack includes `summary.md`, `evidence-reader.md`, `manifest.json`, the
 suite report, evidence JSON, and verification JSON so reviewers can inspect the
 evidence format without an admin key.
 
-The catalog examples make the `v0.1.6` Suite Catalog inspectable too: each
+The catalog examples make the Suite Catalog inspectable too: each
 buyer starter pack has a public evidence bundle showing `3` checks, `1`
 emitted, and `2` blocked.
 
@@ -635,7 +634,6 @@ Product proof:
 
 ## Next Build Steps
 
-- Publish `v0.1.7 Catalog Evidence` once the release pack is reviewed and green.
 - Add a config-driven helper to rebuild all catalog evidence examples with one
   command.
 - Turn confusing catalog cases into clearer templates, evidence examples, or

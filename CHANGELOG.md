@@ -6,7 +6,7 @@ All notable public-proof changes for Sentinel Manifold are tracked here.
 
 No unreleased changes yet.
 
-## v0.1.7 Catalog Evidence - 2026-06-16
+## v0.1.7 Catalog Evidence - 2026-06-19
 
 ### Added
 
@@ -16,12 +16,12 @@ No unreleased changes yet.
 - Add a catalog evidence index under `docs/evidence-examples/catalog/`.
 - Link catalog packs to their inspectable evidence examples from
   `docs/suite-catalog.md`.
-- Add a `v0.1.7 Catalog Evidence` release checklist and release notes draft.
+- Add a `v0.1.7 Catalog Evidence` release checklist and release notes.
 
 ### Changed
 
 - Update README, roadmap, product brief, and launch copy to position catalog
-  evidence as the next proof release candidate.
+  evidence as the current proof release.
 
 ## v0.1.6 Suite Catalog - 2026-06-16
 

@@ -1,6 +1,6 @@
 # Public Launch Copy
 
-Use these snippets once `v0.1.7 Catalog Evidence` is published.
+Use these snippets for the live `v0.1.7 Catalog Evidence` release.
 
 Release:
 

@@ -479,3 +479,14 @@ Suite Catalog links, and integrity tests into one public milestone.
 That makes the catalog proof easier to share:
 
 > Package the inspectable catalog evidence as the next proof release.
+
+## Stage 40 Commercial Story
+
+Sentinel now has a live `v0.1.7 Catalog Evidence` release. It turns the Suite
+Catalog into an inspectable public proof layer by pairing every buyer starter
+pack with a static evidence bundle.
+
+That gives reviewers a clearer trust path:
+
+> Open the starter pack, inspect the evidence, then adapt the gate with your own
+> references.
